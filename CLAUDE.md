@@ -48,6 +48,15 @@ Learned from past feedback. Follow these unless the user says otherwise.
 - **Paid tools need permission first:** Figma AI image generation spends the user's Figma credits, and Weave (AI video) spends Weave credits and isn't linked yet. Ask before every paid run.
 - The container can't download from figma.com directly. Get AI images through the Figma connector's screenshot tool instead.
 
+## Skills
+
+- `watch` (`.claude/skills/watch/`): study a video (link or file) frame by frame and save its editing style as a new `style-<name>` skill. Use when the user says "watch", "learn this video" or "copy this style". Downloads from links need the site to be reachable (YouTube and Instagram are blocked here right now), so ask for the video file instead. Use `--lang hi` for Hindi.
+- Remotion and Hyperframes skills from their official repos are also in `.claude/skills/`.
+
+## Learned styles
+
+(none yet: each `watch` run adds a line here)
+
 ## Workflow
 
 1. Save inputs into the right folders (audio → `assets/music/`, lyrics → `references/`).
