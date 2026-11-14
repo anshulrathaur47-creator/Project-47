@@ -54,9 +54,15 @@ def slug(s):
 
 def explain(err, host):
     msg = str(err)
-    if "403" in msg or "Tunnel connection failed" in msg:
+    if "Tunnel connection failed" in msg:
         return (f"{host} is blocked by this environment's network policy. "
                 f"Allow it under the environment's Network access settings.")
+    if isinstance(err, urllib.error.HTTPError) and err.code in (401, 403):
+        if "freesound" in host:
+            return (f"{host} refused the download (HTTP {err.code}). Freesound's CDN turns away "
+                    "requests from this cloud server; search still works, but download the file "
+                    "yourself from the sound's page and drop it in assets/sfx/.")
+        return f"{host} refused the request (HTTP {err.code})."
     return msg
 
 
@@ -72,7 +78,12 @@ def ov_headers():
 
 
 def ov_search(q, music, n, commercial):
-    params = {"q": q, "page_size": n, "category": "music" if music else "sound_effect"}
+    # Openverse leaves Freesound sounds uncategorised, so filter SFX by source instead.
+    params = {"q": q, "page_size": n}
+    if music:
+        params["category"] = "music"
+    else:
+        params["source"] = "freesound"
     if commercial:
         params["license_type"] = "commercial"
     data = http_json(f"{OV}/audio/?{urllib.parse.urlencode(params)}", headers=ov_headers())
@@ -140,10 +151,15 @@ def cmd_get(a):
     os.makedirs(folder, exist_ok=True)
     try:
         info = getter(a.id)
-        path = os.path.join(folder, f"{slug(info['title'])}.{info['ext']}")
+    except (urllib.error.URLError, OSError) as e:
+        sys.exit(explain(e, host))
+    path = os.path.join(folder, f"{slug(info['title'])}.{info['ext']}")
+    try:
         download(info["url"], path)
     except (urllib.error.URLError, OSError) as e:
-        sys.exit(explain(e, urllib.parse.urlparse(getattr(e, "url", "") or "").netloc or host))
+        if os.path.exists(path):
+            os.remove(path)
+        sys.exit(explain(e, urllib.parse.urlparse(info["url"]).netloc))
     line = (info.get("attribution") or
             f'"{info["title"]}" by {info["creator"]}, {info["license"]} ({info["page"]})')
     with open(os.path.join(folder, "CREDITS.md"), "a", encoding="utf-8") as f:

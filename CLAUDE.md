@@ -41,7 +41,7 @@ Learned from past feedback. Follow these unless the user says otherwise.
 - Installed toolset: FFmpeg, yt-dlp (+ Deno), Whisper (`tools/transcribe.py`, faster-whisper small model), Remotion (`tools/remotion-starter/`), Hyperframes (`tools/hyperframes-starter/`), and `tools/sfx.py` for SFX/music from Openverse and Freesound. Official Remotion and Hyperframes skills are in `.claude/skills/`.
 - **Use Whisper for lyric timing:** run `python3 tools/transcribe.py <song> --lang hi --no-vad` and sync lyrics, cuts and signs to the `.words.json` timings instead of guessing.
 - When downloading SFX/music, keep the credit lines in `assets/*/CREDITS.md` and remind the user about attribution for CC-BY sounds.
-- Blocked by this environment's network policy (until the user allows them): api.openverse.org, freesound.org, youtube.com, huggingface.co, cdn.jsdelivr.net.
+- Network status: api.openverse.org is allowed (search works). Freesound's CDN (cdn.freesound.org) refuses downloads from this server with HTTP 403. Still blocked by policy: prod-1.storage.jamendo.com (Openverse music files), www.youtube.com, huggingface.co, api.elevenlabs.io, cdn.jsdelivr.net.
 - Hindi text needs Devanagari fonts with proper text shaping. If they are missing, install them with `apt-get install -y fonts-noto-core` and use `ImageFont.Layout.RAQM`.
 - Scripted renders: draw frames with Pillow and pipe them into ffmpeg (see `reel/make_story_reel.py` for the full character, camera, lyrics and signs pipeline). Render long jobs in the background and check preview frames (`--frames`) before a full render.
 - Keep files under GitHub's 100 MB limit (use CRF ~20 with a `-maxrate` cap).
