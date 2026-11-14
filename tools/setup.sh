@@ -24,6 +24,10 @@ if python3 -c "import faster_whisper" 2>/dev/null; then echo "already installed"
 python3 -c "import av,sys; sys.exit(0 if int(av.__version__.split('.')[0]) < 16 else 1)" 2>/dev/null \
   || python3 -m pip install -q "av<16"
 
+log "video-use skill dependencies (librosa, matplotlib, requests)"
+if python3 -c "import librosa, matplotlib, requests" 2>/dev/null; then echo "already installed"
+else python3 -m pip install -q librosa matplotlib requests; fi
+
 log "Whisper small model"
 M="$ROOT/tools/models/whisper-small-int8"
 SHA=ca732cb1379efc49417d028465f543d83a39de2c61f3027678de103dc404ce73

@@ -24,7 +24,7 @@ t_ytdlp() {
 }
 t_whisper() {
   local f="$ROOT/assets/music/ReelAudio-98423.mp3"; [ -f "$f" ] || f="$ROOT/reel/assets/ReelAudio-98423.mp3"
-  ffmpeg -loglevel error -i "$f" -t 6 "$T/clip.wav" &&
+  ffmpeg -loglevel error -i "$f" -t 12 "$T/clip.wav" &&
   python3 tools/transcribe.py "$T/clip.wav" --lang hi --no-vad --out "$T" >/dev/null && [ -s "$T/clip.srt" ]
 }
 t_remotion() {
@@ -34,6 +34,15 @@ t_hyperframes() {
   (cd tools/hyperframes-starter && npx hyperframes render -o "$T/hf.mp4" --quality draft --quiet >/dev/null) && [ -s "$T/hf.mp4" ]
 }
 t_skills() { [ -f .claude/skills/hyperframes/SKILL.md ] && [ -f .claude/skills/remotion-best-practices/SKILL.md ]; }
+t_videouse() {
+  local H=.claude/skills/video-use/helpers V="$T/vu"
+  mkdir -p "$V" && ffmpeg -loglevel error -i reel/story_reel.mp4 -t 6 -c copy "$V/C0001.mp4" &&
+  python3 $H/transcribe_batch.py "$V" --language hi >/dev/null &&
+  python3 $H/pack_transcripts.py --edit-dir "$V/edit" >/dev/null &&
+  printf '{"version":1,"sources":{"C0001":"%s"},"ranges":[{"source":"C0001","start":0.1,"end":2.5},{"source":"C0001","start":3.0,"end":5.5}],"grade":"warm_cinematic","overlays":[],"subtitles":"%s"}' \
+    "$V/C0001.mp4" "$V/edit/master.srt" > "$V/edit/edl.json" &&
+  python3 $H/render.py "$V/edit/edl.json" -o "$V/edit/out.mp4" --draft --build-subtitles >/dev/null && [ -s "$V/edit/out.mp4" ]
+}
 t_openverse() { python3 tools/sfx.py search whoosh -n 1; }
 t_freesound() {
   if [ -z "${FREESOUND_API_KEY:-}" ]; then echo "no FREESOUND_API_KEY set (optional)"; return 1; fi
@@ -47,6 +56,7 @@ check "Whisper (faster-whisper, small model)  (Hindi transcript -> .srt)" t_whis
 check "Remotion  (render 1080x1920 test video)" t_remotion
 check "Hyperframes  (render 1080x1920 test video)" t_hyperframes
 check "Remotion + Hyperframes skills for Claude" t_skills
+check "video-use skill  (transcribe -> cut -> grade -> subtitles render)" t_videouse
 check "Openverse music/SFX search" t_openverse
 check "Freesound SFX search" t_freesound
 check "yt-dlp from YouTube" t_youtube

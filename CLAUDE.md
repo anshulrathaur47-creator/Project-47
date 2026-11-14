@@ -51,6 +51,7 @@ Learned from past feedback. Follow these unless the user says otherwise.
 ## Skills
 
 - `watch` (`.claude/skills/watch/`): study a video (link or file) frame by frame and save its editing style as a new `style-<name>` skill. Use when the user says "watch", "learn this video" or "copy this style". Downloads from links need the site to be reachable (YouTube and Instagram are blocked here right now), so ask for the video file instead. Use `--lang hi` for Hindi.
+- `video-use` (`.claude/skills/video-use/`, from browser-use/video-use): edit raw footage by conversation, e.g. talking heads, vlogs, tutorials. It cuts filler words and dead air at word boundaries, colour grades, adds 30 ms audio fades, burns subtitles, adds animation overlays and checks its own render. Use it when the user drops raw clips and wants them edited. Transcription runs locally with Whisper (no ElevenLabs key needed). Put its `edit/` folder in `projects/<date>-<name>/edit` via `--edit-dir`, never inside `raw-videos/`. Always confirm the plan with the user before cutting.
 - Remotion and Hyperframes skills from their official repos are also in `.claude/skills/`.
 
 ## Learned styles
