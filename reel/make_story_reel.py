@@ -11,7 +11,8 @@ An anime-style boy, drawn and rigged entirely in code, acts out the lyrics:
   5. "हम भूल गए हैं सारा कुछ"                      - memories float around him and dissolve.
   6. "अब यही हमारी बातें हैं"                       - he looks up at the moon; camera pulls back.
 
-No text appears on screen. Each line gets its own camera angles with cuts,
+The song's lyrics are the only text, shown music-video style in the lower
+third, word by word. Each line gets its own camera angles with cuts,
 whip-pans, a flash and a dip to black, and small signs pop up on key words
 (a breaking heart on "दर्द", an eye on "देख", footprints on "लौट गए",
 sparkles on "शहजादे", a cross on "नहीं", speech bubbles on "बातें").
@@ -994,7 +995,115 @@ def fx_layer(t):
 
 
 # ======================================================================
-# frame assembly (no on-screen text: the story is told by the visuals)
+# lyrics, music-video style: lower third, words drift up out of a blur
+# ======================================================================
+F_DEV = "/usr/share/fonts/truetype/noto/NotoSerifDevanagari-Bold.ttf"
+FONT_LYR = ImageFont.truetype(F_DEV, 78, layout_engine=ImageFont.Layout.RAQM)
+EMPHASIS = {"पैमाना": (255, 214, 140), "दर्द": (255, 120, 130), "हँसता": (255, 215, 120),
+            "शहजादे": (255, 200, 80), "ख्वाब": (160, 205, 255), "भूल": (215, 185, 255),
+            "बातें": (255, 236, 190)}
+LYRIC_Y = 1430   # centre of the lyric block; clear of the face and the app's caption area
+_word_cache = {}
+
+
+def word_sprite(word):
+    """(sharp sprite, blurred sprite, advance, pad); all share one baseline."""
+    if word in _word_cache:
+        return _word_cache[word]
+    col = EMPHASIS.get(word, (255, 255, 255))
+    glow_col = col if word in EMPHASIS else (150, 180, 255)
+    probe = ImageDraw.Draw(Image.new("RGBA", (1, 1)))
+    x0, _, x1, _ = probe.textbbox((0, 0), word, font=FONT_LYR)
+    pad = 40
+    ascent, descent = FONT_LYR.getmetrics()
+    img = Image.new("RGBA", (x1 - x0 + 2 * pad, ascent + descent + 2 * pad), (0, 0, 0, 0))
+    org = (pad - x0, pad)
+    g = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(g).text(org, word, font=FONT_LYR, fill=glow_col + (150,))
+    img.alpha_composite(g.filter(ImageFilter.GaussianBlur(14)))
+    sh = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(sh).text((org[0] + 2, org[1] + 4), word, font=FONT_LYR, fill=(0, 0, 0, 235))
+    img.alpha_composite(sh.filter(ImageFilter.GaussianBlur(6)))
+    ImageDraw.Draw(img).text(org, word, font=FONT_LYR, fill=col + (255,))
+    blurred = img.filter(ImageFilter.GaussianBlur(9))
+    adv = probe.textlength(word, font=FONT_LYR)
+    _word_cache[word] = (img, blurred, adv, pad)
+    return _word_cache[word]
+
+
+def layout_line(text):
+    words = text.split()
+    space = FONT_LYR.getlength(" ")
+    rows, cur, cur_w = [], [], 0
+    for w in words:
+        adv = word_sprite(w)[2]
+        if cur and cur_w + space + adv > 900:
+            rows.append(cur)
+            cur, cur_w = [w], adv
+        else:
+            cur_w += (space if cur else 0) + adv
+            cur.append(w)
+    rows.append(cur)
+    placed = []
+    row_h = 112
+    top = LYRIC_Y - (len(rows) - 1) * row_h / 2
+    for r, row in enumerate(rows):
+        widths = [word_sprite(w)[2] for w in row]
+        total = sum(widths) + space * (len(row) - 1)
+        x = (W - total) / 2
+        for w, adv in zip(row, widths):
+            placed.append((w, x + adv / 2, top + r * row_h))
+            x += adv + space
+    return placed
+
+
+LAYOUTS = [layout_line(text) for _, _, text in LINES]
+_band = np.clip((np.linspace(0, 1, H, dtype=np.float32) - 0.62) / 0.2, 0, 1)
+LYRIC_BAND = (1 - 0.45 * _band * (1 - np.clip((np.linspace(0, 1, H) - 0.86) / 0.14, 0, 1)))[:, None, None]
+
+
+def with_alpha(img, a):
+    if a >= 0.999:
+        return img
+    out = img.copy()
+    out.putalpha(img.getchannel("A").point(lambda v: int(v * a)))
+    return out
+
+
+def draw_lyrics(frame, t):
+    for (start, end, _), placed in zip(LINES, LAYOUTS):
+        if not (start - 0.1 <= t < end):
+            continue
+        n = len(placed)
+        exit_ = smooth((t - (end - 0.3)) / 0.3)
+        for i, (w, cx, cy) in enumerate(placed):
+            wt = start + (end - start) * 0.8 * i / n
+            p = (t - wt) / 0.5
+            if p <= 0:
+                continue
+            sharp, blurred, adv, pad = word_sprite(w)
+            a = clamp(p * 1.8) * (1 - exit_)
+            if a <= 0.01:
+                continue
+            focus = ease_out(p)  # blur -> sharp
+            y = cy - (1 - focus) * 36 - exit_ * 30 - pad - FONT_LYR.getmetrics()[0] / 2
+            x = cx - sharp.width / 2
+            # emphasised words get a gentle pulse when they land
+            if w in EMPHASIS and 0 < p < 1.6:
+                sc = 1 + 0.12 * math.sin(math.pi * clamp(p / 1.6))
+                nw, nh = int(sharp.width * sc), int(sharp.height * sc)
+                sharp_s, blur_s = sharp.resize((nw, nh), Image.BILINEAR), blurred.resize((nw, nh), Image.BILINEAR)
+                x, y = cx - nw / 2, y - (nh - sharp.height) / 2
+            else:
+                sharp_s, blur_s = sharp, blurred
+            pos = (int(x), int(y))
+            if focus < 0.999:
+                frame.alpha_composite(with_alpha(blur_s, a * (1 - focus)), pos)
+            frame.alpha_composite(with_alpha(sharp_s, a * focus), pos)
+
+
+# ======================================================================
+# frame assembly
 # ======================================================================
 def motion_blur(arr, amount):
     """Horizontal smear used for whip-pans."""
@@ -1053,9 +1162,11 @@ def render_frame(t, rng):
     arr = motion_blur(arr, blur)
     if flash > 0.01:
         arr = arr + (255 - arr) * flash * np.array([1.0, 0.88, 0.6], np.float32)
-    arr *= VIGNETTE * bright
+    arr *= VIGNETTE * bright * LYRIC_BAND
     arr += rng.normal(0, 3, (H // 2, W // 2, 1)).repeat(2, 0).repeat(2, 1)
-    out = Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8))
+    out = Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8)).convert("RGBA")
+    draw_lyrics(out, t)
+    out = out.convert("RGB")
     fade = min(clamp(t / 0.4), clamp((DURATION - t) / 0.7))
     if fade < 1:
         out = Image.blend(Image.new("RGB", (W, H)), out, fade)
