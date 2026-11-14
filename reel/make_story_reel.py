@@ -39,6 +39,7 @@ SILENT = os.path.join(HERE, "_story_video_only.mp4")
 F_SYM = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 
 GROUND = 1640
+HOR = 760        # horizon (camera eye level)
 K = 2  # supersampling factor for the character
 
 
@@ -157,57 +158,65 @@ LINES = [
     (16.15, 18.78, "अब यही हमारी बातें हैं"),
 ]
 
+BEAT = 0.47  # seconds per step: he walks on the song's beat
+
 T = {
-    "stand":   [(0, 0), (9.65, 0), (10.45, 1)],
-    "slump":   [(0, 1), (4.95, 1), (5.5, 0.15), (9.6, 0.15), (10.3, 0)],
-    "head_dy": [(0, 26), (4.95, 26), (5.45, 0), (8.4, 0), (9.2, 8), (9.7, 0),
-                (16.2, 0), (16.9, -8)],
-    "tilt":    [(0, -4), (4.9, -4), (5.4, 0), (5.9, 4), (7.6, 4), (8.2, 0), (9.6, 0),
-                (10.4, -5), (11.8, -5), (12.4, 6), (13.9, 6), (14.4, -6), (16.1, -4),
-                (16.9, 4)],
-    "look":    [(0, (0.0, 0.7)), (4.95, (0.0, 0.7)), (5.4, (0.0, 0.0)), (8.4, (0, 0)),
-                (9.2, (-0.3, 0.5)), (9.7, (0, 0)), (14.1, (0, 0)), (14.5, (0.8, -0.1)),
-                (15.6, (0.6, -0.2)), (16.0, (0, 0)), (16.6, (0.35, -0.85))],
-    "lid":     [(0, 0.45), (4.95, 0.45), (5.35, 0.0), (8.4, 0.0), (9.0, 0.3), (9.6, 0.3),
-                (10.2, 0.22), (11.9, 0.22), (12.5, 1.0), (13.9, 1.0), (14.2, 0.12),
-                (16.2, 0.12), (16.8, 0.2)],
-    "happy":   [(0, 0), (5.55, 0), (5.75, 1), (8.0, 1), (8.35, 0)],
-    "brow":    [(0, 1.0), (5.0, 1.0), (5.5, 0.0), (8.4, 0.0), (9.0, 0.6), (9.6, 0.6),
-                (10.2, -0.7), (11.8, -0.7), (12.4, 0.2), (14.3, 0.2), (14.6, 0.55),
-                (15.6, 0.55), (16.2, 0.0)],
+    "stand":   [(0, 1)],
+    "slump":   [(0, 0.7), (4.95, 0.7), (5.5, 0.0)],
+    "head_dy": [(0, 20), (4.95, 20), (5.45, 0), (16.2, 0), (16.9, -6)],
+    "tilt":    [(0, -4), (4.9, -4), (5.4, 0), (5.9, 4), (7.6, 4), (8.2, 0), (11.8, 0),
+                (12.4, 6), (13.9, 6), (14.4, -5), (16.1, -3), (16.9, 4)],
+    "look":    [(0, (0.0, 0.7)), (4.95, (0.0, 0.7)), (5.4, (0.0, 0.0)), (14.1, (0, 0)),
+                (14.5, (0.8, -0.1)), (15.6, (0.6, -0.2)), (16.0, (0, 0)), (17.4, (0, 0)),
+                (17.9, (0.3, -0.6))],
+    "lid":     [(0, 0.45), (4.95, 0.45), (5.35, 0.0), (7.6, 0.0), (8.0, 0.15), (11.9, 0.15),
+                (12.5, 1.0), (13.9, 1.0), (14.2, 0.1)],
+    "happy":   [(0, 0), (5.55, 0), (5.75, 1), (8.0, 1), (8.35, 0), (10.2, 0), (10.3, 1),
+                (10.85, 1), (10.95, 0)],
+    "brow":    [(0, 1.0), (5.0, 1.0), (5.5, 0.0), (7.8, 0.0), (8.3, -0.4), (11.8, -0.4),
+                (12.4, 0.1), (14.3, 0.1), (14.6, 0.4), (15.6, 0.4), (16.2, -0.1)],
     "tear":    [(0, 0), (1.8, 0), (4.6, 1)],
     "tear_a":  [(0, 0), (1.8, 0), (2.2, 1), (5.0, 1), (5.5, 0)],
-    "blush":   [(0, 0), (5.6, 0), (6.0, 0.7), (8.2, 0.7), (8.8, 0.2)],
+    "blush":   [(0, 0), (5.6, 0), (6.0, 0.7), (8.2, 0.7), (8.8, 0.3)],
     "laugh":   [(0, 0), (5.7, 0), (5.9, 1), (7.6, 1), (8.0, 0)],
-    "crown":   [(0, 0), (10.0, 0), (10.75, 1)],
+    "crown":   [(0, 0), (10.35, 0), (10.75, 1)],
+    # walking: step amplitude, swagger (bounce + sway) and forward speed (m/s)
+    "walk":    [(0, 0.75), (4.9, 0.75), (5.4, 0.25), (6.2, 0.25), (6.6, 1.0), (10.0, 1.0),
+                (10.1, 0.0), (10.8, 0.0), (11.1, 1.0), (12.2, 0.7), (13.9, 0.7), (14.1, 1.0)],
+    "swag":    [(0, 0), (6.3, 0), (6.8, 1), (11.8, 1), (12.2, 0.55), (13.9, 0.55), (14.2, 1)],
+    "speed":   [(0, 0.9), (4.9, 0.9), (5.4, 0.35), (6.2, 0.35), (6.8, 1.5), (10.0, 1.5),
+                (10.2, 2.4), (10.8, 1.4), (12.0, 1.0), (13.9, 1.0), (14.2, 1.5), (18.78, 1.2)],
 }
-MOUTH = [(0, "frown"), (5.45, "smile"), (5.7, "grin"), (8.1, "smile"), (8.9, "flat"),
-         (10.1, "smirk"), (12.1, "flat"), (15.6, "smile")]
-# hand targets: ("hip"|"head", dx, dy)
-HAND_L = [(0, ("hip", -85, 8)), (10.0, ("hip", -85, 8)), (10.5, ("hip", -112, -40)),
-          (11.9, ("hip", -112, -40)), (12.4, ("hip", -140, -35))]
-HAND_R = [(0, ("hip", 85, 8)), (5.55, ("hip", 85, 8)), (6.0, ("head", 95, -40)),
-          (7.7, ("head", 95, -40)), (8.3, ("hip", 85, 8)), (9.9, ("hip", 85, 8)),
-          (10.3, ("head", 70, -150)), (10.9, ("head", 70, -150)), (11.4, ("hip", 112, -40)),
-          (11.9, ("hip", 112, -40)), (12.4, ("hip", 140, -35)), (14.3, ("hip", 140, -35)),
-          (15.0, ("hip", 330, -260)), (15.6, ("hip", 330, -250)), (16.2, ("hip", 140, -35))]
+MOUTH = [(0, "frown"), (5.45, "smile"), (5.7, "grin"), (8.1, "smirk"), (10.2, "grin"),
+         (10.95, "smirk"), (12.0, "hum"), (14.0, "smile"), (16.3, "grin"), (17.4, "smile")]
+# hand targets: ("hip"|"head", dx, dy), ("swing", side), ("wave",)
+HAND_L = [(0, ("hip", -62, -70)), (6.4, ("hip", -62, -70)), (6.9, ("head", -105, -35)),
+          (9.9, ("head", -105, -35)), (10.2, ("head", -175, -210)), (10.8, ("head", -175, -210)),
+          (11.15, ("swing", -1)), (11.9, ("swing", -1)), (12.3, ("head", -132, 15)),
+          (13.85, ("head", -132, 15)), (14.2, ("swing", -1))]
+HAND_R = [(0, ("hip", 62, -70)), (5.55, ("hip", 62, -70)), (6.0, ("head", 95, -40)),
+          (6.9, ("head", 105, -35)), (9.9, ("head", 105, -35)), (10.2, ("head", 175, -210)),
+          (10.8, ("head", 175, -210)), (11.15, ("swing", 1)), (11.9, ("swing", 1)),
+          (12.3, ("head", 132, 15)), (13.85, ("head", 132, 15)), (14.2, ("swing", 1)),
+          (14.4, ("swing", 1)), (14.9, ("hip", 330, -280)), (15.5, ("hip", 330, -270)),
+          (15.9, ("swing", 1)), (16.4, ("swing", 1)), (16.8, ("wave",)), (18.78, ("wave",))]
 
 # Shot list: (start, end, camera at start, camera at end, transition into the shot)
 # camera = (zoom, pan_x, pan_y, roll_degrees); pan moves the point the camera looks at
-# (negative y = look higher). Sitting face ~ pan_y -126, standing face ~ pan_y -336.
+# (negative y = look higher). His face sits around pan_y -336, his feet around +420.
 SHOTS = [
-    (0.00, 2.10, (1.00, 0, 0, 0), (1.12, 0, -20, 0), "fade"),          # wide: alone in the rain
-    (2.10, 3.40, (2.30, 0, -122, 0), (2.50, 0, -126, 0), "cut"),        # close-up: tear
-    (3.40, 4.85, (1.35, 0, -200, -4), (1.45, 0, -185, -4), "cut"),      # dutch medium: the ruler
-    (4.85, 6.30, (2.60, 0, -118, 0), (2.30, 0, -124, 0), "whip"),       # close-up: he looks up, laughs
-    (6.30, 7.60, (1.00, 0, -60, 0), (1.05, 0, -60, 0), "cut"),          # wide: they are confused
-    (7.60, 8.70, (1.25, -170, -40, 2), (1.25, 130, -40, 2), "cut"),     # pan: they walk away
-    (8.70, 9.55, (2.00, 0, -128, 0), (2.25, 0, -128, 0), "cut"),        # close-up: the smile fades
-    (9.55, 10.70, (1.32, 0, 250, 3), (1.15, 0, 110, 3), "cut"),         # low angle: he stands up
+    (0.00, 2.10, (1.00, 0, -20, 0), (1.10, 0, -40, 0), "fade"),         # wide: walking in the rain
+    (2.10, 3.40, (2.20, 0, -335, 0), (2.40, 0, -338, 0), "cut"),        # close-up: tear
+    (3.40, 4.85, (1.30, 0, -250, -4), (1.40, 0, -240, -4), "cut"),      # dutch medium: the ruler
+    (4.85, 6.30, (2.50, 0, -332, 0), (2.20, 0, -335, 0), "whip"),       # close-up: he looks up, laughs
+    (6.30, 7.60, (1.00, 0, 0, 0), (1.06, 0, -30, 0), "cut"),            # wide: swagger, they're confused
+    (7.60, 8.70, (1.25, -170, -90, 2), (1.25, 130, -90, 2), "cut"),     # pan: hands behind head
+    (8.70, 9.55, (1.80, 60, 380, 0), (1.80, -60, 380, 0), "cut"),       # low: stepping feet
+    (9.55, 10.70, (1.30, 0, 150, 3), (1.12, 0, 40, 3), "cut"),          # low angle: the jump
     (10.70, 11.80, (1.90, 0, -330, 0), (2.15, 0, -340, 0), "flash"),    # hero close-up: crown
-    (11.80, 13.90, (1.50, 0, -380, 0), (1.62, 0, -400, 0), "dip"),      # medium: no dreams
+    (11.80, 13.90, (1.50, 0, -380, 0), (1.62, 0, -400, 0), "dip"),      # medium: vibing, no dreams
     (13.90, 16.15, (1.10, -70, -200, -2), (1.22, 70, -220, 2), "whip"), # orbit: memories dissolve
-    (16.15, 18.78, (1.90, 0, -340, 0), (1.00, 0, -40, 0), "cut"),       # crane back: the moon
+    (16.15, 18.78, (1.90, 0, -340, 0), (1.00, 0, -40, 0), "cut"),       # crane back: the moon road
 ]
 WHIP = 0.2   # half-length of a whip-pan, seconds
 DIP = 0.22   # half-length of a dip to black
@@ -242,19 +251,28 @@ def transition_fx(t):
             flash = max(flash, math.exp(-((t - t0) / 0.1) ** 2) * 0.8)
     return blur, bright, flash
 
-# lighting: (sky top, sky bottom, scene tint)
+
+# Locations: (start, kind). Each is a road scene rendered in perspective.
+LOCATIONS = [(0.0, "street"), (9.55, "golden"), (11.8, "park"), (13.9, "bridge"), (16.15, "moonroad")]
+
+
+def location_at(t):
+    return step(LOCATIONS, t)
+
+
+# lighting per location: (sky top, sky bottom, scene tint); hard cuts between places
 LIGHT = [
-    (0.0, ((10, 14, 30), (30, 40, 70), (0.72, 0.84, 1.12))),
-    (4.9, ((10, 14, 30), (30, 40, 70), (0.72, 0.84, 1.12))),
-    (6.6, ((14, 20, 44), (48, 56, 96), (0.95, 0.95, 1.05))),
-    (9.6, ((14, 20, 44), (48, 56, 96), (0.95, 0.95, 1.05))),
-    (10.6, ((44, 22, 34), (170, 100, 52), (1.18, 1.0, 0.78))),
-    (11.8, ((44, 22, 34), (170, 100, 52), (1.18, 1.0, 0.78))),
-    (12.4, ((5, 7, 22), (20, 26, 62), (0.78, 0.84, 1.12))),
-    (13.9, ((5, 7, 22), (20, 26, 62), (0.78, 0.84, 1.12))),
-    (14.5, ((26, 12, 42), (86, 52, 118), (1.0, 0.86, 1.12))),
-    (16.1, ((26, 12, 42), (86, 52, 118), (1.0, 0.86, 1.12))),
-    (16.9, ((8, 14, 36), (44, 64, 108), (0.98, 0.96, 1.05))),
+    (0.0, ((10, 14, 30), (30, 40, 70), (0.74, 0.85, 1.12))),
+    (4.9, ((10, 14, 30), (30, 40, 70), (0.74, 0.85, 1.12))),
+    (6.6, ((14, 20, 44), (52, 60, 100), (0.96, 0.96, 1.05))),
+    (9.549, ((14, 20, 44), (52, 60, 100), (0.96, 0.96, 1.05))),
+    (9.55, ((70, 34, 60), (250, 150, 80), (1.1, 1.0, 0.88))),
+    (11.799, ((70, 34, 60), (250, 150, 80), (1.1, 1.0, 0.88))),
+    (11.8, ((4, 8, 22), (16, 36, 52), (0.86, 0.96, 1.05))),
+    (13.899, ((4, 8, 22), (16, 36, 52), (0.86, 0.96, 1.05))),
+    (13.9, ((26, 12, 44), (120, 64, 136), (1.0, 0.9, 1.1))),
+    (16.149, ((26, 12, 44), (120, 64, 136), (1.0, 0.9, 1.1))),
+    (16.15, ((6, 10, 30), (40, 58, 104), (0.98, 0.97, 1.05))),
 ]
 
 
@@ -264,8 +282,20 @@ def light_at(t):
     return v[0:3], v[3:6], v[6:9]
 
 
-def hand_pos(keys, t, hip, head):
+def walk_phase(t):
+    return math.pi * t / BEAT
+
+
+def hand_pos(keys, t, hip, head, walk):
+    phase = walk_phase(t)
+
     def resolve(spec):
+        if spec[0] == "swing":
+            s = spec[1]
+            sw = math.sin(phase + (math.pi if s > 0 else 0)) * walk
+            return (hip[0] + s * (122 + 10 * sw), hip[1] - 20 + 26 * sw)
+        if spec[0] == "wave":
+            return (head[0] + 180 + 38 * math.sin(t * 12), head[1] - 150)
         ref = hip if spec[0] == "hip" else head
         return (ref[0] + spec[1], ref[1] + spec[2])
     if t <= keys[0][0]:
@@ -276,6 +306,21 @@ def hand_pos(keys, t, hip, head):
             pa, pb = resolve(a), resolve(b)
             return (lerp(pa[0], pb[0], f), lerp(pa[1], pb[1], f))
     return resolve(keys[-1][1])
+
+
+def jump_at(t):
+    """(height in px, squash in px) for the leap on 'शहजादे'."""
+    crouch = math.sin(math.pi * clamp((t - 9.95) / 0.25)) * 26 if 9.95 < t < 10.2 else 0
+    air = math.sin(math.pi * clamp((t - 10.2) / 0.55)) * 260 if 10.2 < t < 10.75 else 0
+    land = math.sin(math.pi * clamp((t - 10.75) / 0.25)) * 30 if 10.75 < t < 11.0 else 0
+    return air, crouch + land
+
+
+def skip_at(t):
+    """Little hops while walking on the bridge."""
+    if 14.3 < t < 15.6:
+        return abs(math.sin(walk_phase(t))) * 38
+    return 0.0
 
 
 # ======================================================================
@@ -385,6 +430,8 @@ def draw_head(t, p):
         pen.arc_line(mx, my - 6, 20, 10, 20, 160, LINE, 4)
     elif m == "smirk":
         pen.line([(mx - 16, my + 4), (mx + 4, my + 4), (mx + 20, my - 5)], LINE, 4)
+    elif m == "hum":
+        pen.ellipse(mx - 9, my - 6, mx + 9, my + 10, (120, 34, 50), LINE, 3)
     elif m == "grin":
         open_h = 26 + 6 * math.sin(t * 20) * p["laugh"]
         pen.poly([(mx - 30, my - 6)] + [
@@ -420,6 +467,16 @@ def draw_head(t, p):
     for inner, mid, outer in p["_brows"]:
         pen.line([inner, mid, outer], HAIR, 8)
 
+    # headphones: he's vibing to his own music
+    hp, hp_d = (225, 60, 72), (110, 24, 34)
+    pen.arc_line(cx, cy - 2, 136, 178, 192, 348, LINE, 24)
+    pen.arc_line(cx, cy - 2, 136, 178, 192, 348, (40, 40, 52), 16)
+    for sx in (-1, 1):
+        ex = cx + sx * 132
+        pen.ellipse(ex - 30, cy - 30, ex + 30, cy + 62, hp, LINE, 3)
+        pen.ellipse(ex - 16, cy - 10, ex + 16, cy + 42, hp_d)
+        pen.ellipse(ex - 22 + sx * 6, cy - 22, ex - 8 + sx * 6, cy - 2, (255, 160, 170))
+
     # crown
     c = p["crown"]
     if c > 0.01:
@@ -447,29 +504,38 @@ def draw_head(t, p):
 def draw_character(t):
     p = {k: track(v, t) for k, v in T.items()}
     p["mouth"] = step(MOUTH, t)
-    st, slump = p["stand"], p["slump"]
-    hx = 540
-    hip_y = lerp(1400, 1250, st)
+    slump, walk, swag = p["slump"], p["walk"], p["swag"]
+    phase = walk_phase(t)
+    air, squash = jump_at(t)
+    hop = skip_at(t)
+    # walking: sway side to side, bounce on every step (more swagger = more bounce)
+    hx = 540 + math.sin(phase) * (6 + 16 * swag) * walk
+    bob = (8 + 16 * swag) * walk * abs(math.sin(phase))
+    hip_y = 1250 - bob - air - hop + squash
+    p["tilt"] += math.sin(phase) * 4 * swag * walk
     breathe = math.sin(t * 2.2) * 3
     laugh = p["laugh"] * abs(math.sin(t * 11)) * 10
+    nod = swag * 7 * (1 - abs(math.cos(phase)))  # head bobs to the beat
     sy = hip_y - 330 + slump * 34 + breathe + laugh * 0.5
-    neck = (hx, sy - 36 + p["head_dy"] - laugh)
+    neck = (hx, sy - 36 + p["head_dy"] - laugh + nod)
     head_center = (neck[0], neck[1] - 120)
 
-    rx0, ry0 = 120, 430
-    cw, ch = 840, 1260
+    rx0, ry0 = 120, 150
+    cw, ch = 840, 1540
     img = Image.new("RGBA", (cw * K, ch * K), (0, 0, 0, 0))
     pen = Pen(img, rx0, ry0, K)
 
-    # legs
+    # legs: front-view walk cycle (alternate knee lift), tucked during the jump
+    tuck = clamp(air / 120)
     for s in (-1, 1):
+        lift = max(0.0, math.sin(phase + (0 if s < 0 else math.pi))) * walk
+        lift = max(lift, 0.75 * tuck)
         hipj = (hx + s * 50, hip_y)
-        knee = (hx + s * lerp(86, 60, st), lerp(1418, 1440, st))
-        foot = (hx + s * lerp(80, 66, st), GROUND - 12)
+        ground = GROUND - 12 - air - hop
+        foot = (hx + s * (66 + 6 * lift), ground - lift * 62)
+        knee = (hx + s * (62 + 16 * lift), (hipj[1] + foot[1]) / 2 - lift * 46 + squash * 0.5)
         pen.limb(hipj, knee, 76, PANTS)
         pen.limb(knee, foot, 64, PANTS)
-        if st < 0.5:
-            pen.ellipse(knee[0] - 44, knee[1] - 34, knee[0] + 44, knee[1] + 30, (44, 46, 66), LINE, 3)
         pen.ellipse(foot[0] - 48, foot[1] - 14, foot[0] + 48, foot[1] + 24, (236, 236, 242), LINE, 3)
         pen.line([(foot[0] - 44, foot[1] + 16), (foot[0] + 44, foot[1] + 16)], (150, 150, 165), 5)
 
@@ -491,7 +557,7 @@ def draw_character(t):
     # arms (behind the head when raised)
     for s, keys in ((-1, HAND_L), (1, HAND_R)):
         sh = (hx + s * 104, sy + 30)
-        target = hand_pos(keys, t, (hx, hip_y), head_center)
+        target = hand_pos(keys, t, (hx, hip_y), head_center, walk)
         elbow, hand = ik(sh, target, 150, 148, 1 if s < 0 else -1)
         pen.limb(sh, elbow, 54, HOOD)
         pen.limb(elbow, hand, 50, HOOD)
@@ -530,56 +596,57 @@ def draw_ruler(d, cx, cy, ang, alpha, length=520):
 
 
 def draw_shadow_people(t, layer):
-    """Faceless judges: walk in (0.3-2.0s), measure, get confused, leave (7.0-9.3s)."""
+    """Faceless judges walk beside him holding a ruler over his head, get confused when
+    he laughs, drop it, and walk back into the distance (they shrink toward the horizon)."""
     if t > 9.4:
         return
     d = ImageDraw.Draw(layer)
-    finals = [170, 300, 780, 910]
-    starts = [-160, -260, 1240, 1340]
-    leave = ease_out((t - 7.0) / 2.2)
-    fade = 1 - smooth((t - 7.4) / 1.8)
-    for i, (xf, xs) in enumerate(zip(finals, starts)):
+    people = [(170, 0.78, 1555), (305, 0.85, 1580), (775, 0.85, 1580), (910, 0.78, 1555)]
+    starts = [-180, -280, 1260, 1360]
+    leave = smooth((t - 7.0) / 2.2)
+    fade = 1 - smooth((t - 7.8) / 1.4)
+    phase = walk_phase(t)
+    for i, ((xf, sc0, base0), xs) in enumerate(zip(people, starts)):
         arrive = ease_out((t - 0.3 - i * 0.15) / 1.7)
-        x = lerp(xs, xf, arrive) + (xs - xf) * 0.9 * leave
-        walking = (arrive < 0.98) or (leave > 0.02)
-        bob = abs(math.sin(t * 7 + i)) * 10 if walking else 0
-        top = 660 + (i % 2) * 30 - bob
+        side = -1 if i < 2 else 1
+        x = lerp(lerp(xs, xf, arrive), 540 + side * (50 + 25 * (i % 2)), leave)
+        sc = lerp(sc0, 0.14, leave)
+        base = lerp(base0, HOR + 70, leave)
+        bob = abs(math.sin(phase + i)) * 10 * sc
+        top = base - 980 * sc - bob
         a = int(225 * fade)
         col = (6, 6, 14, a)
-        d.ellipse([x - 46, top, x + 46, top + 92], fill=col)
-        d.polygon([(x - 80, top + 105), (x + 80, top + 105), (x + 62, GROUND), (x - 62, GROUND)], fill=col)
-        d.ellipse([x - 82, top + 92, x - 30, top + 150], fill=col)
-        d.ellipse([x + 30, top + 92, x + 82, top + 150], fill=col)
-        if leave < 0.3:
-            # glowing judging eyes
+        d.ellipse([x - 46 * sc, top, x + 46 * sc, top + 92 * sc], fill=col)
+        d.polygon([(x - 80 * sc, top + 105 * sc), (x + 80 * sc, top + 105 * sc),
+                   (x + 62 * sc, base), (x - 62 * sc, base)], fill=col)
+        d.ellipse([x - 82 * sc, top + 92 * sc, x - 30 * sc, top + 150 * sc], fill=col)
+        d.ellipse([x + 30 * sc, top + 92 * sc, x + 82 * sc, top + 150 * sc], fill=col)
+        if leave < 0.25:
             ea = int(255 * fade)
             for ex in (-17, 17):
-                d.ellipse([x + ex - 9, top + 38, x + ex + 9, top + 46], fill=(255, 245, 230, ea))
-        # confused "?" while he laughs
+                d.ellipse([x + (ex - 9) * sc, top + 38 * sc, x + (ex + 9) * sc, top + 46 * sc],
+                          fill=(255, 245, 230, ea))
         q = smooth((t - 6.0) / 0.3) * (1 - smooth((t - 7.2) / 0.3))
         if q > 0.01:
-            s = 0.6 + 0.4 * back_out((t - 6.0) / 0.4)
-            f = FONT_Q.font_variant(size=int(90 * s))
+            ss = 0.6 + 0.4 * back_out((t - 6.0) / 0.4)
+            f = FONT_Q.font_variant(size=int(90 * ss))
             d.text((x, top - 40), "?", font=f, fill=(255, 255, 255, int(255 * q)), anchor="ms")
-        # the inner two hold the ruler up
         if i in (1, 2):
             hold = smooth((t - 1.9) / 0.5) * (1 - smooth((t - 6.2) / 0.3))
             if hold > 0.01:
-                hand_y = lerp(top + 130, 760 + 22 * math.sin(t * 3), hold)
-                hand_x = x + (60 if i == 1 else -60)
-                d.line([(x + (40 if i == 1 else -40), top + 120), (hand_x, hand_y)], fill=col, width=30)
-    # the ruler measuring him, then dropped
+                hand_y = lerp(top + 130 * sc, 525 + 18 * math.sin(t * 3), hold)
+                hand_x = x + (70 if i == 1 else -70)
+                d.line([(x + (40 if i == 1 else -40) * sc, top + 120 * sc), (hand_x, hand_y)],
+                       fill=col, width=int(30 * sc))
     hold = smooth((t - 1.9) / 0.5)
     if hold > 0.01:
         if t < 6.3:
-            cy = 760 + 22 * math.sin(t * 3)
-            draw_ruler(d, 540, cy, 0.02 * math.sin(t * 2), int(255 * hold))
+            draw_ruler(d, 540, 525 + 18 * math.sin(t * 3), 0.02 * math.sin(t * 2), int(255 * hold))
         else:
             fall = clamp((t - 6.3) / 1.0)
-            cy = 760 + 820 * fall ** 2
             a = int(255 * (1 - smooth((t - 6.9) / 0.6)))
             if a > 0:
-                draw_ruler(d, 540 + 60 * fall, cy, 1.1 * fall ** 1.5, a)
+                draw_ruler(d, 540 + 70 * fall, 525 + 1100 * fall ** 2, 1.1 * fall ** 1.5, a)
 
 
 def draw_aura(t, layer):
@@ -702,75 +769,223 @@ def make_stars():
     img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
     r = random.Random(3)
-    for _ in range(220):
-        x, y, s = r.uniform(0, W), r.uniform(0, 1300), r.uniform(1, 3)
+    for _ in range(200):
+        x, y, s = r.uniform(0, W), r.uniform(0, HOR - 20), r.uniform(1, 3)
         d.ellipse([x - s, y - s, x + s, y + s], fill=(255, 250, 235, int(r.uniform(90, 255))))
-    # moon
+    return img
+
+
+def make_moon(mx, my, mr, crescent=True):
     moon = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     md = ImageDraw.Draw(moon)
-    mx, my, mr = 860, 690, 70
     md.ellipse([mx - mr, my - mr, mx + mr, my + mr], fill=(255, 244, 218, 255))
-    glow = moon.filter(ImageFilter.GaussianBlur(45))
-    md.ellipse([mx - mr + 34, my - mr - 16, mx + mr + 34, my + mr - 16], fill=(0, 0, 0, 0))
-    img.alpha_composite(glow)
-    img.alpha_composite(glow)
-    img.alpha_composite(moon)
-    return img
-
-
-def make_city():
-    img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    d = ImageDraw.Draw(img)
-    r = random.Random(5)
-    for layer, (base, col, wa) in enumerate(((1390, (20, 24, 44), 110), (1470, (10, 12, 24), 170))):
-        x = -40
-        while x < W + 40:
-            bw = r.randint(50, 130)
-            bh = r.randint(90, 330) if layer else r.randint(140, 360)
-            d.rectangle([x, base - bh, x + bw, GROUND], fill=col + (255,))
-            for wy in range(base - bh + 16, GROUND, 30):
-                for wx in range(x + 10, x + bw - 10, 22):
-                    if r.random() < 0.25:
-                        d.rectangle([wx, wy, wx + 9, wy + 14], fill=(255, 200, 110, wa))
-            x += bw + r.randint(0, 10)
-    return img
-
-
-def make_set():
-    img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    d = ImageDraw.Draw(img)
-    # parapet wall + roof floor
-    d.rectangle([0, 1470, W, GROUND], fill=(44, 46, 62, 255))
-    d.rectangle([0, 1462, W, 1480], fill=(70, 72, 92, 255))
-    d.rectangle([0, GROUND, W, H], fill=(30, 31, 42, 255))
-    for i in range(-8, 9):
-        d.line([(540 + i * 40, GROUND), (540 + i * 260, H)], fill=(38, 40, 54, 255), width=3)
-    for y in (1700, 1780, 1880):
-        d.line([(0, y), (W, y)], fill=(38, 40, 54, 255), width=3)
-    # bench
-    wood, wood_d, metal = (120, 82, 52, 255), (82, 54, 34, 255), (40, 42, 52, 255)
-    for x in (300, 780):
-        d.rectangle([x - 10, 1180, x + 10, GROUND], fill=metal)
-    for y in (1190, 1240):
-        d.rounded_rectangle([250, y, 830, y + 36], radius=8, fill=wood, outline=wood_d, width=3)
-    d.rounded_rectangle([240, 1392, 840, 1428], radius=8, fill=wood, outline=wood_d, width=3)
-    d.rectangle([240, 1428, 840, 1446], fill=wood_d)
-    # street lamp
-    d.rectangle([108, 820, 124, GROUND], fill=metal)
-    d.rectangle([92, 1600, 140, GROUND], fill=metal)
-    d.polygon([(80, 820), (152, 820), (138, 790), (94, 790)], fill=(60, 62, 76, 255))
-    glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    gd = ImageDraw.Draw(glow)
-    gd.ellipse([20, 740, 212, 932], fill=(255, 210, 140, 150))
-    gd.polygon([(116, 830), (-60, GROUND + 60), (420, GROUND + 60)], fill=(255, 210, 140, 40))
-    img.alpha_composite(glow.filter(ImageFilter.GaussianBlur(40)))
-    d.ellipse([96, 816, 136, 840], fill=(255, 236, 190, 255))
-    return img
+    glow = moon.filter(ImageFilter.GaussianBlur(mr * 0.65))
+    if crescent:
+        md.ellipse([mx - mr + mr * 0.48, my - mr - mr * 0.22, mx + mr + mr * 0.48, my + mr - mr * 0.22],
+                   fill=(0, 0, 0, 0))
+    else:  # craters on a full moon
+        for cx_, cy_, cr in ((-0.3, -0.2, 0.2), (0.25, 0.1, 0.14), (-0.05, 0.35, 0.1)):
+            md.ellipse([mx + (cx_ - cr) * mr, my + (cy_ - cr) * mr, mx + (cx_ + cr) * mr,
+                        my + (cy_ + cr) * mr], fill=(236, 222, 196, 255))
+    out = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    out.alpha_composite(glow)
+    out.alpha_composite(glow)
+    out.alpha_composite(moon)
+    return out
 
 
 STARS = make_stars()
-CITY = make_city()
-SET = make_set()
+MOON = make_moon(860, 360, 64)
+BIG_MOON = make_moon(540, HOR - 290, 170, crescent=False)
+
+
+# ----------------------------------------------------------------------
+# perspective road scenes: the camera walks with him, the world comes toward us
+# ----------------------------------------------------------------------
+FOCAL, CAM_H, Z_NEAR, Z_FAR = 2285.0, 1.6, 2.2, 80.0
+
+
+def proj(x, y, z):
+    return (540 + FOCAL * x / z, HOR + FOCAL * (CAM_H - y) / z)
+
+
+_dist_cache = {}
+
+
+def distance_at(t):
+    """Metres walked so far (integral of the speed track)."""
+    key = round(t * FPS)
+    if key not in _dist_cache:
+        dt = 1 / FPS
+        total = 0.0
+        for i in range(key):
+            total += track(T["speed"], i * dt) * dt
+        _dist_cache[key] = total
+    return _dist_cache[key]
+
+
+def fog(col, z, fogc, a=255):
+    f = clamp((z - 6) / 55) * 0.85
+    return tuple(int(lerp(c, fc, f)) for c, fc in zip(col, fogc)) + (a,)
+
+
+def repeat(dist, spacing, count, start=0.0):
+    """Yield (z, index) of objects placed every `spacing` metres, far to near."""
+    base = int(dist // spacing)
+    off = dist % spacing
+    for k in range(count, 0, -1):
+        z = start + k * spacing - off
+        if Z_NEAR < z < Z_FAR:
+            yield z, base + k
+
+
+def ground_quad(d, x0, x1, z0, z1, col):
+    d.polygon([proj(x0, 0, z0), proj(x1, 0, z0), proj(x1, 0, z1), proj(x0, 0, z1)], fill=col)
+
+
+def wall_quad(d, x, y0, y1, z0, z1, col):
+    d.polygon([proj(x, y1, z0), proj(x, y1, z1), proj(x, y0, z1), proj(x, y0, z0)], fill=col)
+
+
+def lamp(d, g, x, z, fogc, warm=(255, 210, 140), height=4.6):
+    w = max(1, int(FOCAL * 0.13 / z))
+    d.line([proj(x, 0, z), proj(x, height, z)], fill=fog((44, 46, 58), z, fogc), width=w)
+    arm = -0.6 if x > 0 else 0.6
+    d.line([proj(x, height, z), proj(x + arm, height, z)], fill=fog((44, 46, 58), z, fogc), width=w)
+    hx, hy = proj(x + arm, height - 0.1, z)
+    r = FOCAL * 0.16 / z
+    d.ellipse([hx - r, hy - r * 0.6, hx + r, hy + r * 0.6], fill=warm + (255,))
+    near = clamp((z - 3.0) / 4.0)
+    gr = FOCAL * 0.7 / z
+    g.ellipse([hx - gr, hy - gr, hx + gr, hy + gr], fill=warm + (int(140 * near * clamp(1.4 - z / 50)),))
+    px, py = proj(x + arm, 0, z)  # light pool on the ground
+    pr = FOCAL * 1.6 / z
+    g.ellipse([px - pr, py - pr * 0.25, px + pr, py + pr * 0.25], fill=warm + (int(60 * near * clamp(1.4 - z / 50)),))
+
+
+def draw_env(t, kind, sky_bot):
+    img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d, g = ImageDraw.Draw(img), ImageDraw.Draw(glow)
+    dist = distance_at(t)
+    fogc = tuple(int(c) for c in sky_bot)
+
+    if kind in ("street", "golden"):
+        golden = kind == "golden"
+        if golden:  # setting sun right at the end of the road
+            g.ellipse([540 - 330, HOR - 330, 540 + 330, HOR + 330], fill=(255, 190, 110, 200))
+            d.ellipse([540 - 170, HOR - 170, 540 + 170, HOR + 170], fill=(255, 214, 140, 255))
+        d.rectangle([0, HOR, W, H], fill=fog((30, 30, 40) if not golden else (70, 44, 40), 30, fogc))
+        ground_quad(d, -3, 3, Z_FAR, Z_NEAR, (22, 22, 30, 255) if not golden else (60, 38, 36, 255))
+        for sx in (-1, 1):
+            ground_quad(d, sx * 3, sx * 5.5, Z_FAR, Z_NEAR, (44, 44, 56, 255) if not golden else (96, 64, 52, 255))
+        for z, _ in repeat(dist, 5.0, 16):
+            ground_quad(d, -0.09, 0.09, z, max(Z_NEAR, z - 2.0), fog((200, 200, 190), z, fogc))
+        # buildings on both sides
+        for z, idx in repeat(dist, 6.0, 13):
+            r = random.Random(idx * 7 + 3)
+            for sx in (-1, 1):
+                h = r.uniform(6, 20)
+                z0, z1 = z, max(Z_NEAR, z - 5.6)
+                base_col = (18, 20, 34) if not golden else (64, 34, 38)
+                wall_quad(d, sx * 5.5, 0, h, z0, z1, fog(base_col, z, fogc))
+                # roof edge highlight
+                d.line([proj(sx * 5.5, h, z0), proj(sx * 5.5, h, z1)], fill=fog((60, 64, 90), z, fogc), width=2)
+                if 6.5 < z < 48:
+                    for fy in np.arange(2.8, h - 1, 2.6):
+                        for u in (0.2, 0.6):
+                            if r.random() < (0.38 if not golden else 0.2):
+                                wz0 = z0 - u * 5.6
+                                wz1 = wz0 - 1.1
+                                wall_quad(d, sx * 5.5, fy, fy + 1.3, wz0, max(Z_NEAR, wz1),
+                                          fog((255, 204, 120), z, fogc, 230))
+                    if r.random() < 0.5:  # shop sign at street level
+                        col = r.choice([(80, 230, 255), (255, 90, 170), (255, 210, 90), (140, 255, 160)])
+                        wall_quad(d, sx * 5.45, 2.4, 3.0, z0 - 1.0, max(Z_NEAR, z0 - 4.0), fog(col, z, fogc))
+                        a_, b_ = proj(sx * 5.45, 2.7, z0 - 2.5), FOCAL * 1.4 / max(z0 - 2.5, 2.5)
+                        g.ellipse([a_[0] - b_, a_[1] - b_ * 0.6, a_[0] + b_, a_[1] + b_ * 0.6],
+                                  fill=col + (int(90 * clamp(1.3 - z / 45)),))
+        for z, idx in repeat(dist, 12.0, 7, 4.0):
+            for sx in (-1, 1):
+                lamp(d, g, sx * 3.4, z, fogc, (255, 200, 120) if golden else (255, 214, 150))
+
+    elif kind == "park":
+        d.rectangle([0, HOR, W, H], fill=fog((14, 34, 26), 30, fogc))
+        ground_quad(d, -1.6, 1.6, Z_FAR, Z_NEAR, (54, 50, 46, 255))
+        for z, idx in repeat(dist, 1.6, 40):  # grass tufts
+            r = random.Random(idx)
+            for _ in range(2):
+                gx = r.choice((-1, 1)) * r.uniform(2.0, 7.0)
+                a_, b_ = proj(gx, 0, z), proj(gx, 0.35, z)
+                d.line([a_, b_], fill=fog((40, 90, 60), z, fogc), width=max(1, int(FOCAL * 0.05 / z)))
+        for z, idx in repeat(dist, 7.0, 11):
+            r = random.Random(idx * 13)
+            for sx in (-1, 1):
+                tx = sx * r.uniform(3.2, 5.5)
+                w = max(2, int(FOCAL * 0.32 / z))
+                d.line([proj(tx, 0, z), proj(tx, 2.6, z)], fill=fog((50, 34, 26), z, fogc), width=w)
+                cxp, cyp = proj(tx, 3.7, z)
+                cr = FOCAL * 1.5 / z
+                d.ellipse([cxp - cr, cyp - cr, cxp + cr, cyp + cr], fill=fog((18, 58, 40), z, fogc))
+                d.ellipse([cxp - cr * 0.6, cyp - cr * 0.85, cxp + cr * 0.3, cyp - cr * 0.1],
+                          fill=fog((34, 84, 56), z, fogc))
+        for z, idx in repeat(dist, 14.0, 5, 6.0):
+            lamp(d, g, (-1 if idx % 2 else 1) * 2.2, z, fogc, (210, 230, 255), 3.6)
+
+    elif kind == "bridge":
+        d.rectangle([0, HOR, W, H], fill=(36, 22, 60, 255))  # river
+        rr = random.Random(2)
+        for _ in range(70):  # shimmering reflections
+            z = rr.uniform(4, 60)
+            y = proj(0, 0, z)[1]
+            x = rr.uniform(-12, 12)
+            sx_, _ = proj(x, 0, z)
+            w = FOCAL * rr.uniform(0.6, 2.0) / z
+            a = int(120 * (0.5 + 0.5 * math.sin(t * 4 + rr.uniform(0, 6))))
+            d.line([(sx_ - w, y), (sx_ + w, y)], fill=(255, 190, 220, a), width=2)
+        # distant skyline across the river
+        sx_ = 0
+        while sx_ < W:
+            bw, bh = rr.randint(20, 60), rr.randint(15, 90)
+            d.rectangle([sx_, HOR - bh, sx_ + bw, HOR], fill=fog((30, 20, 50), 70, fogc))
+            sx_ += bw + rr.randint(0, 8)
+        ground_quad(d, -3.2, 3.2, Z_FAR, Z_NEAR, (56, 48, 66, 255))
+        for z, _ in repeat(dist, 5.0, 16):
+            ground_quad(d, -0.08, 0.08, z, max(Z_NEAR, z - 1.6), fog((210, 200, 220), z, fogc))
+        for sx in (-1, 1):
+            wall_quad(d, sx * 3.2, 0.95, 1.1, Z_FAR, Z_NEAR, (110, 96, 130, 255))
+            wall_quad(d, sx * 3.2, 0.0, 0.12, Z_FAR, Z_NEAR, (80, 70, 96, 255))
+            for z, _ in repeat(dist, 2.0, 38):
+                d.line([proj(sx * 3.2, 0, z), proj(sx * 3.2, 1.0, z)], fill=fog((90, 80, 110), z, fogc),
+                       width=max(1, int(FOCAL * 0.06 / z)))
+        for z, _ in repeat(dist, 10.0, 8, 3.0):
+            for sx in (-1, 1):
+                lamp(d, g, sx * 3.25, z, fogc, (255, 200, 230), 4.2)
+
+    else:  # moonroad: open fields, the road runs straight at a huge moon
+        img.alpha_composite(BIG_MOON)
+        d.rectangle([0, HOR, W, H], fill=fog((18, 26, 34), 30, fogc))
+        for z, idx in repeat(dist, 1.4, 45):
+            r = random.Random(idx * 3)
+            for _ in range(3):
+                gx = r.choice((-1, 1)) * r.uniform(2.6, 14.0)
+                a_, b_ = proj(gx, 0, z), proj(gx + 0.05, 0.3, z)
+                d.line([a_, b_], fill=fog((44, 70, 70), z, fogc), width=max(1, int(FOCAL * 0.04 / z)))
+        ground_quad(d, -2.2, 2.2, Z_FAR, Z_NEAR, (36, 36, 46, 255))
+        for z, _ in repeat(dist, 5.0, 16):
+            ground_quad(d, -0.08, 0.08, z, max(Z_NEAR, z - 2.0), fog((220, 220, 200), z, fogc))
+        for z, _ in repeat(dist, 4.0, 19):
+            for sx in (-1, 1):
+                d.line([proj(sx * 3.0, 0, z), proj(sx * 3.0, 1.0, z)], fill=fog((70, 60, 50), z, fogc),
+                       width=max(1, int(FOCAL * 0.08 / z)))
+        for sx in (-1, 1):
+            wall_quad(d, sx * 3.0, 0.75, 0.82, Z_FAR, Z_NEAR, (80, 70, 58, 255))
+        g.ellipse([540 - 420, HOR - 40, 540 + 420, HOR + 60], fill=(200, 220, 255, 50))
+
+    img.alpha_composite(glow.filter(ImageFilter.GaussianBlur(26)))
+    return img
+
+
 yy, xx = np.mgrid[0:H, 0:W]
 _d = np.sqrt(((xx - W / 2) / (W * 0.6)) ** 2 + ((yy - H * 0.5) / (H * 0.6)) ** 2)
 VIGNETTE = np.clip(1.12 - _d ** 2 * 0.8, 0.28, 1.0)[:, :, None].astype(np.float32)
@@ -908,23 +1123,49 @@ def draw_signs(t, layer, cam, head):
                 y1 = head[1] + r1 * math.sin(ang) - 20
                 d.line([m(x0, y0), m(x1, y1)], fill=(255, 225, 120, al), width=max(3, int(5 * zd)))
 
-    # "लौट गए": footprints walking away on both sides
-    if 7.55 <= t <= 9.0:
+    # "लौट गए": footprints lead back down the road, where the judges are going
+    if 7.4 <= t <= 9.3:
         for side in (-1, 1):
-            for k in range(7):
-                tk = 7.6 + k * 0.13
-                if t < tk:
+            for k in range(9):
+                if t < 7.5 + k * 0.12:
                     continue
-                fa = int(220 * (1 - smooth((t - 8.5) / 0.5)))
-                x = 540 + side * (280 + k * 120)
-                y = 1700 + (k % 2) * 34
-                sx, sy = m(x, y)
-                r = 13 * zd
-                d.ellipse([sx - r * 1.4, sy - r, sx + r * 1.4, sy + r], fill=(220, 225, 255, fa))
+                fa = int(220 * (1 - smooth((t - 8.8) / 0.5)))
+                z = 5.5 + k * 2.2
+                fx_, fy_ = proj(side * (0.9 + 0.25 * (k % 2)), 0, z)
+                sx, sy = m(fx_, fy_)
+                r = FOCAL * 0.11 / z * zd
+                d.ellipse([sx - r * 0.7, sy - r * 1.3, sx + r * 0.7, sy + r * 1.3], fill=(220, 225, 255, fa))
                 for tt in (-1, 0, 1):
-                    d.ellipse([sx + side * r * 1.8 - r * 0.35, sy + tt * r * 0.8 - r * 0.35,
-                               sx + side * r * 1.8 + r * 0.35, sy + tt * r * 0.8 + r * 0.35],
-                              fill=(220, 225, 255, fa))
+                    d.ellipse([sx + tt * r * 0.55 - r * 0.28, sy - r * 1.9 - r * 0.28,
+                               sx + tt * r * 0.55 + r * 0.28, sy - r * 1.9 + r * 0.28], fill=(220, 225, 255, fa))
+
+    # masti: music notes float out of his headphones while he vibes
+    for t0, t1 in ((6.7, 9.5), (11.1, 13.9), (14.2, 16.1), (16.4, 18.6)):
+        if not (t0 <= t <= t1):
+            continue
+        for k in range(6):
+            born = t0 + k * 0.45
+            age = (t - born) % 2.7
+            if t - born < 0:
+                continue
+            side = 1 if k % 2 else -1
+            nx = head[0] + side * (150 + age * 60) + math.sin(age * 4 + k) * 20
+            ny = head[1] - 10 - age * 150
+            sx, sy = m(nx, ny)
+            r = 16 * zd * (0.8 + 0.25 * (k % 3))
+            al = int(255 * clamp(age / 0.2) * (1 - smooth((age - 1.8) / 0.8)) * (1 - smooth((t - (t1 - 0.3)) / 0.3)))
+            if al <= 0:
+                continue
+            col = ((255, 225, 120), (150, 220, 255), (255, 150, 200))[k % 3] + (al,)
+            d.ellipse([sx - r * 1.2, sy - r * 0.85, sx + r * 1.2, sy + r * 0.85], fill=col)
+            stem = max(2, int(r * 0.35))
+            d.line([(sx + r * 1.0, sy), (sx + r * 1.0, sy - r * 3.4)], fill=col, width=stem)
+            if k % 2:
+                d.line([(sx + r * 1.0, sy - r * 3.4), (sx + r * 2.2, sy - r * 2.4)], fill=col, width=stem)
+            else:  # beamed pair
+                d.ellipse([sx + r * 1.8, sy - r * 1.1, sx + r * 4.2, sy + r * 0.6], fill=col)
+                d.line([(sx + r * 4.0, sy - r * 0.3), (sx + r * 4.0, sy - r * 3.7)], fill=col, width=stem)
+                d.line([(sx + r * 1.0, sy - r * 3.4), (sx + r * 4.0, sy - r * 3.7)], fill=col, width=stem * 2)
 
     # "शहजादे": sparkles around the crown
     if 10.7 <= t <= 11.8:
@@ -1123,16 +1364,22 @@ def render_frame(t, rng):
 
     sky = np.array(top, np.float32) * (1 - GRAD_Y) + np.array(bot, np.float32) * GRAD_Y
     frame = Image.fromarray(np.broadcast_to(sky, (H, W, 3)).astype(np.uint8)).convert("RGBA")
-    star_a = 0.35 + 0.65 * smooth((t - 5.5) / 1.5)
+    kind = location_at(t)
+    star_a = {"street": 0.35 + 0.65 * smooth((t - 5.5) / 1.5), "golden": 0.12}.get(kind, 1.0)
     stars = STARS if star_a > 0.98 else Image.fromarray(
         (np.asarray(STARS) * np.array([1, 1, 1, star_a], np.float32)).astype(np.uint8))
     frame.alpha_composite(cam_transform(stars, 0.15, cam))
-    frame.alpha_composite(cam_transform(CITY, 0.4, cam))
-    frame.alpha_composite(cam_transform(SET, 0.85, cam))
+    if kind in ("street", "park", "bridge"):
+        frame.alpha_composite(cam_transform(MOON, 0.15, cam))
+    frame.alpha_composite(cam_transform(draw_env(t, kind, bot), 0.9, cam))
 
     # behind him: golden aura and the shadow people
     back = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     draw_aura(t, back)
+    air, _ = jump_at(t)
+    sh = 1 - clamp(air / 320)  # contact shadow under his feet
+    ImageDraw.Draw(back).ellipse([540 - 130 * sh, GROUND - 12, 540 + 130 * sh, GROUND + 26],
+                                 fill=(0, 0, 0, int(110 * sh)))
     if t < 9.4:
         shadows = Image.new("RGBA", (W, H), (0, 0, 0, 0))
         draw_shadow_people(t, shadows)
@@ -1145,7 +1392,7 @@ def render_frame(t, rng):
 
     # in front: dream bubbles, memories, weather
     front = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    hip = (540, lerp(1400, 1250, track(T["stand"], t)))
+    hip = (540, 1250)
     draw_bubbles(t, front, head)
     draw_memories(t, front, hip)
     frame.alpha_composite(cam_transform(front.filter(ImageFilter.GaussianBlur(0.7)), 1.0, cam))
