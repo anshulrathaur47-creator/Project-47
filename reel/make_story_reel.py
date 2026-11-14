@@ -11,8 +11,11 @@ An anime-style boy, drawn and rigged entirely in code, acts out the lyrics:
   5. "हम भूल गए हैं सारा कुछ"                      - memories float around him and dissolve.
   6. "अब यही हमारी बातें हैं"                       - he looks up at the moon; camera pulls back.
 
-Only the lyrics appear on screen, animated word by word. Layers move at
-different depths with the camera to give a 3D (2.5D) feel.
+No text appears on screen. Each line gets its own camera angles with cuts,
+whip-pans, a flash and a dip to black, and small signs pop up on key words
+(a breaking heart on "दर्द", an eye on "देख", footprints on "लौट गए",
+sparkles on "शहजादे", a cross on "नहीं", speech bubbles on "बातें").
+Layers move at different depths with the camera for a 3D (2.5D) feel.
 
 Usage: python3 make_story_reel.py  ->  writes story_reel.mp4 next to this file.
        python3 make_story_reel.py --frames 0,150,300  ->  writes preview PNGs only.
@@ -32,7 +35,6 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 AUDIO = os.path.join(HERE, "assets", "ReelAudio-98423.mp3")
 OUT = os.path.join(HERE, "story_reel.mp4")
 SILENT = os.path.join(HERE, "_story_video_only.mp4")
-F_DEV = "/usr/share/fonts/truetype/noto/NotoSerifDevanagari-Bold.ttf"
 F_SYM = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 
 GROUND = 1640
@@ -153,8 +155,6 @@ LINES = [
     (13.90, 16.15, "हम भूल गए हैं सारा कुछ"),
     (16.15, 18.78, "अब यही हमारी बातें हैं"),
 ]
-EMPHASIS = {"दर्द": (255, 120, 120), "हँसता": (255, 215, 120), "शहजादे": (255, 200, 80),
-            "ख्वाब": (150, 200, 255), "भूल": (210, 180, 255), "बातें": (255, 236, 190)}
 
 T = {
     "stand":   [(0, 0), (9.65, 0), (10.45, 1)],
@@ -191,11 +191,55 @@ HAND_R = [(0, ("hip", 85, 8)), (5.55, ("hip", 85, 8)), (6.0, ("head", 95, -40)),
           (11.9, ("hip", 112, -40)), (12.4, ("hip", 140, -35)), (14.3, ("hip", 140, -35)),
           (15.0, ("hip", 330, -260)), (15.6, ("hip", 330, -250)), (16.2, ("hip", 140, -35))]
 
-# camera: (zoom, pan_x, pan_y); pan moves the sampled point (negative y = look higher)
-CAM = [(0, (1.0, 0, 0)), (4.6, (1.2, 0, -90)), (4.9, (1.2, 0, -90)), (5.6, (1.03, 0, -20)),
-       (7.5, (1.06, 0, -40)), (9.5, (1.1, 0, -60)), (10.5, (1.0, 0, -60)),
-       (11.8, (1.07, 0, -150)), (13.6, (1.16, 30, -250)), (14.5, (1.05, 60, -140)),
-       (16.1, (1.08, 0, -130)), (18.78, (1.0, 0, -40))]
+# Shot list: (start, end, camera at start, camera at end, transition into the shot)
+# camera = (zoom, pan_x, pan_y, roll_degrees); pan moves the point the camera looks at
+# (negative y = look higher). Sitting face ~ pan_y -126, standing face ~ pan_y -336.
+SHOTS = [
+    (0.00, 2.10, (1.00, 0, 0, 0), (1.12, 0, -20, 0), "fade"),          # wide: alone in the rain
+    (2.10, 3.40, (2.30, 0, -122, 0), (2.50, 0, -126, 0), "cut"),        # close-up: tear
+    (3.40, 4.85, (1.35, 0, -200, -4), (1.45, 0, -185, -4), "cut"),      # dutch medium: the ruler
+    (4.85, 6.30, (2.60, 0, -118, 0), (2.30, 0, -124, 0), "whip"),       # close-up: he looks up, laughs
+    (6.30, 7.60, (1.00, 0, -60, 0), (1.05, 0, -60, 0), "cut"),          # wide: they are confused
+    (7.60, 8.70, (1.25, -170, -40, 2), (1.25, 130, -40, 2), "cut"),     # pan: they walk away
+    (8.70, 9.55, (2.00, 0, -128, 0), (2.25, 0, -128, 0), "cut"),        # close-up: the smile fades
+    (9.55, 10.70, (1.32, 0, 250, 3), (1.15, 0, 110, 3), "cut"),         # low angle: he stands up
+    (10.70, 11.80, (1.90, 0, -330, 0), (2.15, 0, -340, 0), "flash"),    # hero close-up: crown
+    (11.80, 13.90, (1.50, 0, -380, 0), (1.62, 0, -400, 0), "dip"),      # medium: no dreams
+    (13.90, 16.15, (1.10, -70, -200, -2), (1.22, 70, -220, 2), "whip"), # orbit: memories dissolve
+    (16.15, 18.78, (1.90, 0, -340, 0), (1.00, 0, -40, 0), "cut"),       # crane back: the moon
+]
+WHIP = 0.2   # half-length of a whip-pan, seconds
+DIP = 0.22   # half-length of a dip to black
+
+
+def camera_at(t):
+    for i, (t0, t1, c0, c1, _) in enumerate(SHOTS):
+        if t0 <= t < t1 or i == len(SHOTS) - 1:
+            f = clamp((t - t0) / (t1 - t0))
+            f = f * 0.35 + smooth(f) * 0.65  # steady drift with a soft start/stop
+            cam = list(lerp(a, b, f) for a, b in zip(c0, c1))
+            break
+    # whip-pans: the camera swings sideways through the cut
+    for i, (t0, _, _, _, kind) in enumerate(SHOTS):
+        if kind == "whip" and abs(t - t0) < WHIP:
+            u = (t - t0) / WHIP  # -1..1
+            cam[1] += 520 * (1 - abs(u)) ** 1.5 * (1 if u < 0 else -1)
+    cam[1] += math.sin(t * 0.9) * 3  # handheld drift
+    cam[2] += math.cos(t * 0.7) * 3
+    return tuple(cam)
+
+
+def transition_fx(t):
+    """Returns (motion_blur 0..1, brightness 0..1, white_flash 0..1)."""
+    blur, bright, flash = 0.0, 1.0, 0.0
+    for t0, _, _, _, kind in SHOTS:
+        if kind == "whip" and abs(t - t0) < WHIP:
+            blur = max(blur, 1 - abs(t - t0) / WHIP)
+        elif kind == "dip" and abs(t - t0) < DIP:
+            bright = min(bright, smooth(abs(t - t0) / DIP))
+        elif kind == "flash":
+            flash = max(flash, math.exp(-((t - t0) / 0.1) ** 2) * 0.8)
+    return blur, bright, flash
 
 # lighting: (sky top, sky bottom, scene tint)
 LIGHT = [
@@ -399,7 +443,7 @@ def draw_head(t, p):
     return img
 
 
-def draw_character(t, frame_layer):
+def draw_character(t):
     p = {k: track(v, t) for k, v in T.items()}
     p["mouth"] = step(MOUTH, t)
     st, slump = p["stand"], p["slump"]
@@ -459,9 +503,8 @@ def draw_character(t, frame_layer):
     py = int((neck[1] - ry0) * K - PIVOT[1] * K)
     img.alpha_composite(head, (max(px, 0), max(py, 0)), (max(-px, 0), max(-py, 0)))
 
-    small = img.resize((cw, ch), Image.LANCZOS)
-    frame_layer.alpha_composite(small, (rx0, ry0))
-    return head_center
+    # returned at full supersampled resolution so close-ups stay sharp
+    return img, (rx0, ry0), head_center
 
 
 # ======================================================================
@@ -740,13 +783,190 @@ DUST = [(rnd_fx.uniform(0, W), rnd_fx.uniform(0, H), rnd_fx.uniform(2, 6), rnd_f
 CAM_C = (540, 1100)
 
 
-def cam_transform(img, depth, cam):
-    z, px, py = cam
+def cam_coeffs(depth, cam):
+    """Affine coefficients mapping screen -> world for a layer at this depth."""
+    z, px, py, rot = cam
     zd = 1 + (z - 1) * depth
-    a = 1 / zd
-    c = CAM_C[0] - CAM_C[0] / zd + px * depth
-    f = CAM_C[1] - CAM_C[1] / zd + py * depth
-    return img.transform((W, H), Image.AFFINE, (a, 0, c, 0, a, f), resample=Image.BILINEAR)
+    cr, sr = math.cos(math.radians(rot)) / zd, math.sin(math.radians(rot)) / zd
+    a, b, d, e = cr, sr, -sr, cr
+    c = CAM_C[0] + px * depth - a * CAM_C[0] - b * CAM_C[1]
+    f = CAM_C[1] + py * depth - d * CAM_C[0] - e * CAM_C[1]
+    return a, b, c, d, e, f
+
+
+def cam_transform(img, depth, cam, origin=(0, 0), scale=1):
+    """Render a layer through the camera. `origin`/`scale` place a supersampled sprite in world space."""
+    a, b, c, d, e, f = cam_coeffs(depth, cam)
+    coeffs = (a * scale, b * scale, (c - origin[0]) * scale,
+              d * scale, e * scale, (f - origin[1]) * scale)
+    return img.transform((W, H), Image.AFFINE, coeffs, resample=Image.BILINEAR)
+
+
+def world_to_screen(cam, depth=1.0):
+    z, px, py, rot = cam
+    zd = 1 + (z - 1) * depth
+    cr, sr = math.cos(math.radians(rot)), math.sin(math.radians(rot))
+
+    def m(x, y):
+        dx, dy = x - CAM_C[0] - px * depth, y - CAM_C[1] - py * depth
+        return (CAM_C[0] + zd * (cr * dx - sr * dy), CAM_C[1] + zd * (sr * dx + cr * dy))
+    return m, zd
+
+
+# ======================================================================
+# signs: little graphics that pop up on key words of the lyrics
+# (drawn after the camera so they stay crisp in close-ups)
+# ======================================================================
+def pop(t, t0, t1, fade=0.3):
+    """Scale and alpha for a sign living from t0 to t1."""
+    if not (t0 <= t <= t1):
+        return 0, 0
+    return back_out((t - t0) / 0.35), clamp((t - t0) / 0.15) * (1 - smooth((t - (t1 - fade)) / fade))
+
+
+def heart_pts(x, y, s, half=0):
+    """Heart outline; half=-1/1 returns the left/right half."""
+    pts = []
+    for i in range(41):
+        a = math.pi * i / 20 - math.pi
+        hx = 16 * math.sin(a) ** 3
+        hy = -(13 * math.cos(a) - 5 * math.cos(2 * a) - 2 * math.cos(3 * a) - math.cos(4 * a))
+        if half == 0 or (half < 0 and hx <= 0.01) or (half > 0 and hx >= -0.01):
+            pts.append((x + hx * s, y + hy * s))
+    if half:
+        crack = [(0, -5), (-3, -1), (3, 3), (-2, 7), (0, 12)]
+        pts += [(x + cx * s, y + cy * s) for cx, cy in (crack if half < 0 else crack[::-1])]
+    return pts
+
+
+def draw_signs(t, layer, cam, head):
+    d = ImageDraw.Draw(layer)
+    m, zd = world_to_screen(cam)
+
+    # "दर्द": a heart appears by his chest, cracks and breaks apart
+    s, a = pop(t, 3.55, 4.85)
+    if a > 0:
+        hx, hy = m(700, 1060)
+        size = 4.2 * zd * s
+        crack = smooth((t - 4.1) / 0.2)
+        apart = smooth((t - 4.3) / 0.5)
+        al = int(255 * a)
+        if crack < 1:
+            d.polygon(heart_pts(hx, hy, size), fill=(235, 50, 80, al))
+            d.ellipse([hx - 7 * size, hy - 5 * size, hx - 3 * size, hy - 1 * size], fill=(255, 170, 185, al))
+            if crack > 0:
+                pts = [(hx, hy - 5 * size), (hx - 3 * size, hy - size), (hx + 3 * size, hy + 3 * size),
+                       (hx - 2 * size, hy + 7 * size)]
+                d.line(pts, fill=(40, 10, 20, al), width=max(2, int(size * 1.1)))
+        else:
+            for side in (-1, 1):
+                ox = side * 9 * size * apart
+                oy = 14 * size * apart ** 2
+                pts = heart_pts(hx, hy, size, side)
+                ang = side * 0.5 * apart
+                ca, sa = math.cos(ang), math.sin(ang)
+                pts = [(hx + ox + (px_ - hx) * ca - (py_ - hy) * sa, hy + oy + (px_ - hx) * sa + (py_ - hy) * ca)
+                       for px_, py_ in pts]
+                d.polygon(pts, fill=(200, 40, 70, int(al * (1 - apart * 0.6))))
+
+    # "देख": an eye opens beside him
+    s, a = pop(t, 4.95, 5.95)
+    if a > 0:
+        ex, ey = 250, 620  # fixed on screen: this beat is an extreme close-up
+        w = 120 * s
+        open_ = smooth((t - 5.05) / 0.25) * (1 - 0.9 * math.exp(-((t - 5.6) / 0.05) ** 2))
+        hgt = w * 0.55 * open_
+        al = int(255 * a)
+        pts_top = [(ex + w * math.cos(math.pi * i / 16), ey - hgt * math.sin(math.pi * i / 16)) for i in range(17)]
+        pts_bot = [(ex - w * math.cos(math.pi * i / 16), ey + hgt * math.sin(math.pi * i / 16)) for i in range(17)]
+        d.polygon(pts_top + pts_bot, fill=(255, 255, 255, al), outline=(20, 20, 30, al), width=max(2, int(w / 14)))
+        if open_ > 0.3:
+            r = w * 0.42
+            d.ellipse([ex - r, ey - min(r, hgt), ex + r, ey + min(r, hgt)], fill=(70, 120, 220, al))
+            r2 = r * 0.5
+            d.ellipse([ex - r2, ey - min(r2, hgt), ex + r2, ey + min(r2, hgt)], fill=(10, 12, 30, al))
+            d.ellipse([ex - r * 0.6, ey - r * 0.6, ex - r * 0.25, ey - r * 0.25], fill=(255, 255, 255, al))
+        for k in range(5):  # lashes
+            ang = math.pi * (0.2 + 0.15 * k)
+            x0, y0 = ex + w * math.cos(ang) * 1.0, ey - hgt * math.sin(ang) - 2
+            d.line([(x0, y0), (x0 + w * 0.25 * math.cos(ang), y0 - w * 0.25 * math.sin(ang))],
+                   fill=(20, 20, 30, al), width=max(2, int(w / 16)))
+
+    # "हँसता": anime laugh marks around his head
+    s, a = pop(t, 5.8, 7.5)
+    if a > 0:
+        al = int(255 * a)
+        for side in (-1, 1):
+            for k in range(3):
+                ang = math.radians(-35 + k * 30)
+                wig = 1 + 0.1 * math.sin(t * 25 + k)
+                r0, r1 = 175 * wig, (175 + 55 * s) * wig
+                x0 = head[0] + side * r0 * math.cos(ang)
+                y0 = head[1] + r0 * math.sin(ang) - 20
+                x1 = head[0] + side * r1 * math.cos(ang)
+                y1 = head[1] + r1 * math.sin(ang) - 20
+                d.line([m(x0, y0), m(x1, y1)], fill=(255, 225, 120, al), width=max(3, int(5 * zd)))
+
+    # "लौट गए": footprints walking away on both sides
+    if 7.55 <= t <= 9.0:
+        for side in (-1, 1):
+            for k in range(7):
+                tk = 7.6 + k * 0.13
+                if t < tk:
+                    continue
+                fa = int(220 * (1 - smooth((t - 8.5) / 0.5)))
+                x = 540 + side * (280 + k * 120)
+                y = 1700 + (k % 2) * 34
+                sx, sy = m(x, y)
+                r = 13 * zd
+                d.ellipse([sx - r * 1.4, sy - r, sx + r * 1.4, sy + r], fill=(220, 225, 255, fa))
+                for tt in (-1, 0, 1):
+                    d.ellipse([sx + side * r * 1.8 - r * 0.35, sy + tt * r * 0.8 - r * 0.35,
+                               sx + side * r * 1.8 + r * 0.35, sy + tt * r * 0.8 + r * 0.35],
+                              fill=(220, 225, 255, fa))
+
+    # "शहजादे": sparkles around the crown
+    if 10.7 <= t <= 11.8:
+        rr = random.Random(4)
+        for k in range(9):
+            ph = rr.uniform(0, 6.28)
+            tw = max(0.0, math.sin(t * 6 + ph))
+            ang = rr.uniform(0, math.tau)
+            dist = rr.uniform(150, 260)
+            sx, sy = m(head[0] + dist * math.cos(ang), head[1] - 130 + dist * 0.8 * math.sin(ang))
+            r = (10 + 14 * tw) * zd * 0.6
+            al = int(255 * tw * (1 - smooth((t - 11.5) / 0.3)))
+            d.polygon([(sx, sy - r * 2), (sx + r * 0.4, sy - r * 0.4), (sx + r * 2, sy), (sx + r * 0.4, sy + r * 0.4),
+                       (sx, sy + r * 2), (sx - r * 0.4, sy + r * 0.4), (sx - r * 2, sy), (sx - r * 0.4, sy - r * 0.4)],
+                      fill=(255, 240, 170, al))
+
+    # "नहीं": a red cross strikes through the second dream bubble
+    s, a = pop(t, 13.25, 13.75, fade=0.15)
+    if a > 0:
+        bx, by = m(head[0] - 230, head[1] - 210)
+        r = 80 * zd * s
+        al = int(255 * a)
+        wdt = max(4, int(16 * zd))
+        d.line([(bx - r, by - r), (bx + r, by + r)], fill=(235, 50, 60, al), width=wdt)
+        d.line([(bx + r, by - r), (bx - r, by + r)], fill=(235, 50, 60, al), width=wdt)
+
+    # "बातें": quiet speech bubbles drift up from him
+    for k, t0 in enumerate((17.0, 17.45, 17.9)):
+        s, a = pop(t, t0, 18.75, fade=0.5)
+        if a <= 0:
+            continue
+        rise = (t - t0) * 40
+        bx, by = m(head[0] + 200 + k * 40, head[1] - 170 - k * 110 - rise)
+        w, h = 70 * zd * s * 0.75, 44 * zd * s * 0.75
+        al = int(235 * a)
+        d.rounded_rectangle([bx - w, by - h, bx + w, by + h], radius=int(h), fill=(250, 250, 255, al))
+        d.polygon([(bx - w * 0.5, by + h * 0.6), (bx - w * 0.9, by + h * 1.6), (bx - w * 0.1, by + h * 0.8)],
+                  fill=(250, 250, 255, al))
+        for j in (-1, 0, 1):
+            on = (t * 3 + j * 0.33) % 1 < 0.6
+            r = h * 0.18
+            d.ellipse([bx + j * w * 0.45 - r, by - r, bx + j * w * 0.45 + r, by + r],
+                      fill=(60, 70, 110, al if on else al // 3))
 
 
 def fx_layer(t):
@@ -774,101 +994,23 @@ def fx_layer(t):
 
 
 # ======================================================================
-# lyrics (the only text): word-by-word, flip-in animation
+# frame assembly (no on-screen text: the story is told by the visuals)
 # ======================================================================
-FONT_LYR = ImageFont.truetype(F_DEV, 84, layout_engine=ImageFont.Layout.RAQM)
-_word_cache = {}
+def motion_blur(arr, amount):
+    """Horizontal smear used for whip-pans."""
+    if amount <= 0.02:
+        return arr
+    acc = np.zeros_like(arr)
+    n = 9
+    span = int(140 * amount)
+    for k in range(n):
+        acc += np.roll(arr, int((k / (n - 1) - 0.5) * span), axis=1)
+    return acc / n
 
 
-def word_sprite(word):
-    if word in _word_cache:
-        return _word_cache[word]
-    col = EMPHASIS.get(word, (255, 255, 255))
-    glow_col = col if word in EMPHASIS else (120, 160, 255)
-    probe = ImageDraw.Draw(Image.new("RGBA", (1, 1)))
-    x0, y0, x1, y1 = probe.textbbox((0, 0), word, font=FONT_LYR)
-    pad = 40
-    ascent, descent = FONT_LYR.getmetrics()
-    # every sprite shares the same height and baseline so words line up
-    img = Image.new("RGBA", (x1 - x0 + 2 * pad, ascent + descent + 2 * pad), (0, 0, 0, 0))
-    org = (pad - x0, pad)
-    g = Image.new("RGBA", img.size, (0, 0, 0, 0))
-    ImageDraw.Draw(g).text(org, word, font=FONT_LYR, fill=glow_col + (200,))
-    g = g.filter(ImageFilter.GaussianBlur(12))
-    sh = Image.new("RGBA", img.size, (0, 0, 0, 0))
-    ImageDraw.Draw(sh).text((org[0] + 3, org[1] + 5), word, font=FONT_LYR, fill=(0, 0, 0, 220))
-    sh = sh.filter(ImageFilter.GaussianBlur(5))
-    img.alpha_composite(g)
-    img.alpha_composite(sh)
-    ImageDraw.Draw(img).text(org, word, font=FONT_LYR, fill=col + (255,))
-    adv = probe.textlength(word, font=FONT_LYR)
-    _word_cache[word] = (img, adv, pad, x0)
-    return _word_cache[word]
-
-
-def layout_line(text):
-    words = text.split()
-    space = FONT_LYR.getlength(" ")
-    rows, cur, cur_w = [], [], 0
-    for w in words:
-        adv = word_sprite(w)[1]
-        if cur and cur_w + space + adv > 940:
-            rows.append(cur)
-            cur, cur_w = [w], adv
-        else:
-            cur_w += (space if cur else 0) + adv
-            cur.append(w)
-    rows.append(cur)
-    placed = []
-    row_h = 122
-    top = 360 - (len(rows) - 1) * row_h / 2
-    for r, row in enumerate(rows):
-        widths = [word_sprite(w)[1] for w in row]
-        total = sum(widths) + space * (len(row) - 1)
-        x = (W - total) / 2
-        for w, adv in zip(row, widths):
-            placed.append((w, x + adv / 2, top + r * row_h))
-            x += adv + space
-    return placed
-
-
-LAYOUTS = [layout_line(text) for _, _, text in LINES]
-
-
-def draw_lyrics(frame, t):
-    for (start, end, _), placed in zip(LINES, LAYOUTS):
-        if not (start - 0.1 <= t < end):
-            continue
-        n = len(placed)
-        for i, (w, cx, cy) in enumerate(placed):
-            wt = start + (end - start) * 0.8 * i / n
-            p = (t - wt) / 0.45
-            if p <= 0:
-                continue
-            exit_ = smooth((t - (end - 0.32)) / 0.32)
-            sprite, adv, pad, x0 = word_sprite(w)
-            sy = clamp(back_out(p), 0.02, 1.3)
-            sx = lerp(1.35, 1.0, ease_out(p)) * (1 + 0.1 * exit_)
-            sy *= (1 + 0.1 * exit_)
-            a = clamp(p * 2.2) * (1 - exit_)
-            if a <= 0.01:
-                continue
-            nw, nh = max(1, int(sprite.width * sx)), max(1, int(sprite.height * sy))
-            spr = sprite.resize((nw, nh), Image.BILINEAR)
-            if a < 1:
-                al = spr.getchannel("A").point(lambda v, a=a: int(v * a))
-                spr.putalpha(al)
-            y = cy - (1 - ease_out(p)) * 50 - exit_ * 45
-            frame.alpha_composite(spr, (int(cx - nw / 2), int(y + sprite.height / 2 - nh / 2 - pad)))
-
-
-# ======================================================================
-# frame assembly
-# ======================================================================
 def render_frame(t, rng):
     top, bot, tint = light_at(t)
-    cam = track(CAM, t)
-    cam = (cam[0], cam[1] + math.sin(t * 0.9) * 4, cam[2] + math.cos(t * 0.7) * 4)  # handheld drift
+    cam = camera_at(t)
 
     sky = np.array(top, np.float32) * (1 - GRAD_Y) + np.array(bot, np.float32) * GRAD_Y
     frame = Image.fromarray(np.broadcast_to(sky, (H, W, 3)).astype(np.uint8)).convert("RGBA")
@@ -879,33 +1021,42 @@ def render_frame(t, rng):
     frame.alpha_composite(cam_transform(CITY, 0.4, cam))
     frame.alpha_composite(cam_transform(SET, 0.85, cam))
 
-    actors = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    draw_aura(t, actors)
-    shadows = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    draw_shadow_people(t, shadows)
+    # behind him: golden aura and the shadow people
+    back = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    draw_aura(t, back)
     if t < 9.4:
-        actors.alpha_composite(shadows.filter(ImageFilter.GaussianBlur(1.2)))
+        shadows = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        draw_shadow_people(t, shadows)
+        back.alpha_composite(shadows.filter(ImageFilter.GaussianBlur(1.2)))
+    frame.alpha_composite(cam_transform(back, 1.0, cam))
+
+    # the character, sampled straight from the supersampled render
+    char_img, origin, head = draw_character(t)
+    frame.alpha_composite(cam_transform(char_img, 1.0, cam, origin, K))
+
+    # in front: dream bubbles, memories, weather
+    front = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     hip = (540, lerp(1400, 1250, track(T["stand"], t)))
-    head = draw_character(t, actors)
-    fx_props = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    draw_bubbles(t, fx_props, head)
-    draw_memories(t, fx_props, hip)
-    actors.alpha_composite(fx_props.filter(ImageFilter.GaussianBlur(0.7)))
-    frame.alpha_composite(cam_transform(actors, 1.0, cam))
+    draw_bubbles(t, front, head)
+    draw_memories(t, front, hip)
+    frame.alpha_composite(cam_transform(front.filter(ImageFilter.GaussianBlur(0.7)), 1.0, cam))
     frame.alpha_composite(cam_transform(fx_layer(t), 1.1, cam))
 
-    # colour grade, crown flash, vignette, grain
-    arr = np.asarray(frame.convert("RGB")).astype(np.float32) * np.array(tint, np.float32)
-    flash = math.exp(-((t - 10.75) / 0.12) ** 2) * 0.55
-    if flash > 0.01:
-        arr = arr + (255 - arr) * flash * np.array([1.0, 0.85, 0.55], np.float32)
-    arr *= VIGNETTE
-    arr += rng.normal(0, 3, (H // 2, W // 2, 1)).repeat(2, 0).repeat(2, 1)
-    out = Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8)).convert("RGBA")
+    # word signs (crisp, post-camera)
+    signs = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    draw_signs(t, signs, cam, head)
+    frame.alpha_composite(signs.filter(ImageFilter.GaussianBlur(0.6)))
 
-    draw_lyrics(out, t)
-    out = out.convert("RGB")
-    fade = min(clamp(t / 0.35), clamp((DURATION - t) / 0.6))
+    # colour grade, transitions, vignette, grain
+    blur, bright, flash = transition_fx(t)
+    arr = np.asarray(frame.convert("RGB")).astype(np.float32) * np.array(tint, np.float32)
+    arr = motion_blur(arr, blur)
+    if flash > 0.01:
+        arr = arr + (255 - arr) * flash * np.array([1.0, 0.88, 0.6], np.float32)
+    arr *= VIGNETTE * bright
+    arr += rng.normal(0, 3, (H // 2, W // 2, 1)).repeat(2, 0).repeat(2, 1)
+    out = Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8))
+    fade = min(clamp(t / 0.4), clamp((DURATION - t) / 0.7))
     if fade < 1:
         out = Image.blend(Image.new("RGB", (W, H)), out, fade)
     return out
