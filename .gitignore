@@ -1,2 +1,8 @@
 reel/_*.mp4
 reel/_preview_*.png
+# tool installs and caches (recreated by tools/setup.sh)
+tools/models/
+node_modules/
+tools/remotion-starter/out/
+tools/hyperframes-starter/renders/
+tools/hyperframes-starter/.hyperframes/
