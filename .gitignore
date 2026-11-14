@@ -9,3 +9,5 @@ tools/hyperframes-starter/.hyperframes/
 # watch skill: downloaded source videos and temp audio (frames and notes are kept)
 references/watch/*/source.*
 references/watch/*/audio.wav
+# private credentials (cookies files) used by tools/download.sh
+tools/secrets/

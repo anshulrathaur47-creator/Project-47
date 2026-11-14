@@ -43,12 +43,23 @@ t_videouse() {
     "$V/C0001.mp4" "$V/edit/master.srt" > "$V/edit/edl.json" &&
   python3 $H/render.py "$V/edit/edl.json" -o "$V/edit/out.mp4" --draft --build-subtitles >/dev/null && [ -s "$V/edit/out.mp4" ]
 }
-t_openverse() { python3 tools/sfx.py search whoosh -n 1; }
+t_openverse() { python3 tools/sfx.py search whoosh --source openverse -n 1; }
+t_library() {
+  [ "$(python3 tools/sfx.py search whoosh -n 3 | wc -l)" -ge 3 ] && [ "$(python3 tools/sfx.py search footstep -n 3 | wc -l)" -ge 3 ] &&
+  [ -n "$(python3 tools/sfx.py search masti --music -n 1)" ]
+}
 t_freesound() {
   if [ -z "${FREESOUND_API_KEY:-}" ]; then echo "no FREESOUND_API_KEY set (optional)"; return 1; fi
   python3 tools/sfx.py search whoosh --source freesound -n 1
 }
-t_youtube() { yt-dlp --simulate -q --no-warnings "https://www.youtube.com/watch?v=jNQXAC9IVRw"; }
+t_youtube() {
+  local c=(); [ -f tools/secrets/youtube-cookies.txt ] && c=(--cookies tools/secrets/youtube-cookies.txt)
+  out=$(yt-dlp "${c[@]}" --simulate -q --no-warnings "https://www.youtube.com/watch?v=jNQXAC9IVRw" 2>&1) && return 0
+  if echo "$out" | grep -q "not a bot"; then
+    echo "reachable, but YouTube wants a login from this server: add tools/secrets/youtube-cookies.txt"
+  else echo "$out" | tail -1; fi
+  return 1
+}
 
 check "FFmpeg $(ffmpeg -version | head -1 | awk '{print $3}')  (encode 1080x1920 H.264+AAC)" t_ffmpeg
 check "yt-dlp $(yt-dlp --version 2>/dev/null)  (download a test video)" t_ytdlp
@@ -57,6 +68,7 @@ check "Remotion  (render 1080x1920 test video)" t_remotion
 check "Hyperframes  (render 1080x1920 test video)" t_hyperframes
 check "Remotion + Hyperframes skills for Claude" t_skills
 check "video-use skill  (transcribe -> cut -> grade -> subtitles render)" t_videouse
+check "Local SFX/music library (253 sounds, offline)" t_library
 check "Openverse music/SFX search" t_openverse
 check "Freesound SFX search" t_freesound
 check "yt-dlp from YouTube" t_youtube
