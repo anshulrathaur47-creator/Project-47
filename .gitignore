@@ -11,3 +11,6 @@ references/watch/*/source.*
 references/watch/*/audio.wav
 # private credentials (cookies files) used by tools/download.sh
 tools/secrets/
+projects/*/_*.mp4
+projects/*/_prev_*.png
+projects/*/render.log
