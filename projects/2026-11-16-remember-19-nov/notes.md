@@ -9,12 +9,18 @@ The joy turns to silence; back in the present, his reflection is sad.
 (Whisper found no lyrics), ~143.5 bpm. Beat grid in `references/ReelAudio-43255.beats.json`.
 Phrases every ~1.67 s; build to a peak at 13 to 14.9 s, lift-off at 15.3 s, new phrases at 20.2 s and 25.1 s.
 
-**Text:** the track has no lyrics, so short Hinglish story lines run in the lower third, word by word.
+**Lyrics (v2):** the user sent the lyric sheet (`references/ReelAudio-43255_lyrics_hin.txt`). Whisper,
+given the lyrics as a hint, aligned every word (vocals are buried in the mix, so it heard nothing on its own).
+The lyrics replace the story text and run as kinetic typography, a different motion style per chunk:
+soft float (morning), flip + beat punch (phone), ripple (into the flashback), "19.11.2023" digit slam on
+the beat in the instrumental gap, slam with shake + impact ring ("रह जाऊंगा"), shatter into falling
+pieces on "यूं ही" right at the loss (15.6 s), grey drift, dissolve to dust, glass text with a reflection
+in the mirror, and a pulsing red ending.
 
 | Time | Scene | Text | Extras |
 |---|---|---|---|
 | 0 to 3.4 | Bedroom, sunrise. Asleep (zzz), the alarm rings, he sits up, stretches and yawns | Ek normal si subah... | ringing clock, sun rays |
-| 3.4 to 5.8 | Picks up his phone: a "Memories, 3 saal pehle" card with a stadium photo, he is shocked | Phone: 'Aaj ke din, 3 saal pehle' | phone insert, shock marks |
+| 3.4 to 5.8 | Picks up his phone: a "Memories, 3 saal pehle" card with a stadium photo, he is shocked | (v1 story text; v2 uses lyrics) | phone insert, shock marks |
 | 5.8 to 8.5 | Bathroom mirror: wide shot, then a slow push into his eyes; the mirror ripples | Aaine mein dekha... aur | ripple + white bloom |
 | 8.5 to 12.4 | FLASHBACK 2023: stadium, flag, face paint, headphones, hops and fist pumps on the beat, confetti | 19 Nov 2023, Ahmedabad. 1 lakh log, ek sapna | warm memory tint, stars |
 | 12.4 to 15.3 | Tension: hands together, nail-biting, push-in, floodlights flicker at the peak | Bas ek jeet aur... | heartbeat line |

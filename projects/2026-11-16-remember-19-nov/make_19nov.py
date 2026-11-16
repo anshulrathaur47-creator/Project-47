@@ -1501,7 +1501,7 @@ def layout_line(text):
     return placed
 
 
-LAYOUTS = [layout_line(text) for _, _, text in LINES]
+LAYOUTS = []
 _band = np.clip((np.linspace(0, 1, H, dtype=np.float32) - 0.62) / 0.2, 0, 1)
 LYRIC_BAND = (1 - 0.45 * _band * (1 - np.clip((np.linspace(0, 1, H) - 0.86) / 0.14, 0, 1)))[:, None, None]
 
@@ -1544,6 +1544,250 @@ def draw_lyrics(frame, t):
             if focus < 0.999:
                 frame.alpha_composite(with_alpha(blur_s, a * (1 - focus)), pos)
             frame.alpha_composite(with_alpha(sharp_s, a * focus), pos)
+
+
+# ======================================================================
+# kinetic lyrics: each chunk of the song gets its own motion-graphics style
+# (word timings aligned with Whisper against the user's lyric sheet)
+# ======================================================================
+F_HI = "/usr/share/fonts/truetype/noto/NotoSerifDevanagari-Bold.ttf"
+_kfont = {}
+
+
+def kfont(size):
+    if size not in _kfont:
+        _kfont[size] = ImageFont.truetype(F_HI, size, layout_engine=ImageFont.Layout.RAQM)
+    return _kfont[size]
+
+
+GOLD_K, SKY_K, RED_K, GLASS_K, WHITE_K, GREY_K = ((255, 205, 90), (130, 205, 255), (255, 96, 110),
+                                                  (190, 230, 255), (255, 255, 255), (170, 175, 190))
+
+# (words with start times, style, centre x, centre y, font size, colours per word, end time)
+CHUNKS = [
+    ([("कह", 0.42), ("दो", 0.58), ("जो", 0.80), ("हो", 1.22)], "soft", 540, 1530, 101, {}, 1.85),
+    ([("तुम", 1.48), ("एक", 1.92), ("बार", 2.52)], "soft", 520, 1530, 108, {"बार": GOLD_K}, 3.2),
+    ([("मेरे", 3.24), ("हो", 4.06)], "flip", 560, 1530, 139, {"मेरे": GOLD_K}, 4.28),
+    ([("बस", 4.30), ("तुम", 4.94)], "flip", 540, 1530, 122, {}, 5.72),
+    ([("मेरे", 5.76), ("नजरों", 6.68), ("में", 7.70)], "soft", 540, 1530, 113, {"नजरों": SKY_K}, 8.15),
+    ([("तुम", 8.20), ("हम", 8.52), ("से", 8.98)], "ripple", 540, 1530, 132, {"हम": GOLD_K}, 9.9),
+    ([("रह", 13.98), ("जाऊंगा", 14.25)], "slam", 540, 1530, 155, {"जाऊंगा": WHITE_K}, 15.5),
+    ([("यूं", 15.58), ("ही", 15.94)], "shatter", 540, 1530, 177, {"यूं": RED_K, "ही": RED_K}, 16.75),
+    ([("बस", 16.80), ("यूं", 17.08), ("ही", 17.52)], "grey", 540, 1530, 132, {}, 18.35),
+    ([("बस", 18.40), ("यूं", 18.70), ("ही", 19.05)], "dissolve", 540, 1530, 132, {}, 20.1),
+    ([("रह", 20.58), ("जाऊंगा", 20.85)], "mirror", 540, 1440, 132, {}, 22.1),
+    ([("यूं", 22.18), ("ही", 22.54)], "mirror", 540, 1440, 151, {}, 23.35),
+    ([("बस", 23.40), ("यूं", 23.68), ("ही", 24.12)], "mirror", 540, 1440, 132, {}, 24.95),
+    ([("बस", 25.00), ("यूं", 25.30), ("ही", 25.65)], "final", 540, 1530, 165, {"यूं": RED_K, "ही": RED_K}, 27.25),
+]
+STYLE_COLOUR = {"soft": WHITE_K, "flip": WHITE_K, "ripple": WHITE_K, "slam": (255, 230, 200),
+                "shatter": RED_K, "grey": GREY_K, "dissolve": GREY_K, "mirror": GLASS_K, "final": WHITE_K}
+STYLE_GLOW = {"soft": (255, 200, 150), "flip": (255, 190, 90), "ripple": (150, 200, 255), "slam": (255, 140, 60),
+              "shatter": (255, 60, 80), "grey": (90, 100, 130), "dissolve": (110, 120, 150),
+              "mirror": (120, 200, 255), "final": (255, 80, 100)}
+_ksprite = {}
+
+
+def ksprite(word, size, col, glow):
+    key = (word, size, col, glow)
+    if key in _ksprite:
+        return _ksprite[key]
+    f = kfont(size)
+    probe = ImageDraw.Draw(Image.new("RGBA", (1, 1)))
+    x0, y0, x1, y1 = probe.textbbox((0, 0), word, font=f)
+    pad = int(size * 0.45)
+    asc, desc = f.getmetrics()
+    img = Image.new("RGBA", (x1 - x0 + 2 * pad, asc + desc + 2 * pad), (0, 0, 0, 0))
+    org = (pad - x0, pad)
+    gl = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(gl).text(org, word, font=f, fill=glow + (210,))
+    img.alpha_composite(gl.filter(ImageFilter.GaussianBlur(size * 0.18)))
+    sh = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(sh).text((org[0] + 3, org[1] + 6), word, font=f, fill=(0, 0, 0, 230))
+    img.alpha_composite(sh.filter(ImageFilter.GaussianBlur(5)))
+    d = ImageDraw.Draw(img)
+    d.text(org, word, font=f, fill=col + (255,), stroke_width=max(2, size // 40), stroke_fill=(20, 14, 30, 255))
+    adv = probe.textlength(word, font=f)
+    _ksprite[key] = (img, adv)
+    return _ksprite[key]
+
+
+def alpha_mul(img, a):
+    if a >= 0.999:
+        return img
+    out = img.copy()
+    out.putalpha(img.getchannel("A").point(lambda v: int(v * a)))
+    return out
+
+
+def paste_c(frame, img, cx, cy):
+    frame.alpha_composite(img, (int(cx - img.width / 2), int(cy - img.height / 2)))
+
+
+def row_ripple(img, amp, phase):
+    if amp < 0.5:
+        return img
+    arr = np.asarray(img).copy()
+    for y in range(arr.shape[0]):
+        arr[y] = np.roll(arr[y], int(amp * math.sin(y / 9.0 + phase)), axis=0)
+    return Image.fromarray(arr, "RGBA")
+
+
+def draw_chunk(frame, t, words, style, cx, cy, size, colours, end):
+    if t < words[0][1] - 0.12 or t > end + 0.05:
+        return
+    base_col = STYLE_COLOUR[style]
+    glow = STYLE_GLOW[style]
+    sprites = [ksprite(w, size, colours.get(w, base_col), glow) for w, _ in words]
+    space = size * 0.32
+    total = sum(adv for _, adv in sprites) + space * (len(words) - 1)
+    x = cx - total / 2
+    out_k = smooth((t - (end - 0.25)) / 0.25)  # generic exit
+    for i, ((w, wt), (spr, adv)) in enumerate(zip(words, sprites)):
+        wx = x + adv / 2
+        x += adv + space
+        p = (t - wt) / 0.32
+        if p <= 0:
+            continue
+        img, a, sx, sy, ang, dx, dy = spr, clamp(p * 2), 1.0, 1.0, 0.0, 0.0, 0.0
+        if style == "soft":
+            sx = sy = lerp(0.82, 1.0, ease_out(p))
+            dy = (1 - ease_out(p)) * 34 + math.sin(t * 2 + i) * 4
+            a *= 1 - out_k
+        elif style == "flip":
+            sy = clamp(back_out(p), 0.03, 1.25)
+            sx = lerp(1.35, 1.0, ease_out(p))
+            ang = (1 - ease_out(p)) * -10
+            beat = math.exp(-((t - round(t / BEAT) * BEAT) / 0.06) ** 2)
+            sx *= 1 + 0.05 * beat
+            sy *= 1 + 0.05 * beat
+            a *= 1 - out_k
+        elif style == "ripple":
+            sx = sy = lerp(1.25, 1.0, ease_out(p))
+            amp = 30 * max(0.0, 1 - abs(t - 8.5) / 0.6) + 6 * smooth((t - 9.2) / 0.6)
+            img = row_ripple(spr, amp, t * 25 + i)
+            a *= 1 - smooth((t - 9.45) / 0.45)
+        elif style == "slam":
+            k = clamp((t - wt) / 0.16)
+            sx = sy = lerp(2.4, 1.0, ease_out(k))
+            if t - wt > 0.16:
+                dec = math.exp(-(t - wt - 0.16) / 0.25)
+                dx, dy = math.sin(t * 70) * 14 * dec, math.cos(t * 63) * 10 * dec
+            a = clamp(k * 3) * (1 - out_k)
+        elif style == "shatter":
+            k = clamp((t - wt) / 0.16)
+            sx = sy = lerp(2.2, 1.0, ease_out(k))
+            brk = clamp((t - 16.35) / 0.55)
+            if brk > 0:  # the word cracks into falling pieces
+                cols, rows = 6, 3
+                tw, th = spr.width // cols, spr.height // rows
+                rr = random.Random(hash(w) % 1000 + i)
+                for gy in range(rows):
+                    for gx in range(cols):
+                        tile = spr.crop((gx * tw, gy * th, (gx + 1) * tw, (gy + 1) * th))
+                        vx, vy, spin = rr.uniform(-160, 160), rr.uniform(-120, 40), rr.uniform(-160, 160)
+                        tx_ = wx - spr.width / 2 + gx * tw + tw / 2 + vx * brk
+                        ty_ = cy - spr.height / 2 + gy * th + th / 2 + vy * brk + 900 * brk ** 2
+                        tile = tile.rotate(spin * brk, expand=True, resample=Image.BICUBIC)
+                        paste_c(frame, alpha_mul(tile, 1 - brk), tx_, ty_)
+                continue
+            a = clamp(k * 3)
+        elif style == "grey":
+            sx = sy = 1.0
+            dy = (t - wt) * 24
+            a *= (1 - out_k) * 0.85
+        elif style == "dissolve":
+            dy = (t - wt) * 18
+            dis = clamp((t - 19.45) / 0.6)
+            if dis > 0:  # breaks into drifting dust
+                rr = random.Random(i + 7)
+                arr = np.asarray(spr)
+                ys, xs = np.nonzero(arr[:, :, 3] > 160)
+                d = ImageDraw.Draw(frame)
+                for j in rr.sample(range(len(xs)), min(260, len(xs))):
+                    px_ = wx - spr.width / 2 + xs[j] + rr.uniform(-60, 60) * dis
+                    py_ = cy - spr.height / 2 + ys[j] - rr.uniform(40, 220) * dis + dy
+                    r = 2.4 * (1 - dis) + 0.6
+                    d.ellipse([px_ - r, py_ - r, px_ + r, py_ + r], fill=GREY_K + (int(230 * (1 - dis)),))
+                a *= 1 - smooth(dis * 2.5)
+        elif style == "mirror":  # glassy text with its reflection, revealed through a ripple
+            amp = 22 * (1 - ease_out(p * 0.8))
+            img = row_ripple(spr, amp, t * 18 + i)
+            a *= 1 - out_k
+            refl = img.transpose(Image.FLIP_TOP_BOTTOM)
+            grad = Image.linear_gradient("L").resize(refl.size).point(lambda v: int(v * 0.0 + (255 - v) * 0.32))
+            ra = Image.fromarray((np.asarray(refl.getchannel("A")).astype(np.float32) *
+                                  np.asarray(grad).astype(np.float32) / 255).astype(np.uint8))
+            refl.putalpha(ra)
+            paste_c(frame, alpha_mul(refl, a), wx, cy + spr.height * 0.78)
+        elif style == "final":
+            sx = sy = lerp(0.7, 1.0, ease_out(p)) * (1 + 0.04 * (t - wt))
+            pulse = 0.9 + 0.1 * math.sin(t * 5)
+            a *= pulse * (1 - smooth((t - 26.6) / 0.55))
+        if a <= 0.01:
+            continue
+        if sx != 1.0 or sy != 1.0:
+            img = img.resize((max(1, int(img.width * sx)), max(1, int(img.height * sy))), Image.BILINEAR)
+        if abs(ang) > 0.2:
+            img = img.rotate(ang, expand=True, resample=Image.BICUBIC)
+        paste_c(frame, alpha_mul(img, a), wx + dx, cy + dy)
+        # impact ring when a slammed word lands
+        if style in ("slam", "shatter") and 0.1 < t - wt < 0.5:
+            rk = (t - wt - 0.1) / 0.4
+            d = ImageDraw.Draw(frame)
+            r = lerp(60, 260, ease_out(rk))
+            d.ellipse([wx - r, cy - r * 0.55, wx + r, cy + r * 0.55], outline=glow + (int(200 * (1 - rk)),), width=6)
+
+
+def draw_date_slam(frame, t):
+    """Instrumental gap (no vocals): '19.11.2023' slams in digit by digit on the beat."""
+    if not (10.2 < t < 13.95):
+        return
+    txt = "19.11.2023"
+    f = ImageFont.truetype("/usr/share/fonts/truetype/noto/NotoSans-Bold.ttf", 150)
+    d0 = ImageDraw.Draw(frame)
+    widths = [d0.textlength(c, font=f) for c in txt]
+    x = 540 - sum(widths) / 2
+    out = smooth((t - 13.55) / 0.4)
+    for i, (c, w) in enumerate(zip(txt, widths)):
+        wt = 10.33 + i * 0.209  # every half beat
+        k = clamp((t - wt) / 0.14)
+        if k <= 0:
+            x += w
+            continue
+        spr, _ = ksprite_latin(c)
+        sc = lerp(2.6, 1.0, ease_out(k))
+        img = spr.resize((int(spr.width * sc), int(spr.height * sc)), Image.BILINEAR)
+        shake = math.sin(t * 80 + i) * 8 * math.exp(-(t - wt) / 0.2) if t > wt + 0.14 else 0
+        paste_c(frame, alpha_mul(img, clamp(k * 3) * (1 - out)), x + w / 2 + shake, 1330)
+        x += w
+    lk = clamp((t - 12.45) / 0.5)
+    if lk > 0:
+        d0.line([(540 - 360 * lk, 1440), (540 + 360 * lk, 1440)], fill=(255, 153, 51, int(255 * (1 - out))), width=8)
+        f2 = ImageFont.truetype("/usr/share/fonts/truetype/noto/NotoSans-Bold.ttf", 44)
+        d0.text((540, 1490), "AHMEDABAD", font=f2, fill=(255, 235, 210, int(255 * lk * (1 - out))), anchor="mm")
+
+
+_lat = {}
+
+
+def ksprite_latin(c):
+    if c not in _lat:
+        f = ImageFont.truetype("/usr/share/fonts/truetype/noto/NotoSans-Bold.ttf", 150)
+        img = Image.new("RGBA", (170, 230), (0, 0, 0, 0))
+        gl = Image.new("RGBA", img.size, (0, 0, 0, 0))
+        ImageDraw.Draw(gl).text((85, 115), c, font=f, fill=(255, 150, 60, 220), anchor="mm")
+        img.alpha_composite(gl.filter(ImageFilter.GaussianBlur(16)))
+        ImageDraw.Draw(img).text((85, 115), c, font=f, fill=(255, 245, 225, 255), anchor="mm",
+                                 stroke_width=4, stroke_fill=(40, 20, 10, 255))
+        _lat[c] = (img, 170)
+    return _lat[c]
+
+
+def draw_kinetic(frame, t):
+    draw_date_slam(frame, t)
+    for words, style, cx, cy, size, colours, end in CHUNKS:
+        draw_chunk(frame, t, words, style, cx, cy, size, colours, end)
 
 
 # ======================================================================
@@ -1622,7 +1866,7 @@ def render_frame(t, rng):
     arr *= VIGNETTE * bright * LYRIC_BAND
     arr += rng.normal(0, 3, (H // 2, W // 2, 1)).repeat(2, 0).repeat(2, 1)
     out = Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8)).convert("RGBA")
-    draw_lyrics(out, t)
+    draw_kinetic(out, t)
     out = out.convert("RGB")
     fade = min(clamp(t / 0.4), clamp((DURATION - t) / 0.7))
     if fade < 1:
