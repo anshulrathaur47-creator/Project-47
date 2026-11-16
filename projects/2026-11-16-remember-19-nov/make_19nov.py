@@ -138,82 +138,93 @@ def ik(s, target, l1, l2, bend):
 # story timeline (all character acting lives here)
 # ======================================================================
 LINES = [
-    (0.20, 5.30, "19 November 2023, Final ka din"),
-    (5.45, 10.20, "1 lakh log, ek hi sapna"),
-    (10.35, 15.20, "Bas ek jeet aur..."),
-    (15.35, 20.10, "...aur poora stadium chup"),
-    (20.25, 25.05, "Aaj bhi koi bole: Remember 19 Nov?"),
-    (25.15, 27.20, "Dil: abhi bhi dukhta hai"),
+    (0.20, 3.30, "Ek normal si subah..."),
+    (3.40, 5.75, "Phone: 'Aaj ke din, 3 saal pehle'"),
+    (5.90, 8.40, "Aaine mein dekha... aur"),
+    (8.75, 12.35, "19 Nov 2023, Ahmedabad. 1 lakh log, ek sapna"),
+    (12.45, 15.20, "Bas ek jeet aur..."),
+    (15.35, 20.10, "Australia ne final jeet liya. Stadium chup"),
+    (20.30, 25.00, "3 saal baad bhi, aaina wahi yaad dikhata hai"),
+    (25.20, 27.20, "Remember 19 November?"),
 ]
 
-BEAT = 0.418  # the track runs at ~143.5 bpm; one step / hop per beat
+BEAT = 0.418  # the track runs at ~143.5 bpm; hops land on the beat
+
+FB = (8.5, 20.2)   # flashback window (the 2023 final)
 
 T = {
     "stand":   [(0, 1)],
-    "slump":   [(0, 0), (15.3, 0), (15.9, 0.9), (20.1, 0.9), (20.25, 0), (25.1, 0), (25.6, 0.5)],
-    "head_dy": [(0, 0), (15.3, 0), (16.0, 24), (20.1, 24), (20.25, 0), (22.2, 0), (22.5, 10),
-                (25.0, 10), (25.4, 4)],
-    "tilt":    [(0, 0), (10.3, 0), (10.8, -4), (15.2, -4), (15.6, 0), (21.0, 0), (21.4, -6),
-                (22.2, -6), (22.4, 0), (25.1, 0), (25.6, 3)],
-    "shake":   [(0, 0), (22.35, 0), (22.5, 1), (24.6, 1), (24.9, 0)],
-    "look":    [(0, (0.0, 0.0)), (10.3, (0, 0)), (10.6, (0, -0.55)), (15.2, (0, -0.55)),
-                (15.6, (0, 0.7)), (20.1, (0, 0.7)), (20.25, (0, 0)), (20.9, (0, 0)),
-                (21.2, (0.9, -0.2)), (22.2, (0.9, -0.2)), (22.4, (0, 0)), (25.1, (0, 0)),
-                (25.5, (0, 0.3))],
-    "lid":     [(0, 0.1), (10.3, 0.1), (10.6, 0.0), (15.2, 0.0), (15.7, 0.5), (20.1, 0.5),
-                (20.25, 0.1), (21.3, 0.1), (21.45, 0.0), (22.2, 0.0), (22.35, 1.0), (24.9, 1.0),
-                (25.2, 0.35)],
-    "happy":   [(0, 0), (0.3, 0), (0.5, 1), (1.5, 1), (1.7, 0), (5.45, 0), (5.6, 1), (10.0, 1),
-                (10.25, 0)],
-    "brow":    [(0, -0.2), (10.3, -0.2), (10.7, 0.7), (15.2, 0.7), (15.6, 1.0), (20.1, 1.0),
-                (20.25, 0), (21.3, 0), (21.45, -0.4), (22.2, -0.4), (22.4, 1.0), (27.3, 1.0)],
-    "tear":    [(0, 0), (16.2, 0), (19.8, 1), (19.81, 0), (25.3, 0), (27.2, 1)],
-    "tear_a":  [(0, 0), (16.0, 0), (16.4, 1), (19.9, 1), (20.2, 0), (25.2, 0), (25.6, 1), (27.3, 1)],
-    "blush":   [(0, 0.45), (10.3, 0.45), (10.6, 0), (21.4, 0), (21.5, 0.5), (22.3, 0.5), (22.5, 0)],
-    "laugh":   [(0, 0), (5.5, 0), (5.7, 1), (10.0, 1), (10.3, 0)],
+    # sitting up in bed: the whole body starts low (legs hidden under the blanket)
+    "sink":    [(0, 330), (0.9, 330), (1.9, 150), (5.75, 150), (5.83, 0)],
+    "slump":   [(0, 0.8), (1.0, 0.8), (1.9, 0.2), (3.3, 0.2), (3.4, 0.4), (5.8, 0.4), (5.83, 0.1),
+                (8.5, 0.1), (8.51, 0), (15.3, 0), (15.9, 0.9), (20.1, 0.9), (20.2, 0.5), (27.3, 0.6)],
+    "head_dy": [(0, 30), (1.0, 30), (1.9, 0), (3.4, 0), (3.8, 22), (5.8, 22), (5.83, 0),
+                (15.3, 0), (16.0, 24), (20.1, 24), (20.2, 8), (27.3, 10)],
+    "tilt":    [(0, 14), (0.9, 14), (1.9, -3), (2.9, 4), (3.4, 0), (8.5, 0), (12.4, 0), (12.8, -4),
+                (15.2, -4), (15.6, 0), (20.2, 0), (21.0, -5), (24.0, -5), (24.6, 2)],
+    "shake":   [(0, 0)],
+    "look":    [(0, (0, 0)), (3.4, (0, 0)), (3.7, (0.1, 0.8)), (5.8, (0.1, 0.8)), (5.83, (0, 0)),
+                (12.4, (0, 0)), (12.7, (0, -0.55)), (15.2, (0, -0.55)), (15.6, (0, 0.7)),
+                (20.1, (0, 0.7)), (20.2, (0, 0)), (27.3, (0, 0.15))],
+    "lid":     [(0, 1.0), (0.95, 1.0), (1.3, 0.55), (1.9, 0.6), (2.0, 1.0), (2.8, 1.0), (3.0, 0.4),
+                (4.3, 0.4), (4.5, 0.0), (5.8, 0.0), (5.83, 0.2), (8.4, 0.05), (8.5, 0.1), (12.4, 0.1),
+                (12.7, 0.0), (15.2, 0.0), (15.7, 0.5), (20.1, 0.5), (20.3, 0.35), (27.3, 0.35)],
+    "happy":   [(0, 0), (8.7, 0), (8.85, 1), (12.2, 1), (12.4, 0)],
+    "brow":    [(0, 0.2), (3.4, 0.2), (4.3, 0.2), (4.5, -0.4), (5.8, -0.4), (5.83, 0.5), (8.5, 0.7),
+                (8.51, -0.2), (12.4, -0.2), (12.8, 0.7), (15.2, 0.7), (15.6, 1.0), (27.3, 1.0)],
+    "tear":    [(0, 0), (16.2, 0), (19.8, 1), (19.81, 0), (21.0, 0), (24.8, 1), (24.81, 0), (25.4, 0),
+                (27.2, 0.8)],
+    "tear_a":  [(0, 0), (16.0, 0), (16.4, 1), (19.9, 1), (20.15, 0), (20.9, 0), (21.2, 1), (27.3, 1)],
+    "blush":   [(0, 0), (8.7, 0), (8.9, 0.45), (12.3, 0.45), (12.5, 0)],
+    "laugh":   [(0, 0), (8.8, 0), (8.95, 1), (12.1, 1), (12.4, 0)],
     "crown":   [(0, 0)],
-    "walk":    [(0, 1.0), (5.2, 1.0), (5.45, 0.0)],
-    "swag":    [(0, 1.0), (5.3, 1.0), (5.5, 0.0)],
-    "speed":   [(0, 1.6), (5.2, 1.6), (5.45, 0.0)],
-    # flag pole angle (0 = straight up, + leans over the right shoulder)
-    "flag_ang": [(0, 0.15), (5.4, 0.15), (5.6, 0.0), (10.2, 0.0), (10.6, 1.0), (15.3, 1.0)],
-    "desat":   [(0, 0), (15.25, 0), (15.6, 0.75), (20.15, 0.75), (20.2, 0), (25.1, 0), (25.8, 0.45)],
+    "walk":    [(0, 0)],
+    "swag":    [(0, 0)],
+    "speed":   [(0, 0)],
+    "flag_ang": [(0, 0.15), (8.7, 0.15), (8.9, 0.0), (12.3, 0.0), (12.6, 1.0), (15.3, 1.0)],
+    "desat":   [(0, 0), (8.5, 0), (8.51, 0.22), (15.25, 0.22), (15.6, 0.8), (20.15, 0.8), (20.2, 0.15),
+                (25.1, 0.15), (25.8, 0.4)],
+    "hp":      [(0, 0), (8.5, 0), (8.51, 1), (20.19, 1), (20.2, 0)],
+    "paint":   [(0, 0), (8.5, 0), (8.51, 1), (20.19, 1), (20.2, 0)],
 }
-MOUTH = [(0, "grin"), (1.8, "smile"), (2.4, "grin"), (10.3, "flat"), (11.6, "frown"), (12.85, "hum"),
-         (14.4, "frown"), (20.2, "smile"), (21.45, "hum"), (22.3, "frown"), (25.8, "smile")]
+MOUTH = [(0, "flat"), (1.95, "hum"), (2.85, "flat"), (4.5, "hum"), (5.2, "flat"), (5.83, "flat"),
+         (7.4, "frown"), (8.5, "grin"), (12.4, "flat"), (13.2, "frown"), (13.8, "hum"), (14.9, "frown"),
+         (20.2, "frown"), (25.6, "smile")]
 # hand targets: ("hip"|"head", dx, dy), ("swing", side), ("wave",), ("pump", side)
-HAND_L = [(0, ("swing", -1)), (5.3, ("swing", -1)), (5.6, ("pump", -1)), (10.1, ("pump", -1)),
-          (10.5, ("head", -30, 100)), (15.25, ("head", -30, 100)), (15.7, ("hip", -122, -15)),
-          (20.15, ("hip", -122, -15)), (20.25, ("swing", -1)), (22.2, ("swing", -1)),
-          (22.4, ("head", -150, 12)), (24.8, ("head", -150, 12)), (25.2, ("hip", -122, -20)),
-          (25.9, ("hip", -122, -20)), (26.3, ("head", -72, 40)), (26.9, ("head", -72, 40)),
+HAND_L = [(0, ("hip", -122, -15)), (1.85, ("hip", -122, -15)), (2.1, ("head", -160, -240)),
+          (2.8, ("head", -160, -240)), (3.15, ("hip", -122, -15)), (8.5, ("hip", -122, -15)),
+          (8.75, ("pump", -1)), (12.2, ("pump", -1)), (12.55, ("head", -30, 100)), (15.25, ("head", -30, 100)),
+          (15.7, ("hip", -122, -15)), (20.15, ("hip", -122, -15)), (20.25, ("hip", -122, -15)),
+          (25.6, ("hip", -122, -15)), (26.1, ("head", -72, 40)), (26.8, ("head", -72, 40)),
           (27.2, ("hip", -122, -20))]
-HAND_R = [(0, ("head", 165, -150)), (5.3, ("head", 165, -150)), (5.6, ("pump", 1)), (10.1, ("pump", 1)),
-          (10.5, ("head", 30, 100)), (12.7, ("head", 30, 100)), (12.85, ("head", 12, 72)),
-          (14.3, ("head", 12, 72)), (14.5, ("head", 30, 100)), (15.25, ("head", 30, 100)),
-          (15.7, ("hip", 122, -15)), (20.15, ("hip", 122, -15)), (20.25, ("swing", 1)),
-          (22.2, ("swing", 1)), (22.4, ("head", 150, 12)), (24.8, ("head", 150, 12)),
-          (25.2, ("hip", 122, -20))]
-FLAG_HELD = (0.0, 15.4)    # in his right hand; falls at 15.4, gone at the time-jump
+HAND_R = [(0, ("hip", 122, -15)), (1.85, ("hip", 122, -15)), (2.1, ("head", 160, -240)),
+          (2.8, ("head", 160, -240)), (3.2, ("head", 45, 205)), (5.65, ("head", 45, 205)),
+          (5.83, ("hip", 122, -15)), (8.5, ("hip", 122, -15)), (8.6, ("head", 165, -150)),
+          (8.85, ("pump", 1)), (12.2, ("pump", 1)), (12.55, ("head", 30, 100)), (13.75, ("head", 30, 100)),
+          (13.9, ("head", 12, 72)), (14.8, ("head", 12, 72)), (14.95, ("head", 30, 100)),
+          (15.25, ("head", 30, 100)), (15.7, ("hip", 122, -15)), (20.15, ("hip", 122, -15)),
+          (20.25, ("hip", 122, -15)), (21.6, ("hip", 122, -15)), (22.3, ("hip", 40, -330)),
+          (24.4, ("hip", 40, -330)), (25.0, ("hip", 122, -20))]
+FLAG_HELD = (8.5, 15.4)    # flashback only: in his right hand, falls at 15.4
 
 # Shot list: (start, end, camera at start, camera at end, transition into the shot)
 # camera = (zoom, pan_x, pan_y, roll_degrees); pan moves the point the camera looks at
 # (negative y = look higher). His face sits around pan_y -336, his feet around +420.
 SHOTS = [
-    (0.00, 1.72, (1.00, 0, -20, 0), (1.08, 0, -30, 0), "fade"),       # wide: walking to the final
-    (1.72, 3.37, (2.30, 0, -335, 0), (2.50, 0, -338, 0), "cut"),      # close-up: big grin
-    (3.37, 5.41, (1.30, 0, 150, 3), (1.15, 0, 60, 3), "cut"),         # low angle: flag up
-    (5.41, 7.04, (1.00, 0, -60, 0), (1.06, 0, -90, 0), "flash"),      # stadium reveal
-    (7.04, 8.71, (1.35, -80, -200, -4), (1.35, 80, -200, -4), "cut"), # dutch pan: cheering
-    (8.71, 10.33, (2.20, 0, -335, 0), (2.00, 0, -330, 0), "whip"),    # close-up: shouting
-    (10.33, 12.82, (1.20, 0, -200, 0), (1.90, 0, -330, 0), "cut"),    # slow push-in: tension
-    (12.82, 15.28, (2.80, 0, -345, -3), (3.10, 0, -345, -5), "cut"),  # extreme close-up: eyes
-    (15.28, 18.55, (1.60, 0, -250, 0), (1.00, 0, -40, 0), "dip"),     # pull back: alone, silent
-    (18.55, 20.20, (2.40, 0, -335, 0), (2.60, 0, -338, 0), "cut"),    # close-up: the tear
-    (20.20, 22.27, (1.25, 40, -150, 0), (1.30, 70, -160, 0), "whip"), # present day: the calendar
-    (22.27, 25.12, (1.90, 0, -320, 0), (2.10, 0, -330, 0), "cut"),    # snap zoom: "nahi bhai"
-    (25.12, 27.27, (1.60, 0, -260, 0), (1.25, 0, -200, 0), "dip"),    # end
+    (0.00, 1.72, (1.50, 0, 0, 0), (1.45, 0, -110, 0), "fade"),          # bed: waking up
+    (1.72, 3.37, (1.15, 0, -60, 0), (1.20, 0, -90, 0), "cut"),          # stretch + yawn
+    (3.37, 5.83, (1.90, 0, -170, 0), (2.10, 0, -185, 0), "cut"),        # phone in hand
+    (5.83, 8.30, (1.00, 0, -40, 0), (2.20, 0, -335, 0), "cut"),         # mirror: wide, then push to his eyes
+    (8.30, 8.71, (2.80, 0, -345, 0), (3.10, 0, -345, 0), "cut"),        # extreme close-up into the memory
+    (8.71, 10.33, (1.00, 0, -60, 0), (1.06, 0, -90, 0), "flash"),       # 2023: stadium reveal
+    (10.33, 12.40, (2.20, 0, -335, 0), (2.00, 0, -330, 0), "cut"),      # shouting with joy
+    (12.40, 15.28, (1.30, 0, -220, 0), (3.00, 0, -345, -4), "cut"),     # tension push-in
+    (15.28, 18.55, (1.60, 0, -250, 0), (1.00, 0, -40, 0), "dip"),       # loss: pull back, silence
+    (18.55, 20.20, (2.40, 0, -335, 0), (2.60, 0, -338, 0), "cut"),      # the tear
+    (20.20, 25.12, (2.30, 0, -335, 0), (1.00, 0, -60, 0), "cut"),       # back in the mirror, pull back
+    (25.12, 27.27, (1.80, 0, -320, 0), (2.00, 0, -330, 0), "dip"),      # end
 ]
+RIPPLES = (8.5, 20.2)  # mirror ripple transitions into and out of the flashback
 WHIP = 0.2   # half-length of a whip-pan, seconds
 DIP = 0.22   # half-length of a dip to black
 
@@ -249,7 +260,7 @@ def transition_fx(t):
 
 
 # Locations: (start, kind).
-LOCATIONS = [(0.0, "street"), (5.41, "stadium"), (20.2, "room")]
+LOCATIONS = [(0.0, "bedroom"), (5.83, "bathroom"), (8.5, "stadium"), (20.2, "bathroom")]
 
 
 def location_at(t):
@@ -257,17 +268,18 @@ def location_at(t):
 
 
 LIGHT = [
-    (0.0, ((10, 16, 40), (40, 60, 110), (0.96, 0.98, 1.08))),
-    (5.40, ((10, 16, 40), (40, 60, 110), (0.96, 0.98, 1.08))),
-    (5.41, ((6, 10, 30), (34, 46, 92), (1.04, 1.02, 1.0))),
-    (10.3, ((6, 10, 30), (34, 46, 92), (1.04, 1.02, 1.0))),
-    (12.8, ((6, 10, 30), (34, 46, 92), (0.96, 0.95, 1.02))),
-    (15.2, ((6, 10, 30), (34, 46, 92), (0.96, 0.95, 1.02))),
-    (15.6, ((4, 6, 16), (16, 20, 40), (0.7, 0.74, 0.86))),
-    (20.19, ((4, 6, 16), (16, 20, 40), (0.7, 0.74, 0.86))),
-    (20.2, ((22, 16, 30), (52, 38, 56), (1.08, 0.99, 0.9))),
-    (25.1, ((22, 16, 30), (52, 38, 56), (1.08, 0.99, 0.9))),
-    (25.8, ((14, 10, 22), (36, 26, 40), (0.88, 0.88, 0.96))),
+    (0.0, ((60, 70, 110), (240, 170, 120), (1.04, 1.0, 0.96))),     # morning
+    (5.82, ((60, 70, 110), (240, 170, 120), (1.04, 1.0, 0.96))),
+    (5.83, ((30, 34, 44), (70, 76, 90), (0.98, 1.0, 1.04))),        # bathroom, cool
+    (8.49, ((30, 34, 44), (70, 76, 90), (0.98, 1.0, 1.04))),
+    (8.5, ((6, 10, 30), (34, 46, 92), (1.1, 1.0, 0.86))),           # 2023: warm memory tint
+    (12.4, ((6, 10, 30), (34, 46, 92), (1.1, 1.0, 0.86))),
+    (15.2, ((6, 10, 30), (34, 46, 92), (1.02, 0.96, 0.9))),
+    (15.6, ((4, 6, 16), (16, 20, 40), (0.72, 0.74, 0.84))),
+    (20.19, ((4, 6, 16), (16, 20, 40), (0.72, 0.74, 0.84))),
+    (20.2, ((30, 34, 44), (70, 76, 90), (0.92, 0.95, 1.04))),       # bathroom again, colder
+    (25.1, ((30, 34, 44), (70, 76, 90), (0.92, 0.95, 1.04))),
+    (25.8, ((20, 22, 30), (46, 50, 62), (0.84, 0.86, 0.95))),
 ]
 
 
@@ -312,7 +324,7 @@ def jump_at(t):
 
 def skip_at(t):
     """Cheering: hop on every beat in the stadium."""
-    if 5.6 < t < 10.15:
+    if 8.85 < t < 12.15:
         return abs(math.sin(walk_phase(t))) * 42
     return 0.0
 
@@ -375,8 +387,8 @@ def draw_head(t, p):
             bp.ellipse(cx + sx * 68 - 26, cy + 52, cx + sx * 68 + 26, cy + 70, (255, 120, 140, a))
         img.alpha_composite(blush.filter(ImageFilter.GaussianBlur(5 * K)))
 
-    # tricolour face paint on both cheeks
-    for sx in (-1, 1):
+    # tricolour face paint on both cheeks (only in the 2023 flashback)
+    for sx in ((-1, 1) if p.get("paint", 0) > 0.5 else ()):
         x0, y0 = cx + sx * 74 - 22, cy + 40
         for k, col in enumerate(((255, 153, 51), (250, 250, 250), (19, 136, 8))):
             pen.poly([(x0, y0 + k * 9), (x0 + 44, y0 + k * 9 - 4), (x0 + 44, y0 + k * 9 + 5),
@@ -471,15 +483,16 @@ def draw_head(t, p):
     for inner, mid, outer in p["_brows"]:
         pen.line([inner, mid, outer], HAIR, 8)
 
-    # headphones: he's vibing to his own music
+    # headphones: only in the 2023 flashback
     hp, hp_d = (225, 60, 72), (110, 24, 34)
-    pen.arc_line(cx, cy - 2, 136, 178, 192, 348, LINE, 24)
-    pen.arc_line(cx, cy - 2, 136, 178, 192, 348, (40, 40, 52), 16)
-    for sx in (-1, 1):
-        ex = cx + sx * 132
-        pen.ellipse(ex - 30, cy - 30, ex + 30, cy + 62, hp, LINE, 3)
-        pen.ellipse(ex - 16, cy - 10, ex + 16, cy + 42, hp_d)
-        pen.ellipse(ex - 22 + sx * 6, cy - 22, ex - 8 + sx * 6, cy - 2, (255, 160, 170))
+    if p.get("hp", 0) > 0.5:
+        pen.arc_line(cx, cy - 2, 136, 178, 192, 348, LINE, 24)
+        pen.arc_line(cx, cy - 2, 136, 178, 192, 348, (40, 40, 52), 16)
+        for sx in (-1, 1):
+            ex = cx + sx * 132
+            pen.ellipse(ex - 30, cy - 30, ex + 30, cy + 62, hp, LINE, 3)
+            pen.ellipse(ex - 16, cy - 10, ex + 16, cy + 42, hp_d)
+            pen.ellipse(ex - 22 + sx * 6, cy - 22, ex - 8 + sx * 6, cy - 2, (255, 160, 170))
 
     # crown
     c = p["crown"]
@@ -515,7 +528,7 @@ def draw_character(t):
     # walking: sway side to side, bounce on every step (more swagger = more bounce)
     hx = 540 + math.sin(phase) * (6 + 16 * swag) * walk
     bob = (8 + 16 * swag) * walk * abs(math.sin(phase))
-    hip_y = 1250 - bob - air - hop + squash
+    hip_y = 1250 - bob - air - hop + squash + p["sink"]
     p["tilt"] += math.sin(phase) * 4 * swag * walk
     p["tilt"] += p["shake"] * math.sin(t * 17) * 9  # "nahi bhai" head shake
     breathe = math.sin(t * 2.2) * 3
@@ -582,7 +595,7 @@ def draw_character(t):
 
 def draw_flag(layer, t):
     """Indian tricolour on a pole in his right hand; it slips and falls after the loss."""
-    if t >= 20.2 or "R" not in LAST_HANDS:
+    if not (FB[0] <= t < FB[1]) or "R" not in LAST_HANDS:
         return
     d = ImageDraw.Draw(layer)
     ang = track(T["flag_ang"], t)
@@ -981,54 +994,96 @@ def stadium_env(t):
     return img
 
 
-def room_env(t):
+def bedroom_env(t):
     img = Image.new("RGBA", (W, H), (0, 0, 0, 255))
     d = ImageDraw.Draw(img)
-    for y in range(0, 1560, 6):  # back wall
-        f = y / 1560
-        d.rectangle([0, y, W, y + 6], fill=(int(lerp(74, 52, f)), int(lerp(58, 40, f)), int(lerp(78, 58, f)), 255))
-    d.rectangle([0, 1560, W, H], fill=(46, 34, 38, 255))  # floor
-    for k in range(8):
-        d.line([(540 + (k - 4) * 60, 1560), (540 + (k - 4) * 260, H)], fill=(56, 42, 46, 255), width=3)
-    # window with the night sky and a crescent moon
-    d.rectangle([60, 420, 360, 860], fill=(12, 18, 44, 255), outline=(30, 24, 30, 255), width=14)
-    d.line([(210, 420), (210, 860)], fill=(30, 24, 30, 255), width=10)
-    d.ellipse([250, 480, 320, 550], fill=(255, 244, 218, 255))
-    d.ellipse([268, 470, 338, 540], fill=(12, 18, 44, 255))
-    # a bat leaning on the wall (generic)
-    d.polygon([(965, 1560), (995, 1560), (1030, 1150), (1000, 1146)], fill=(214, 182, 128, 255))
-    d.line([(1015, 1148), (1040, 1030)], fill=(40, 40, 50, 255), width=16)
-    # wall calendar: flips from 18 to 19, then a red marker circle appears
-    cx0, cy0, cw, chh = 700, 520, 300, 360
-    d.rectangle([cx0 + 8, cy0 + 8, cx0 + cw + 8, cy0 + chh + 8], fill=(20, 14, 20, 255))
-    d.rectangle([cx0, cy0, cx0 + cw, cy0 + chh], fill=(246, 244, 238, 255))
-    d.rectangle([cx0, cy0, cx0 + cw, cy0 + 84], fill=(206, 44, 54, 255))
-    hf = ImageFont.truetype(F_SYM, 40)
-    d.text((cx0 + cw / 2, cy0 + 44), "NOVEMBER", font=hf, fill=(255, 255, 255, 255), anchor="mm")
-    flip = clamp((t - 20.75) / 0.35)
-    nf = ImageFont.truetype(F_SYM, 170)
-    d.text((cx0 + cw / 2, cy0 + 220), "19" if flip > 0.5 else "18", font=nf, fill=(30, 30, 40, 255), anchor="mm")
-    if 0 < flip < 1:  # page lifting up
-        hgt = int(chh * (1 - flip) * 0.9)
-        d.rectangle([cx0, cy0 + 84, cx0 + cw, cy0 + 84 + max(hgt - 84, 0)], fill=(232, 230, 224, 255))
-    for k in range(5):  # rings
-        d.ellipse([cx0 + 40 + k * 55, cy0 - 14, cx0 + 58 + k * 55, cy0 + 4], fill=(90, 90, 100, 255))
-    mark = clamp((t - 21.25) / 0.4)
-    if mark > 0:
-        n = int(40 * mark)
-        pts = [(cx0 + cw / 2 + 120 * math.cos(-1.9 + k / 40 * 6.6), cy0 + 222 + 95 * math.sin(-1.9 + k / 40 * 6.6))
-               for k in range(n + 1)]
-        if len(pts) > 1:
-            d.line(pts, fill=(220, 30, 40, 255), width=10)
+    for y in range(0, H, 6):  # warm morning wall
+        f = y / H
+        d.rectangle([0, y, W, y + 6], fill=(int(lerp(120, 70, f)), int(lerp(96, 56, f)), int(lerp(110, 70, f)), 255))
+    # window with sunrise and light rays across the room
+    d.rectangle([640, 260, 1010, 760], fill=(255, 196, 140, 255), outline=(70, 50, 56, 255), width=16)
+    d.ellipse([760, 470, 900, 610], fill=(255, 236, 190, 255))
+    d.line([(825, 260), (825, 760)], fill=(70, 50, 56, 255), width=10)
+    rays = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    rd = ImageDraw.Draw(rays)
+    for k in range(4):
+        rd.polygon([(650 + k * 90, 280), (700 + k * 90, 280), (300 + k * 160, H), (120 + k * 160, H)],
+                   fill=(255, 220, 160, 38))
+    img.alpha_composite(rays.filter(ImageFilter.GaussianBlur(20)))
+    # headboard + pillow behind him
+    d.rounded_rectangle([140, 860, 940, 1220], radius=60, fill=(86, 56, 48, 255), outline=(60, 38, 34, 255), width=8)
+    d.rounded_rectangle([240, 1000, 840, 1180], radius=70, fill=(236, 232, 240, 255))
+    # bedside table + clock
+    d.rectangle([20, 1240, 150, 1560], fill=(96, 64, 52, 255))
+    return img
+
+
+def bathroom_env(t):
+    img = Image.new("RGBA", (W, H), (0, 0, 0, 255))
+    d = ImageDraw.Draw(img)
+    for y in range(0, H, 90):  # tiles
+        for x in range(0 if (y // 90) % 2 == 0 else -45, W, 90):
+            d.rectangle([x + 2, y + 2, x + 88, y + 88], fill=(70, 82, 92, 255))
+    # inside the mirror: a cooler, slightly darker copy of the room behind him
+    d.rounded_rectangle([150, 360, 930, 1480], radius=40, fill=(40, 50, 62, 255))
+    for y in range(360, 1480, 70):
+        d.line([(150, y), (930, y)], fill=(48, 60, 72, 255), width=2)
+    d.rectangle([700, 420, 860, 640], fill=(70, 86, 104, 255))  # a reflected doorway
     return img
 
 
 def draw_env(t, kind, sky_bot):
     if kind == "stadium":
         return stadium_env(t)
-    if kind == "room":
-        return room_env(t)
+    if kind == "bedroom":
+        return bedroom_env(t)
+    if kind == "bathroom":
+        return bathroom_env(t)
     return _draw_road_env(t, kind, sky_bot)
+
+
+def front_props(layer, t):
+    """Things in front of him: the blanket in bed, the phone, the mirror frame + sink."""
+    d = ImageDraw.Draw(layer)
+    kind = location_at(t)
+    if kind == "bedroom":
+        # blanket covering his legs, with folds
+        d.rounded_rectangle([60, 1260, 1020, 1980], radius=80, fill=(70, 120, 190, 255), outline=(40, 80, 140, 255), width=8)
+        for k in range(5):
+            d.arc([100 + k * 170, 1300, 300 + k * 170, 1520], 200, 340, fill=(50, 96, 160, 255), width=8)
+        d.rectangle([60, 1260, 1020, 1330], fill=(236, 232, 240, 255))  # sheet fold
+        # alarm clock on the bedside table, shaking while it rings
+        ring = 0.3 < t < 1.6
+        sh = math.sin(t * 60) * 7 if ring else 0
+        cx, cy = 85 + sh, 1180
+        d.ellipse([cx - 52, cy - 52, cx + 52, cy + 52], fill=(220, 60, 60, 255), outline=(60, 20, 20, 255), width=5)
+        d.ellipse([cx - 40, cy - 40, cx + 40, cy + 40], fill=(250, 248, 240, 255))
+        d.line([(cx, cy), (cx, cy - 28)], fill=(30, 30, 40, 255), width=5)
+        d.line([(cx, cy), (cx + 20, cy + 6)], fill=(30, 30, 40, 255), width=5)
+        for sx in (-1, 1):
+            d.ellipse([cx + sx * 40 - 18, cy - 70, cx + sx * 40 + 18, cy - 40], fill=(220, 60, 60, 255))
+        if ring:
+            for k in range(3):
+                r = 70 + k * 22 + (t * 80) % 22
+                d.arc([cx - r, cy - r, cx + r, cy + r], 290, 340, fill=(255, 240, 200, 220), width=5)
+                d.arc([cx - r, cy - r, cx + r, cy + r], 200, 250, fill=(255, 240, 200, 220), width=5)
+    if 3.2 < t < 5.8 and "R" in LAST_HANDS:  # phone in his hand
+        hx, hy = LAST_HANDS["R"]
+        d.rounded_rectangle([hx - 52, hy - 110, hx + 52, hy + 70], radius=16, fill=(20, 22, 30, 255))
+        d.rounded_rectangle([hx - 44, hy - 100, hx + 44, hy + 60], radius=10, fill=(120, 170, 255, 255))
+    if kind == "bathroom":
+        # mirror frame + glass shine (in front, so he reads as the reflection)
+        d.rounded_rectangle([150, 360, 930, 1480], radius=40, outline=(200, 205, 215, 255), width=26)
+        shine = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        sd = ImageDraw.Draw(shine)
+        for k, (x0, w_) in enumerate(((230, 70), (330, 26), (700, 50))):
+            sd.polygon([(x0, 380), (x0 + w_, 380), (x0 + w_ - 260, 1460), (x0 - 260, 1460)], fill=(255, 255, 255, 26))
+        layer.alpha_composite(shine.filter(ImageFilter.GaussianBlur(6)))
+        # sink counter hides his legs
+        d.rectangle([0, 1480, W, H], fill=(214, 216, 222, 255))
+        d.rectangle([0, 1480, W, 1520], fill=(236, 238, 242, 255))
+        d.ellipse([360, 1540, 720, 1680], fill=(190, 194, 202, 255))
+        d.rectangle([520, 1440, 560, 1540], fill=(170, 174, 184, 255))  # tap
 
 
 def _draw_road_env(t, kind, sky_bot):
@@ -1223,33 +1278,73 @@ def heart_pts(x, y, s, half=0):
     return pts
 
 
+def phone_card(d, t):
+    """POV insert of the phone screen: a generic 'Memories' card from 3 years ago."""
+    sc, a = pop(t, 4.0, 5.75, fade=0.25)
+    if a <= 0:
+        return
+    al = int(255 * a)
+    w_, h_ = 640 * clamp(sc, 0.2, 1.05), 860 * clamp(sc, 0.2, 1.05)
+    x0, y0 = W / 2 - w_ / 2, 560 - h_ / 2 + 140
+    d.rounded_rectangle([x0 - 16, y0 - 16, x0 + w_ + 16, y0 + h_ + 16], radius=60, fill=(16, 16, 22, al))
+    d.rounded_rectangle([x0, y0, x0 + w_, y0 + h_], radius=46, fill=(246, 246, 250, al))
+    if sc < 0.8:
+        return
+    f1, f2, f3 = (ImageFont.truetype(F_SYM, n) for n in (34, 46, 30))
+    d.text((x0 + 40, y0 + 50), "Memories", font=f1, fill=(90, 90, 110, al))
+    d.text((x0 + 40, y0 + 100), "Aaj ke din, 3 saal pehle", font=f2, fill=(20, 20, 30, al))
+    # photo thumbnail: a stadium full of blue at night
+    px0, py0, px1, py1 = x0 + 40, y0 + 190, x0 + w_ - 40, y0 + 560
+    d.rounded_rectangle([px0, py0, px1, py1], radius=24, fill=(14, 20, 50, al))
+    rr = random.Random(23)
+    for _ in range(420):
+        x, y = rr.uniform(px0 + 10, px1 - 10), rr.uniform(py0 + 30, py0 + 230)
+        c = (40, 90, 200) if rr.random() < 0.7 else (255, 153, 51)
+        d.ellipse([x - 3, y - 3, x + 3, y + 3], fill=c + (al,))
+    d.rectangle([px0, py0 + 240, px1, py1 - 20], fill=(30, 110, 60, al))
+    for fx in (px0 + 60, px1 - 60):
+        d.ellipse([fx - 40, py0 + 8, fx + 40, py0 + 40], fill=(255, 250, 220, al))
+    d.text((x0 + 40, y0 + 600), "19 Nov 2023  -  Ahmedabad", font=f3, fill=(60, 60, 80, al))
+    d.rounded_rectangle([x0 + 40, y0 + 680, x0 + w_ - 40, y0 + 760], radius=40, fill=(40, 100, 230, al))
+    d.text((x0 + w_ / 2, y0 + 720), "Dekho yaadein", font=f1, fill=(255, 255, 255, al), anchor="mm")
+
+
 def draw_signs(t, layer, cam, head):
     d = ImageDraw.Draw(layer)
     m, zd = world_to_screen(cam)
 
-    # "Final": a glowing generic cup pops up beside him
-    sc, a = pop(t, 2.9, 5.3)
-    if a > 0:
-        x, y = m(head[0] - 250, head[1] - 120)
-        r = 52 * zd * sc * 0.75
-        al = int(255 * a)
-        gold = (255, 200, 70, al)
-        d.pieslice([x - r, y - r * 1.2, x + r, y + r * 0.8], 0, 180, fill=gold)
-        d.rectangle([x - r, y - r * 1.2, x + r, y - r * 0.2], fill=gold)
-        for sgn in (-1, 1):
-            d.arc([x + sgn * r * 0.75 - r * 0.45, y - r, x + sgn * r * 0.75 + r * 0.45, y - r * 0.1],
-                  90 if sgn > 0 else -90, 270 if sgn > 0 else 90, fill=gold, width=max(3, int(r * 0.15)))
-        d.rectangle([x - r * 0.15, y + r * 0.75, x + r * 0.15, y + r * 1.2], fill=gold)
-        d.rectangle([x - r * 0.6, y + r * 1.2, x + r * 0.6, y + r * 1.45], fill=gold)
-        sparkle_r = r * 0.35 * (0.6 + 0.4 * math.sin(t * 9))
-        d.polygon([(x + r, y - r * 1.6 - sparkle_r), (x + r + sparkle_r * 0.3, y - r * 1.6),
-                   (x + r, y - r * 1.6 + sparkle_r), (x + r - sparkle_r * 0.3, y - r * 1.6)], fill=(255, 250, 210, al))
+    # sleeping: zzz floating up, then the alarm
+    if t < 1.0:
+        for k in range(3):
+            age = (t * 1.2 + k * 0.33) % 1
+            x, y = m(head[0] + 110 + age * 90, head[1] - 120 - age * 160)
+            sz = int((26 + k * 8) * zd * 0.6)
+            al = int(230 * math.sin(math.pi * age) * (1 - smooth((t - 0.8) / 0.2)))
+            d.text((x, y), "z", font=ImageFont.truetype(F_SYM, max(10, sz)), fill=(255, 255, 255, al))
 
-    # "sapna": stars float up from the crowd
-    if 6.0 < t < 10.2:
+    phone_card(d, t)
+
+    # phone shock: anime surprise marks
+    sc, a = pop(t, 4.45, 5.6, fade=0.15)
+    if a > 0:
+        al = int(255 * a)
+        for ang in (-0.5, 0.0, 0.5):
+            x0, y0 = m(head[0] + 230 * math.sin(ang), head[1] - 200 - 30 * math.cos(ang))
+            x1, y1 = m(head[0] + 300 * math.sin(ang), head[1] - 260 - 50 * math.cos(ang))
+            d.line([(x0, y0), (lerp(x0, x1, sc), lerp(y0, y1, sc))], fill=(255, 230, 120, al), width=max(4, int(3 * zd)))
+
+    # flashback tag
+    if FB[0] + 0.3 < t < FB[1] - 0.1:
+        al = int(220 * smooth((t - FB[0] - 0.3) / 0.4))
+        f = ImageFont.truetype(F_SYM, 34)
+        d.rounded_rectangle([60, 150, 400, 210], radius=30, fill=(0, 0, 0, int(al * 0.6)))
+        d.text((90, 160), "FLASHBACK  2023", font=f, fill=(255, 220, 160, al))
+
+    # "sapna": stars rise from the crowd
+    if 9.0 < t < 12.3:
         rr = random.Random(7)
         for k in range(14):
-            born = 6.0 + rr.uniform(0, 3.5)
+            born = 9.0 + rr.uniform(0, 2.8)
             age = t - born
             if 0 < age < 1.6:
                 x = rr.uniform(80, W - 80)
@@ -1260,24 +1355,18 @@ def draw_signs(t, layer, cam, head):
                            (x, y + r * 2), (x - r * 0.5, y + r * 0.5), (x - r * 2, y), (x - r * 0.5, y - r * 0.5)],
                           fill=(255, 235, 150, al))
 
-    # "jeet...": a heartbeat line races across the top, faster as it gets tense
-    if 10.4 < t < 15.3:
-        al = int(255 * smooth((t - 10.4) / 0.4) * (1 - smooth((t - 15.0) / 0.3)))
+    # "jeet...": heartbeat line races across the top
+    if 12.5 < t < 15.3:
+        al = int(255 * smooth((t - 12.5) / 0.4) * (1 - smooth((t - 15.0) / 0.3)))
         pts = []
-        speed = 1 + 1.5 * smooth((t - 10.4) / 4.5)
+        speed = 1 + 1.5 * smooth((t - 12.5) / 2.6)
         for xp in range(60, W - 60, 6):
             u = (xp / W * 3 - t * speed) % 1
-            yv = 0
-            if 0.42 < u < 0.46:
-                yv = -90
-            elif 0.46 < u < 0.5:
-                yv = 60
-            elif 0.38 < u < 0.42:
-                yv = 18
+            yv = -90 if 0.42 < u < 0.46 else (60 if 0.46 < u < 0.5 else (18 if 0.38 < u < 0.42 else 0))
             pts.append((xp, 470 + yv))
         d.line(pts, fill=(255, 90, 100, al), width=6)
 
-    # "chup": a muted speaker, then a heart cracking and falling apart
+    # loss: muted speaker, heart breaking apart
     sc, a = pop(t, 15.5, 17.6)
     if a > 0:
         x, y, r = 880, 520, 46 * sc
@@ -1299,27 +1388,22 @@ def draw_signs(t, layer, cam, head):
             ox, oy = side * 9 * size * apart, 14 * size * apart ** 2
             d.polygon([(px_ + ox, py_ + oy) for px_, py_ in pts], fill=(220, 40, 70, int(al * (1 - apart * 0.5))))
 
-    # calendar shock: anime surprise marks over his head
-    sc, a = pop(t, 21.4, 22.3, fade=0.15)
-    if a > 0:
-        al = int(255 * a)
-        for k, ang in enumerate((-0.5, 0.0, 0.5)):
-            x0, y0 = m(head[0] + 230 * math.sin(ang), head[1] - 200 - 30 * math.cos(ang))
-            x1, y1 = m(head[0] + 300 * math.sin(ang), head[1] - 260 - 50 * math.cos(ang))
-            d.line([(x0, y0), (lerp(x0, x1, sc), lerp(y0, y1, sc))], fill=(255, 230, 120, al), width=max(4, int(6 * zd * 0.5)))
-
-    # "nahi bhai": gloom lines above his head + a sweat drop
-    if 22.4 < t < 25.1:
-        al = int(200 * smooth((t - 22.4) / 0.3) * (1 - smooth((t - 24.8) / 0.3)))
-        for k in range(7):
-            x = head[0] - 150 + k * 50
-            x0, y0 = m(x, head[1] - 300)
-            x1, y1 = m(x, head[1] - 300 + 90 + 30 * (k % 2))
-            d.line([(x0, y0), (x1, y1)], fill=(120, 140, 220, al), width=max(3, int(4 * zd * 0.6)))
-        sx_, sy_ = m(head[0] + 110, head[1] - 80 + (t - 22.4) * 40)
-        r = 14 * zd * 0.6
-        d.polygon([(sx_, sy_ - r * 2), (sx_ - r, sy_), (sx_ + r, sy_)], fill=(170, 210, 255, al))
-        d.ellipse([sx_ - r, sy_ - r, sx_ + r, sy_ + r], fill=(170, 210, 255, al))
+    # back in the mirror: a crack spreads where his hand touches the glass
+    if 22.4 < t < 27.27:
+        grow = smooth((t - 22.4) / 1.2)
+        al = int(200 * (1 - smooth((t - 26.6) / 0.6)))
+        rr = random.Random(11)
+        cx, cy = m(580, 920)
+        for k in range(9):
+            ang = k / 9 * math.tau + rr.uniform(-0.2, 0.2)
+            pts = [(cx, cy)]
+            x, y = cx, cy
+            for j in range(4):
+                step_ = rr.uniform(40, 80) * zd * 0.5 * grow
+                ang += rr.uniform(-0.4, 0.4)
+                x, y = x + step_ * math.cos(ang), y + step_ * math.sin(ang)
+                pts.append((x, y))
+            d.line(pts, fill=(235, 240, 255, al), width=3)
 
     # ending: a small broken heart drifting up
     sc, a = pop(t, 25.4, 27.27, fade=0.6)
@@ -1338,7 +1422,7 @@ CONFETTI = [(rnd_fx.uniform(0, W), rnd_fx.uniform(0, H), rnd_fx.uniform(90, 200)
 def fx_layer(t):
     layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)
-    joy = smooth((t - 5.5) / 0.5) * (1 - smooth((t - 10.1) / 0.5))
+    joy = smooth((t - 8.8) / 0.4) * (1 - smooth((t - 12.2) / 0.4))
     if joy > 0.01:
         for x, y, sp, ph, col in CONFETTI:
             yy_ = (y + t * sp) % H
@@ -1484,7 +1568,7 @@ def render_frame(t, rng):
     sky = np.array(top, np.float32) * (1 - GRAD_Y) + np.array(bot, np.float32) * GRAD_Y
     frame = Image.fromarray(np.broadcast_to(sky, (H, W, 3)).astype(np.uint8)).convert("RGBA")
     kind = location_at(t)
-    star_a = {"street": 1.0, "stadium": 0.25, "room": 0.0}.get(kind, 1.0)
+    star_a = {"stadium": 0.25}.get(kind, 0.0)
     stars = STARS if star_a > 0.98 else Image.fromarray(
         (np.asarray(STARS) * np.array([1, 1, 1, star_a], np.float32)).astype(np.uint8))
     frame.alpha_composite(cam_transform(stars, 0.15, cam))
@@ -1507,6 +1591,7 @@ def render_frame(t, rng):
     # in front: dream bubbles, memories, weather
     front = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     draw_flag(front, t)
+    front_props(front, t)
     frame.alpha_composite(cam_transform(front.filter(ImageFilter.GaussianBlur(0.7)), 1.0, cam))
     frame.alpha_composite(cam_transform(fx_layer(t), 1.1, cam))
 
@@ -1523,6 +1608,15 @@ def render_frame(t, rng):
         lum = arr @ np.array([0.299, 0.587, 0.114], np.float32)
         arr = arr * (1 - desat) + lum[:, :, None] * desat
     arr = motion_blur(arr, blur)
+    # mirror ripple into / out of the flashback, with a soft white bloom
+    for rt in RIPPLES:
+        r = 1 - abs(t - rt) / 0.45
+        if r > 0:
+            amp = 38 * r * r
+            rows = np.arange(H)
+            shift = (amp * np.sin(rows / 38.0 + t * 30)).astype(int)
+            arr = np.stack([np.roll(arr[y], shift[y], axis=0) for y in range(H)])
+            arr = arr + (255 - arr) * (0.55 * r * r)
     if flash > 0.01:
         arr = arr + (255 - arr) * flash * np.array([1.0, 0.88, 0.6], np.float32)
     arr *= VIGNETTE * bright * LYRIC_BAND
