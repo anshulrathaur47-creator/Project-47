@@ -14,3 +14,5 @@ tools/secrets/
 projects/*/_*.mp4
 projects/*/_prev_*.png
 projects/*/render.log
+__pycache__/
+projects/*/_preview_*.png
