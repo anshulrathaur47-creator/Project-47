@@ -214,17 +214,31 @@ SHOTS = [
     (0.00, 1.72, (1.50, 0, 0, 0), (1.45, 0, -110, 0), "fade"),          # bed: waking up
     (1.72, 3.37, (1.15, 0, -60, 0), (1.20, 0, -90, 0), "cut"),          # stretch + yawn
     (3.37, 5.83, (1.90, 0, -170, 0), (2.10, 0, -185, 0), "cut"),        # phone in hand
-    (5.83, 8.30, (1.00, 0, -40, 0), (2.20, 0, -335, 0), "cut"),         # mirror: wide, then push to his eyes
+    (5.83, 7.40, (1.00, 0, -40, 0), (1.00, 0, -40, 0), "cut"),          # OTS: him + his reflection
+    (7.40, 8.30, (1.60, 0, -300, 0), (2.40, 0, -340, 0), "cut"),        # reflection: push into his eyes
     (8.30, 8.71, (2.80, 0, -345, 0), (3.10, 0, -345, 0), "cut"),        # extreme close-up into the memory
     (8.71, 10.33, (1.00, 0, -60, 0), (1.06, 0, -90, 0), "flash"),       # 2023: stadium reveal
     (10.33, 12.40, (2.20, 0, -335, 0), (2.00, 0, -330, 0), "cut"),      # shouting with joy
     (12.40, 15.28, (1.30, 0, -220, 0), (3.00, 0, -345, -4), "cut"),     # tension push-in
     (15.28, 18.55, (1.60, 0, -250, 0), (1.00, 0, -40, 0), "dip"),       # loss: pull back, silence
     (18.55, 20.20, (2.40, 0, -335, 0), (2.60, 0, -338, 0), "cut"),      # the tear
-    (20.20, 25.12, (2.30, 0, -335, 0), (1.00, 0, -60, 0), "cut"),       # back in the mirror, pull back
-    (25.12, 27.27, (1.80, 0, -320, 0), (2.00, 0, -330, 0), "dip"),      # end
+    (20.20, 21.80, (2.30, 0, -335, 0), (2.00, 0, -320, 0), "cut"),      # reflection close-up, sad
+    (21.80, 25.12, (1.00, 0, -40, 0), (1.00, 0, -40, 0), "cut"),        # OTS: hand meets the glass
+    (25.12, 27.27, (1.00, 0, -40, 0), (1.00, 0, -40, 0), "dip"),        # OTS: end
 ]
 RIPPLES = (8.5, 20.2)  # mirror ripple transitions into and out of the flashback
+# over-the-shoulder windows: (start, end, outer zoom at start, outer zoom at end)
+OTS = [(5.83, 7.40, 1.00, 1.07), (21.80, 25.12, 1.00, 1.07), (25.12, 27.27, 1.07, 1.00)]
+INNER_CAM = (1.70, 0, -260, 0)       # how the reflection inside the mirror is framed
+MIRROR = (330, 280, 1000, 1250)      # mirror glass rectangle in the OTS shot
+TOUCH = (707, 972)                   # where hand and reflection meet on the glass
+
+
+def ots_at(t):
+    for a, b, z0, z1 in OTS:
+        if a <= t < b:
+            return lerp(z0, z1, smooth((t - a) / (b - a)))
+    return None
 WHIP = 0.2   # half-length of a whip-pan, seconds
 DIP = 0.22   # half-length of a dip to black
 
@@ -1042,7 +1056,7 @@ def draw_env(t, kind, sky_bot):
     return _draw_road_env(t, kind, sky_bot)
 
 
-def front_props(layer, t):
+def front_props(layer, t, inner=False):
     """Things in front of him: the blanket in bed, the phone, the mirror frame + sink."""
     d = ImageDraw.Draw(layer)
     kind = location_at(t)
@@ -1071,7 +1085,7 @@ def front_props(layer, t):
         hx, hy = LAST_HANDS["R"]
         d.rounded_rectangle([hx - 52, hy - 110, hx + 52, hy + 70], radius=16, fill=(20, 22, 30, 255))
         d.rounded_rectangle([hx - 44, hy - 100, hx + 44, hy + 60], radius=10, fill=(120, 170, 255, 255))
-    if kind == "bathroom":
+    if kind == "bathroom" and not inner:
         # mirror frame + glass shine (in front, so he reads as the reflection)
         d.rounded_rectangle([150, 360, 930, 1480], radius=40, outline=(200, 205, 215, 255), width=26)
         shine = Image.new("RGBA", (W, H), (0, 0, 0, 0))
@@ -1589,27 +1603,45 @@ _ksprite = {}
 
 
 def ksprite(word, size, col, glow):
+    """Neon lyric sprite: wide soft halo + tight glow + bright core with a thin coloured edge."""
     key = (word, size, col, glow)
     if key in _ksprite:
         return _ksprite[key]
     f = kfont(size)
     probe = ImageDraw.Draw(Image.new("RGBA", (1, 1)))
     x0, y0, x1, y1 = probe.textbbox((0, 0), word, font=f)
-    pad = int(size * 0.45)
+    pad = int(size * 0.6)
     asc, desc = f.getmetrics()
     img = Image.new("RGBA", (x1 - x0 + 2 * pad, asc + desc + 2 * pad), (0, 0, 0, 0))
     org = (pad - x0, pad)
-    gl = Image.new("RGBA", img.size, (0, 0, 0, 0))
-    ImageDraw.Draw(gl).text(org, word, font=f, fill=glow + (210,))
-    img.alpha_composite(gl.filter(ImageFilter.GaussianBlur(size * 0.18)))
-    sh = Image.new("RGBA", img.size, (0, 0, 0, 0))
-    ImageDraw.Draw(sh).text((org[0] + 3, org[1] + 6), word, font=f, fill=(0, 0, 0, 230))
-    img.alpha_composite(sh.filter(ImageFilter.GaussianBlur(5)))
-    d = ImageDraw.Draw(img)
-    d.text(org, word, font=f, fill=col + (255,), stroke_width=max(2, size // 40), stroke_fill=(20, 14, 30, 255))
+    dark = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(dark).text(org, word, font=f, fill=(0, 0, 0, 170), stroke_width=size // 12, stroke_fill=(0, 0, 0, 170))
+    img.alpha_composite(dark.filter(ImageFilter.GaussianBlur(size * 0.12)))
+    wide = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(wide).text(org, word, font=f, fill=glow + (190,), stroke_width=size // 14, stroke_fill=glow + (190,))
+    img.alpha_composite(wide.filter(ImageFilter.GaussianBlur(size * 0.30)))
+    tight = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(tight).text(org, word, font=f, fill=glow + (255,), stroke_width=size // 22, stroke_fill=glow + (255,))
+    img.alpha_composite(tight.filter(ImageFilter.GaussianBlur(size * 0.07)))
+    core = tuple(int(c + (255 - c) * 0.55) for c in col)
+    ImageDraw.Draw(img).text(org, word, font=f, fill=core + (255,), stroke_width=max(1, size // 45),
+                             stroke_fill=glow + (255,))
     adv = probe.textlength(word, font=f)
     _ksprite[key] = (img, adv)
     return _ksprite[key]
+
+
+def shine(img, frac):
+    """A diagonal light sweep passing across the glowing word."""
+    if not (-0.3 < frac < 1.3):
+        return img
+    arr = np.asarray(img).astype(np.float32)
+    h_, w_ = arr.shape[:2]
+    yy_, xx_ = np.mgrid[0:h_, 0:w_]
+    band = np.exp(-(((xx_ + yy_ * 0.45) / w_ - frac) / 0.07) ** 2)
+    k = band * (arr[:, :, 3] / 255.0) * 0.75
+    arr[:, :, :3] = arr[:, :, :3] + (255 - arr[:, :, :3]) * k[:, :, None]
+    return Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8), "RGBA")
 
 
 def alpha_mul(img, a):
@@ -1633,7 +1665,30 @@ def row_ripple(img, amp, phase):
     return Image.fromarray(arr, "RGBA")
 
 
-def draw_chunk(frame, t, words, style, cx, cy, size, colours, end):
+CHUNK_Y = {}
+Y_CANDIDATES = (210, 330, 450, 1560, 1690)
+
+
+def choose_y(key, width, height, occ):
+    """Pick (once) the free band with the least character/flag/sign coverage; prefer the top."""
+    if key in CHUNK_Y:
+        return CHUNK_Y[key]
+    best, best_cost = Y_CANDIDATES[0], None
+    x0, x1 = int(max(0, 540 - width / 2) / 8), int(min(W, 540 + width / 2) / 8)
+    for rank, y in enumerate(Y_CANDIDATES):
+        y0, y1 = int(max(0, y - height / 2) / 8), int(min(H, y + height / 2) / 8)
+        cost = 0.0
+        if occ is not None:
+            char_m, other_m = occ
+            cost = char_m[y0:y1, x0:x1].mean() * 10 + other_m[y0:y1, x0:x1].mean() * 3
+        cost += rank * 0.02
+        if best_cost is None or cost < best_cost:
+            best, best_cost = y, cost
+    CHUNK_Y[key] = best
+    return best
+
+
+def draw_chunk(frame, t, words, style, cx, cy, size, colours, end, key=None, occ=None):
     if t < words[0][1] - 0.12 or t > end + 0.05:
         return
     base_col = STYLE_COLOUR[style]
@@ -1641,6 +1696,8 @@ def draw_chunk(frame, t, words, style, cx, cy, size, colours, end):
     sprites = [ksprite(w, size, colours.get(w, base_col), glow) for w, _ in words]
     space = size * 0.32
     total = sum(adv for _, adv in sprites) + space * (len(words) - 1)
+    if key is not None:
+        cy = choose_y(key, total + size, size * (2.6 if style == "mirror" else 1.7), occ)
     x = cx - total / 2
     out_k = smooth((t - (end - 0.25)) / 0.25)  # generic exit
     for i, ((w, wt), (spr, adv)) in enumerate(zip(words, sprites)):
@@ -1726,6 +1783,10 @@ def draw_chunk(frame, t, words, style, cx, cy, size, colours, end):
             a *= pulse * (1 - smooth((t - 26.6) / 0.55))
         if a <= 0.01:
             continue
+        beat = math.exp(-((t - round(t / BEAT) * BEAT) / 0.07) ** 2)
+        sx *= 1 + 0.03 * beat
+        sy *= 1 + 0.03 * beat
+        img = shine(img, ((t - wt) * 0.9 + i * 0.12) % 2.2 - 0.3)
         if sx != 1.0 or sy != 1.0:
             img = img.resize((max(1, int(img.width * sx)), max(1, int(img.height * sy))), Image.BILINEAR)
         if abs(ang) > 0.2:
@@ -1739,7 +1800,7 @@ def draw_chunk(frame, t, words, style, cx, cy, size, colours, end):
             d.ellipse([wx - r, cy - r * 0.55, wx + r, cy + r * 0.55], outline=glow + (int(200 * (1 - rk)),), width=6)
 
 
-def draw_date_slam(frame, t):
+def draw_date_slam(frame, t, occ=None):
     """Instrumental gap (no vocals): '19.11.2023' slams in digit by digit on the beat."""
     if not (10.2 < t < 13.95):
         return
@@ -1748,6 +1809,7 @@ def draw_date_slam(frame, t):
     d0 = ImageDraw.Draw(frame)
     widths = [d0.textlength(c, font=f) for c in txt]
     x = 540 - sum(widths) / 2
+    yc = choose_y("date", sum(widths) + 80, 330, occ)
     out = smooth((t - 13.55) / 0.4)
     for i, (c, w) in enumerate(zip(txt, widths)):
         wt = 10.33 + i * 0.209  # every half beat
@@ -1759,13 +1821,13 @@ def draw_date_slam(frame, t):
         sc = lerp(2.6, 1.0, ease_out(k))
         img = spr.resize((int(spr.width * sc), int(spr.height * sc)), Image.BILINEAR)
         shake = math.sin(t * 80 + i) * 8 * math.exp(-(t - wt) / 0.2) if t > wt + 0.14 else 0
-        paste_c(frame, alpha_mul(img, clamp(k * 3) * (1 - out)), x + w / 2 + shake, 1330)
+        paste_c(frame, alpha_mul(img, clamp(k * 3) * (1 - out)), x + w / 2 + shake, yc)
         x += w
     lk = clamp((t - 12.45) / 0.5)
     if lk > 0:
-        d0.line([(540 - 360 * lk, 1440), (540 + 360 * lk, 1440)], fill=(255, 153, 51, int(255 * (1 - out))), width=8)
+        d0.line([(540 - 360 * lk, yc + 110), (540 + 360 * lk, yc + 110)], fill=(255, 153, 51, int(255 * (1 - out))), width=8)
         f2 = ImageFont.truetype("/usr/share/fonts/truetype/noto/NotoSans-Bold.ttf", 44)
-        d0.text((540, 1490), "AHMEDABAD", font=f2, fill=(255, 235, 210, int(255 * lk * (1 - out))), anchor="mm")
+        d0.text((540, yc + 160), "AHMEDABAD", font=f2, fill=(255, 235, 210, int(255 * lk * (1 - out))), anchor="mm")
 
 
 _lat = {}
@@ -1784,10 +1846,10 @@ def ksprite_latin(c):
     return _lat[c]
 
 
-def draw_kinetic(frame, t):
-    draw_date_slam(frame, t)
-    for words, style, cx, cy, size, colours, end in CHUNKS:
-        draw_chunk(frame, t, words, style, cx, cy, size, colours, end)
+def draw_kinetic(frame, t, occ=None):
+    draw_date_slam(frame, t, occ)
+    for idx, (words, style, cx, cy, size, colours, end) in enumerate(CHUNKS):
+        draw_chunk(frame, t, words, style, cx, cy, size, colours, end, key=idx, occ=occ)
 
 
 # ======================================================================
@@ -1805,44 +1867,135 @@ def motion_blur(arr, amount):
     return acc / n
 
 
-def render_frame(t, rng):
-    top, bot, tint = light_at(t)
-    cam = camera_at(t)
+def draw_back_figure(layer, t):
+    """Him from behind, big in the foreground of the over-the-shoulder mirror shot."""
+    d = ImageDraw.Draw(layer)
+    slump = track(T["slump"], t)
+    breathe = math.sin(t * 2.2) * 4
+    tilt = track(T["tilt"], t)
+    hx, hy = 250 - tilt * 3, 1265 + slump * 34 + breathe
+    body, body_sh = (20, 46, 110, 255), (14, 32, 80, 255)
+    # shoulders and back of the hoodie
+    d.polygon([(hx - 460, H), (hx - 430, 1640), (hx - 250, 1500), (hx - 110, 1460), (hx + 110, 1460),
+               (hx + 250, 1500), (hx + 430, 1640), (hx + 470, H)], fill=body)
+    d.ellipse([hx - 230, hy + 130, hx + 230, hy + 330], fill=body_sh)  # hood bunched at the neck
+    d.rectangle([hx - 62, hy + 120, hx + 62, hy + 205], fill=(190, 150, 135, 255))
+    # raised arm when he touches the mirror
+    reach = smooth((t - 22.0) / 0.5) * (1 - smooth((t - 24.6) / 0.5))
+    if reach > 0.01:
+        sh = (hx + 330, 1600)
+        tx, ty = lerp(hx + 420, TOUCH[0], reach), lerp(2050, TOUCH[1] + 40, reach)
+        el = (lerp(sh[0], tx, 0.5) + 70, lerp(sh[1], ty, 0.5) + 40)
+        d.line([sh, el, (tx, ty)], fill=body, width=120, joint="curve")
+        d.ellipse([tx - 58, ty - 70, tx + 58, ty + 46], fill=(205, 165, 148, 255))
+    # ears + back of the head (all hair)
+    for sx in (-1, 1):
+        d.ellipse([hx + sx * 222 - 32, hy - 20, hx + sx * 222 + 32, hy + 70], fill=(200, 160, 144, 255))
+    pts = []
+    for k in range(25):
+        ang = math.radians(150 + k * 240 / 24)
+        r = 240 if k % 2 == 0 else 285
+        pts.append((hx + r * math.cos(ang), hy - 10 + r * 1.05 * math.sin(ang)))
+    pts += [(hx + 236, hy + 120), (hx + 150, hy + 190), (hx - 150, hy + 190), (hx - 236, hy + 120)]
+    d.polygon(pts, fill=(18, 18, 30, 255))
+    d.arc([hx - 170, hy - 230, hx + 130, hy - 40], 200, 300, fill=(60, 70, 110, 255), width=14)
 
+
+def render_scene(t, cam, inner=False):
+    """Environment + character + props through one camera. Returns (frame, char layer, flag layer, head)."""
+    top, bot, _ = light_at(t)
     sky = np.array(top, np.float32) * (1 - GRAD_Y) + np.array(bot, np.float32) * GRAD_Y
     frame = Image.fromarray(np.broadcast_to(sky, (H, W, 3)).astype(np.uint8)).convert("RGBA")
     kind = location_at(t)
     star_a = {"stadium": 0.25}.get(kind, 0.0)
-    stars = STARS if star_a > 0.98 else Image.fromarray(
-        (np.asarray(STARS) * np.array([1, 1, 1, star_a], np.float32)).astype(np.uint8))
-    frame.alpha_composite(cam_transform(stars, 0.15, cam))
-    if kind in ("street",):
-        frame.alpha_composite(cam_transform(MOON, 0.15, cam))
+    if star_a > 0:
+        stars = Image.fromarray((np.asarray(STARS) * np.array([1, 1, 1, star_a], np.float32)).astype(np.uint8))
+        frame.alpha_composite(cam_transform(stars, 0.15, cam))
     frame.alpha_composite(cam_transform(draw_env(t, kind, bot), 0.9, cam))
-
-    # behind him: golden aura and the shadow people
     back = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    air, _ = jump_at(t)
-    sh = 1 - clamp(air / 320)  # contact shadow under his feet
-    ImageDraw.Draw(back).ellipse([540 - 130 * sh, GROUND - 12, 540 + 130 * sh, GROUND + 26],
-                                 fill=(0, 0, 0, int(110 * sh)))
+    ImageDraw.Draw(back).ellipse([410, GROUND - 12, 670, GROUND + 26], fill=(0, 0, 0, 110))
     frame.alpha_composite(cam_transform(back, 1.0, cam))
-
-    # the character, sampled straight from the supersampled render
     char_img, origin, head = draw_character(t)
-    frame.alpha_composite(cam_transform(char_img, 1.0, cam, origin, K))
-
-    # in front: dream bubbles, memories, weather
-    front = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    draw_flag(front, t)
-    front_props(front, t)
-    frame.alpha_composite(cam_transform(front.filter(ImageFilter.GaussianBlur(0.7)), 1.0, cam))
+    char_l = cam_transform(char_img, 1.0, cam, origin, K)
+    frame.alpha_composite(char_l)
+    flag = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    draw_flag(flag, t)
+    flag_l = cam_transform(flag.filter(ImageFilter.GaussianBlur(0.7)), 1.0, cam)
+    frame.alpha_composite(flag_l)
+    props = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    front_props(props, t, inner=inner)
+    frame.alpha_composite(cam_transform(props.filter(ImageFilter.GaussianBlur(0.7)), 1.0, cam))
     frame.alpha_composite(cam_transform(fx_layer(t), 1.1, cam))
+    return frame, char_l, flag_l, head
 
-    # word signs (crisp, post-camera)
-    signs = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    draw_signs(t, signs, cam, head)
-    frame.alpha_composite(signs.filter(ImageFilter.GaussianBlur(0.6)))
+
+def compose_ots(t, zoom):
+    """Over-the-shoulder: his back in the foreground, his reflection in the mirror."""
+    inner, _, _, _ = render_scene(t, INNER_CAM, inner=True)
+    mx0, my0, mx1, my1 = MIRROR
+    mw, mh = mx1 - mx0, my1 - my0
+    crop_h = int(W * mh / mw)
+    refl = inner.crop((0, 120, W, 120 + crop_h)).resize((mw, mh), Image.LANCZOS)
+    out = bathroom_env(t).copy()
+    mask = Image.new("L", (mw, mh), 0)
+    ImageDraw.Draw(mask).rounded_rectangle([0, 0, mw - 1, mh - 1], radius=36, fill=255)
+    out.paste(refl, (mx0, my0), mask)
+    d = ImageDraw.Draw(out)
+    # crack where his hand meets the glass
+    if t > 22.4:
+        grow = smooth((t - 22.4) / 1.2)
+        rr = random.Random(11)
+        for k in range(10):
+            ang = k / 10 * math.tau + rr.uniform(-0.2, 0.2)
+            x, y = TOUCH
+            pts = [(x, y)]
+            for j in range(4):
+                stp = rr.uniform(30, 70) * grow
+                ang += rr.uniform(-0.4, 0.4)
+                x, y = x + stp * math.cos(ang), y + stp * math.sin(ang)
+                pts.append((x, y))
+            d.line(pts, fill=(235, 240, 255, 220), width=3)
+    shine_l = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    sd = ImageDraw.Draw(shine_l)
+    for x0, w_ in ((420, 80), (540, 30), (860, 60)):
+        sd.polygon([(x0, my0 + 10), (x0 + w_, my0 + 10), (x0 + w_ - 300, my1 - 10), (x0 - 300, my1 - 10)],
+                   fill=(255, 255, 255, 24))
+    out.alpha_composite(shine_l.filter(ImageFilter.GaussianBlur(6)))
+    d.rounded_rectangle([mx0, my0, mx1, my1], radius=36, outline=(200, 205, 215, 255), width=24)
+    d.rectangle([0, 1330, W, H], fill=(214, 216, 222, 255))  # sink counter
+    d.rectangle([0, 1330, W, 1368], fill=(236, 238, 242, 255))
+    d.rectangle([760, 1290, 800, 1380], fill=(170, 174, 184, 255))
+    fig = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    draw_back_figure(fig, t)
+    out.alpha_composite(fig.filter(ImageFilter.GaussianBlur(2.2)))  # shallow depth of field
+    # slow outer camera move
+    if abs(zoom - 1) > 1e-3:
+        cw, ch_ = W / zoom, H / zoom
+        cx_, cy_ = 600, 980
+        out = out.crop((cx_ - cw / 2 * (cx_ / 540), cy_ - ch_ / 2 * (cy_ / 960),
+                        cx_ - cw / 2 * (cx_ / 540) + cw, cy_ - ch_ / 2 * (cy_ / 960) + ch_)).resize((W, H), Image.BILINEAR)
+    occ_char = np.zeros((H // 8, W // 8), np.float32)
+    occ_char[my0 // 8:my1 // 8, mx0 // 8:mx1 // 8] = 1.0
+    figm = np.asarray(fig.getchannel("A").resize((W // 8, H // 8))) > 40
+    occ_char = np.maximum(occ_char, figm.astype(np.float32))
+    return out, (occ_char, np.zeros_like(occ_char))
+
+
+def render_frame(t, rng):
+    _, _, tint = light_at(t)
+    zoom = ots_at(t)
+    if zoom is not None:
+        frame, occ = compose_ots(t, zoom)
+    else:
+        cam = camera_at(t)
+        frame, char_l, flag_l, head = render_scene(t, cam)
+        signs = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        draw_signs(t, signs, cam, head)
+        frame.alpha_composite(signs.filter(ImageFilter.GaussianBlur(0.6)))
+        cm = np.asarray(char_l.getchannel("A").resize((W // 8, H // 8))) > 40
+        om = (np.asarray(flag_l.getchannel("A").resize((W // 8, H // 8))) > 40) | \
+             (np.asarray(signs.getchannel("A").resize((W // 8, H // 8))) > 40)
+        occ = (cm.astype(np.float32), om.astype(np.float32))
 
     # colour grade, transitions, vignette, grain
     blur, bright, flash = transition_fx(t)
@@ -1852,21 +2005,19 @@ def render_frame(t, rng):
         lum = arr @ np.array([0.299, 0.587, 0.114], np.float32)
         arr = arr * (1 - desat) + lum[:, :, None] * desat
     arr = motion_blur(arr, blur)
-    # mirror ripple into / out of the flashback, with a soft white bloom
-    for rt in RIPPLES:
+    for rt in RIPPLES:  # mirror ripple into / out of the flashback, with a soft white bloom
         r = 1 - abs(t - rt) / 0.45
         if r > 0:
             amp = 38 * r * r
-            rows = np.arange(H)
-            shift = (amp * np.sin(rows / 38.0 + t * 30)).astype(int)
+            shift = (amp * np.sin(np.arange(H) / 38.0 + t * 30)).astype(int)
             arr = np.stack([np.roll(arr[y], shift[y], axis=0) for y in range(H)])
             arr = arr + (255 - arr) * (0.55 * r * r)
     if flash > 0.01:
         arr = arr + (255 - arr) * flash * np.array([1.0, 0.88, 0.6], np.float32)
-    arr *= VIGNETTE * bright * LYRIC_BAND
+    arr *= VIGNETTE * bright
     arr += rng.normal(0, 3, (H // 2, W // 2, 1)).repeat(2, 0).repeat(2, 1)
     out = Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8)).convert("RGBA")
-    draw_kinetic(out, t)
+    draw_kinetic(out, t, occ)
     out = out.convert("RGB")
     fade = min(clamp(t / 0.4), clamp((DURATION - t) / 0.7))
     if fade < 1:
