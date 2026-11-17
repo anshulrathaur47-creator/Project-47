@@ -1985,14 +1985,10 @@ def compose_ots(t, zoom):
 # real photos in the flashback (free-licence, see assets/images/flashback-2023/CREDITS.md)
 # ----------------------------------------------------------------------
 PHOTO_DIR = os.path.join(HERE, "..", "..", "assets", "images", "flashback-2023")
-PHOTOS = [  # (start, end, file, look)
+PHOTOS = [  # (start, end, file, look); only photos from the 2023 World Cup period
     (8.62, 9.45, "stadium-2023.jpg", "warm"),
-    (10.33, 11.17, "fan-jumping-flag.jpg", "warm"),
-    (11.17, 11.80, "fans-with-flag.jpg", "warm"),
-    (13.21, 14.02, "fans-watching.jpg", "tense"),
-    (15.67, 16.51, "crowd-cheering.jpg", "bw"),
-    (18.97, 19.78, "fan-face-paint.jpg", "bw"),
 ]
+
 _photo_cache = {}
 
 
