@@ -151,7 +151,7 @@ def draw_chunk(frame, t, idx, words, style, glow, colours, end):
     size = 118
     while True:  # shrink until the row fits
         sprites = [sprite(w, size, colours.get(w, WHITE), glow) for w, _ in words]
-        space = size * 0.32
+        space = size * (0.5 if style == "heart" else 0.32)  # room for the beating word
         total = sum(a for _, a in sprites) + space * (len(words) - 1)
         if total <= MAX_W or size <= 60:
             break
