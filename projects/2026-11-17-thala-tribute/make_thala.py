@@ -148,35 +148,34 @@ T = {
     "stand":   [(0, 1)],
     "sink":    [(0, 0)],
     "slump":   [(0, 0)],
-    "head_dy": [(0, 0), (18.55, 0), (18.9, 6)],
+    "head_dy": [(0, 0), (15.3, 0), (16.0, 10), (17.0, 4), (18.0, 10), (18.55, 6)],
     "tilt":    [(0, 0), (1.72, 0), (2.2, -3), (3.3, -3), (3.5, 0), (14.0, 0), (14.3, 4), (15.2, 4),
                 (15.5, 0), (18.55, 0), (18.9, -4)],
     "shake":   [(0, 0)],
     "look":    [(0, (0, 0)), (11.0, (0, 0)), (11.15, (0.3, -0.7)), (11.9, (0.3, -0.7)), (12.1, (0, 0)),
                 (15.6, (-0.7, 0)), (16.6, (0.7, 0)), (17.6, (-0.6, 0)), (18.4, (0, 0)), (18.7, (0, -0.25))],
-    "lid":     [(0, 0.25), (11.0, 0.25), (11.1, 0.05), (11.9, 0.05), (12.1, 0.2), (13.98, 0.0),
-                (15.3, 0.15), (18.55, 0.3)],
-    "happy":   [(0, 0), (14.05, 0), (14.2, 1), (15.1, 1), (15.25, 0), (16.0, 0), (16.15, 1), (16.9, 1),
-                (17.05, 0)],
-    "brow":    [(0, 0), (18.55, 0), (18.9, 0.5)],
-    "tear":    [(0, 0), (18.8, 0), (20.2, 0.8)],
-    "tear_a":  [(0, 0), (18.6, 0), (18.9, 1), (20.2, 1)],
-    "blush":   [(0, 0), (14.1, 0), (14.3, 0.35), (17.0, 0.35), (17.3, 0)],
-    "laugh":   [(0, 0), (14.15, 0), (14.3, 0.6), (15.0, 0.6), (15.2, 0)],
+    "lid":     [(0, 0.3), (11.0, 0.3), (11.1, 0.1), (12.0, 0.1), (12.2, 0.3), (13.98, 0.2), (14.6, 0.35),
+                (15.3, 0.4), (18.55, 0.45)],
+    "happy":   [(0, 0)],
+    "brow":    [(0, 0.1), (13.98, 0.1), (14.6, 0.55), (27.3, 0.6)],
+    "tear":    [(0, 0), (14.9, 0), (17.4, 1), (17.41, 0), (18.7, 0), (20.2, 0.9)],
+    "tear_a":  [(0, 0), (14.6, 0), (14.9, 1), (20.2, 1)],
+    "blush":   [(0, 0)],
+    "laugh":   [(0, 0)],
     "crown":   [(0, 0)],
-    "walk":    [(0, 0), (3.3, 0), (3.5, 0.75), (8.3, 0.75), (8.5, 0), (15.3, 0), (15.6, 0.55), (18.4, 0.55),
+    "walk":    [(0, 0), (3.3, 0), (3.5, 0.55), (8.3, 0.55), (8.5, 0), (15.3, 0), (15.6, 0.45), (18.4, 0.45),
                 (18.6, 0)],
     "swag":    [(0, 0)],
-    "speed":   [(0, 0), (3.3, 0), (3.5, 1.3), (8.3, 1.3), (8.5, 0)],
+    "speed":   [(0, 0), (3.3, 0), (3.5, 0.9), (8.3, 0.9), (8.5, 0)],
     "hp":      [(0, 0)],
     "paint":   [(0, 0)],
-    "desat":   [(0, 0)],
-    # bat angle (radians, 0 = pointing straight up, ~2.9 = hanging down by his side)
-    "bat_ang": [(0, 2.9), (10.9, 2.9), (11.1, 0.35), (11.85, 0.35), (12.15, 2.9), (13.98, 2.9),
+    "desat":   [(0, 0.12), (9.85, 0.12), (10.0, 0.42), (13.9, 0.42), (14.05, 0.15), (20.2, 0.22),
+                (25.1, 0.3)],
+    "bat_ang": [(0, 2.9), (10.9, 2.9), (11.1, 0.35), (12.05, 0.35), (12.35, 2.9), (13.98, 2.9),
                 (14.2, 0.15), (15.25, 0.15), (15.55, 2.9)],
 }
-MOUTH = [(0, "flat"), (1.72, "smile"), (3.37, "flat"), (8.6, "smile"), (11.1, "flat"), (11.9, "smirk"),
-         (13.98, "grin"), (15.3, "smile")]
+MOUTH = [(0, "flat"), (1.72, "smile"), (3.37, "flat"), (9.9, "smile"), (11.1, "flat"), (12.0, "smile"),
+         (15.3, "flat"), (16.2, "smile"), (17.4, "flat"), (18.55, "smile")]
 # hand targets: ("hip"|"head", dx, dy), ("swing", side), ("wave",), ("waveL",), ("pump", side)
 HAND_L = [(0, ("hip", -122, -15)), (3.35, ("hip", -122, -15)), (3.6, ("swing", -1)), (8.3, ("swing", -1)),
           (8.6, ("hip", -122, -15)), (13.9, ("hip", -122, -15)), (14.2, ("head", -160, -200)),
@@ -184,9 +183,9 @@ HAND_L = [(0, ("hip", -122, -15)), (3.35, ("hip", -122, -15)), (3.6, ("swing", -
           (19.1, ("hip", -122, -15)), (19.4, ("head", -72, 40)), (19.9, ("head", -72, 40)),
           (20.2, ("hip", -122, -15))]
 HAND_R = [(0, ("hip", 126, -12)), (10.9, ("hip", 126, -12)), (11.1, ("head", 150, -150)),
-          (11.85, ("head", 150, -150)), (12.15, ("hip", 126, -12)), (13.9, ("hip", 126, -12)),
+          (12.05, ("head", 150, -150)), (12.35, ("hip", 126, -12)), (13.9, ("hip", 126, -12)),
           (14.2, ("head", 165, -205)), (15.25, ("head", 165, -205)), (15.55, ("hip", 126, -12))]
-HELI = (11.15, 11.75)   # the helicopter shot: the bat whirls round
+HELI = (11.1, 12.0)     # the helicopter shot, in slow motion
 FLAG_HELD = (99, 99)
 
 # Shot list: (start, end, camera at start, camera at end, transition into the shot)
@@ -260,12 +259,15 @@ def location_at(t):
 
 
 LIGHT = [
-    (0.0, ((14, 16, 24), (40, 44, 56), (0.96, 0.98, 1.04))),       # tunnel
-    (8.49, ((14, 16, 24), (40, 44, 56), (0.96, 0.98, 1.04))),
-    (8.5, ((8, 12, 34), (40, 52, 100), (1.06, 1.03, 0.96))),        # stadium night, warm
-    (15.2, ((8, 12, 34), (40, 52, 100), (1.06, 1.03, 0.96))),
-    (15.6, ((20, 16, 34), (90, 70, 80), (1.12, 1.04, 0.9))),        # lap of honour, golden
-    (27.3, ((20, 16, 34), (90, 70, 80), (1.12, 1.04, 0.9))),
+    (0.0, ((14, 16, 24), (40, 44, 56), (0.96, 0.97, 1.02))),       # tunnel
+    (8.49, ((14, 16, 24), (40, 44, 56), (0.96, 0.97, 1.02))),
+    (8.5, ((8, 12, 34), (40, 52, 100), (1.04, 1.0, 0.94))),         # stadium night, warm and soft
+    (9.85, ((8, 12, 34), (40, 52, 100), (1.04, 1.0, 0.94))),
+    (10.0, ((8, 12, 34), (40, 52, 100), (1.1, 1.0, 0.84))),         # legacy: sepia memory
+    (13.9, ((8, 12, 34), (40, 52, 100), (1.1, 1.0, 0.84))),
+    (14.05, ((8, 12, 34), (40, 52, 100), (1.04, 1.0, 0.94))),
+    (15.6, ((20, 16, 34), (90, 70, 80), (1.08, 1.0, 0.88))),        # lap of honour, golden
+    (27.3, ((20, 16, 34), (90, 70, 80), (1.0, 0.96, 0.9))),
 ]
 
 
@@ -276,7 +278,7 @@ def light_at(t):
 
 
 def walk_phase(t):
-    return math.pi * t / BEAT
+    return math.pi * t / (BEAT * 2)  # half-time: slow, heavy steps
 
 
 def hand_pos(keys, t, hip, head, walk):
@@ -918,8 +920,8 @@ def stadium_env(t):
     img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d, g = ImageDraw.Draw(img), ImageDraw.Draw(glow)
-    bright = 1.0
-    cheer = smooth((t - 8.6) / 0.4)
+    bright = 1.0 - 0.5 * smooth((t - 21.0) / 3.5)   # floodlights dim as he leaves
+    cheer = smooth((t - 8.6) / 0.4) * 0.5
     for k, (y0, y1, col) in enumerate(((HOR - 340, HOR - 170, (26, 30, 60)), (HOR - 170, HOR - 10, (32, 38, 74)),
                                        (HOR - 10, HOR + 160, (38, 46, 88)))):
         d.rectangle([0, y0, W, y1], fill=col + (255,))
@@ -928,10 +930,12 @@ def stadium_env(t):
     for x, y, r, phs in CROWD:  # a sea of yellow, waving on the beat, phone torches
         jump = cheer * 6 * abs(math.sin(ph + phs))
         shirt = (250, 200, 30) if r < 0.72 else ((40, 90, 200) if r < 0.84 else (240, 240, 240))
+        shirt = tuple(int(c * (0.5 + 0.5 * bright)) for c in shirt)
         d.ellipse([x - 4, y - 4 - jump, x + 4, y + 4 - jump], fill=shirt + (255,))
-        if r > 0.9:
-            a = int(255 * (0.5 + 0.5 * math.sin(t * 7 + phs)))
-            g.ellipse([x - 9, y - 9 - jump, x + 9, y + 9 - jump], fill=(255, 255, 240, a))
+        if r > 0.86:  # phone torches swaying slowly side to side
+            sway = math.sin(t * 1.4 + phs) * 6
+            a = int(255 * (0.6 + 0.4 * math.sin(t * 2 + phs)))
+            g.ellipse([x - 9 + sway, y - 9 - jump, x + 9 + sway, y + 9 - jump], fill=(255, 250, 225, a))
     pf = ImageFont.truetype("/usr/share/fonts/opentype/inter/InterDisplay-Black.otf", 30)
     for k, (px_, py_, txt) in enumerate(PLACARDS):  # fan placards bobbing in the stands
         bob = cheer * 8 * abs(math.sin(ph + k))
@@ -949,8 +953,8 @@ def stadium_env(t):
         for i in range(4):
             for j in range(2):
                 lx, ly = fx - 66 + i * 44, 82 + j * 44
-                d.ellipse([lx - 14, ly - 14, lx + 14, ly + 14], fill=(255, 252, 230, 255))
-        g.ellipse([fx - 300, 105 - 240, fx + 300, 105 + 240], fill=(255, 250, 220, 150))
+                d.ellipse([lx - 14, ly - 14, lx + 14, ly + 14], fill=(255, 252, 230, int(255 * bright)))
+        g.ellipse([fx - 300, 105 - 240, fx + 300, 105 + 240], fill=(255, 250, 220, int(150 * bright)))
     # advertising boards + boundary rope, then the outfield he stands on
     d.rectangle([0, HOR + 160, W, HOR + 215], fill=(26, 44, 110, 255))
     for k in range(6):
@@ -1332,7 +1336,7 @@ def draw_signs(t, layer, cam, head):
     d = ImageDraw.Draw(layer)
     m, zd = world_to_screen(cam)
     # stadium reveal: "DHONI! DHONI!" chant bursts at the sides
-    if 8.6 < t < 9.9:
+    if False:  # (chant bursts removed for the emotional cut)
         f = ImageFont.truetype("/usr/share/fonts/opentype/inter/InterDisplay-BlackItalic.otf", 58)
         for k, (x, y, rot) in enumerate(((180, 760, 8), (900, 900, -8), (200, 1100, -6), (880, 650, 6))):
             t0 = 8.62 + k * BEAT
@@ -1345,8 +1349,8 @@ def draw_signs(t, layer, cam, head):
             lay = lay.resize((max(1, int(520 * sc * 0.8)), max(1, int(160 * sc * 0.8)))).rotate(rot, expand=True)
             layer.alpha_composite(alpha_mul(lay, clamp((9.9 - t) / 0.3)), (int(x - lay.width / 2), int(y - lay.height / 2)))
     # helicopter shot: the ball sails into the night sky
-    if 11.45 < t < 12.5:
-        u = clamp((t - 11.45) / 0.9)
+    if 11.7 < t < 13.2:
+        u = clamp((t - 11.7) / 1.4)
         hx, hy = LAST_HANDS.get("R", (700, 700))
         sx_, sy_ = m(hx, hy - 200)
         bx, by = lerp(sx_, 980, u), lerp(sy_, 120, u) - 260 * math.sin(math.pi * u) * 0.3
@@ -1357,7 +1361,7 @@ def draw_signs(t, layer, cam, head):
                       fill=(255, 240, 200, int(200 * (1 - k / 12))))
         d.ellipse([bx - 14, by - 14, bx + 14, by + 14], fill=(250, 250, 250, 255))
     # salute: camera flashes in the crowd
-    if 13.98 < t < 15.3:
+    if False:  # (camera flashes removed for the emotional cut)
         rr = random.Random(int(t * 12))
         for _ in range(10):
             x, y = rr.uniform(40, W - 40), rr.uniform(200, 900)
@@ -1379,9 +1383,11 @@ def draw_legacy(frame, t, occ=None):
     if not cur:
         return
     t0, txt, cups = cur[-1]
-    k = ease_out(clamp((t - t0) / 0.16))
-    sc = lerp(2.0, 1.0, k)
-    shake = math.sin(t * 80) * 10 * math.exp(-(t - t0) / 0.2) if t > t0 + 0.16 else 0
+    k = smooth(clamp((t - t0) / 0.45))
+    nxt = [it[0] for it in items if it[0] > t0]
+    k *= 1 - smooth(clamp((t - (nxt[0] - 0.2)) / 0.2)) if nxt else 1
+    sc = lerp(1.08, 1.0, k)
+    shake = 0
     tw = f.getlength(txt)
     cx = 540 + 60
     tl = Image.new("RGBA", (int(tw + 120), 220), (0, 0, 0, 0))
@@ -1408,22 +1414,22 @@ CONFETTI = [(rnd_fx.uniform(0, W), rnd_fx.uniform(0, H), rnd_fx.uniform(90, 200)
 
 
 def fx_layer(t):
+    """Soft golden embers drifting upward in the stadium (no confetti in the emotional cut)."""
     layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)
-    joy = smooth((t - 8.6) / 0.4) * (1 - smooth((t - 25.0) / 0.4))
-    if joy > 0.01:
-        for x, y, sp, ph, col in CONFETTI:
-            yy_ = (y + t * sp) % H
-            xx_ = x + 30 * math.sin(t * 2 + ph)
-            ang = t * 6 + ph
-            w_, h_ = 9 * abs(math.cos(ang)) + 2, 14
-            d.polygon([(xx_ - w_, yy_ - h_ / 2), (xx_ + w_, yy_ - h_ / 2), (xx_ + w_, yy_ + h_ / 2),
-                       (xx_ - w_, yy_ + h_ / 2)], fill=col + (int(220 * joy),))
+    amt = smooth((t - 8.6) / 0.6)
+    for x, y, sp, ph, _ in CONFETTI:
+        yy_ = (y - t * sp * 0.35) % H
+        xx_ = x + 30 * math.sin(t * 0.6 + ph)
+        r = 2 + 2.5 * (0.5 + 0.5 * math.sin(ph * 3))
+        a = int(amt * (90 + 90 * math.sin(t * 1.5 + ph)))
+        if a > 4:
+            d.ellipse([xx_ - r, yy_ - r, xx_ + r, yy_ + r], fill=(255, 210, 120, a))
     for x, y, s_, sp, ph in DUST:
         py_ = (y - t * sp) % H
         px_ = x + 24 * math.sin(t * 0.7 + ph)
-        d.ellipse([px_ - s_, py_ - s_, px_ + s_, py_ + s_], fill=(210, 220, 255, 45))
-    return layer.filter(ImageFilter.GaussianBlur(1.2))
+        d.ellipse([px_ - s_, py_ - s_, px_ + s_, py_ + s_], fill=(220, 220, 255, 35))
+    return layer.filter(ImageFilter.GaussianBlur(2.0))
 
 
 # ======================================================================
@@ -1555,16 +1561,16 @@ GOLD_K, SKY_K, RED_K, GLASS_K, WHITE_K, GREY_K = ((255, 205, 90), (130, 205, 255
 CHUNKS = [
     ([("कह", 0.42), ("दो", 0.58), ("जो", 0.80), ("हो", 1.22)], "soft", 540, 1530, 101, {}, 1.85),
     ([("तुम", 1.48), ("एक", 1.92), ("बार", 2.52)], "soft", 520, 1530, 108, {"बार": GOLD_K}, 3.2),
-    ([("मेरे", 3.24), ("हो", 4.06)], "flip", 560, 1530, 139, {"मेरे": GOLD_K}, 4.28),
-    ([("बस", 4.30), ("तुम", 4.94)], "flip", 540, 1530, 122, {}, 5.72),
+    ([("मेरे", 3.24), ("हो", 4.06)], "soft", 560, 1530, 139, {"मेरे": GOLD_K}, 4.28),
+    ([("बस", 4.30), ("तुम", 4.94)], "soft", 540, 1530, 122, {}, 5.72),
     ([("मेरे", 5.76), ("नजरों", 6.68), ("में", 7.70)], "soft", 540, 1530, 113, {"नजरों": SKY_K}, 8.15),
-    ([("तुम", 8.20), ("हम", 8.52), ("से", 8.98)], "slam", 540, 1530, 132, {"हम": GOLD_K}, 9.9),
-    ([("रह", 13.98), ("जाऊंगा", 14.25)], "slam", 540, 1530, 155, {"जाऊंगा": GOLD_K}, 15.5),
-    ([("यूं", 15.58), ("ही", 15.94)], "flip", 540, 1530, 170, {"यूं": GOLD_K, "ही": GOLD_K}, 16.75),
+    ([("तुम", 8.20), ("हम", 8.52), ("से", 8.98)], "soft", 540, 1530, 132, {"हम": GOLD_K}, 9.9),
+    ([("रह", 13.98), ("जाऊंगा", 14.25)], "soft", 540, 1530, 155, {"जाऊंगा": GOLD_K}, 15.5),
+    ([("यूं", 15.58), ("ही", 15.94)], "soft", 540, 1530, 170, {"यूं": GOLD_K, "ही": GOLD_K}, 16.75),
     ([("बस", 16.80), ("यूं", 17.08), ("ही", 17.52)], "soft", 540, 1530, 132, {}, 18.35),
-    ([("बस", 18.40), ("यूं", 18.70), ("ही", 19.05)], "soft", 540, 1530, 132, {}, 20.1),
+    ([("बस", 18.40), ("यूं", 18.70), ("ही", 19.05)], "dissolve", 540, 1530, 132, {}, 20.1),
     ([("रह", 20.58), ("जाऊंगा", 20.85)], "soft", 540, 1440, 132, {}, 22.1),
-    ([("यूं", 22.18), ("ही", 22.54)], "flip", 540, 1440, 151, {"यूं": GOLD_K, "ही": GOLD_K}, 23.35),
+    ([("यूं", 22.18), ("ही", 22.54)], "soft", 540, 1440, 151, {"यूं": GOLD_K, "ही": GOLD_K}, 23.35),
     ([("बस", 23.40), ("यूं", 23.68), ("ही", 24.12)], "soft", 540, 1440, 132, {}, 24.95),
     ([("बस", 25.00), ("यूं", 25.30), ("ही", 25.65)], "final", 540, 1530, 150, {"यूं": GOLD_K, "ही": GOLD_K}, 27.25),
 ]
@@ -1682,9 +1688,12 @@ def draw_chunk(frame, t, words, style, cx, cy, size, colours, end, key=None, occ
             continue
         img, a, sx, sy, ang, dx, dy = spr, clamp(p * 2), 1.0, 1.0, 0.0, 0.0, 0.0
         if style == "soft":
-            sx = sy = lerp(0.82, 1.0, ease_out(p))
-            dy = (1 - ease_out(p)) * 34 + math.sin(t * 2 + i) * 4
-            a *= 1 - out_k
+            pp = (t - wt) / 0.7  # slower, dreamier arrival
+            sx = sy = lerp(0.9, 1.0, ease_out(pp)) * (1 + 0.012 * (t - wt))
+            dy = (1 - ease_out(pp)) * 30 + math.sin(t * 1.2 + i) * 4
+            a = clamp(pp * 1.4) * (1 - out_k)
+            if pp < 1:
+                img = Image.blend(spr.filter(ImageFilter.GaussianBlur(8 * (1 - pp))), spr, ease_out(pp))
         elif style == "flip":
             sy = clamp(back_out(p), 0.03, 1.25)
             sx = lerp(1.35, 1.0, ease_out(p))

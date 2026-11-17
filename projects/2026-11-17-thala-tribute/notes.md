@@ -19,4 +19,9 @@ likeness and no team or league logos.
 | 20.2 to 25.1 | From behind, walking back into the tunnel, shrinking | रह जाऊंगा यूं ही... |
 | 25.1 to 27.3 | End card: jersey on a hanger, THANK YOU THALA, 2004 - 2026, Ab Mentor Thala - IPL 2027 | बस यूं ही |
 
+**Emotional cut (user asked "emotional rakhna"):** half-time steps, slow helicopter shot, bittersweet smiles
+and tears from the salute on (no laughing), no chant bursts or camera flashes, golden embers instead of
+confetti, sepia-faded legacy stamps that glow in like memories, slow dreamy lyrics with the last
+"बस यूं ही" of line 2 turning to dust, floodlights dimming as he walks into the tunnel.
+
 **Render:** `python3 make_thala.py`.
