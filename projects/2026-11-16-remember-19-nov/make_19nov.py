@@ -1981,10 +1981,105 @@ def compose_ots(t, zoom):
     return out, (occ_char, np.zeros_like(occ_char))
 
 
+# ----------------------------------------------------------------------
+# real photos in the flashback (free-licence, see assets/images/flashback-2023/CREDITS.md)
+# ----------------------------------------------------------------------
+PHOTO_DIR = os.path.join(HERE, "..", "..", "assets", "images", "flashback-2023")
+PHOTOS = [  # (start, end, file, look)
+    (8.62, 9.45, "stadium-2023.jpg", "warm"),
+    (10.33, 11.17, "fan-jumping-flag.jpg", "warm"),
+    (11.17, 11.80, "fans-with-flag.jpg", "warm"),
+    (13.21, 14.02, "fans-watching.jpg", "tense"),
+    (15.67, 16.51, "crowd-cheering.jpg", "bw"),
+    (18.97, 19.78, "fan-face-paint.jpg", "bw"),
+]
+_photo_cache = {}
+
+
+def photo_at(t):
+    for a, b, f, look in PHOTOS:
+        if a <= t < b:
+            return a, b, f, look
+    return None
+
+
+def load_photo(f, look):
+    key = (f, look)
+    if key not in _photo_cache:
+        im = Image.open(os.path.join(PHOTO_DIR, f)).convert("RGB")
+        # trim the photographer's watermark strip at the very bottom; credit is in CREDITS.md
+        im = im.crop((0, 0, im.width, int(im.height * 0.93)))
+        if look == "bw":
+            g = im.convert("L")
+            g = Image.eval(g, lambda v: int(clamp((v - 128) * 1.25 + 128, 0, 255)))
+            im = Image.merge("RGB", (g, g, g))
+        else:
+            arr = np.asarray(im).astype(np.float32)
+            tintv = np.array([1.08, 1.0, 0.86] if look == "warm" else [0.95, 0.97, 1.02], np.float32)
+            lum = arr @ np.array([0.299, 0.587, 0.114], np.float32)
+            sat = 0.95 if look == "warm" else 0.6
+            arr = (arr * sat + lum[:, :, None] * (1 - sat)) * tintv
+            im = Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8))
+        _photo_cache[key] = im
+    return _photo_cache[key]
+
+
+def compose_photo(t, a, b, f, look):
+    """A real photo as a memory: blurred backdrop, a film-print card with a slow push-in,
+    an orange camera date stamp and a drifting light leak."""
+    im = load_photo(f, look)
+    p = (t - a) / (b - a)
+    # backdrop: the same photo, enlarged, blurred and dimmed
+    sc = max(W / im.width, H / im.height) * 1.1
+    bg = im.resize((int(im.width * sc), int(im.height * sc)), Image.BILINEAR)
+    bg = bg.crop(((bg.width - W) // 2, (bg.height - H) // 2, (bg.width - W) // 2 + W, (bg.height - H) // 2 + H))
+    bg = Image.eval(bg.filter(ImageFilter.GaussianBlur(28)), lambda v: int(v * 0.42)).convert("RGBA")
+    # the card: Ken Burns push inside a white film-print border
+    cw = 940
+    ch = int(cw * im.height / im.width)
+    zoom = 1.0 + 0.12 * p
+    iw, ih = im.width / zoom, im.height / zoom
+    ox, oy = (im.width - iw) * (0.3 + 0.4 * p), (im.height - ih) * 0.5
+    inner = im.crop((ox, oy, ox + iw, oy + ih)).resize((cw, ch), Image.BICUBIC)
+    card = Image.new("RGBA", (cw + 48, ch + 120), (246, 242, 232, 255))
+    card.paste(inner, (24, 24))
+    cd = ImageDraw.Draw(card)
+    fnt = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf", 38)
+    cd.text((24 + cw - 20, 24 + ch - 20), "19 11 '23", font=fnt, fill=(255, 140, 40, 235), anchor="rs")
+    # entrance: drops in slightly big and rotated, settles
+    k = ease_out(clamp((t - a) / 0.22))
+    rot = lerp(4.0, -1.5, k) + 0.6 * math.sin(t * 1.3)
+    scl = lerp(1.12, 1.0, k)
+    card = card.resize((int(card.width * scl), int(card.height * scl)), Image.BICUBIC)
+    card = card.rotate(rot, expand=True, resample=Image.BICUBIC)
+    sh = Image.new("RGBA", card.size, (0, 0, 0, 0))
+    sh.paste((0, 0, 0, 160), (0, 0), card.getchannel("A"))
+    cx, cy = 540, 1010
+    bg.alpha_composite(sh.filter(ImageFilter.GaussianBlur(18)), (int(cx - card.width / 2 + 14), int(cy - card.height / 2 + 22)))
+    bg.alpha_composite(card, (int(cx - card.width / 2), int(cy - card.height / 2)))
+    # light leak drifting across
+    leak = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    lx = lerp(-200, W + 200, p)
+    ImageDraw.Draw(leak).ellipse([lx - 380, 300, lx + 380, 1600],
+                                 fill=(255, 150, 60, 70) if look != "bw" else (255, 255, 255, 40))
+    bg.alpha_composite(leak.filter(ImageFilter.GaussianBlur(120)))
+    # quick white flash on the cut in, fade on the way out
+    fl = math.exp(-((t - a) / 0.07) ** 2) * 0.7
+    if fl > 0.02:
+        bg.alpha_composite(Image.new("RGBA", (W, H), (255, 255, 255, int(255 * fl))))
+    occ_c = np.zeros((H // 8, W // 8), np.float32)
+    occ_c[int((cy - card.height / 2) / 8):int((cy + card.height / 2) / 8),
+          int((cx - card.width / 2) / 8):int((cx + card.width / 2) / 8)] = 1.0
+    return bg, (occ_c, np.zeros_like(occ_c))
+
+
 def render_frame(t, rng):
     _, _, tint = light_at(t)
     zoom = ots_at(t)
-    if zoom is not None:
+    ph = photo_at(t)
+    if ph is not None:
+        frame, occ = compose_photo(t, *ph)
+    elif zoom is not None:
         frame, occ = compose_ots(t, zoom)
     else:
         cam = camera_at(t)
