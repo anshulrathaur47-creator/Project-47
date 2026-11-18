@@ -17,3 +17,23 @@ editor's edit) and broadcast graphics, so copyright/mute risk on Instagram; cred
 - Audio: the clip's own audio, untouched apart from a fade at the end.
 
 **Render:** `python3 make_tvroom.py`.
+
+## v2 (feedback: "lighting, camera angle mein maja nahi aaya; character TV ki taraf dekhe, dono frame mein aaye")
+
+`python3 make_tvroom_v2.py` (`--frames 60,300` for previews). Every shot has the boy looking at the TV
+and both in frame:
+
+| Time | Shot | What it shows |
+|---|---|---|
+| 0.0 to 7.8 | OTS | Behind his shoulder, the TV big straight ahead; a sliver of his cheek with a tear |
+| 7.8 to 16.4 | Profile | Side view: huddled in a blanket on the floor, face turned to the TV at the left; wipes his eye at ~11.5 s, head drops at ~14 s |
+| 16.4 to 23.1 | Close | Close profile of his crying face, the TV glowing out of focus at the left edge; wipe at ~20 s |
+| 23.1 to 29.6 | OTS (mirror) | Over the other shoulder, slow push |
+| 29.6 to 36.7 | Profile | Same side view; wipe at ~32.8 s |
+| 36.7 to end | Close | Final close-up, head drops, fade out |
+
+**Lighting:** the TV is the only light. A light map uses the clip's live colour with 1/(1+d²) falloff
+and a dim ambient fill, plus a beam of haze from the screen, floating dust, and rim light on every edge
+that faces the TV (face, hair, blanket). In the OTS shots his back is turned to the light, so he gets a
+soft glow on the outline and a faint cool fill from behind the camera. Slow zoom moves inside each shot,
+soft dips between shots, vignette and grain.
