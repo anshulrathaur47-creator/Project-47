@@ -2320,10 +2320,26 @@ def render_tv_frame(t, clip_rgb, rng):
     draw_blanket(bl, t, head)
     bl_l = cam_transform(bl.filter(ImageFilter.GaussianBlur(0.8)), 1.0, CHAR_CAM)
     frame.alpha_composite(bl_l)
-    # the hand that wipes his eyes comes up over the blanket: redraw the head/hand area on top
-    if any(a <= t <= b for a, b, _ in WIPES):
-        top = char_l.crop((0, 0, W, int(cam_point(head[1] + 150))))
-        frame.alpha_composite(top)
+    # the wiping hand: sleeve out of the blanket's neck opening, hand over his eye (drawn on top of the face)
+    for a_, b_, side in WIPES:
+        if a_ <= t <= b_ and ("R" if side > 0 else "L") in LAST_HANDS:
+            k = smooth((t - a_) / 0.35) * (1 - smooth((t - (b_ - 0.35)) / 0.35))
+            if k <= 0.02:
+                continue
+            z = CHAR_CAM[0]
+            def scr(x, y):
+                return (CAM_C[0] + z * (x - CAM_C[0] - CHAR_CAM[1]), CAM_C[1] + z * (y - CAM_C[1] - CHAR_CAM[2]))
+            sy_w = head[1] + 160
+            start = scr(head[0] + side * 55, sy_w - 10)
+            eye = (head[0] + side * 48, head[1] + 28 + 6 * math.sin(t * 10))  # rubbing
+            end_w = (lerp(head[0] + side * 60, eye[0], k), lerp(sy_w + 40, eye[1], k))
+            end = scr(*end_w)
+            hd = ImageDraw.Draw(frame)
+            hd.line([start, end], fill=(14, 14, 24, 255), width=int(56 * z))
+            hd.line([start, end], fill=HOOD + (255,), width=int(48 * z))
+            r = 27 * z
+            hd.ellipse([end[0] - r, end[1] - r, end[0] + r, end[1] + r], fill=(250, 220, 200, 255),
+                       outline=(14, 14, 24, 255), width=3)
     # TV light rim on what is visible of him (head + blanket)
     vis = np.maximum(np.asarray(char_l.getchannel("A")).astype(np.float32) *
                      (1 - np.asarray(bl_l.getchannel("A")).astype(np.float32) / 255),
