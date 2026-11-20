@@ -9,7 +9,7 @@ reel uses the same emotional story style as the last one.
 - किसी 3.12, के 3.32, ना 3.42, होने 3.66, का 4.08, एहसास 4.28, सबको 4.80, है 5.24
 - मगर 6.60, मौजूदगी 6.88, की 7.56, कदर 7.68, किसी 8.08, को 8.42, नहीं 8.58
 
-**Story:** the same boy as the "शक्ल" reel (glasses, freckles, grey hoodie). Everything happens at one
+**Story:** v2 has a new character (the user wants a new one every reel): a girl with long hair, maroon kurti, bindi and jhumkas. Her shawl hangs on the chair and her bangles lie on the table. Everything happens at one
 dining table at night.
 
 | Time | Words | Shot | What happens |

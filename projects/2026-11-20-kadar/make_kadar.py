@@ -9,7 +9,7 @@
        nobody looks; his smile fades and he slowly turns see-through
   9.1  now again: his ghost stands behind his own chair, watching them, then dissolves into light
 
-Same character and rig as the "शक्ल" reel (glasses, freckles, grey hoodie): this script imports
+A new character (the user wants a new one every reel): a girl with long hair, maroon kurti, bindi and jhumkas. Rig: this script imports
 ../2026-11-20-shakal-sad/make_shakal.py (which imports the 19 Nov rig) and replaces the story.
 No text on screen: the user asked for no lyrics (the word timings are kept in CHUNKS).
 
@@ -85,6 +85,37 @@ HAND_L = [(0, TABLE_L), (40, TABLE_L)]
 HAND_R = [(0, TABLE_R), (6.6, ("wave",)), (7.6, ("wave",)), (7.95, TABLE_R), (40, TABLE_R)]
 m.T, m.MOUTH, m.HAND_L, m.HAND_R = T, MOUTH, HAND_L, HAND_R
 
+# ---- a new character for this reel: a girl with long hair, maroon kurti, bindi and jhumkas ----
+m.HAIR, m.HAIR_HI = (54, 32, 30), (120, 76, 66)
+m.HOOD, m.HOOD_SH = (150, 48, 70), (108, 32, 52)
+MAROON = m.HOOD
+_base_head = sk._orig_head
+
+
+def girl_head(t, p):
+    p = dict(p)
+    if p["lid"] < 0.9 and p["happy"] < 0.5 and sk.blink(t):
+        p["lid"] = 1.0
+    img = _base_head(t, p)
+    pen = m.Pen(img, 0, 0, K)
+    cx, cy = 180, 310
+    for sx in (-1, 1):   # lashes at the outer corners
+        ex, ey = cx + sx * 52, cy + 12
+        if p["lid"] < 0.9 and p["happy"] < 0.5:
+            top = ey - 43 + p["lid"] * 78
+            pen.line([(ex + sx * 30, top + 6), (ex + sx * 44, top - 6)], m.LINE, 5)
+            pen.line([(ex + sx * 22, top + 2), (ex + sx * 32, top - 12)], m.LINE, 4)
+        # jhumka earrings
+        jx, jy = cx + sx * 120, cy + 52
+        pen.line([(jx, jy - 6), (jx, jy + 10)], (220, 180, 70), 3)
+        pen.poly([(jx - 14, jy + 26), (jx, jy + 8), (jx + 14, jy + 26)], (235, 195, 80), (120, 80, 20), 2)
+        pen.circle(jx, jy + 30, 4, (235, 195, 80))
+    pen.circle(cx, cy - 40, 7, (200, 30, 50))   # bindi
+    return img
+
+
+m.draw_head = girl_head
+
 
 def presence(t):
     """How much of him is there: solid in the flashback, fading as nobody looks, then a faint ghost."""
@@ -105,6 +136,15 @@ def draw_character(t):
     if pr <= 0.01:
         return Image.new("RGBA", (4, 4), (0, 0, 0, 0)), (0, 0), (540, 924)
     img, origin, head = _sk_char(t)
+    pen = m.Pen(img, origin[0], origin[1], K)
+    hx, hy = head
+    for sx in (-1, 1):
+        sway = 6 * math.sin(t * 2 + sx)
+        lock = [(hx + sx * 112, hy - 40), (hx + sx * 160, hy - 10), (hx + sx * 170 + sway, hy + 160),
+                (hx + sx * 150 + sway, hy + 330), (hx + sx * 118 + sway, hy + 360), (hx + sx * 112, hy + 200),
+                (hx + sx * 104, hy + 40)]
+        pen.poly(lock, m.HAIR, m.LINE, 3)
+        pen.line([(hx + sx * 140, hy + 20), (hx + sx * 146 + sway, hy + 300)], m.HAIR_HI, 4)
     a = img.getchannel("A")
     if t >= FB[1]:   # ghost: cool glow around a see-through body
         small = a.resize((a.width // 8, a.height // 8)).filter(ImageFilter.GaussianBlur(3)).resize(a.size, Image.BILINEAR)
@@ -163,12 +203,15 @@ def draw_face_photo(d, x, y, s):
         ang = math.radians(170 + k * 200 / 12)
         r = 50 * s if k % 2 == 0 else 62 * s
         pts.append((x + r * math.cos(ang), y - 8 * s + r * math.sin(ang)))
-    d.polygon(pts + [(x + 46 * s, y - 2 * s), (x - 46 * s, y - 2 * s)], fill=(30, 30, 46, 255))
+    hair = m.HAIR + (255,)
+    d.polygon([(x - 50 * s, y - 20 * s), (x + 50 * s, y - 20 * s), (x + 56 * s, y + 80 * s), (x - 56 * s, y + 80 * s)], fill=hair)
+    d.ellipse([x - 44 * s, y - 40 * s, x + 44 * s, y + 52 * s], fill=(250, 222, 200, 255))
+    d.chord([x - 50 * s, y - 62 * s, x + 50 * s, y + 10 * s], 180, 360, fill=hair)
+    d.ellipse([x - 4 * s, y - 2 * s, x + 4 * s, y + 6 * s], fill=(200, 30, 50, 255))
     for sx in (-1, 1):
-        d.ellipse([x + sx * 18 * s - 13 * s, y + 4 * s, x + sx * 18 * s + 13 * s, y + 28 * s], outline=(36, 34, 46, 255), width=max(2, int(3 * s)))
         d.arc([x + sx * 18 * s - 7 * s, y + 10 * s, x + sx * 18 * s + 7 * s, y + 20 * s], 200, 340, fill=(30, 30, 40, 255), width=max(2, int(3 * s)))
     d.arc([x - 16 * s, y + 24 * s, x + 16 * s, y + 42 * s], 20, 160, fill=(120, 40, 50, 255), width=max(2, int(3 * s)))
-    d.rectangle([x - 70 * s, y + 70 * s, x + 70 * s, y + 90 * s], fill=(92, 98, 120, 255))
+    d.rectangle([x - 70 * s, y + 70 * s, x + 70 * s, y + 90 * s], fill=MAROON + (255,))
 
 
 def chair_back(d, a=255):
@@ -210,13 +253,13 @@ def dining_env(t):
     # his chair (behind him) and, while he is gone, his hoodie hanging on it
     chair_back(d)
     if not (FB[0] <= t < FB[1]):
-        hood = (92, 98, 120, 255)
+        hood = MAROON + (255,)
         d.polygon([(410, 1000), (670, 1000), (690, 1080), (650, 1180), (430, 1180), (390, 1080)], fill=hood)
-        d.polygon([(400, 1060), (440, 1080), (430, 1320), (392, 1310)], fill=(80, 86, 106, 255))
-        d.polygon([(680, 1060), (640, 1080), (650, 1320), (688, 1310)], fill=(80, 86, 106, 255))
-        d.arc([470, 960, 610, 1060], 0, 180, fill=(64, 68, 90, 255), width=14)
-        d.line([(520, 1040), (516, 1110)], fill=(230, 230, 236, 255), width=4)
-        d.line([(560, 1040), (564, 1110)], fill=(230, 230, 236, 255), width=4)
+        d.polygon([(400, 1060), (440, 1080), (430, 1320), (392, 1310)], fill=m.HOOD_SH + (255,))
+        d.polygon([(680, 1060), (640, 1080), (650, 1320), (688, 1310)], fill=m.HOOD_SH + (255,))
+        for k in range(6):   # shawl border
+            d.line([(400 + k * 3, 1300 - k * 40), (690 - k * 3, 1300 - k * 40)], fill=(230, 180, 80, 255), width=3) if k == 0 else None
+        d.line([(392, 1310), (688, 1310)], fill=(230, 180, 80, 255), width=6)
     # a warm glow around him while he is there ("मौजूदगी")
     aura = clamp((t - 6.88) / 0.3) * (1 - smooth((t - 7.9) / 1.0)) if FB[0] <= t < FB[1] else 0.0
     if aura > 0.01:
@@ -292,15 +335,13 @@ def front_props(layer, t, inner=False):
             d.line([(655 + k * 10 + 8 * math.sin(u * 8), TABLE_Y - 40 - u * 90),
                     (660 + k * 10 + 8 * math.sin(u * 8 + 1), TABLE_Y - 60 - u * 90)],
                    fill=(255, 255, 255, int(120 * (1 - u))), width=4)
-    # his glasses on the table when he is gone
+    # her bangles left on the table when she is gone
     if not flash_back:
-        g = (30, 30, 40, 255)
-        for sx in (-1, 1):
-            d.ellipse([540 + sx * 40 - 30, TABLE_Y + 10, 540 + sx * 40 + 30, TABLE_Y + 40], outline=g, width=5)
-            d.line([(540 + sx * 70, TABLE_Y + 22), (540 + sx * 92, TABLE_Y + 6)], fill=g, width=4)
-        d.arc([528, TABLE_Y + 14, 552, TABLE_Y + 28], 180, 360, fill=g, width=4)
         glint = 0.5 + 0.5 * math.sin(t * 2.5)
-        d.line([(486, TABLE_Y + 16), (500, TABLE_Y + 12)], fill=(255, 255, 255, int(200 * glint)), width=3)
+        for k, col in enumerate(((220, 40, 70), (235, 190, 80), (220, 40, 70))):
+            x = 505 + k * 30
+            d.ellipse([x - 26, TABLE_Y + 8, x + 26, TABLE_Y + 40], outline=col + (255,), width=6)
+        d.line([(486, TABLE_Y + 16), (498, TABLE_Y + 12)], fill=(255, 255, 255, int(200 * glint)), width=3)
 
 
 def fx_layer(t):

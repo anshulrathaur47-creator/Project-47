@@ -28,6 +28,7 @@ Learned from past feedback. Follow these unless the user says otherwise.
 
 - **Format:** vertical 9:16, 1080×1920, 30 fps, H.264 + AAC `.mp4`, short (one song clip, ~15–60 s).
 - **Story first:** build a real story from the song's lyrics and meaning, with emotions. Not just text over a static picture.
+- **New character every reel:** never reuse the previous reel's character; change the look each time (gender, hair, outfit, colours, accessories).
 - **Character that acts:** anime-style character with expressions (crying, laughing, smirking, eyes closed), doing things.
 - **Movement, not standing still:** the character should walk, move and travel through different locations, with a carefree, fun (*masti*) vibe.
 - **Camera work:** different camera angles per line (wide, close-up, low angle, dutch tilt, feet shot), with cuts and transitions (whip-pan, flash, dip to black). Avoid one static framing.
