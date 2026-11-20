@@ -11,7 +11,7 @@
 
 Same character and rig as the "शक्ल" reel (glasses, freckles, grey hoodie): this script imports
 ../2026-11-20-shakal-sad/make_shakal.py (which imports the 19 Nov rig) and replaces the story.
-Only the spoken words are on screen.
+No text on screen: the user asked for no lyrics (the word timings are kept in CHUNKS).
 
 Usage: python3 make_kadar.py [--frames 30,150,...] [--workers 4]
 """
@@ -388,9 +388,7 @@ def render_frame(t):
         arr = arr + (255 - arr) * flash * 0.8
     arr *= m.VIGNETTE * bright
     arr += rng.normal(0, 4.0 if FB[0] <= t < FB[1] else 3.2, (H // 2, W // 2, 1)).repeat(2, 0).repeat(2, 1)
-    out = Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8)).convert("RGBA")
-    sk.draw_words(out, t, occ)
-    out = out.convert("RGB")
+    out = Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8))   # no words on screen (user: "No lyrics")
     fade = min(clamp(t / 0.35), clamp((DUR - t) / 0.9))
     if fade < 1:
         out = Image.blend(Image.new("RGB", (W, H)), out, fade)

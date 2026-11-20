@@ -24,9 +24,7 @@ dining table at night.
 | 9.1 to 10.5 | | wide, cold | Now: his ghost stands behind his own chair, watching them |
 | 10.5 to end | | pull back | He dissolves into specks of light; the empty chair; fade out |
 
-**Text:** only the spoken words, word by word with a soft neon glow, in the top band.
-- एहसास is pink, मौजूदगी and कदर are gold, नहीं is red.
-- The last line dissolves into dust.
+**Text:** none. The user asked for "No lyrics", so nothing is drawn. The word timings are still in CHUNKS in case text is wanted later.
 
 **Render:** `python3 make_kadar.py --workers 4` (`--frames 30,150` for previews). It imports
 `../2026-11-20-shakal-sad/make_shakal.py` for the character, the word animation and the rig.
