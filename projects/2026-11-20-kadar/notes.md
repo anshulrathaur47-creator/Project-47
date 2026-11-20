@@ -28,3 +28,12 @@ dining table at night.
 
 **Render:** `python3 make_kadar.py --workers 4` (`--frames 30,150` for previews). It imports
 `../2026-11-20-shakal-sad/make_shakal.py` for the character, the word animation and the rig.
+
+## v3 (feedback: "Story bhi acchi koi sad si")
+
+A sadder, clearer story with the same girl:
+- **Now:** her photo hangs on the wall with a marigold garland and a diya burning below it (she has passed
+  away). Her family sobs at her empty chair, and one of them touches her shawl.
+- **Flashback, her birthday:** she sits with a small cake and one candle, calling out happily, but everyone
+  is on their phone. Nobody comes, so she looks down and blows out the candle alone.
+- **Now again:** her ghost watches them cry from behind her chair, gives a small smile and dissolves into light.

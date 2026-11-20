@@ -67,7 +67,7 @@ T.update({
     "slump": [(0, 0), (7.7, 0), (8.6, 0.45), (9.09, 0.45), (9.1, 0.3)],
     "head_dy": [(0, 0), (7.8, 0), (8.6, 14), (9.09, 14), (9.1, 6)],
     "tilt": [(0, 0), (6.6, 3), (7.2, -3), (7.7, 2), (8.6, -4), (9.1, -3), (12.4, -5)],
-    "look": [(0, (0, 0)), (6.6, (-0.6, 0)), (7.1, (0.6, 0)), (7.6, (-0.4, 0.1)), (8.2, (0, 0.55)),
+    "look": [(0, (0, 0)), (6.6, (-0.6, 0)), (7.1, (0.6, 0)), (7.6, (-0.4, 0.1)), (7.95, (0, 0.75)),
              (9.1, (-0.45, 0.35)), (10.4, (0.45, 0.35)), (11.2, (0, -0.4))],
     "lid": [(0, 0), (7.8, 0), (8.6, 0.32), (9.1, 0.35), (12.4, 0.4)],
     "happy": [(0, 0), (6.6, 1), (7.05, 1), (7.08, 0)],
@@ -79,7 +79,7 @@ T.update({
     "desat": [(0, 0.35), (6.59, 0.35), (6.6, 0.12), (9.09, 0.2), (9.1, 0.4), (12.4, 0.45)],
 })
 MOUTH = ([(0, "flat")] + [(6.6 + k * 0.18, "hum" if k % 2 else "smile") for k in range(6)] +
-         [(7.7, "smile"), (8.0, "flat"), (8.5, "frown"), (9.1, "flat"), (10.3, "smile"), (11.0, "flat")])
+         [(7.7, "smile"), (8.0, "flat"), (8.55, "hum"), (8.9, "frown"), (9.1, "flat"), (10.3, "smile"), (11.0, "flat")])
 TABLE_L, TABLE_R = ("hip", -96, -86), ("hip", 96, -86)
 HAND_L = [(0, TABLE_L), (40, TABLE_L)]
 HAND_R = [(0, TABLE_R), (6.6, ("wave",)), (7.6, ("wave",)), (7.95, TABLE_R), (40, TABLE_R)]
@@ -176,10 +176,10 @@ m.LIGHT = [
     (12.4, ((10, 14, 26), (34, 40, 56), (0.86, 0.92, 1.08))),
 ]
 m.SHOTS = [
-    (0.00, 1.93, (2.80, 0, 250, 0), (3.00, 0, 255, 0), "fade"),          # his glasses, the cold tea
+    (0.00, 1.93, (2.30, 300, -490, 0), (2.50, 300, -480, 0), "fade"),    # her garlanded photo, the diya
     (1.93, 3.12, (1.00, 0, -40, 0), (1.05, 0, -60, 0), "cut"),           # the table, the empty chair
     (3.12, 4.28, (1.60, -170, -150, 0), (1.70, -180, -160, 0), "cut"),   # they look at it, one reaches out
-    (4.28, 5.48, (1.90, 0, -120, 0), (2.10, 0, -130, 0), "cut"),         # the empty chair, an aching heart
+    (4.28, 5.48, (1.90, 0, -120, 0), (2.10, 0, -130, 0), "cut"),         # her empty chair, an aching heart
     (5.48, 6.60, (1.50, 300, -535, 0), (3.30, 300, -535, 0), "cut"),     # push into his photo
     (6.60, 7.68, (1.25, 0, -170, 0), (1.35, 0, -190, 0), "flash"),       # flashback: he is there
     (7.68, 9.10, (2.30, 0, -176, 0), (2.60, 0, -180, 0), "cut"),         # nobody looks; he fades
@@ -240,6 +240,23 @@ def dining_env(t):
     d.rectangle([742, 452, 938, 698], fill=(150, 120, 80, 255))
     d.rectangle([756, 466, 924, 684], fill=(18, 18, 24, 255))
     draw_face_photo(d, 840, 572, 1.08)
+    d.rectangle([730, 744, 950, 760], fill=(90, 62, 44, 255))       # little shelf
+    if not (FB[0] <= t < FB[1]):
+        for k in range(23):   # marigold garland hanging round the frame
+            u = k / 22
+            gx = lerp(746, 934, u)
+            gy = 456 + 240 * math.sin(math.pi * u) ** 0.6
+            gx = 746 + (934 - 746) * u
+            gy = 452 + 250 * (1 - (2 * u - 1) ** 2)
+            col = (255, 150, 30, 255) if k % 2 else (255, 200, 40, 255)
+            d.ellipse([gx - 13, gy - 13, gx + 13, gy + 13], fill=col)
+        d.chord([815, 718, 865, 748], 0, 180, fill=(180, 100, 50, 255))    # diya
+        fl = 1 + 0.15 * math.sin(t * 17) + 0.1 * math.sin(t * 29)
+        glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        ImageDraw.Draw(glow).ellipse([780, 640, 900, 760], fill=(255, 190, 90, 110))
+        img.alpha_composite(glow.filter(ImageFilter.GaussianBlur(26)))
+        d.polygon([(840, 728 - 34 * fl), (830, 722), (840, 732), (850, 722)], fill=(255, 210, 90, 255))
+        d.ellipse([835, 712, 845, 728], fill=(255, 250, 210, 255))
     # hanging lamp + its cone of light
     d.line([(540, 0), (540, 300)], fill=(20, 20, 26, 255), width=4)
     d.polygon([(486, 300), (594, 300), (630, 372), (450, 372)], fill=(60, 50, 40, 255))
@@ -279,12 +296,12 @@ def draw_env(t, kind, sky_bot):
 m.draw_env = draw_env
 
 
-def seated(d, x, sc, side, t, phone=False, reach=0.0, bow=0.0):
+def seated(d, x, sc, side, t, phone=False, reach=0.0, bow=0.0, sob=0.0):
     """A faceless person sitting at the table; side = which way the centre (his chair) is (+1 = right)."""
     col = sk.SIL + (240,)
     toward = -side   # direction towards the centre of the table
     hx = x + toward * 14 * bow
-    hy = TABLE_Y - 560 * sc + 40 * bow
+    hy = TABLE_Y - 560 * sc + 40 * bow + sob * 7 * abs(math.sin(t * 8 + x))
     d.polygon([(x - 92 * sc, TABLE_Y - 420 * sc), (x + 92 * sc, TABLE_Y - 420 * sc), (x + 100 * sc, TABLE_Y + 10),
                (x - 100 * sc, TABLE_Y + 10)], fill=col)
     d.ellipse([x - 96 * sc, TABLE_Y - 450 * sc, x - 36 * sc, TABLE_Y - 380 * sc], fill=col)
@@ -314,7 +331,7 @@ def front_props(layer, t, inner=False):
     for i, (x, sc, side) in enumerate(SEATS):
         reach = smooth((t - 3.3) / 0.6) * (1 - smooth((t - 5.6) / 0.4)) if (i == 1 and t < 6.6) else 0.0
         bow = 1.0 if not flash_back else 0.6
-        seated(d, x, sc, side, t, phone=flash_back, reach=reach, bow=bow)
+        seated(d, x, sc, side, t, phone=flash_back, reach=reach, bow=bow, sob=0.0 if flash_back else 1.0)
     if 9.1 <= t:   # his chair in front of his ghost
         chair_back(d, 235)
     # the table
@@ -326,6 +343,25 @@ def front_props(layer, t, inner=False):
     for x in (160, 330, 750, 920):   # plates
         d.ellipse([x - 70, TABLE_Y + 8, x + 70, TABLE_Y + 46], fill=(250, 250, 252, 255), outline=(200, 200, 205, 255), width=3)
     d.ellipse([470, TABLE_Y + 8, 610, TABLE_Y + 46], fill=(250, 250, 252, 255), outline=(200, 200, 205, 255), width=3)
+    if flash_back:   # her little birthday cake with one candle
+        cx = 540
+        d.rectangle([cx - 70, TABLE_Y - 70, cx + 70, TABLE_Y + 20], fill=(250, 220, 230, 255))
+        d.rectangle([cx - 70, TABLE_Y - 70, cx + 70, TABLE_Y - 52], fill=(240, 120, 160, 255))
+        for k in range(7):
+            d.ellipse([cx - 66 + k * 20, TABLE_Y - 62, cx - 54 + k * 20, TABLE_Y - 46], fill=(240, 120, 160, 255))
+        d.rectangle([cx - 5, TABLE_Y - 130, cx + 5, TABLE_Y - 70], fill=(120, 190, 255, 255))
+        if t < 8.78:
+            fl = 1 + 0.15 * math.sin(t * 19)
+            d.ellipse([cx - 40, TABLE_Y - 190, cx + 40, TABLE_Y - 110], fill=(255, 200, 100, 60))
+            d.polygon([(cx, TABLE_Y - 130 - 34 * fl), (cx - 10, TABLE_Y - 138), (cx, TABLE_Y - 128), (cx + 10, TABLE_Y - 138)],
+                      fill=(255, 210, 90, 255))
+        else:   # a thin curl of smoke
+            u = clamp((t - 8.78) / 0.9)
+            for k in range(6):
+                v = k / 6
+                d.ellipse([cx - 6 + 14 * math.sin(v * 6 + t * 3), TABLE_Y - 140 - v * 160 * (0.4 + u),
+                           cx + 6 + 14 * math.sin(v * 6 + t * 3), TABLE_Y - 128 - v * 160 * (0.4 + u)],
+                          fill=(220, 220, 230, int(120 * (1 - v) * (1 - u * 0.6))))
     # his cup; steam only while he is there
     d.rectangle([640, TABLE_Y - 34, 690, TABLE_Y + 22], fill=(240, 236, 228, 255))
     d.arc([680, TABLE_Y - 24, 708, TABLE_Y + 6], 270, 90, fill=(240, 236, 228, 255), width=6)
