@@ -30,3 +30,22 @@ red-checked gamchha round his neck, dust on his cheeks.
 soft gold. A line that spans a cut picks a new place in the next shot so it never sits on his face.
 
 **Render:** `python3 make_kismat.py --workers 4`.
+
+## v2: an adult's story (user: "Aree ek adult ke upar banao")
+
+`python3 make_kismat_v2.py --workers 4`. It reuses the lyrics and clock from `make_kismat.py`.
+
+**New character:** a man in his mid-twenties: stubble, tired eyes, light-blue shirt, loose navy tie, an ID card
+on a red lanyard, backpack straps and a wristwatch.
+
+| Time | Line | Scene |
+|---|---|---|
+| 0 to 2.7 | जिस उम्र में शोभा देते | Sunset street: his friends pass in an open jeep, music notes rising, waving him along; he shakes his head |
+| 2.7 to 3.4 | मस्ती, | Phone glow on his face, a dream bubble of the beach trip |
+| 3.4 to 5.1 | सैर सपाटा | The phone rings (the boss); he answers and his shoulders drop |
+| 5.1 to 7.5 | उस उम्र को ना बुरा है | An empty office at night: he types between piles of files, sweating |
+| 7.5 to 9.1 | यूं घड़ी का कांटा | The wall clock races; he nods off at the desk |
+| 9.1 to 11.8 | अपनी किस्मत की गाड़ी की | He rides home on his old rusty teal scooter, which sputters smoke; low shot of the wheel |
+| 11.8 to 13.9 | खस्ता हालत है | It dies in a burst of smoke, the headlight flickers out, hands to his head |
+| 13.9 to 16.4 | अपनी किस्मत की गाड़ी की | Rain: he pushes the dead scooter down the empty road |
+| 16.4 to end | खस्ता हालत है… ओ रे | Close-up in the rain, he looks up; pull back, fade |
