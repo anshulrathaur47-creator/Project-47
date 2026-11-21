@@ -19,3 +19,4 @@ projects/*/_preview_*.png
 projects/*/render*.log
 # render outputs inside projects (finished videos are copied to exports/)
 projects/*/*.mp4
+projects/*/review/
