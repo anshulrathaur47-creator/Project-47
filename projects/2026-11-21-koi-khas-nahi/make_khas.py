@@ -47,6 +47,10 @@ DENIM, DENIM_SH, DENIM_L = (43, 58, 103), (30, 40, 76), (78, 96, 150)
 CREAM = (239, 230, 210)
 JEANS = (52, 54, 62)
 THREAD_R = (210, 40, 50)
+STYLE = "female"          # "male": short hair with a side-swept fringe, bomber jacket over a tee (set by make_khas_male.py)
+KIND_MAP, KIND_H = {}, {}  # remap silhouette kinds (e.g. the best friend becomes a girl) and their heights
+CUFF = None               # sleeve cuff colour (None = light denim)
+ARM_W = (58, 50)          # the friend's arm taking the umbrella in shot 13
 
 # ==============================================================================================
 # lyrics: static lines, two fixed bands (lower third for shots 1-13, top for the last shot)
@@ -193,11 +197,18 @@ def draw_head(t, p):
     wet = p["wet"]
     hair = tuple(int(c * (1 - 0.15 * wet)) for c in HAIR)
     sway = math.sin(t * 2.1) * 2
-    # bob, back part (behind the face)
-    back = [(cx - 170, cy + 150), (cx - 178, cy + 40)]
-    back += [(cx + 182 * math.cos(math.radians(a)), cy - 30 + 178 * math.sin(math.radians(a))) for a in range(185, 356, 6)]
-    back += [(cx + 178, cy + 40), (cx + 170, cy + 150)]
-    pen.poly(back, hair, LINE, 3)
+    if STYLE == "male":   # short hair at the back, ears showing
+        back = [(cx - 150, cy + 30), (cx - 162, cy - 30)]
+        back += [(cx + 172 * math.cos(math.radians(a)), cy - 34 + 170 * math.sin(math.radians(a))) for a in range(190, 351, 6)]
+        back += [(cx + 162, cy - 30), (cx + 150, cy + 30)]
+        pen.poly(back, hair, LINE, 3)
+        for sx in (-1, 1):
+            pen.ellipse(cx + sx * 118 - 15, cy - 5, cx + sx * 118 + 15, cy + 48, SKIN, LINE, 2.5)
+    else:   # bob, back part (behind the face)
+        back = [(cx - 170, cy + 150), (cx - 178, cy + 40)]
+        back += [(cx + 182 * math.cos(math.radians(a)), cy - 30 + 178 * math.sin(math.radians(a))) for a in range(185, 356, 6)]
+        back += [(cx + 178, cy + 40), (cx + 170, cy + 150)]
+        pen.poly(back, hair, LINE, 3)
     # face
     pen.poly([(cx - 116, cy + 10), (cx - 100, cy + 85), (cx - 45, cy + 128), (cx, cy + 138), (cx + 45, cy + 128),
               (cx + 100, cy + 85), (cx + 116, cy + 10)], SKIN, LINE, 3)
@@ -241,11 +252,13 @@ def draw_head(t, p):
             pen.line([(i_x + sx * 4, inner_y + 2), (ex, (inner_y + outer_y) / 2 - 2), (o_x, outer_y + 1),
                       (o_x + sx * 11, outer_y - 8)], LINE, 7)
             pen.arc_line(ex, ey + 2, rx - 3, ry - 2, 50, 130, LINE, 2.5)
-            pen.line([(ex + sx * 18, ey + 36), (ex + sx * 26, ey + 32)], LINE, 2)     # lower lash
+            if STYLE != "male":
+                pen.line([(ex + sx * 18, ey + 36), (ex + sx * 26, ey + 32)], LINE, 2)     # lower lash
         by = cy - 48
         brows.append(((cx + sx * 22, by - 12 * brow + 4 * min(brow, 0) * -1), (cx + sx * 52, by - 8 - 3 * brow),
                       (cx + sx * 84, by + 6 * brow - 4)))
-    pen.circle(cx - 74, cy + 54, 3.2, (60, 36, 30))           # beauty mark under her right eye
+    if STYLE != "male":
+        pen.circle(cx - 74, cy + 54, 3.2, (60, 36, 30))       # beauty mark under her right eye
     pen.line([(cx + 2, cy + 52), (cx - 3, cy + 60)], SKIN_SH, 4)
     # mouth
     mth = p["mouth"]
@@ -295,27 +308,38 @@ def draw_head(t, p):
             lp.poly([(tx, ty - 15), (tx - 7, ty), (tx + 7, ty)], (165, 210, 255, a))
             lp.circle(tx, ty + 2, 7, (165, 210, 255, a))
         img.alpha_composite(lay)
-    # blunt bangs over the forehead
-    bang = [(cx - 160, cy - 30)]
-    bang += [(cx + 168 * math.cos(math.radians(a)), cy - 36 + 166 * math.sin(math.radians(a))) for a in range(190, 351, 8)]
-    bang += [(cx + 160, cy - 30), (cx + 120, cy - 36)]
-    for k in range(9):   # slightly uneven blunt edge
-        x = cx + 120 - k * 30
-        bang.append((x, cy - 34 + (6 if k % 2 else 0) + sway * 0.5))
-    bang += [(cx - 130, cy - 36)]
-    pen.poly(bang, hair, LINE, 3)
-    pen.poly([(cx - 96, cy - 120), (cx - 20, cy - 142), (cx + 60, cy - 138), (cx + 100, cy - 116), (cx + 60, cy - 124),
-              (cx - 20, cy - 128)], (70, 70, 96) if wet < 0.5 else (52, 52, 70))
-    # face-framing locks and bob sides in front of the cheeks
-    for sx in (-1, 1):
-        lock = [(cx + sx * 116, cy - 40), (cx + sx * 142, cy - 30), (cx + sx * 150, cy + 60), (cx + sx * 140, cy + 150),
-                (cx + sx * 104, cy + 156), (cx + sx * 110, cy + 80), (cx + sx * 108, cy - 10)]
-        pen.poly(lock, hair, LINE, 3)
-        pen.line([(cx + sx * 126, cy - 10), (cx + sx * 124, cy + 130)], (60, 60, 82), 3)
-        pen.circle(cx + sx * 116, cy + 112, 11, None, (210, 214, 224), 3)   # silver hoop peeking out
-    pen.poly([(cx + 70, cy - 98), (cx + 116, cy - 82), (cx + 112, cy - 70), (cx + 66, cy - 86)], MUSTARD, LINE, 2)   # clip
-    for inner, mid, outer in brows:   # brows sit on top of the bangs (anime style)
-        pen.line([inner, mid, outer], (30, 24, 26), 7)
+    if STYLE == "male":   # side-swept fringe, short sideburns
+        fr = [(cx - 156, cy + 20), (cx - 166, cy - 50)]
+        fr += [(cx + 170 * math.cos(math.radians(a)), cy - 40 + 160 * math.sin(math.radians(a))) for a in range(195, 346, 8)]
+        fr += [(cx + 160, cy - 60), (cx + 150, cy + 10), (cx + 128, cy - 30)]
+        for x, y in ((104, -34), (84, -66), (58, -32), (30, -70), (2, -38), (-28, -80), (-56, -50), (-86, -92), (-112, -58), (-134, -96)):
+            fr.append((cx + x, cy + y + (sway * 0.5 if y > -50 else 0)))
+        pen.poly(fr, hair, LINE, 3)
+        pen.arc_line(cx - 20, cy - 92, 100, 50, 200, 320, (86, 72, 66) if wet < 0.5 else (66, 56, 52), 8)
+        for sx in (-1, 1):
+            pen.poly([(cx + sx * 110, cy - 34), (cx + sx * 128, cy - 34), (cx + sx * 124, cy + 30), (cx + sx * 114, cy + 26)], hair, LINE, 2)
+    else:
+        # blunt bangs over the forehead
+        bang = [(cx - 160, cy - 30)]
+        bang += [(cx + 168 * math.cos(math.radians(a)), cy - 36 + 166 * math.sin(math.radians(a))) for a in range(190, 351, 8)]
+        bang += [(cx + 160, cy - 30), (cx + 120, cy - 36)]
+        for k in range(9):   # slightly uneven blunt edge
+            x = cx + 120 - k * 30
+            bang.append((x, cy - 34 + (6 if k % 2 else 0) + sway * 0.5))
+        bang += [(cx - 130, cy - 36)]
+        pen.poly(bang, hair, LINE, 3)
+        pen.poly([(cx - 96, cy - 120), (cx - 20, cy - 142), (cx + 60, cy - 138), (cx + 100, cy - 116), (cx + 60, cy - 124),
+                  (cx - 20, cy - 128)], (70, 70, 96) if wet < 0.5 else (52, 52, 70))
+        # face-framing locks and bob sides in front of the cheeks
+        for sx in (-1, 1):
+            lock = [(cx + sx * 116, cy - 40), (cx + sx * 142, cy - 30), (cx + sx * 150, cy + 60), (cx + sx * 140, cy + 150),
+                    (cx + sx * 104, cy + 156), (cx + sx * 110, cy + 80), (cx + sx * 108, cy - 10)]
+            pen.poly(lock, hair, LINE, 3)
+            pen.line([(cx + sx * 126, cy - 10), (cx + sx * 124, cy + 130)], (60, 60, 82), 3)
+            pen.circle(cx + sx * 116, cy + 112, 11, None, (210, 214, 224), 3)   # silver hoop peeking out
+        pen.poly([(cx + 70, cy - 98), (cx + 116, cy - 82), (cx + 112, cy - 70), (cx + 66, cy - 86)], MUSTARD, LINE, 2)   # clip
+    for inner, mid, outer in brows:   # brows sit on top of the hair (anime style)
+        pen.line([inner, mid, outer], (30, 24, 26), 9 if STYLE == "male" else 7)
     if wet > 0.3:   # stuck strands and rain on her face
         for k, x0 in enumerate((-60, 10, 70)):
             pen.line([(cx + x0, cy - 36), (cx + x0 + 8, cy + 6 + k * 10)], hair, 4)
@@ -355,19 +379,34 @@ def draw_ira(t, p=None):
         pen.limb(knee, foot, 62, JEANS)
         pen.ellipse(foot[0] - 46, foot[1] - 14, foot[0] + 46, foot[1] + 24, (242, 242, 246), LINE, 3)
         pen.line([(foot[0] - 42, foot[1] + 16), (foot[0] + 42, foot[1] + 16)], (170, 170, 180), 5)
-    # torso: denim jacket over a cream high-neck
-    pen.poly([(hx - 26, sy - 50), (hx + 26, sy - 50), (hx + 26, sy + 10), (hx - 26, sy + 10)], CREAM, LINE, 2)
-    body = [(hx - 118, sy + 6), (hx + 118, sy + 6), (hx + 104, hip_y + 22), (hx - 104, hip_y + 22)]
-    pen.poly(body, DENIM, LINE, 3)
-    for s in (-1, 1):
-        pen.circle(hx + s * 100, sy + 34, 36, DENIM)
-    pen.poly([(hx - 36, sy + 4), (hx + 36, sy + 4), (hx + 30, hip_y + 20), (hx - 30, hip_y + 20)], CREAM, LINE, 2)
-    for s in (-1, 1):
-        pen.poly([(hx + s * 36, sy + 4), (hx + s * 76, sy + 10), (hx + s * 44, sy + 120), (hx + s * 32, sy + 40)], DENIM_SH, LINE, 2)
-        pen.poly([(hx + s * 52, sy + 70), (hx + s * 92, sy + 70), (hx + s * 92, sy + 110), (hx + s * 52, sy + 110)], DENIM_SH, LINE, 2)
-        pen.line([(hx + s * 52, sy + 82), (hx + s * 92, sy + 82)], DENIM_L, 3)
-    pen.line([(hx - 104, hip_y + 8), (hx + 104, hip_y + 8)], DENIM_L, 4)
-    pen.line([(hx - 104, sy + 30), (hx + 92, hip_y - 10)], (24, 24, 28), 9)     # crossbody strap
+    if STYLE == "male":   # bomber jacket over a white tee
+        pen.poly([(hx - 24, sy - 50), (hx + 24, sy - 50), (hx + 24, sy + 10), (hx - 24, sy + 10)], SKIN_SH, LINE, 2)
+        body = [(hx - 122, sy + 6), (hx + 122, sy + 6), (hx + 108, hip_y + 22), (hx - 108, hip_y + 22)]
+        pen.poly(body, DENIM, LINE, 3)
+        for s_ in (-1, 1):
+            pen.circle(hx + s_ * 104, sy + 34, 38, DENIM)
+        pen.poly([(hx - 40, sy + 4), (hx + 40, sy + 4), (hx + 34, hip_y + 16), (hx - 34, hip_y + 16)], CREAM, LINE, 2)
+        pen.arc_line(hx, sy + 4, 26, 18, 0, 180, (196, 196, 192), 4)
+        for s_ in (-1, 1):
+            pen.line([(hx + s_ * 40, sy + 6), (hx + s_ * 34, hip_y + 16)], (150, 152, 140), 4)    # open zip
+            pen.poly([(hx + s_ * 30, sy - 10), (hx + s_ * 74, sy + 2), (hx + s_ * 46, sy + 30), (hx + s_ * 34, sy + 10)], DENIM_SH, LINE, 2)
+        pen.poly([(hx - 108, hip_y), (hx + 108, hip_y), (hx + 108, hip_y + 24), (hx - 108, hip_y + 24)], DENIM_SH, LINE, 2)
+        for k in range(-5, 6):
+            pen.line([(hx + k * 18, hip_y + 4), (hx + k * 18, hip_y + 20)], (52, 60, 38), 2)
+    else:
+        # torso: denim jacket over a cream high-neck
+        pen.poly([(hx - 26, sy - 50), (hx + 26, sy - 50), (hx + 26, sy + 10), (hx - 26, sy + 10)], CREAM, LINE, 2)
+        body = [(hx - 118, sy + 6), (hx + 118, sy + 6), (hx + 104, hip_y + 22), (hx - 104, hip_y + 22)]
+        pen.poly(body, DENIM, LINE, 3)
+        for s in (-1, 1):
+            pen.circle(hx + s * 100, sy + 34, 36, DENIM)
+        pen.poly([(hx - 36, sy + 4), (hx + 36, sy + 4), (hx + 30, hip_y + 20), (hx - 30, hip_y + 20)], CREAM, LINE, 2)
+        for s in (-1, 1):
+            pen.poly([(hx + s * 36, sy + 4), (hx + s * 76, sy + 10), (hx + s * 44, sy + 120), (hx + s * 32, sy + 40)], DENIM_SH, LINE, 2)
+            pen.poly([(hx + s * 52, sy + 70), (hx + s * 92, sy + 70), (hx + s * 92, sy + 110), (hx + s * 52, sy + 110)], DENIM_SH, LINE, 2)
+            pen.line([(hx + s * 52, sy + 82), (hx + s * 92, sy + 82)], DENIM_L, 3)
+        pen.line([(hx - 104, hip_y + 8), (hx + 104, hip_y + 8)], DENIM_L, 4)
+        pen.line([(hx - 104, sy + 30), (hx + 92, hip_y - 10)], (24, 24, 28), 9)     # crossbody strap
     if p["wet_shoulder"] > 0.01:
         lay = Image.new("RGBA", img.size, (0, 0, 0, 0))
         Pen(lay, rx0, ry0, K).ellipse(hx + 40, sy - 10, hx + 140, sy + 90, (10, 14, 30, int(110 * p["wet_shoulder"])))
@@ -401,7 +440,7 @@ def draw_arm(pen, s, sh, elbow, hand):
     pen.limb(sh, elbow, 54, DENIM)
     pen.limb(elbow, hand, 50, DENIM)
     cuff = (lerp(elbow[0], hand[0], 0.78), lerp(elbow[1], hand[1], 0.78))
-    pen.limb(cuff, (lerp(elbow[0], hand[0], 0.86), lerp(elbow[1], hand[1], 0.86)), 56, DENIM_L)
+    pen.limb(cuff, (lerp(elbow[0], hand[0], 0.86), lerp(elbow[1], hand[1], 0.86)), 56, CUFF or DENIM_L)
     if s < 0:   # friendship thread on her right wrist (screen left)
         w = (lerp(elbow[0], hand[0], 0.9), lerp(elbow[1], hand[1], 0.9))
         pen.circle(*w, 24, None, THREAD_R, 5)
@@ -510,14 +549,17 @@ def canopy_under(d, cx, cy, R, a=255, col=MUSTARD):
 
 
 def person(d, x, feet, h, kind, t, pose="stand", col=SLATE, rim=None, a=255, walk=0.0, ph=0.0, cut_y=None, arm_t=1.0):
-    """A faceless silhouette. kind 'kabir' (tall, messy hair, headphones, backpack) or 'gf' (ponytail, sling bag)."""
+    """A faceless silhouette. kind 'kabir' (tall, messy hair, headphones, backpack), 'gf' (ponytail, sling bag),
+    'girl' (long hair) or 'boy' (short hair, cap)."""
+    kind = KIND_MAP.get(kind, kind)
+    h = h * KIND_H.get(kind, 1.0)
     def draw(dd, ox, colr):
         bob = abs(math.sin(t * 7 + ph)) * 0.012 * h * walk
         top = feet - h - bob
         hr = 0.075 * h
         hcx, hcy = x + ox, top + hr + 0.01 * h
         sh_y = top + 0.2 * h
-        sw = 0.15 * h if kind == "kabir" else 0.13 * h
+        sw = {"kabir": 0.15, "boy": 0.16}.get(kind, 0.13) * h
         hip_y = top + 0.55 * h
         cola = colr + (a,)
         if pose == "shrug" or (pose == "shrug_t" and 0 < arm_t < 1):
@@ -527,7 +569,15 @@ def person(d, x, feet, h, kind, t, pose="stand", col=SLATE, rim=None, a=255, wal
         dd.ellipse([hcx + sw - 0.05 * h, sh_y - 0.02 * h, hcx + sw + 0.03 * h, sh_y + 0.06 * h], fill=cola)
         dd.rectangle([hcx - 0.03 * h, hcy + hr * 0.8, hcx + 0.03 * h, sh_y + 2], fill=cola)
         dd.ellipse([hcx - hr, hcy - hr, hcx + hr, hcy + hr * 1.05], fill=cola)
-        if kind == "kabir":
+        if kind == "girl":   # long hair falling to the shoulders
+            dd.polygon([(hcx - hr * 1.15, hcy - hr * 0.2), (hcx + hr * 1.15, hcy - hr * 0.2), (hcx + hr * 1.35, sh_y + 0.07 * h),
+                        (hcx - hr * 1.35, sh_y + 0.07 * h)], fill=cola)
+            dd.ellipse([hcx - hr * 1.12, hcy - hr * 1.15, hcx + hr * 1.12, hcy + hr * 0.6], fill=cola)
+        elif kind == "boy":   # cap with a brim
+            dd.chord([hcx - hr * 1.08, hcy - hr * 1.2, hcx + hr * 1.08, hcy + hr * 0.5], 180, 360, fill=cola)
+            dd.polygon([(hcx + hr * 0.4, hcy - hr * 0.45), (hcx + hr * 1.7, hcy - hr * 0.35), (hcx + hr * 1.6, hcy - hr * 0.2),
+                        (hcx + hr * 0.4, hcy - hr * 0.25)], fill=cola)
+        elif kind == "kabir":
             cap = []
             for k in range(13):   # messy hair cap
                 ang = math.radians(195 + k * 150 / 12)
@@ -538,7 +588,7 @@ def person(d, x, feet, h, kind, t, pose="stand", col=SLATE, rim=None, a=255, wal
             for s_ in (-1, 1):
                 dd.ellipse([hcx + s_ * hr * 0.95 - hr * 0.3, hcy + hr * 0.95, hcx + s_ * hr * 0.95 + hr * 0.3, hcy + hr * 1.55], fill=cola)
             dd.rectangle([hcx + sw * 0.7, sh_y + 0.02 * h, hcx + sw * 1.15, sh_y + 0.26 * h], fill=cola)   # backpack bulge
-        else:
+        elif kind == "gf":
             dd.ellipse([hcx - hr * 0.5, hcy - hr * 1.5, hcx + hr * 0.5, hcy - hr * 0.6], fill=cola)          # high ponytail
             dd.polygon([(hcx + hr * 0.2, hcy - hr * 1.2), (hcx + hr * 1.3, hcy - hr * 0.4), (hcx + hr * 1.0, hcy + hr * 0.6), (hcx + hr * 0.4, hcy - hr * 0.4)], fill=cola)
             dd.ellipse([hcx + sw * 0.6, hip_y - 0.05 * h, hcx + sw * 1.15, hip_y + 0.03 * h], fill=cola)    # sling bag
@@ -866,6 +916,16 @@ def s01(t):
 
 def back_of_head(d, x, y, s, a=255):
     hair = HAIR + (a,)
+    if STYLE == "male":
+        d.ellipse([x - 176 * s, y - 196 * s, x + 176 * s, y + 130 * s], fill=hair)
+        for sx in (-1, 1):
+            d.ellipse([x + sx * 170 * s - 26 * s, y - 20 * s, x + sx * 170 * s + 26 * s, y + 70 * s], fill=SKIN_SH + (a,))
+        d.rectangle([x - 74 * s, y + 100 * s, x + 74 * s, y + 250 * s], fill=SKIN_SH + (a,))
+        d.polygon([(x - 340 * s, y + 900 * s), (x - 310 * s, y + 320 * s), (x - 150 * s, y + 220 * s), (x + 150 * s, y + 220 * s),
+                   (x + 310 * s, y + 320 * s), (x + 340 * s, y + 900 * s)], fill=DENIM + (a,))
+        d.polygon([(x - 150 * s, y + 200 * s), (x + 150 * s, y + 200 * s), (x + 130 * s, y + 270 * s), (x - 130 * s, y + 270 * s)], fill=DENIM_SH + (a,))
+        d.arc([x - 130 * s, y - 180 * s, x + 70 * s, y - 50 * s], 200, 300, fill=(86, 72, 66, a), width=max(2, int(10 * s)))
+        return
     d.ellipse([x - 190 * s, y - 200 * s, x + 190 * s, y + 170 * s], fill=hair)
     d.rectangle([x - 186 * s, y - 20 * s, x + 186 * s, y + 160 * s], fill=hair)
     d.rectangle([x - 70 * s, y + 150 * s, x + 70 * s, y + 260 * s], fill=(150, 108, 80, a))
@@ -1330,8 +1390,8 @@ def s13(t):
     gone = smooth((t - 16.53) / 0.3)
     # Kabir's arm (and the girlfriend's coral-rimmed shoulder) from the right edge
     kx = lerp(1200, hx_ + 40, smooth((t - 16.15) / 0.3))
-    d.line([(1200, 780), (kx, hy_ + 10)], fill=(150, 170, 200, 255), width=58)
-    d.line([(1200, 776), (kx, hy_ + 6)], fill=SLATE + (255,), width=50)
+    d.line([(1200, 780), (kx, hy_ + 10)], fill=(150, 170, 200, 255), width=ARM_W[0])
+    d.line([(1200, 776), (kx, hy_ + 6)], fill=SLATE + (255,), width=ARM_W[1])
     d.ellipse([kx - 32, hy_ - 22, kx + 32, hy_ + 36], fill=SLATE + (255,))
     d.ellipse([980, 820, 1260, 1300], fill=CORAL + (255,))
     d.ellipse([990, 830, 1270, 1310], fill=(50, 40, 48, 255))
