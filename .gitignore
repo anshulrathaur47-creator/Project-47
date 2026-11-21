@@ -1,0 +1,21 @@
+reel/_*.mp4
+reel/_preview_*.png
+# tool installs and caches (recreated by tools/setup.sh)
+tools/models/
+node_modules/
+tools/remotion-starter/out/
+tools/hyperframes-starter/renders/
+tools/hyperframes-starter/.hyperframes/
+# watch skill: downloaded source videos and temp audio (frames and notes are kept)
+references/watch/*/source.*
+references/watch/*/audio.wav
+# private credentials (cookies files) used by tools/download.sh
+tools/secrets/
+projects/*/_*.mp4
+projects/*/_prev_*.png
+projects/*/render.log
+__pycache__/
+projects/*/_preview_*.png
+projects/*/render*.log
+# render outputs inside projects (finished videos are copied to exports/)
+projects/*/*.mp4
