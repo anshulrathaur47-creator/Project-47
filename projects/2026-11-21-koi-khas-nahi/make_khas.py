@@ -147,12 +147,12 @@ UMB_CLOSE = ("head", 160, 430)      # umbrella handle low at the chest (close-up
 TABLE_L, TABLE_R = ("hip", -90, -150), ("hip", 90, -150)
 LAP_L, LAP_R = ("hip", -80, -60), ("hip", 80, -60)
 HAND_L = [(0, SIDE_L), (2.13, SIDE_L), (2.14, ("hip", -100, 0)), (4.21, ("hip", -100, 0)), (4.22, SIDE_L), (5.25, SIDE_L),
-          (5.26, ("head", -200, 150)), (6.15, ("head", -200, 150)), (6.16, SIDE_L), (7.29, ("hip", -90, -20)),
-          (9.04, ("hip", -90, -20)), (9.05, SIDE_L), (10.55, LAP_L), (14.24, LAP_L), (14.25, SIDE_L), (14.55, ("head", -190, -120)),
-          (15.1, ("head", -190, -120)), (15.21, SIDE_L), (16.97, SIDE_L), (17.94, SIDE_L), (18.15, ("head", -24, 250)),
+          (5.26, ("head", -153, 85)), (6.15, ("head", -153, 85)), (6.16, SIDE_L), (7.29, ("hip", -90, -20)),
+          (9.04, ("hip", -90, -20)), (9.05, SIDE_L), (10.55, LAP_L), (14.24, LAP_L), (14.25, SIDE_L), (14.55, ("head", -270, 30)),
+          (15.1, ("head", -270, 30)), (15.21, SIDE_L), (16.97, SIDE_L), (17.94, SIDE_L), (18.15, ("head", -24, 250)),
           (18.6, ("head", -24, 250)), (18.9, SIDE_L)]
 HAND_R = [(0, UMB_R), (2.13, UMB_R), (2.14, UMB_CLOSE), (4.21, UMB_CLOSE), (4.22, SIDE_R), (5.25, SIDE_R), (5.26, SIDE_R),
-          (5.5, ("head", 165, -290)), (5.85, ("head", 165, -290)), (6.1, SIDE_R), (6.16, SIDE_R), (7.29, TABLE_R), (9.04, TABLE_R),
+          (5.5, ("head", 190, 10)), (5.85, ("head", 190, 10)), (6.1, SIDE_R), (6.16, SIDE_R), (7.29, TABLE_R), (9.04, TABLE_R),
           (9.05, SIDE_R), (10.55, LAP_R), (12.55, LAP_R), (13.1, ("head", 225, 250)), (13.55, ("head", 225, 250)), (13.95, LAP_R),
           (14.24, LAP_R), (14.25, UMB_R), (15.2, UMB_R), (15.21, UMB_CLOSE), (16.08, UMB_CLOSE), (16.09, ("head", 270, 250)),
           (16.53, ("head", 290, 250)), (16.85, SIDE_R), (16.97, SIDE_R)]
@@ -164,8 +164,8 @@ def resolve_hand(spec, t, hip, head):
         return (head[0] + 160 + 22 * math.sin(t * 10), head[1] - 90)
     ref = hip if kind == "hip" else head
     off = (0, 0)
-    if spec == ("head", -190, -120):   # a small awkward wave
-        off = (30 * math.sin(t * 11), 0)
+    if spec == ("head", -270, 30):   # a small awkward wave beside the ear
+        off = (0, 24 * math.sin(t * 13))
     return (ref[0] + spec[1] + off[0], ref[1] + spec[2] + off[1])
 
 
@@ -322,7 +322,7 @@ def draw_head(t, p):
         fr = [(cx - 156, cy + 20), (cx - 166, cy - 50)]
         fr += [(cx + 170 * math.cos(math.radians(a)), cy - 40 + 160 * math.sin(math.radians(a))) for a in range(195, 346, 8)]
         fr += [(cx + 160, cy - 60), (cx + 150, cy + 10), (cx + 128, cy - 30)]
-        for x, y in ((104, -34), (84, -66), (58, -32), (30, -70), (2, -38), (-28, -80), (-56, -50), (-86, -92), (-112, -58), (-134, -96)):
+        for x, y in ((112, -86), (92, -104), (70, -84), (40, -108), (14, -82), (-24, -110), (-58, -80), (-96, -112), (-124, -74), (-142, -100)):
             fr.append((cx + x, cy + y + (sway * 0.5 if y > -50 else 0)))
         pen.poly(fr, hair, LINE, 3)
         pen.arc_line(cx - 20, cy - 92, 100, 50, 200, 320, (86, 72, 66) if wet < 0.5 else (66, 56, 52), 8)
@@ -351,9 +351,9 @@ def draw_head(t, p):
     for inner, mid, outer in brows:   # brows sit on top of the hair (anime style)
         pen.line([inner, mid, outer], (60, 52, 62), 13 if STYLE == "male" else 12)
         pen.line([inner, mid, outer], (122, 90, 76), 9 if STYLE == "male" else 8)
-    if wet > 0.3:   # stuck strands and rain on her face
-        for k, x0 in enumerate((-60, 10, 70)):
-            pen.line([(cx + x0, cy - 36), (cx + x0 + 8, cy + 6 + k * 10)], hair, 4)
+    if wet > 0.3:   # stuck strands at the fringe tips and rain on the face
+        for k, x0 in enumerate((-30, 25, 85)):
+            pen.line([(cx + x0, cy - 80), (cx + x0 + 6, cy - 56)], hair, 4)
         lay = Image.new("RGBA", img.size, (0, 0, 0, 0))
         lp = Pen(lay, 0, 0, K)
         for k in range(6):
@@ -539,6 +539,14 @@ def umbrella_open(d, top, handle, R, open_amt=1.0, col=MUSTARD, a=255, shaft_beh
     d.arc([hx - r, hy - r * 0.2, hx + r, hy + r * 1.8], 0, 180, fill=(120, 80, 46, a), width=max(2, int(R * 0.035)))
 
 
+def umbrella_shaft(d, top, handle, R, a=255):
+    tx, ty = top
+    hx, hy = handle
+    ang = math.atan2(hx - tx, hy - ty)
+    ca, sa = math.cos(ang), math.sin(ang)
+    d.line([(tx + -R * 0.12 * sa, ty - R * 0.12 * ca), (hx, hy)], fill=(120, 90, 60, a), width=max(2, int(R * 0.035)))
+
+
 def umbrella_closed(d, tip, top, s, a=255):
     tx, ty = tip
     ux, uy = top
@@ -548,12 +556,14 @@ def umbrella_closed(d, tip, top, s, a=255):
 
     def P(u, v):
         return (tx + u * ca + v * sa, ty - u * sa + v * ca)
-    d.line([P(0, 0), P(0, L)], fill=(120, 90, 60, a), width=max(2, int(6 * s)))
-    d.polygon([P(0, L * 0.08), P(-26 * s, L * 0.55), P(-12 * s, L * 0.86), P(12 * s, L * 0.86), P(22 * s, L * 0.5)], fill=MUSTARD + (a,), outline=LINE + (a,))
-    d.line([P(-8 * s, L * 0.3), P(-4 * s, L * 0.8)], fill=MUSTARD_D + (a,), width=max(1, int(3 * s)))
-    d.line([P(-16 * s, L * 0.6), P(16 * s, L * 0.6)], fill=(110, 80, 20, a), width=max(2, int(6 * s)))   # strap
+    d.line([P(0, 0), P(0, L * 0.1)], fill=(120, 90, 60, a), width=max(2, int(5 * s)))          # ferrule
+    d.line([P(0, L * 0.88), P(0, L)], fill=(120, 90, 60, a), width=max(2, int(6 * s)))         # handle stem
+    d.polygon([P(0, L * 0.08), P(-12 * s, L * 0.55), P(-6 * s, L * 0.88), P(6 * s, L * 0.88), P(12 * s, L * 0.52)], fill=MUSTARD + (a,), outline=LINE + (a,))
+    d.line([P(-2 * s, L * 0.15), P(-8 * s, L * 0.82)], fill=MUSTARD_D + (a,), width=max(1, int(2 * s)))   # folds
+    d.line([P(3 * s, L * 0.18), P(7 * s, L * 0.8)], fill=MUSTARD_D + (a,), width=max(1, int(2 * s)))
+    d.line([P(-10 * s, L * 0.64), P(10 * s, L * 0.58)], fill=(110, 80, 20, a), width=max(2, int(4 * s)))   # strap, diagonal
     hx, hy = P(0, L)
-    d.arc([hx - 14 * s, hy - 4 * s, hx + 14 * s, hy + 24 * s], 0, 180, fill=(120, 80, 46, a), width=max(2, int(6 * s)))
+    d.arc([hx, hy - 4 * s, hx + 26 * s, hy + 24 * s], 0, 180, fill=(120, 80, 46, a), width=max(2, int(6 * s)))   # one-sided J
 
 
 def canopy_under(d, cx, cy, R, a=255, col=MUSTARD):
@@ -565,7 +575,7 @@ def canopy_under(d, cx, cy, R, a=255, col=MUSTARD):
         pts.append((cx + r * math.cos(ang), cy - r * 0.45 * math.sin(ang) * -1 + 0))
     shade = tuple(int(c * 0.78) for c in col)
     d.polygon([(cx - R * 1.4, -50), (cx + R * 1.4, -50)] + [(cx + R * math.cos(math.radians(a_)), cy + R * 0.42 * math.sin(math.radians(a_)))
-                                                           for a_ in range(0, 181, 10)][::-1], fill=shade + (a,))
+                                                           for a_ in range(0, 181, 10)], fill=shade + (a,))
     for k in range(9):
         ang = math.radians(k * 180 / 8)
         d.line([(cx, cy - R * 0.6), (cx + R * math.cos(ang), cy + R * 0.42 * math.sin(ang))], fill=MUSTARD_D + (a,), width=6)
@@ -578,26 +588,37 @@ def person(d, x, feet, h, kind, t, pose="stand", col=SLATE, rim=None, a=255, wal
     'girl' (long hair) or 'boy' (short hair, cap)."""
     kind = KIND_MAP.get(kind, kind)
     h = h * KIND_H.get(kind, 1.0)
-    def draw(dd, ox, colr):
+    def draw(dd, ox, colr):   # noqa: C901
         bob = abs(math.sin(t * 7 + ph)) * 0.012 * h * walk
         top = feet - h - bob
         hr = 0.075 * h
         hcx, hcy = x + ox, top + hr + 0.01 * h
         sh_y = top + 0.2 * h
-        sw = {"kabir": 0.15, "boy": 0.16}.get(kind, 0.13) * h
+        sw = {"kabir": 0.15, "boy": 0.16, "girl": 0.12}.get(kind, 0.13) * h
         hip_y = top + 0.55 * h
         cola = colr + (a,)
         if pose == "shrug" or (pose == "shrug_t" and 0 < arm_t < 1):
-            sh_y -= 0.03 * h * (1 if pose == "shrug" else math.sin(math.pi * arm_t))
+            sh_y -= 0.08 * h * (1 if pose == "shrug" else math.sin(math.pi * arm_t))
         dd.polygon([(hcx - sw, sh_y), (hcx + sw, sh_y), (hcx + sw * 0.78, hip_y), (hcx - sw * 0.78, hip_y)], fill=cola)
         dd.ellipse([hcx - sw - 0.03 * h, sh_y - 0.02 * h, hcx - sw + 0.05 * h, sh_y + 0.06 * h], fill=cola)
         dd.ellipse([hcx + sw - 0.05 * h, sh_y - 0.02 * h, hcx + sw + 0.03 * h, sh_y + 0.06 * h], fill=cola)
-        dd.rectangle([hcx - 0.03 * h, hcy + hr * 0.8, hcx + 0.03 * h, sh_y + 2], fill=cola)
+        dd.rectangle([hcx - 0.03 * h, min(hcy + hr * 0.8, sh_y), hcx + 0.03 * h, max(hcy + hr * 0.8, sh_y + 2)], fill=cola)
         dd.ellipse([hcx - hr, hcy - hr, hcx + hr, hcy + hr * 1.05], fill=cola)
-        if kind == "girl":   # long hair falling to the shoulders
-            dd.polygon([(hcx - hr * 1.15, hcy - hr * 0.2), (hcx + hr * 1.15, hcy - hr * 0.2), (hcx + hr * 1.35, sh_y + 0.07 * h),
-                        (hcx - hr * 1.35, sh_y + 0.07 * h)], fill=cola)
-            dd.ellipse([hcx - hr * 1.12, hcy - hr * 1.15, hcx + hr * 1.12, hcy + hr * 0.6], fill=cola)
+        if kind == "girl":   # long hair: crown plus two side curtains with pointed tips
+            dd.ellipse([hcx - hr * 1.05, hcy - hr * 1.08, hcx + hr * 1.05, hcy + hr * 0.5], fill=cola)
+            hem = sh_y + 0.2 * h
+            for s_ in (-1, 1):
+                outer, inner = hcx + s_ * hr * 1.08, hcx + s_ * hr * 0.55
+                curtain = [(hcx + s_ * hr * 0.2, hcy - hr * 0.6), (outer, hcy - hr * 0.1), (hcx + s_ * hr * 1.25, hem - 0.03 * h)]
+                for k in range(3):   # zig-zag hem
+                    xk = lerp(hcx + s_ * hr * 1.25, inner, (k + 0.5) / 3)
+                    curtain += [(xk, hem + 0.012 * h), (lerp(hcx + s_ * hr * 1.25, inner, (k + 1) / 3), hem - 0.02 * h)]
+                curtain += [(inner, hcy + hr * 0.4)]
+                dd.polygon(curtain, fill=cola)
+                if rim and ox == 0:
+                    dd.line([(inner, hcy + hr * 0.4), (inner + s_ * hr * 0.12, hem - 0.02 * h)], fill=rim + (min(255, a),), width=max(2, int(0.006 * h)))
+            if rim and ox == 0:
+                dd.arc([hcx - hr * 0.8, hcy - hr * 1.0, hcx + hr * 0.6, hcy + hr * 0.2], 200, 300, fill=rim + (min(255, a),), width=max(2, int(0.006 * h)))
         elif kind == "boy":   # cap with a brim
             dd.chord([hcx - hr * 1.08, hcy - hr * 1.2, hcx + hr * 1.08, hcy + hr * 0.5], 180, 360, fill=cola)
             dd.polygon([(hcx + hr * 0.4, hcy - hr * 0.45), (hcx + hr * 1.7, hcy - hr * 0.35), (hcx + hr * 1.6, hcy - hr * 0.2),
@@ -627,18 +648,24 @@ def person(d, x, feet, h, kind, t, pose="stand", col=SLATE, rim=None, a=255, wal
         for s_ in (-1, 1):   # arms
             shx = hcx + s_ * (sw + 0.01 * h)
             if pose in ("point_l", "point_r") and ((pose == "point_l" and s_ < 0) or (pose == "point_r" and s_ > 0)):
-                ex = shx + s_ * 0.26 * h * arm_t
-                ey = lerp(sh_y + 0.3 * h, sh_y + 0.10 * h, arm_t)
+                ex = shx + s_ * 0.30 * h * arm_t
+                ey = lerp(sh_y + 0.3 * h, sh_y - 0.06 * h, arm_t)
                 dd.line([(shx, sh_y + 0.03 * h), (ex, ey)], fill=cola, width=aw)
                 dd.ellipse([ex - aw * 0.55, ey - aw * 0.55, ex + aw * 0.55, ey + aw * 0.55], fill=cola)
-                dd.polygon([(ex, ey - aw * 0.25), (ex + s_ * 0.07 * h, ey + 0.02 * h), (ex, ey + aw * 0.25)], fill=cola)
-            elif pose == "phone":
-                px, py = hcx + s_ * 0.03 * h, sh_y + 0.16 * h
+                dd.polygon([(ex, ey - aw * 0.25), (ex + s_ * 0.09 * h, ey - 0.02 * h), (ex, ey + aw * 0.25)], fill=cola)
+            elif pose == "shrug_t" and arm_t > 0:   # forearms out, palms up
+                q = math.sin(math.pi * arm_t)
+                el = (shx + s_ * 0.05 * h, sh_y + 0.2 * h)
+                hd = (shx + s_ * (0.05 + 0.1 * q) * h, sh_y + (0.2 - 0.07 * q) * h)
+                dd.line([(shx, sh_y + 0.03 * h), el, hd], fill=cola, width=aw, joint="curve")
+                dd.ellipse([hd[0] - aw * 0.7, hd[1] - aw * 0.4, hd[0] + aw * 0.7, hd[1] + aw * 0.4], fill=cola)
+            elif pose in ("phone", "phone_hi"):
+                px, py = hcx + s_ * 0.03 * h, sh_y + (0.08 if pose == "phone_hi" else 0.16) * h
                 dd.line([(shx, sh_y + 0.03 * h), (hcx + s_ * 0.12 * h, sh_y + 0.27 * h), (px, py)], fill=cola, width=aw)
             elif pose == "reach_r" and s_ > 0:
                 dd.line([(shx, sh_y + 0.03 * h), (shx + 0.3 * h * arm_t, sh_y + 0.1 * h)], fill=cola, width=aw)
             elif pose == "palm_l" and s_ < 0:
-                ex, ey = shx - 0.01 * h, sh_y + 0.25 * h - 0.4 * h * arm_t
+                ex, ey = shx - 0.01 * h, sh_y + 0.25 * h - 0.23 * h * arm_t
                 dd.line([(shx, sh_y + 0.03 * h), (ex, ey)], fill=cola, width=aw)
                 dd.ellipse([ex - 0.03 * h, ey - 0.035 * h, ex + 0.03 * h, ey + 0.02 * h], fill=cola)
             else:
@@ -916,34 +943,36 @@ def zoom_crop(img, z, fx=540, fy=960):
     return img.crop((x0, y0, x0 + cw, y0 + ch)).resize((W, H), Image.BICUBIC)
 
 
-def couple_at_awning(d, S, t, z, point=0.0, shrug=0.0, hf=1.0):
-    kx, ky = S(830, 862)
-    gx, gy = S(910, 862)
+def couple_at_awning(d, S, t, z, point=0.0, shrug=0.0, hf=1.0, kx_w=830, gx_w=910):
+    kx, ky = S(kx_w, 862)
+    gx, gy = S(gx_w, 862)
     person(d, kx, ky, 300 * z * hf, "kabir", t, pose="shrug_t" if shrug > 0 else "stand", col=SLATE, rim=(150, 170, 200), arm_t=shrug)
     person(d, gx, gy, 262 * z * hf, "gf", t, pose="point_l" if point > 0 else "stand", col=(60, 52, 60), rim=CORAL, arm_t=point)
 
 
 def s01(t):
     u = u_of(t, 0)
-    z = lerp(1.0, 1.12, smooth(u))
-    img, S = crossing(t, (z, 540, lerp(900, 920, u)))
+    z = lerp(1.25, 1.35, smooth(u))
+    img, S = crossing(t, (z, 540, lerp(850, 870, u)))
     d = ImageDraw.Draw(img, "RGBA")
     couple_at_awning(d, S, t, z, hf=0.65)
     fx, fy = S(lerp(300, 330, smooth(u / 0.55)), lerp(1080, 1146, smooth(u / 0.55)))
     pop = 1 + 0.1 * math.sin(math.pi * clamp((t - 0.69) / 0.1))
-    s = 0.32 * z * pop
+    s = 0.30 * z * pop
     ira = place_by_feet(t, fx, fy, s)
-    img.alpha_composite(ira.layer())
     open_amt = ease_out((t - 0.69) / 0.13) if t > 0.69 else 0.0
-    d = ImageDraw.Draw(img, "RGBA")
     hx_, hy_ = ira.hand("R")
     top = ira.ws(ira.head[0] + 30, ira.head[1] - 300)
     if open_amt > 0:
-        umbrella_open(d, top, (hx_, hy_), 340 * s, open_amt)
+        umbrella_shaft(d, top, (hx_, hy_), 340 * s)
+    img.alpha_composite(ira.layer())
+    d = ImageDraw.Draw(img, "RGBA")
+    if open_amt > 0:
+        umbrella_open(d, top, (hx_, hy_), 340 * s, open_amt, shaft_behind=False)
         glow_y = top[1] + 60 * s
         glow(img, [top[0] - 300 * s, glow_y - 100 * s, top[0] + 300 * s, glow_y + 300 * s], MUSTARD, int(60 * open_amt), 30 * s)
     else:
-        umbrella_closed(d, (hx_, hy_), (hx_ + 10, hy_ - 260 * s), s * 1.2)
+        umbrella_closed(d, (hx_ + 6, hy_ + 560 * s), (hx_, hy_ - 30 * s), s * 1.6)
     clear = [[(top[0] - 340 * s, top[1] + 120 * s), (top[0] + 340 * s, top[1] + 120 * s), (top[0] + 300 * s, fy), (top[0] - 300 * s, fy)]] if open_amt > 0.5 else None
     img.alpha_composite(rain_layer(t, 0.6, clear=clear, alpha=90))
     return img, "present"
@@ -978,10 +1007,10 @@ def s02(t):
     d = ImageDraw.Draw(img, "RGBA")
     point = smooth((t - 1.35) / 0.18) if t > 1.35 else 0.0
     shrug = clamp((t - 1.72) / 0.35) if t > 1.72 else 0.0
-    couple_at_awning(d, S, t, z, point=point, shrug=shrug)
+    couple_at_awning(d, S, t, z, point=point, shrug=shrug, kx_w=770, gx_w=950)
     if 1.42 < t < 2.0:   # a coral "?" beside the one who asks
         q = clamp((t - 1.42) / 0.1) * (1 - clamp((t - 1.88) / 0.12))
-        gx, gy = S(910, 862)
+        gx, gy = S(950, 862)
         f = m.kfont(140)
         d.text((gx + 90, gy - 300 * z * 1.0), "?", font=f, fill=(255, 165, 165, int(240 * q)), anchor="mm",
                stroke_width=3, stroke_fill=(30, 10, 14, int(240 * q)))
@@ -989,8 +1018,8 @@ def s02(t):
     fg = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     fd = ImageDraw.Draw(fg)
     hx0 = 170 - 30 * u
-    canopy_under(fd, hx0 - 20, 470, 520)
-    fd.line([(hx0 - 20, 470 - 300), (hx0 - 10, 900)], fill=(120, 90, 60, 255), width=12)
+    fd.line([(hx0 - 60, 80), (hx0 - 10, 900)], fill=(120, 90, 60, 255), width=12)
+    canopy_under(fd, hx0 - 60, 330, 420)
     back_of_head(fd, hx0, 1080, 1.35)
     img.alpha_composite(fg.filter(ImageFilter.GaussianBlur(5)))
     return img, "present"
@@ -1046,7 +1075,6 @@ def s04(t):
     glow(upper, (700, -200, 1100, 200), (220, 232, 255), 120, 40)
     ref = upper.crop((0, 0, W, 1040)).transpose(Image.FLIP_TOP_BOTTOM).resize((W, 860))
     rg = ImageDraw.Draw(ref, "RGBA")
-    rg.ellipse([660, 640, 940, 860], fill=MUSTARD + (110,))   # the umbrella's glow, reflected at her hand's side
     ref = ref.filter(ImageFilter.GaussianBlur(3))
     arr = np.asarray(ref).astype(np.float32)
     warm_k = 0.0
@@ -1063,8 +1091,10 @@ def s04(t):
         arr[:, :, :3] = arr[:, :, :3] * (1 - circle * 0.6) + warm * circle * 0.6
     ref = Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8))
     mask = Image.new("L", ref.size, 0)
-    ImageDraw.Draw(mask).ellipse([140, 60, 940, 820], fill=215)
-    mask = mask.filter(ImageFilter.GaussianBlur(10))
+    md = ImageDraw.Draw(mask)
+    for bx0, by0, bx1, by1 in ((60, 50, 1020, 540), (160, 20, 700, 300), (420, 260, 980, 600)):   # a few soft lobes
+        md.ellipse([bx0, by0, bx1, by1], fill=215)
+    mask = mask.filter(ImageFilter.GaussianBlur(16))
     out = upper
     out.paste(Image.new("RGBA", (W, 860), (34, 38, 48, 255)), (0, 1060))
     od = ImageDraw.Draw(out, "RGBA")
@@ -1072,7 +1102,6 @@ def s04(t):
         od.line([(0, 1100 + k * 80), (W, 1100 + k * 80)], fill=(44, 48, 58, 255), width=3)
     out.paste(ref, (0, 1060), mask)
     od = ImageDraw.Draw(out, "RGBA")
-    od.ellipse([140, 1120, 940, 1880], outline=(120, 132, 156, 120), width=3)
     if 4.22 < t < 4.66:   # the falling tear, big enough to follow
         fy = lerp(-60, 1360, smooth((t - 4.22) / 0.43))
         for k in range(4):
@@ -1088,6 +1117,11 @@ def s04(t):
             rr_ = 30 + (r_t * 420 + k * 60) % 500
             rd.ellipse([540 - rr_, 1360 - rr_ * 0.3, 540 + rr_, 1360 + rr_ * 0.3], outline=(220, 236, 255, int(180 * (1 - rr_ / 530))), width=2 + k % 3 + 1)
         out.alpha_composite(rl.filter(ImageFilter.GaussianBlur(2)))
+    out.alpha_composite(rain_layer(t, 0.4, alpha=70))
+    od = ImageDraw.Draw(out, "RGBA")
+    for k, (sx_, sy_) in enumerate(((220, 1500), (820, 1420), (380, 1700), (900, 1780))):
+        ru = (t * 2.3 + k * 0.27) % 1
+        od.ellipse([sx_ - 14 - 30 * ru, sy_ - 4 - 8 * ru, sx_ + 14 + 30 * ru, sy_ + 4 + 8 * ru], outline=(200, 216, 240, int(120 * (1 - ru))), width=2)
     img = zoom_crop(out, lerp(1.0, 1.06, u))
     img = img.rotate(-3 * smooth(u), resample=Image.BICUBIC)
     img = zoom_crop(img, 1.06)
@@ -1114,19 +1148,24 @@ def s05(t):
     sd = ImageDraw.Draw(sh)
     for x0, w0 in ((kx, 95), (440, 85)):
         xm = lerp(x0, 550, merge)
-        sd.polygon([(x0 - w0, kfeet), (x0 + w0, kfeet), (xm + w0 * 2.2, H), (xm - w0 * 2.2, H)], fill=(40, 20, 20, 100))
+        sd.polygon([(x0 - w0, kfeet), (x0 + w0, kfeet), (xm + w0 * 2.2, H), (xm - w0 * 2.2, H)], fill=(30, 14, 14, 170))
     img.alpha_composite(sh.filter(ImageFilter.GaussianBlur(14)))
     d = ImageDraw.Draw(img, "RGBA")
     hf = smooth((t - 5.5) / 0.15) * (1 - smooth((t - 5.85) / 0.1))
     person(d, kx, kfeet, kh, "kabir", t, pose="palm_l" if hf > 0 else "stand", col=SEPIA, rim=(255, 200, 120), walk=1.0, ph=0.6, arm_t=hf)
-    img.alpha_composite(ira.layer())
-    d = ImageDraw.Draw(img, "RGBA")
     hx_, hy_ = ira.hand("L")
     top = (600, 380)
-    umbrella_open(d, top, (hx_, hy_), 430)
-    if 5.62 < t < 5.95:   # high-five glint where the palms meet
+    umbrella_shaft(d, top, (hx_, hy_), 430)
+    img.alpha_composite(ira.layer())
+    d = ImageDraw.Draw(img, "RGBA")
+    umbrella_open(d, top, (hx_, hy_), 430, shaft_behind=False)
+    if 5.62 < t < 5.95:   # high-five: a glint and three impact lines where the palms meet
         q = math.sin(math.pi * (t - 5.62) / 0.33)
-        glow(img, [560 - 110, 715 - 110, 560 + 110, 715 + 110], (255, 236, 170), int(190 * q), 18)
+        glow(img, [590 - 100, 945 - 100, 590 + 100, 945 + 100], (255, 236, 170), int(190 * q), 18)
+        d = ImageDraw.Draw(img, "RGBA")
+        for ang in (-60, -90, -120):
+            c_, s2 = math.cos(math.radians(ang)), math.sin(math.radians(ang))
+            d.line([(590 + 50 * c_, 925 + 50 * s2), (590 + 95 * c_, 925 + 95 * s2)], fill=(255, 250, 230, int(230 * q)), width=6)
     img.alpha_composite(rain_layer(t, 0.35, col=(255, 220, 150), alpha=110, clear=[[(top[0] - 430, top[1] + 170), (top[0] + 430, top[1] + 170), (1000, 1600), (250, 1600)]]))
     glow(img, (380, 520, 700, 840), (255, 220, 160), 80, 60)   # flare at the sun
     return zoom_crop(img, lerp(1.0, 1.04, u), 540, 1000), "memory"
@@ -1161,13 +1200,13 @@ def s06(t):
     slide = ease_out(clamp((t - 6.15) / 0.12))
     hook = smooth((t - 6.2) / 0.1)
     pulse = 1 + 0.05 * math.sin(math.pi * clamp((t - 6.28) / 0.16))
-    s = 1.15 * pulse
-    lx = lerp(-260, 355, slide)
-    rx = lerp(1340, 750, slide)
-    hand_shape(d, rx, 950, s, -1, SEPIA + (255,), (60, 40, 30, 255), hook=hook, pinky_dir=-1)
-    hand_shape(d, lx, 850, s * 0.9, 1, SKIN + (255,), LINE + (255,), hook=hook, cuff=DENIM + (255,), pinky_dir=1)
+    s = 1.5 * pulse
+    lx = lerp(-300, 320, slide)
+    rx = lerp(1400, 860, slide)
+    hand_shape(d, rx, 945, s, -1, SEPIA + (255,), (60, 40, 30, 255), hook=hook, cuff=(70, 80, 100, 255), pinky_dir=-1)
+    hand_shape(d, lx, 811, s * 0.9, 1, SKIN + (255,), LINE + (255,), hook=hook, cuff=DENIM + (255,), pinky_dir=1)
     # the friendship thread on the wrist; one strand frays loose on "कच्चा"
-    tx, ty = lx - 150 * s * 0.9, 850
+    tx, ty = lx - 160 * s * 0.9, 811
     d.ellipse([tx - 20, ty - 110, tx + 20, ty + 110], outline=THREAD_R + (255,), width=14)
     d.ellipse([tx - 14, ty - 104, tx + 14, ty + 104], outline=(250, 250, 250, 255), width=4)
     if t > 6.52:
@@ -1176,36 +1215,41 @@ def s06(t):
         d.line(pts, fill=(235, 60, 70, 255), width=6)
     if t > 6.25:
         q = math.sin(math.pi * clamp((t - 6.25) / 0.5))
-        glow(img, (440, 720, 640, 920), (255, 236, 180), int(90 * q), 24)
+        glow(img, (480, 760, 680, 960), (255, 236, 180), int(90 * q), 24)
     img.alpha_composite(rain_layer(t, 0.25, col=(255, 230, 170), alpha=110))
     img = img.rotate(2 * smooth(u), resample=Image.BICUBIC)
-    return zoom_crop(img, lerp(1.06, 1.14, smooth(u))), "memory"
+    return zoom_crop(img, lerp(1.04, 1.08, smooth(u)), 580, 960), "memory"
 
 
 def crossed_fingers(d, x, y, s, a=255):
-    """Back of a hand lying on the table, index and middle finger crossed (middle over index)."""
+    """Back of a hand lying on the table, index and middle finger crossed in a clear X."""
     col, ol, rim = SKIN + (a,), LINE + (a,), (240, 226, 200, a)
     w = max(2, int(3 * s))
-    d.polygon([(x - 64 * s, y - 14 * s), (x + 72 * s, y - 24 * s), (x + 84 * s, y + 38 * s), (x - 54 * s, y + 52 * s)], fill=col, outline=rim)
-    for k in range(2):   # folded ring and little finger
-        d.ellipse([x + (14 + k * 32) * s, y - 26 * s, x + (46 + k * 32) * s, y + 10 * s], fill=col, outline=ol, width=w)
-    d.line([(x - 60 * s, y + 6 * s), (x - 94 * s, y - 30 * s)], fill=ol, width=int(32 * s))   # thumb
-    d.line([(x - 60 * s, y + 6 * s), (x - 94 * s, y - 30 * s)], fill=col, width=int(26 * s))
-    for (x0, x1, top) in ((-30, 4, -150), (8, -12, -146)):   # index first, middle last (on top), crossing at ~70%
-        d.line([(x + x0 * s, y - 18 * s), (x + x1 * s, y + top * s)], fill=ol, width=int(30 * s))
-        d.line([(x + x0 * s, y - 18 * s), (x + x1 * s, y + top * s)], fill=col, width=int(24 * s))
-        d.ellipse([x + x1 * s - 12 * s, y + top * s - 12 * s, x + x1 * s + 12 * s, y + top * s + 12 * s], fill=col, outline=ol, width=w)
+    d.polygon([(x - 64 * s, y - 14 * s), (x - 20 * s, y - 30 * s), (x + 30 * s, y - 32 * s), (x + 80 * s, y - 20 * s),
+               (x + 84 * s, y + 38 * s), (x - 54 * s, y + 52 * s), (x - 96 * s, y - 24 * s), (x - 80 * s, y - 40 * s)], fill=col, outline=rim)
+    d.rounded_rectangle([x + 8 * s, y - 26 * s, x + 78 * s, y + 8 * s], radius=int(14 * s), fill=col, outline=ol, width=w)   # folded fingers
+    d.line([(x + 30 * s, y - 24 * s), (x + 30 * s, y - 4 * s)], fill=ol, width=w)
+    d.line([(x + 54 * s, y - 24 * s), (x + 54 * s, y - 4 * s)], fill=ol, width=w)
+    for (x0, y0, x1, y1) in ((-34, -18, 26, -118), (22, -18, -30, -110)):   # index, then middle on top: they cross halfway
+        d.line([(x + x0 * s, y + y0 * s), (x + x1 * s, y + y1 * s)], fill=ol, width=int(30 * s))
+        d.line([(x + x0 * s, y + y0 * s), (x + x1 * s, y + y1 * s)], fill=col, width=int(24 * s))
+        d.ellipse([x + x1 * s - 12 * s, y + y1 * s - 12 * s, x + x1 * s + 12 * s, y + y1 * s + 12 * s], fill=col)
 
 
 def s07(t):
     u = u_of(t, 6)
     img = rooftop_bg(t)
     d = ImageDraw.Draw(img, "RGBA")
-    person(d, 930, 2050, 1600, "kabir", t, pose="phone", col=(80, 60, 50), rim=(255, 190, 120))
-    phone_glow(img, 900, 1026, 1.8)
+    person(d, 820, 2050, 1600, "kabir", t, pose="phone_hi", col=(80, 60, 50), rim=(255, 190, 120))
+    phone_glow(img, 790, 1000, 1.8)
+    ph = Image.new("RGBA", (200, 260), (0, 0, 0, 0))
+    pd = ImageDraw.Draw(ph)
+    pd.rounded_rectangle([50, 50, 150, 210], radius=14, fill=(30, 26, 30, 255))
+    pd.rounded_rectangle([58, 58, 142, 202], radius=10, fill=(255, 150, 140, 255))
+    heart(pd, 100, 122, 1.8, col=(255, 80, 96), a=255, outline=False)
+    ph = ph.rotate(15, resample=Image.BICUBIC, expand=False)
+    img.alpha_composite(ph, (790 - 100, 1000 - 130))
     d = ImageDraw.Draw(img, "RGBA")
-    d.rounded_rectangle([860, 961, 940, 1091], radius=12, fill=(255, 150, 140, 255))
-    heart(d, 900, 1020, 1.7, col=(255, 90, 100), a=255, outline=False)
     ira = Placed(t, 430, 650, 1.18)
     lay = ira.layer()
     sp = track(T["split"], t)   # "आधा सच्चा": warm on her left half, cool on her right half
@@ -1231,9 +1275,9 @@ def s07(t):
         d.polygon([(gx - 26, 990), (gx + 26, 990), (gx + 20, 1084), (gx - 20, 1084)], fill=(240, 236, 228, 140), outline=(200, 196, 190, 255))
         d.rectangle([gx - 22, 1010, gx + 22, 1080], fill=(200, 140, 80, 220))
     crossed_fingers(d, 300, 1110, 1.35)
-    if 7.55 < t < 8.1:   # a small sparkle over the crossed fingers
+    if 7.55 < t < 8.1:   # a small sparkle beside the crossed fingers
         q = math.sin(math.pi * (t - 7.55) / 0.55)
-        sx_, sy_ = 300, 880
+        sx_, sy_ = 430, 980
         for ang in range(0, 360, 90):
             r_ = 30 * q
             d.line([(sx_, sy_), (sx_ + r_ * math.cos(math.radians(ang)), sy_ + r_ * math.sin(math.radians(ang)))], fill=(255, 245, 210, int(90 * q)), width=4)
@@ -1268,19 +1312,18 @@ def s08(t):
     leave = smooth((t - 9.93) / 0.45)
     kx = lerp(860, 1500, leave)
     rim = (255, 200, 120, 255) if teal < 0.5 else (120, 150, 190, 255)
+    cx_ = kx + leave * 160
+    d.polygon([(cx_ - 116, 160), (cx_ + 116, 160), (cx_ + 106, 600), (cx_ - 106, 600)], fill=rim)
+    d.polygon([(cx_ - 110, 160), (cx_ + 110, 160), (cx_ + 100, 600), (cx_ - 100, 600)], fill=(44, 36, 32, 255))
     for s_ in (-1, 1):
         sw_ = math.sin(math.pi * (t - BEAT0) / BEAT + (0 if s_ < 0 else math.pi))
         lift = max(0, sw_) * 60 * (1 - leave)
         fx = kx + s_ * 95 + leave * 160
-        tapered_leg(d, fx - 30 * leave, -20, fx, 1600 - lift, 84, 66, (44, 36, 32, 255), (20, 16, 14, 255), rim=rim)
+        tapered_leg(d, fx - 30 * leave, 560, fx, 1600 - lift, 74, 60, (44, 36, 32, 255), (20, 16, 14, 255), rim=rim)
         d.polygon([(fx - 90, 1610 - lift), (fx - 70, 1570 - lift), (fx + 70, 1570 - lift), (fx + 120, 1600 - lift), (fx + 116, 1650 - lift),
                    (fx - 90, 1650 - lift)], fill=(30, 28, 32, 255), outline=(14, 14, 18, 255))
         d.line([(fx - 86, 1640 - lift), (fx + 112, 1640 - lift)], fill=(230, 230, 236, 255), width=10)
-    for k in range(6):   # drops falling off the umbrella edge, between the two of them
-        yy = (t * 900 + k * 240) % 1500
-        d.polygon([(700, yy - 18), (692, yy), (708, yy)], fill=(220, 236, 255, 170 if leave < 0.5 else 70))
-        d.ellipse([692, yy - 6, 708, yy + 10], fill=(220, 236, 255, 170 if leave < 0.5 else 70))
-    ira = place_by_feet(t, 330, 1760, 3.2)
+    ira = place_by_feet(t, 420, 1760, 3.2)
     img.alpha_composite(ira.layer())
     img.alpha_composite(rain_layer(t, 0.3 + 0.4 * teal, alpha=90))
     kind = "memory" if teal < 0.01 else ("present", 1 - teal)
@@ -1322,7 +1365,7 @@ def s09(t):
     img.alpha_composite(glass)
     if t < 10.65:
         img = Image.blend(Image.new("RGBA", (W, H), (0, 0, 0, 255)), img, clamp((t - 10.55) / 0.1))
-    return zoom_crop(img, lerp(1.0, 1.06, smooth(u))), "present"
+    return zoom_crop(img, lerp(1.12, 1.16, smooth(u)), 540, 820), "present"
 
 
 def s10(t):
@@ -1358,7 +1401,7 @@ def s10(t):
     glass = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     glass_front(t, glass, 1150, bar=True, streak_seed=6)
     img.alpha_composite(glass)
-    return zoom_crop(img, lerp(1.0, 1.04, smooth(u))), "present"
+    return zoom_crop(img, lerp(1.1, 1.13, smooth(u)), 540, 840), "present"
 
 
 def s11(t):
@@ -1383,32 +1426,38 @@ def s11(t):
     d.rectangle([580, 780, 880, 1300], fill=(120, 150, 170, 70))
     d.rectangle([580, 1150, 880, 1300], fill=(170, 186, 200, 120))
     ira = place_by_feet(t, 470, 1300, 0.48)
-    img.alpha_composite(ira.layer())
-    d = ImageDraw.Draw(img, "RGBA")
     hx_, hy_ = ira.hand("R")
     top = ira.ws(ira.head[0] + 30, ira.head[1] - 300)
     open_amt = ease_out((t - 14.30) / 0.13) if t > 14.30 else 0.0
     if open_amt > 0:
-        umbrella_open(d, top, (hx_, hy_), 340 * 0.48, open_amt)
+        umbrella_shaft(d, top, (hx_, hy_), 340 * 0.48)
+    img.alpha_composite(ira.layer())
+    d = ImageDraw.Draw(img, "RGBA")
+    if open_amt > 0:
+        umbrella_open(d, top, (hx_, hy_), 340 * 0.48, open_amt, shaft_behind=False)
         glow(img, [top[0] - 150, top[1] - 20, top[0] + 150, top[1] + 180], MUSTARD, int(60 * open_amt), 20)
     else:
-        umbrella_closed(d, (hx_, hy_), (hx_ + 6, hy_ - 120), 0.6)
+        umbrella_closed(d, (hx_ + 4, hy_ + 270), (hx_, hy_ - 15), 0.8)
     img.alpha_composite(rain_layer(t, 0.5, alpha=80))
     # foreground: the friend's head and shoulder (right), the new partner (left) pointing across at him/her
     fg = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     fd = ImageDraw.Draw(fg, "RGBA")
     spread = 50 * smooth(u)
-    person(fd, 1110 + spread, 3660, 2700, "kabir", t, col=(24, 26, 34), rim=(120, 140, 170))
-    person(fd, -40 - spread, 3700, 2600, "gf", t, col=(40, 30, 38), rim=CORAL)
+    person(fd, 980 + spread, 3660, 2700, "kabir", t, col=(28, 30, 40), rim=(150, 170, 210))
+    person(fd, -40 - spread, 3700, 2600, "gf", t, col=(44, 34, 42), rim=CORAL)
     point = smooth((t - 14.6) / 0.2)
-    if point > 0:
+    if point > 0:   # one tapered arm from the shoulder, a mitten and an index finger towards him
         sx_, sy_ = 230 - spread, 1560
-        ex_, ey_ = lerp(sx_, 340, point), lerp(sy_, 1060, point)
-        fd.polygon([(sx_ - 70, sy_), (sx_ + 70, sy_), (ex_ + 26, ey_), (ex_ - 26, ey_)], fill=CORAL + (255,))
-        fd.polygon([(sx_ - 64, sy_), (sx_ + 64, sy_), (ex_ + 20, ey_ + 4), (ex_ - 20, ey_ + 4)], fill=(40, 30, 38, 255))
-        fd.ellipse([ex_ - 30, ey_ - 30, ex_ + 30, ey_ + 30], fill=(40, 30, 38, 255))
-        fd.polygon([(ex_ - 10, ey_ - 20), (ex_ + 70, ey_ - 66), (ex_ + 12, ey_ + 6)], fill=(40, 30, 38, 255))
-    img.alpha_composite(fg.filter(ImageFilter.GaussianBlur(6)))
+        ex_, ey_ = lerp(sx_, 330, point), lerp(sy_, 1080, point)
+        ang = math.atan2(ey_ - sy_, ex_ - sx_)
+        nx, ny = -math.sin(ang), math.cos(ang)
+        arm = [(sx_ + nx * 45, sy_ + ny * 45), (ex_ + nx * 20, ey_ + ny * 20), (ex_ - nx * 20, ey_ - ny * 20), (sx_ - nx * 45, sy_ - ny * 45)]
+        fd.polygon([(px - 4, py - 6) for px, py in arm], fill=CORAL + (255,))
+        fd.polygon(arm, fill=(44, 34, 42, 255))
+        fd.ellipse([ex_ - 32, ey_ - 26, ex_ + 32, ey_ + 26], fill=(44, 34, 42, 255))
+        fx_, fy_ = ex_ + math.cos(ang) * 70, ey_ + math.sin(ang) * 70
+        fd.line([(ex_, ey_), (fx_, fy_)], fill=(44, 34, 42, 255), width=18)
+    img.alpha_composite(fg.filter(ImageFilter.GaussianBlur(4)))
     return zoom_crop(img, z, 520, 1000), "present"
 
 
@@ -1432,12 +1481,13 @@ def s12(t):
     if smear > 0:
         box = (int(hx_m - 200), int(hy_m - 220), int(hx_m + 200), int(hy_m + 240))
         face = ref.crop(box)
-        st = face.copy()
-        for k in range(1, 9):
-            st.alpha_composite(face.transform(face.size, Image.AFFINE, (1, 0, 0, 0, 1, -k * 16 * smear)))
-        st = st.filter(ImageFilter.GaussianBlur(10 * smear))
-        ref.paste(Image.new("RGBA", face.size, (0, 0, 0, 0)), box[:2])
-        ref.alpha_composite(st, box[:2])
+        acc = np.zeros((face.height, face.width, 4), np.float32)
+        for k in range(9):   # average the dragged copies (no build-up)
+            acc += np.asarray(face.transform(face.size, Image.AFFINE, (1, 0, 0, 0, 1, -k * 16 * smear))).astype(np.float32)
+        st = Image.fromarray(np.clip(acc / 9, 0, 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(10 * smear))
+        fm = Image.new("L", face.size, 0)
+        ImageDraw.Draw(fm).rectangle([40, 40, face.width - 40, face.height - 40], fill=int(255 * smear))
+        ref.paste(Image.composite(st, face, fm.filter(ImageFilter.GaussianBlur(40))), box[:2])
     refl = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     refl.paste(ref, (int(960 - hx_m), int(760 - hy_m)))
     rm = Image.new("L", (W, H), 0)
@@ -1447,12 +1497,17 @@ def s12(t):
     d = ImageDraw.Draw(img, "RGBA")
     for k, x0 in enumerate((700, 820, 960)):   # glass highlights
         d.polygon([(x0, 0), (x0 + 40, 0), (x0 - 260, 1150), (x0 - 300, 1150)], fill=(255, 255, 255, 14))
+    d.arc([890, 560, 1010, 640], 200, 320, fill=(150, 170, 210, 70), width=6)   # a soft hair highlight on the reflection
     if t > 15.31:   # the fat raindrop and the rivulets
         dy = clamp((t - 15.31) / 0.12)
-        d.ellipse([942, 600 + 60 * dy, 978, 640 + 60 * dy], fill=(210, 230, 255, 200))
-        for k in range(5):
-            x = 880 + k * 40
-            d.line([(x, 600), (x + 4, 600 + 500 * smear)], fill=(200, 220, 255, 110), width=4)
+        d.ellipse([912, 540 + 60 * dy, 948, 580 + 60 * dy], fill=(210, 230, 255, 200))
+        rr = random.Random(12)
+        for x in (872, 908, 957, 1001, 1034):
+            ln = rr.uniform(300, 520) * smear
+            wdt = rr.randint(2, 5)
+            pts = [(x + 3 * math.sin(j * 0.6 + x), 600 + ln * j / 10) for j in range(11)]
+            for j in range(10):
+                d.line([pts[j], pts[j + 1]], fill=(200, 220, 255, int(120 * (1 - j / 11))), width=wdt)
     img.alpha_composite(lay)
     d = ImageDraw.Draw(img, "RGBA")
     hx_, hy_ = ira.hand("R")
@@ -1473,30 +1528,28 @@ def s13(t):
     for k in range(8):   # awning stripes, top right
         d.polygon([(560 + k * 70, 0), (630 + k * 70, 0), (640 + k * 70, 150), (570 + k * 70, 150)], fill=(176, 52, 58, 255) if k % 2 else (230, 222, 206, 255))
     glow(img, (500, 100, 1180, 600), (255, 200, 140), 80, 50)
-    # the new partner waiting behind, partly out of frame
-    person(d, 1260, 2300, 1700, "gf", t, col=(40, 32, 40), rim=CORAL, a=170)
+    person(d, 1180, 2400, 2200, "kabir", t, col=SLATE, rim=(150, 170, 200))   # the friend, cut by the right edge
     ira = Placed(t, 420, 640, 1.3)
     img.alpha_composite(ira.layer())
     d = ImageDraw.Draw(img, "RGBA")
     hx_, hy_ = ira.hand("R")
     gone = smooth((t - 16.53) / 0.3)
     reach = smooth((t - 16.15) / 0.3)
-    kx = lerp(lerp(1240, hx_ + 40, reach), 1300, gone)
+    kx = lerp(lerp(1150, hx_ + 40, reach), 980, gone)
     ky = hy_ + 4
-    # the friend's shoulder at the right edge, sleeve tapering to a fist round the shaft
-    d.polygon([(960, 640), (1180, 600), (1200, 1300), (980, 1320)], fill=(150, 170, 200, 255))
-    d.polygon([(970, 650), (1190, 610), (1210, 1310), (990, 1330)], fill=SLATE + (255,))
-    if FRIEND_CUP:
-        d.ellipse([990, 560, 1060, 660], fill=SLATE + (255,))
-    w0, w1 = ARM_W[0] * 0.7, ARM_W[0] * 0.5
-    ang = math.atan2(ky - 760, kx - 1010)
+    hk = KIND_H.get(KIND_MAP.get("kabir", "kabir"), 1.0)
+    shx_, shy_ = 1180 - 0.16 * 2200 * hk, 2400 - 2200 * hk + 0.23 * 2200 * hk
+    w0, w1 = ARM_W[0] * 0.9 / 2, ARM_W[0] * 0.6 / 2
+    ang = math.atan2(ky - shy_, kx - shx_)
     nx, ny = -math.sin(ang), math.cos(ang)
-    d.polygon([(1010 + nx * w0, 760 + ny * w0), (kx + nx * w1, ky + ny * w1), (kx - nx * w1, ky - ny * w1), (1010 - nx * w0, 760 - ny * w0)],
-              fill=SLATE + (255,), outline=(150, 170, 200, 255))
+    arm = [(shx_ + nx * w0, shy_ + ny * w0), (kx + nx * w1, ky + ny * w1), (kx - nx * w1, ky - ny * w1), (shx_ - nx * w0, shy_ - ny * w0)]
+    d.polygon([(px - 4, py - 5) for px, py in arm], fill=(150, 170, 200, 255))
+    d.polygon(arm, fill=SLATE + (255,))
     handle_x = hx_ if gone < 0.01 else kx
     top = (handle_x - 60, hy_ - 820)
     umbrella_open(d, top, (handle_x, hy_), 480)
-    d.ellipse([kx - 30, ky - 40, kx + 30, ky + 20], fill=SLATE + (255,), outline=(150, 170, 200, 255))
+    d.ellipse([kx - 34, ky - 30, kx + 30, ky + 18], fill=SLATE + (255,), outline=(150, 170, 200, 255))   # her fist on the shaft
+    d.ellipse([kx - 44, ky - 22, kx - 20, ky + 4], fill=SLATE + (255,))
     if gone < 0.5:
         glow(img, [ira.ax - 300, ira.ay - 300, ira.ax + 300, ira.ay + 200], MUSTARD, int(70 * (1 - gone * 2)), 50)
     clear = [[(top[0] - 520, top[1] + 220), (top[0] + 520, top[1] + 220), (top[0] + 450, 1400), (top[0] - 450, 1400)]] if gone < 0.5 else None
@@ -1516,7 +1569,7 @@ def s14(t):
     fz = lerp(16, 40, clamp((t - 16.97) / 2.5))
     fa = 1 - smooth((t - 19.1) / 0.4)
     if fa > 0:
-        sx, base = m.proj(1.5, 0, fz)
+        sx, base = m.proj(2.1, 0, fz)
         hh = 1.7 * m.FOCAL / fz
         person(d, sx - hh * 0.12, base, hh, "kabir", t, col=(30, 34, 46), walk=1, a=int(220 * fa))
         person(d, sx + hh * 0.12, base, hh * 0.88, "gf", t, col=(40, 34, 44), walk=1, ph=1, a=int(220 * fa))
