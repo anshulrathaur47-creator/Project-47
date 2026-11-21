@@ -24,6 +24,7 @@ kh.JEANS = (34, 34, 40)
 kh.KIND_MAP = {"kabir": "girl", "gf": "boy"}
 kh.KIND_H = {"girl": 0.9, "boy": 1.06}
 kh.ARM_W = (46, 40)
+kh.FRIEND_CUP = False
 kh.OUT = os.path.join(HERE, "khas_male.mp4")
 kh.SILENT = os.path.join(HERE, "_khas_male_silent.mp4")
 
