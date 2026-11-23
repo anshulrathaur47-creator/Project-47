@@ -455,9 +455,12 @@ def draw_ira(t, p=None):
     return img, (rx0, ry0), head_c, hands, {"hip": (hx, hip_y), "sy": sy}
 
 
+SLEEVE = None   # arm colour if it differs from the jacket (e.g. kurta sleeves under a Nehru jacket)
+
+
 def draw_arm(pen, s, sh, elbow, hand):
-    pen.limb(sh, elbow, 54, DENIM)
-    pen.limb(elbow, hand, 50, DENIM)
+    pen.limb(sh, elbow, 54, SLEEVE or DENIM)
+    pen.limb(elbow, hand, 50, SLEEVE or DENIM)
     cuff = (lerp(elbow[0], hand[0], 0.78), lerp(elbow[1], hand[1], 0.78))
     pen.limb(cuff, (lerp(elbow[0], hand[0], 0.86), lerp(elbow[1], hand[1], 0.86)), 56, CUFF or DENIM_L)
     if s < 0:   # friendship thread on her right wrist (screen left)
