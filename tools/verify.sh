@@ -33,6 +33,12 @@ t_remotion() {
 t_hyperframes() {
   (cd tools/hyperframes-starter && npx hyperframes render -o "$T/hf.mp4" --quality draft --quiet >/dev/null) && [ -s "$T/hf.mp4" ]
 }
+t_three() {
+  (cd tools/three-starter && npx remotion render src/index.ts Cube3D "$T/three.mp4" --gl=swangle --frames=0-5 --log=error >/dev/null) && [ -s "$T/three.mp4" ]
+}
+t_blender() {
+  blender -b -noaudio -P tools/blender/test_scene.py -- "$T/blender.mp4" 2 >/dev/null 2>&1 && [ -s "$T/blender.mp4" ]
+}
 t_skills() { [ -f .claude/skills/hyperframes/SKILL.md ] && [ -f .claude/skills/remotion-best-practices/SKILL.md ]; }
 t_videouse() {
   local H=.claude/skills/video-use/helpers V="$T/vu"
@@ -66,6 +72,8 @@ check "yt-dlp $(yt-dlp --version 2>/dev/null)  (download a test video)" t_ytdlp
 check "Whisper (faster-whisper, small model)  (Hindi transcript -> .srt)" t_whisper
 check "Remotion  (render 1080x1920 test video)" t_remotion
 check "Hyperframes  (render 1080x1920 test video)" t_hyperframes
+check "3D: Remotion + three.js  (render a 3D test scene)" t_three
+check "3D: Blender $(blender --version 2>/dev/null | head -1 | awk '{print $2}')  (headless Eevee render)" t_blender
 check "Remotion + Hyperframes skills for Claude" t_skills
 check "video-use skill  (transcribe -> cut -> grade -> subtitles render)" t_videouse
 check "Local SFX/music library (253 sounds, offline)" t_library

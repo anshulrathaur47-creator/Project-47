@@ -40,6 +40,9 @@ Learned from past feedback. Follow these unless the user says otherwise.
 
 - **Start of every session:** run `bash tools/setup.sh`. It reinstalls whatever the fresh container is missing and prints a ✅/❌ checklist. See `tools/README.md` for each tool.
 - Installed toolset: FFmpeg, yt-dlp (+ Deno), Whisper (`tools/transcribe.py`, faster-whisper small model), Remotion (`tools/remotion-starter/`), Hyperframes (`tools/hyperframes-starter/`), and `tools/sfx.py` for SFX/music from Openverse and Freesound. Official Remotion and Hyperframes skills are in `.claude/skills/`.
+- **3D animation:** two options are set up.
+  - **Blender 4.0** (headless, Python-scripted): use it for real 3D scenes, lighting and characters. Example: `tools/blender/test_scene.py`. It renders in software (about 7 s per 1080x1920 frame with Eevee), so preview at low resolution and render the full video in the background.
+  - **Remotion + three.js** (`tools/three-starter/`, from GitHub `remotion-dev/template-three`): use it for fast code-driven 3D motion graphics. Render with `--gl=swangle`.
 - **Use Whisper for lyric timing:** run `python3 tools/transcribe.py <song> --lang hi --no-vad` and sync lyrics, cuts and signs to the `.words.json` timings instead of guessing.
 - **SFX and music library (offline):** `assets/sfx/` holds 230 Kenney CC0 sounds (impacts, punches, footsteps, glass, clicks, UI, glitches) plus 20 code-made SFX (whooshes, whip-pan, riser, downlifter, boom, pop, ding, sparkle, glitch, camera shutter, heartbeat, heart-break, rain/wind loops, typing). `assets/music/generated/` has 3 code-made beds (sad piano 70 bpm, lofi 82 bpm, masti upbeat 120 bpm). Find sounds with `python3 tools/sfx.py search "<word>"` (add `--music` for music). All are CC0, so no credit is needed.
 - When downloading SFX/music online, keep the credit lines in `assets/*/CREDITS.md` and remind the user about attribution for CC-BY sounds.

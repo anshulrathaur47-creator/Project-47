@@ -56,5 +56,13 @@ if [ -d tools/hyperframes-starter/node_modules/hyperframes ]; then echo "already
 else (cd tools/hyperframes-starter && npm ci --silent); fi
 npx --yes hyperframes@0.9.45 telemetry disable >/dev/null 2>&1 || true
 
+log "3D: Blender (headless, software OpenGL)"
+if have blender; then echo "already installed"; else apt-get update -qq && apt-get install -y -qq blender; fi
+if ldconfig -p | grep -q libEGL_mesa; then echo "EGL/Mesa already installed"; else apt-get update -qq && apt-get install -y -qq libegl1 libegl-mesa0 libgl1-mesa-dri; fi
+
+log "3D: Remotion + three.js starter (from github.com/remotion-dev/template-three)"
+if [ -d tools/three-starter/node_modules/@remotion/three ]; then echo "already installed"
+else (cd tools/three-starter && npm install --silent); fi
+
 log "Testing everything"
 bash tools/verify.sh
