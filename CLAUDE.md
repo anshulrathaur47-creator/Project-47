@@ -8,6 +8,7 @@ Talk to the user in simple Hinglish (Hindi in Roman script mixed with English), 
 | Folder | What's in it | Rule |
 |---|---|---|
 | `raw-videos/` | Original footage | Read-only. Never edit or overwrite. |
+| `reference-library/` | Every file the user has ever sent, by date, with `INDEX.md` | Permanent archive. Filled automatically by `tools/save_uploads.py` (project hooks run it on every message and turn end). Never delete. |
 | `references/` | Scripts, lyrics, transcripts, storyboards, briefs | Lyrics/timestamps for a song go here. |
 | `inspirations/` | Reels and screenshots the user likes | Borrow pacing, transitions, colour, type. |
 | `brand-kit/` | Logo, watermark, colours, handle, CTA, intro/outro | Apply to every export unless told otherwise. |
@@ -20,7 +21,7 @@ Talk to the user in simple Hinglish (Hindi in Roman script mixed with English), 
 | `exports/` | Final ready-to-post videos | Name: `YYYY-MM-DD_<project>_vN.mp4`. |
 | `reel/` | Earlier work, made before this layout existed (aviation explainer, lyric reel, animated story reel and their generator scripts) | Leave in place unless the user asks to move it into `projects/`. |
 
-When the user uploads a file, save it into the matching folder above before using it.
+When the user uploads a file, save it into the matching folder above before using it. A copy also goes to `reference-library/` automatically; if the hooks didn't run, run `python3 tools/save_uploads.py` and commit.
 
 ## How the user likes videos edited
 

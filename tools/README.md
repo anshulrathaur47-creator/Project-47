@@ -24,3 +24,7 @@ Notes:
 - Remotion and Hyperframes use the preinstalled headless Chromium (paths set in `.claude/settings.json`).
 - Hyperframes loads GSAP from `assets/vendor/gsap.min.js`, because the CDN is blocked here. Its telemetry is disabled.
 - Official agent skills for both live in `.agents/skills/` (linked into `.claude/skills/`).
+
+## save_uploads.py
+
+Copies every uploaded file into `reference-library/<date>/` for good and rebuilds `reference-library/INDEX.md`. The project hooks in `.claude/settings.json` run it on every message and at the end of every turn. Run by hand with `python3 tools/save_uploads.py`.
