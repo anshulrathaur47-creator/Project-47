@@ -1,0 +1,7 @@
+/* Terminal Tech — Developer look: captions typed into a terminal window, code-comment key words, green-on-black. */
+.tt-cap .cap-line { background: rgba(8,12,10,.92); border: 2px solid #1f3a26; border-radius: 14px; padding: 22px 30px; justify-content: flex-start; color: var(--c-accent); text-shadow: 0 0 10px rgba(57,255,20,.4); }
+.tt-cap .cap-line::before { content: "$"; color: var(--c-accent2); margin-right: .2em; }
+.tt-cap .cap-line::after { content: ""; display: inline-block; width: .55em; height: 1em; background: var(--c-accent); vertical-align: middle; }
+.tt-cap .cap-word.is-active { color: #fff; }
+.tt-chip .anim { background: #0b0f0c; color: #7d8c80; border: 2px solid #1f3a26; font-family: var(--font-display); font-size: 42px; border-radius: 10px; }
+.tt-code .card-body { font-family: var(--font-display); white-space: pre; font-size: 30px; color: var(--c-accent); }

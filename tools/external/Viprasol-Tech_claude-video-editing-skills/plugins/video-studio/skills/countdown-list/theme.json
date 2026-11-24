@@ -1,0 +1,72 @@
+{
+  "name": "countdown-list",
+  "format": "9:16",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@800;900&display=swap",
+  "vars": {
+    "--font-display": "'Bebas Neue','Impact',sans-serif",
+    "--c-accent": "#FFD000",
+    "--c-accent2": "#FF3D3D",
+    "--cap-size": "70px"
+  },
+  "speaker": {
+    "mode": "full",
+    "focusY": 0.36
+  },
+  "matte": false,
+  "auto": {
+    "captions": {
+      "type": "captions",
+      "mode": "reveal",
+      "maxWords": 3,
+      "y": "=H*0.72",
+      "wordIn": "pop",
+      "uppercase": true,
+      "className": "cap-outline"
+    },
+    "lists": {
+      "countdown": true,
+      "each": [
+        {
+          "type": "text",
+          "text": "#{n}",
+          "className": "cd-num",
+          "x": 70,
+          "y": "=H*0.16",
+          "anchor": "left",
+          "in": "stamp"
+        },
+        {
+          "type": "text",
+          "text": "{text}",
+          "className": "cd-name",
+          "x": 300,
+          "y": "=H*0.16",
+          "anchor": "left",
+          "w": "=W*0.66",
+          "in": "slideRight",
+          "fit": true
+        }
+      ]
+    },
+    "keywords": {
+      "every": 3,
+      "zoom": 1.1
+    },
+    "hook": {
+      "dur": 2.5,
+      "element": {
+        "type": "text",
+        "text": "{text}",
+        "className": "cd-hook",
+        "y": "=H*0.16",
+        "w": "=W*0.86",
+        "in": "pop"
+      }
+    }
+  },
+  "sfx": [],
+  "finish": {
+    "grade": "punchy"
+  },
+  "fps": 30
+}

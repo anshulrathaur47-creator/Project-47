@@ -1,0 +1,59 @@
+{
+  "name": "before-after",
+  "format": "9:16",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Inter:wght@700;900&display=swap",
+  "vars": {
+    "--font-display": "'Inter',sans-serif",
+    "--c-accent": "#00E08A",
+    "--cap-size": "62px"
+  },
+  "speaker": {
+    "mode": "full",
+    "focusY": 0.4
+  },
+  "matte": false,
+  "auto": {
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 4,
+      "y": "=H*0.78",
+      "className": "cap-pill"
+    },
+    "static": [
+      {
+        "type": "compare",
+        "before": "{image}",
+        "after": "{image2}",
+        "x": "=W/2",
+        "y": "=H*0.32",
+        "w": "=W*0.9",
+        "h": "=H*0.42",
+        "start": 1.0,
+        "in": "pop"
+      }
+    ],
+    "hook": {
+      "dur": 2.4,
+      "element": {
+        "type": "text",
+        "text": "{text}",
+        "className": "ba-hook",
+        "y": "=H*0.08",
+        "w": "=W*0.86",
+        "in": "pop"
+      }
+    }
+  },
+  "sfx": [
+    {
+      "t": 2.0,
+      "kind": "ding",
+      "gain": 0.4
+    }
+  ],
+  "finish": {
+    "grade": "punchy"
+  },
+  "fps": 30
+}

@@ -1,0 +1,4 @@
+/* Kinetic Launch — Type-only motion piece: bold words slam in one after another in sync with the beat or voiceover. */
+.kl-a .anim, .kl-b .anim { font-family: var(--font-display); font-size: 210px; line-height: .9; text-transform: uppercase; letter-spacing: -0.02em; }
+.kl-a .anim { color: #F2F2F2; } .kl-b .anim { color: var(--c-accent); }
+.kl-cta .anim { font-family: var(--font-display); font-size: 90px; color: #0A0A0A; background: var(--c-accent); padding: 26px 46px; }

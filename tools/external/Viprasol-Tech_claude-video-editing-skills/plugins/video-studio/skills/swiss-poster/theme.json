@@ -1,0 +1,78 @@
+{
+  "name": "swiss-poster",
+  "format": "9:16",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=IBM+Plex+Mono:wght@500&display=swap",
+  "vars": {
+    "--font-display": "'Archivo','Helvetica Neue',Arial,sans-serif",
+    "--c-accent": "#E30613",
+    "--cap-size": "40px",
+    "--cap-weight": "500"
+  },
+  "speaker": {
+    "mode": "full",
+    "focusY": 0.33
+  },
+  "matte": true,
+  "auto": {
+    "static": [
+      {
+        "type": "shape",
+        "kind": "bar",
+        "layer": "behind",
+        "x": 40,
+        "y": "=H/2",
+        "w": 26,
+        "h": "=H",
+        "color": "#E30613",
+        "in": "wipeUp",
+        "inDur": 0.8
+      }
+    ],
+    "headlines": {
+      "maxWords": 2,
+      "uppercase": false,
+      "element": [
+        {
+          "type": "headline",
+          "layer": "behind",
+          "text": "{text}",
+          "className": "sw-head",
+          "x": 90,
+          "y": "=H*0.27",
+          "anchor": "left",
+          "w": "=W*0.9",
+          "in": "wipe",
+          "inDur": 0.3,
+          "out": "none"
+        },
+        {
+          "type": "headline",
+          "layer": "behind",
+          "text": "{text}",
+          "className": "sw-head red",
+          "x": 90,
+          "y": "=H*0.27",
+          "anchor": "left",
+          "w": "=W*0.9",
+          "in": "wipe",
+          "inDur": 0.3,
+          "out": "none"
+        }
+      ]
+    },
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 5,
+      "y": "=H*0.84",
+      "maxChars": 30,
+      "lowercase": true,
+      "x": "=W*0.5",
+      "className": "sw-cap"
+    }
+  },
+  "finish": {
+    "grade": "faded"
+  },
+  "fps": 30
+}

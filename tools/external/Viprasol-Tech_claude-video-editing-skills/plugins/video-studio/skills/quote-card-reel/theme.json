@@ -1,0 +1,67 @@
+{
+  "name": "quote-card-reel",
+  "format": "4:5",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@500;700&display=swap",
+  "vars": {
+    "--font-display": "'Instrument Serif',Georgia,serif",
+    "--c-accent": "#E9C46A"
+  },
+  "speaker": {
+    "mode": "full",
+    "push": 0.05,
+    "focusY": 0.35
+  },
+  "matte": false,
+  "auto": {
+    "static": [
+      {
+        "type": "shape",
+        "kind": "bar",
+        "layer": "front",
+        "x": "=W/2",
+        "y": "=H/2",
+        "w": "=W",
+        "h": "=H",
+        "color": "rgba(0,0,0,.6)",
+        "in": "fade"
+      },
+      {
+        "type": "text",
+        "text": "“",
+        "className": "qc-mark",
+        "x": "=W*0.14",
+        "y": "=H*0.2",
+        "in": "fade"
+      },
+      {
+        "type": "text",
+        "text": "{title}",
+        "className": "qc-name",
+        "x": "=W/2",
+        "y": "=H*0.9",
+        "in": "fade"
+      }
+    ],
+    "headlines": {
+      "full": true,
+      "uppercase": false,
+      "element": {
+        "type": "text",
+        "text": "{text}",
+        "className": "qc-quote",
+        "wrap": true,
+        "x": "=W/2",
+        "y": "=H*0.5",
+        "w": "=W*0.82",
+        "in": "blur",
+        "inDur": 0.6,
+        "out": "fade"
+      }
+    }
+  },
+  "finish": {
+    "grade": "film",
+    "grain": 6
+  },
+  "fps": 30
+}

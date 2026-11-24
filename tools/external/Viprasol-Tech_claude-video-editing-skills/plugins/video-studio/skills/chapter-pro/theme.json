@@ -1,0 +1,76 @@
+{
+  "name": "chapter-pro",
+  "format": "16:9",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap",
+  "vars": {
+    "--font-display": "'Manrope',sans-serif",
+    "--c-accent": "#FF3B30",
+    "--c-accent2": "#FFFFFF",
+    "--cap-size": "40px",
+    "--cap-weight": "700",
+    "--c-bg": "#101012"
+  },
+  "speaker": {
+    "mode": "full"
+  },
+  "matte": false,
+  "auto": {
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 8,
+      "y": "=H*0.9",
+      "maxChars": 50,
+      "className": "cap-soft"
+    },
+    "lists": {
+      "title": "Quick summary",
+      "element": {
+        "type": "card",
+        "title": "{title}",
+        "x": "=W*0.78",
+        "y": "=H*0.45",
+        "w": "=W*0.36",
+        "className": "glass",
+        "in": "slideLeft"
+      }
+    },
+    "numbers": {
+      "element": {
+        "type": "counter",
+        "label": "{label}",
+        "x": "=W*0.8",
+        "y": "=H*0.3",
+        "in": "rise"
+      },
+      "hold": 2.6
+    },
+    "hook": {
+      "dur": 3,
+      "element": {
+        "type": "titlecard",
+        "title": "{text}",
+        "kicker": "Chapter 1",
+        "in": "fade",
+        "out": "fade"
+      }
+    },
+    "endcard": {
+      "dur": "=min(8, DUR*0.15)",
+      "cta": "Subscribe",
+      "element": {
+        "type": "chip",
+        "text": "{cta}",
+        "className": "cp-sub",
+        "x": "=W/2",
+        "y": "=H*0.82",
+        "in": "pop"
+      }
+    }
+  },
+  "finish": {
+    "grade": "warm",
+    "sharpen": true
+  },
+  "fps": 30
+}

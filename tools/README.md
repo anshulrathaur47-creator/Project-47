@@ -28,3 +28,41 @@ Notes:
 ## save_uploads.py
 
 Copies every uploaded file into `reference-library/<date>/` for good and rebuilds `reference-library/INDEX.md`. The project hooks in `.claude/settings.json` run it on every message and at the end of every turn. Run by hand with `python3 tools/save_uploads.py`.
+
+## analyze_style.py (reference reel analyser)
+
+`python3 tools/analyze_style.py <video> [--name slug] [--lang hi] [--words] [--stems] [--no-ocr]`
+
+It writes `references/analysis/<slug>/report.md`, `style.json` and `contact_sheet.jpg`:
+- **Cuts and pacing:** cuts (PySceneDetect), shot lengths, cuts per minute, and the cuts in the first 3 s.
+- **Beats:** tempo and beats (librosa), the share of cuts that land on a beat or an SFX hit, and loudness (LUFS).
+- **Per shot:**
+  - camera motion (OpenCV optical flow: static, push-in, pull-out, pan, tilt, shake)
+  - shot size from faces (MediaPipe: close-up, medium, wide)
+  - brightness, saturation, contrast, warmth and a 5-colour palette
+  - on-screen text with position (Tesseract, hin + eng)
+- `--words` adds word timings (faster-whisper).
+- `--stems` splits vocals and music (UVR MDX via `audio-separator`).
+
+Other tools from the same setup:
+- `audio-separator <song> --model_filename UVR-MDX-NET-Inst_HQ_3.onnx --model_file_dir tools/models/uvr`: splits vocals and instrumental.
+- `rembg` (models in `tools/models/rembg`, set `U2NET_HOME=tools/models/rembg`): cuts the subject out of a photo or frame.
+- MediaPipe models in `tools/models/mediapipe`: face, face landmarks, pose and selfie segmentation (person cut-out for "text behind the person").
+- `auto-editor`: removes silence and dead air from talking clips.
+- `moviepy`: quick Python video edits.
+
+## GitHub editing skills (vendored in tools/external, linked into .claude/skills)
+
+Chosen on 2026-11-24 from the most-cited Claude video skill repos. Sources and commits are in `tools/external/SOURCES.md`.
+- **Viprasol-Tech/claude-video-editing-skills ("Video Studio", about 95 skills on one engine, `video-studio-core`):**
+  - halo-cut, bold-bounce, chaos-stack, hook-lab, lyric-video, music-video
+  - news-desk, news-explainer, regional-devotional, wedding-india, dual-subs
+  - micro-drama, clip-miner, event-recap, finishing-pro, and more
+- **artemnovitckii/claude-editing-skills:** storytelling, trial-reels, behind-the-person, explainer, split-screen, orbit-reel, scene-switch and more.
+  - Their transcription expects `GROQ_API_KEY`; in this workspace use local Whisper (`tools/transcribe.py`) instead.
+  - Their kit setup (`kit/setup.sh`) has not been run. Ask the user before running it.
+- **artemnovitckii/claude-animation-skills:** zach-3d-films, zach-d-films, low-poly, stick-figure, minecraft, kurzgesagt, map-route, graph and more (animated reels with no footage).
+  - Their kit needs `npm install` in `kit/`. Not run yet; ask first.
+  - Use the preinstalled Chromium, never `playwright install`.
+- **rsdabid/claude-video-editing-skills:** reel-editor (Remotion, word-by-word captions, person cut-out) and fullscreen-talking-head-edit.
+- **Catalogue of about 180 more repos:** `references/awesome-claude-video-skills/README.md`.

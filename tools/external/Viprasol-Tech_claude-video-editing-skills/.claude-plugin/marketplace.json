@@ -1,0 +1,14 @@
+{
+  "name": "claude-video-editing-skills",
+  "description": "Free Claude skills that turn a raw clip into a finished, styled video edit.",
+  "owner": {
+    "name": "Viprasol"
+  },
+  "plugins": [
+    {
+      "name": "video-studio",
+      "source": "./plugins/video-studio",
+      "description": "Complete free video editor: video-director + 42 genre skills + 46 style skins (scene recipes) + 5 finishing/delivery skills on one local engine."
+    }
+  ]
+}

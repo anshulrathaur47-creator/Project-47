@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Claude Video Editing Skills (Video Studio)"
+abstract: "A complete, free, local video editor for Claude Code: genre skills, style skins with scene recipes, and an engine for cuts, timelines, reframing, colour, sound, motion graphics, captions (incl. Hindi/Devanagari), delivery and QC."
+type: software
+authors:
+  - name: "Viprasol"
+repository-code: "https://github.com/Viprasol-Tech/claude-video-editing-skills"
+license: MIT
+version: "2.2.0"
+date-released: "2026-11-20"
+keywords: [video-editing, claude-code, ffmpeg, motion-graphics, captions, hindi]

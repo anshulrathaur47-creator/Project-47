@@ -1,0 +1,105 @@
+{
+  "name": "whiteboard-host",
+  "format": "16:9",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@600;800&display=swap",
+  "vars": {
+    "--font-display": "'Caveat',cursive",
+    "--c-accent": "#1E5EFF",
+    "--c-accent2": "#E8381B",
+    "--c-mark": "#E8381B",
+    "--cap-size": "34px",
+    "--cap-weight": "600"
+  },
+  "speaker": {
+    "mode": "panel",
+    "rectFrac": [
+      0.03,
+      0.07,
+      0.4,
+      0.86
+    ],
+    "radius": 28
+  },
+  "matte": false,
+  "auto": {
+    "static": [
+      {
+        "type": "background",
+        "kind": "paper"
+      }
+    ],
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 7,
+      "y": "=H*0.95",
+      "maxChars": 44,
+      "x": "=W*0.23",
+      "w": "=W*0.42",
+      "className": "cap-soft wb-cap"
+    },
+    "keywords": {
+      "every": 4,
+      "hold": 6,
+      "element": [
+        {
+          "type": "text",
+          "text": "{text}",
+          "className": "wb-note",
+          "x": "=W*0.52",
+          "y": "=H*0.24",
+          "anchor": "left",
+          "in": "wipe",
+          "inDur": 0.6
+        },
+        {
+          "type": "text",
+          "text": "{text}",
+          "className": "wb-note b",
+          "x": "=W*0.52",
+          "y": "=H*0.42",
+          "anchor": "left",
+          "in": "wipe",
+          "inDur": 0.6
+        },
+        {
+          "type": "text",
+          "text": "{text}",
+          "className": "wb-note",
+          "x": "=W*0.52",
+          "y": "=H*0.60",
+          "anchor": "left",
+          "in": "wipe",
+          "inDur": 0.6
+        }
+      ]
+    },
+    "numbers": {
+      "element": {
+        "type": "counter",
+        "label": "{label}",
+        "className": "wb-num",
+        "x": "=W*0.72",
+        "y": "=H*0.78"
+      },
+      "hold": 4
+    },
+    "hook": {
+      "dur": 3.5,
+      "element": {
+        "type": "text",
+        "text": "{text}",
+        "className": "wb-title",
+        "x": "=W*0.72",
+        "y": "=H*0.12",
+        "w": "=W*0.5",
+        "in": "wipe",
+        "inDur": 0.8
+      }
+    }
+  },
+  "finish": {
+    "grade": "none"
+  },
+  "fps": 30
+}

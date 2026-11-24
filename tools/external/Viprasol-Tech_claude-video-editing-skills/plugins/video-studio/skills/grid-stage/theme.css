@@ -1,0 +1,49 @@
+/* Grid Stage - Dark studio stage: your background becomes a black grid with a soft spotlight and a slow-turning disc, one giant word sits behind your head each sentence, small uppercase captions and glass pills. */
+.gs-bg { background-color: #0B0B0C; background-image: radial-gradient(ellipse at 50% 32%, rgba(255,255,255,.13) 0, rgba(255,255,255,0) 55%), linear-gradient(rgba(255,255,255,.06) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,.06) 2px, transparent 2px); background-size: 100% 100%, 72px 72px, 72px 72px; }
+.gs-disc .shape { border: none !important; border-radius: 50%; background: conic-gradient(from 0deg, rgba(255,255,255,.07), rgba(255,255,255,0) 18%, rgba(255,255,255,.07) 50%, rgba(255,255,255,0) 68%, rgba(255,255,255,.07)), repeating-radial-gradient(circle, #141416 0 5px, #1c1c1f 5px 8px) !important; box-shadow: 0 0 0 2px rgba(255,255,255,.06), 0 30px 120px rgba(0,0,0,.85) !important; }
+.gs-head .anim { font-family: 'Anton','Teko',sans-serif; font-size: 360px; line-height: .85; color: #E9EAEC; text-shadow: 0 0 40px rgba(255,255,255,.18); }
+.gs-head.alt .anim { color: transparent; -webkit-text-stroke: 4px rgba(233,234,236,.9); text-shadow: none; }
+.gs-cap .cap-line { font-family: 'Inter','Mukta',sans-serif; letter-spacing: .06em; text-shadow: 0 2px 12px #000; }
+.gs-cap .cap-word { color: rgba(255,255,255,.55); } .gs-cap .cap-word.is-active, .gs-cap .cap-word.is-spoken { color: #fff; }
+.gs-pill .anim { font-family: 'Inter','Mukta',sans-serif; font-weight: 700; font-size: 30px; color: #fff; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.25); border-radius: 40px; padding: 12px 26px 12px 48px; position: relative; }
+.gs-pill .anim::before { content: ""; position: absolute; left: 20px; top: 50%; width: 14px; height: 14px; margin-top: -7px; border-radius: 50%; background: var(--c-accent); box-shadow: 0 0 12px var(--c-accent); }
+.gs-card { background: linear-gradient(115deg, #0E0E10 0 48%, #26262A 48% 52%, #0E0E10 52%); }
+.gs-cardtitle .anim { font-family: 'Anton','Teko',sans-serif; font-size: 150px; color: #fff; }
+
+/* ---- layercut recipe (sequence.py --recipe layercut) ---- */
+/* speaker scene: silver condensed word behind the head (filter, not text-shadow: a shadow would paint over the clipped fill) */
+.lc-head .anim { font: 400 400px 'Anton','Teko',sans-serif; line-height: .9; letter-spacing: 0; background: linear-gradient(180deg, #FFFFFF 0%, #E6E8EC 40%, #A3A7AE 75%, #6C7078 100%); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 12px 40px rgba(0,0,0,.65)); }
+.lc-head.alt .anim { background: none; color: transparent; -webkit-text-stroke: 4px rgba(236,238,241,.92); filter: drop-shadow(0 0 18px rgba(255,255,255,.25)); }
+.lc-bars .eq { align-items: center; gap: 16px; opacity: .55; } .lc-bars .eq i { background: linear-gradient(180deg, rgba(255,255,255,0), #fff 30%, #fff 70%, rgba(255,255,255,0)); border-radius: 6px; transform-origin: 50% 50%; }
+.lc-line svg { width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 0 6px rgba(255,255,255,.9)) drop-shadow(0 0 22px rgba(212,255,58,.45)); }
+.lc-line path { opacity: .85; }
+.lc-cap .cap-line { font: 800 34px 'Inter','Mukta',sans-serif; letter-spacing: .04em; color: #fff; background: rgba(8,8,10,.72); border: 1px solid rgba(255,255,255,.16); border-radius: 14px; padding: .32em .75em .26em; width: fit-content; margin: 0 auto; text-shadow: none; -webkit-text-stroke: 0; box-shadow: 0 10px 30px rgba(0,0,0,.45); }
+.lc-cap .cap-word { color: rgba(255,255,255,.45); } .lc-cap .cap-word.is-active, .lc-cap .cap-word.is-spoken { color: #fff; }
+/* glass pill: toggle (on) + italic script word */
+.lc-pill .anim { display: inline-flex; align-items: center; gap: 24px; width: auto; height: auto; padding: 14px 40px 14px 16px; border-radius: 999px; background: linear-gradient(180deg, rgba(40,40,44,.82), rgba(14,14,16,.82)); border: 1.5px solid rgba(255,255,255,.3); box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 20px 50px rgba(0,0,0,.6); color: #fff; }
+.lc-tog { position: relative; flex: 0 0 92px; height: 52px; border-radius: 99px; background: #D4FF3A; box-shadow: 0 0 20px rgba(212,255,58,.55); }
+.lc-tog::after { content: ""; position: absolute; right: 6px; top: 6px; width: 40px; height: 40px; border-radius: 50%; background: #fff; box-shadow: 0 3px 8px rgba(0,0,0,.35); }
+.lc-pill em { font: italic 400 70px 'Instrument Serif','Rozha One',serif; line-height: 1.1; }
+/* panel scene: 3D-tilted app panel over a dotted stage */
+.lc-stage { background-color: #0B0B0C; background-image: radial-gradient(ellipse at 50% 45%, rgba(255,255,255,.12) 0, rgba(255,255,255,0) 60%), radial-gradient(rgba(255,255,255,.13) 2px, transparent 2.6px); background-size: 100% 100%, 36px 36px; }
+.lc-panel .anim { white-space: normal; text-align: left; height: auto; }
+.lc-ui { transform: perspective(1500px) rotateX(16deg) rotateY(-24deg) rotateZ(5deg); background: linear-gradient(160deg, #222327, #111214 70%); border: 1.5px solid rgba(255,255,255,.16); border-radius: 46px; padding: 34px 44px 30px; box-shadow: 0 70px 130px rgba(0,0,0,.85), inset 0 1px 0 rgba(255,255,255,.14); font: 700 34px 'Inter','Mukta',sans-serif; color: #E9EAEC; }
+.lc-ui-top { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; } .lc-ui-top i { width: 18px; height: 18px; border-radius: 50%; background: rgba(255,255,255,.22); }
+.lc-ui-top span { margin-left: auto; font: 600 24px 'Inter',sans-serif; letter-spacing: .12em; color: rgba(255,255,255,.45); }
+.lc-ui-title { font: 400 200px 'Anton','Teko',sans-serif; line-height: 1; color: #fff; margin-bottom: 14px; white-space: nowrap; }
+.lc-row { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 22px 0; border-top: 1.5px solid rgba(255,255,255,.09); }
+.lc-sl { position: relative; flex: 0 0 52%; height: 12px; border-radius: 9px; background: rgba(255,255,255,.14); }
+.lc-sl i { position: absolute; left: 0; top: 0; bottom: 0; width: var(--v); border-radius: 9px; background: #D4FF3A; }
+.lc-sl i::after { content: ""; position: absolute; right: -16px; top: 50%; width: 32px; height: 32px; margin-top: -16px; border-radius: 50%; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,.5); }
+.lc-tg { position: relative; flex: 0 0 96px; height: 54px; border-radius: 99px; background: #D4FF3A; }
+.lc-tg::after { content: ""; position: absolute; right: 6px; top: 6px; width: 42px; height: 42px; border-radius: 50%; background: #fff; }
+/* card scene: diagonal light beams, kicker with a glowing dot, huge silver word */
+.lc-tc { background-color: #070708; background-image: radial-gradient(ellipse at 50% 50%, rgba(255,255,255,.08) 0, rgba(255,255,255,0) 55%), radial-gradient(rgba(255,255,255,.07) 1.6px, transparent 2.2px); background-size: 100% 100%, 30px 30px; }
+.lc-beams .anim { position: relative; overflow: visible; }
+.lc-beams i { position: absolute; top: -25%; height: 150%; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.2), rgba(255,255,255,0)); transform: rotate(28deg); filter: blur(10px); }
+.lc-beams i:nth-child(1) { left: 2%; width: 230px; } .lc-beams i:nth-child(2) { left: 34%; width: 80px; opacity: .8; }
+.lc-beams i:nth-child(3) { left: 58%; width: 300px; opacity: .55; } .lc-beams i:nth-child(4) { left: 88%; width: 120px; opacity: .7; }
+.lc-kick .anim { font: 700 40px 'Inter','Mukta',sans-serif; letter-spacing: .14em; color: rgba(255,255,255,.78); }
+.lc-gdot { display: inline-block; width: 18px; height: 18px; margin: 0 22px 6px 0; vertical-align: middle; border-radius: 50%; background: #D4FF3A; box-shadow: 0 0 12px #D4FF3A, 0 0 36px rgba(212,255,58,.8); }
+.lc-title .anim { font: 400 420px 'Anton','Teko',sans-serif; line-height: 1; letter-spacing: 0; background: linear-gradient(180deg, #FFFFFF 0%, #DADDE2 50%, #80848C 100%); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 30px rgba(255,255,255,.18)); }
+.lc-tail .anim { color: #fff; font-size: 46px; letter-spacing: .08em; }

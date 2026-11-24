@@ -59,6 +59,19 @@ Learned from past feedback. Follow these unless the user says otherwise.
 - `watch` (`.claude/skills/watch/`): study a video (link or file) frame by frame and save its editing style as a new `style-<name>` skill. Use when the user says "watch", "learn this video" or "copy this style". Downloads from links need the site to be reachable (YouTube and Instagram are blocked here right now), so ask for the video file instead. Use `--lang hi` for Hindi.
 - `video-use` (`.claude/skills/video-use/`, from browser-use/video-use): edit raw footage by conversation, e.g. talking heads, vlogs, tutorials. It cuts filler words and dead air at word boundaries, colour grades, adds 30 ms audio fades, burns subtitles, adds animation overlays and checks its own render. Use it when the user drops raw clips and wants them edited. Transcription runs locally with Whisper (no ElevenLabs key needed). Put its `edit/` folder in `projects/<date>-<name>/edit` via `--edit-dir`, never inside `raw-videos/`. Always confirm the plan with the user before cutting.
 - Remotion and Hyperframes skills from their official repos are also in `.claude/skills/`.
+- **GitHub editing skills (about 120)**, vendored in `tools/external/` and linked into `.claude/skills/`:
+  - **Video Studio** (Viprasol): halo-cut, bold-bounce, hook-lab, lyric-video, music-video, news-desk, news-explainer, regional-devotional, wedding-india, dual-subs, micro-drama, clip-miner, event-recap, finishing-pro and more.
+  - **artemnovitckii editing:** storytelling, trial-reels, behind-the-person, explainer, split-screen.
+  - **artemnovitckii animation:** zach-3d-films, low-poly, stick-figure, minecraft, kurzgesagt, map-route.
+  - **rsdabid:** reel-editor.
+  - Pick the one whose description fits the job.
+  - Their own setup scripts (`kit/setup.sh`, `install.sh`) have not been run; ask the user first.
+  - Use local Whisper instead of Groq or ElevenLabs keys.
+  - See `tools/README.md`.
+- **Study a reference first:** for any reference reel the user sends, run `python3 tools/analyze_style.py <video> --name <slug> --words`.
+  - Then read `references/analysis/<slug>/report.md` and the contact sheet.
+  - Match its pacing (cuts per minute, shot length), cut-on-beat rate, motion mix, shot sizes, colour and text placement.
+  - Use `watch` when the style should be saved as a reusable skill.
 
 ## Learned styles
 

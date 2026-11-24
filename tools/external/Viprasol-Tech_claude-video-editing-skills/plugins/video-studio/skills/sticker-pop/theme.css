@@ -1,0 +1,5 @@
+/* Sticker Pop — Playful: key words stamp in as die-cut stickers around the speaker with emoji bursts and pops. */
+.sp2 .anim { font-family: var(--font-display); font-size: 72px; color: #fff; padding: 18px 34px; border-radius: 30px; border: 10px solid #fff; box-shadow: 0 14px 30px rgba(0,0,0,.3); }
+.sp2.c1 .anim { background: var(--c-accent); } .sp2.c2 .anim { background: var(--c-accent2); }
+.sp2-cap .cap-line { text-shadow: 0 5px 0 rgba(0,0,0,.6); -webkit-text-stroke: 6px #222; }
+.sp2-cap .cap-word.is-active { color: #FFD93D; }

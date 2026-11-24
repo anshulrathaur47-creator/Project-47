@@ -1,0 +1,55 @@
+{
+  "name": "clip-miner",
+  "format": "9:16",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&display=swap",
+  "vars": {
+    "--font-display": "'Montserrat','Arial Black',sans-serif",
+    "--c-accent": "#FFE14D",
+    "--c-accent2": "#FF4D8D",
+    "--cap-size": "80px"
+  },
+  "speaker": {
+    "mode": "full",
+    "focusX": 0.5,
+    "focusY": 0.35
+  },
+  "matte": false,
+  "auto": {
+    "captions": {
+      "type": "captions",
+      "mode": "reveal",
+      "wordIn": "pop",
+      "maxWords": 3,
+      "uppercase": true,
+      "y": "=H*0.68",
+      "className": "cap-outline cm-cap"
+    },
+    "keywords": {
+      "every": 3,
+      "zoom": 1.1,
+      "zoomHold": 1.0
+    },
+    "hook": {
+      "dur": 2.6,
+      "element": {
+        "type": "text",
+        "text": "{text}",
+        "className": "cm-hook",
+        "y": "=H*0.16",
+        "w": "=W*0.86",
+        "in": "pop"
+      }
+    },
+    "static": [
+      {
+        "type": "progress",
+        "position": "top"
+      }
+    ]
+  },
+  "finish": {
+    "grade": "punchy",
+    "sharpen": true
+  },
+  "fps": 30
+}

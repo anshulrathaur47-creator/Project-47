@@ -1,0 +1,41 @@
+{
+  "name": "bold-bounce",
+  "format": "9:16",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap",
+  "vars": {
+    "--font-display": "'Montserrat','Arial Black',sans-serif",
+    "--c-accent": "#3CFF5A",
+    "--c-accent2": "#FFE600",
+    "--cap-size": "112px"
+  },
+  "speaker": {
+    "mode": "full",
+    "focusY": 0.33
+  },
+  "matte": false,
+  "auto": {
+    "captions": {
+      "type": "captions",
+      "mode": "reveal",
+      "maxWords": 2,
+      "y": "=H*0.66",
+      "wordIn": "bounce",
+      "uppercase": true,
+      "className": "cap-outline bb-cap"
+    },
+    "keywords": {
+      "every": 2.0,
+      "zoom": 1.16,
+      "alternate": true,
+      "snap": true,
+      "zoomHold": 1.0,
+      "sfx": "pop",
+      "sfxGain": 0.45
+    }
+  },
+  "finish": {
+    "grade": "punchy",
+    "sharpen": true
+  },
+  "fps": 30
+}

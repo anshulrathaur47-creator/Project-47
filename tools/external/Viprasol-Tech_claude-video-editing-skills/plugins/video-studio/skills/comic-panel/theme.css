@@ -1,0 +1,7 @@
+/* Comic Panel — Comic-book edit: speech-bubble captions, halftone dots, POW/BAM stamps on punchlines. */
+.cm-cap .cap-line { background: #fff; color: #111; text-shadow: none; border: 7px solid #111; border-radius: 60px; padding: 18px 40px; position: relative; letter-spacing: .03em; }
+.cm-cap .cap-line::after { content: ""; position: absolute; left: 50%; top: -46px; border: 24px solid transparent; border-bottom: 30px solid #111; }
+.cm-cap .cap-word.is-active { color: var(--c-accent2); }
+.cm-pow .anim { font-family: var(--font-display); font-size: 150px; color: var(--c-accent2); -webkit-text-stroke: 6px #111; padding: 70px 120px; letter-spacing: .03em;
+  background: var(--c-accent); clip-path: polygon(50% 0,61% 22%,85% 8%,78% 34%,100% 42%,80% 58%,96% 82%,68% 74%,58% 100%,45% 78%,20% 94%,24% 66%,0 56%,20% 42%,6% 16%,34% 24%); }
+.cm-ht { opacity: .55; } .cm-ht .anim { -webkit-mask: radial-gradient(circle, #000 25%, transparent 68%); mask: radial-gradient(circle, #000 25%, transparent 68%); }

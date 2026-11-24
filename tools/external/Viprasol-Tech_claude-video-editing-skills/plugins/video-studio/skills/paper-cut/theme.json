@@ -1,0 +1,70 @@
+{
+  "name": "paper-cut",
+  "format": "9:16",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Permanent+Marker&family=Inter:wght@800&display=swap",
+  "vars": {
+    "--font-display": "'Permanent Marker',cursive",
+    "--font-cap": "'Gochi Hand',cursive",
+    "--c-accent": "#FF4D2E",
+    "--c-accent2": "#2E7DFF",
+    "--cap-size": "76px",
+    "--cap-weight": "400"
+  },
+  "speaker": {
+    "mode": "full",
+    "focusY": 0.35
+  },
+  "matte": false,
+  "auto": {
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 4,
+      "y": "=H*0.70",
+      "className": "pc-cap"
+    },
+    "keywords": {
+      "every": 2.8,
+      "hold": 1.6,
+      "uppercase": true,
+      "sfx": "pop",
+      "element": [
+        {
+          "type": "sticker",
+          "text": "{text}",
+          "className": "pc-st",
+          "x": "=W*0.32",
+          "y": "=H*0.22",
+          "rotate": -7,
+          "in": "stamp"
+        },
+        {
+          "type": "sticker",
+          "text": "{text}",
+          "className": "pc-st b",
+          "x": "=W*0.68",
+          "y": "=H*0.27",
+          "rotate": 6,
+          "in": "stamp"
+        }
+      ]
+    },
+    "hook": {
+      "dur": 2.4,
+      "element": {
+        "type": "text",
+        "text": "{text}",
+        "className": "pc-hook",
+        "y": "=H*0.15",
+        "w": "=W*0.84",
+        "rotate": -2,
+        "in": "stamp"
+      }
+    }
+  },
+  "finish": {
+    "grade": "warm",
+    "grain": 5
+  },
+  "fps": 30
+}

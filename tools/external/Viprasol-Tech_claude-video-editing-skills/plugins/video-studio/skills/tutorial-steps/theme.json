@@ -1,0 +1,65 @@
+{
+  "name": "tutorial-steps",
+  "format": "16:9",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Inter:wght@600;800&display=swap",
+  "vars": {
+    "--font-display": "'Inter',sans-serif",
+    "--c-accent": "#3B82F6",
+    "--cap-size": "38px",
+    "--cap-weight": "700"
+  },
+  "speaker": {
+    "mode": "panel",
+    "rectFrac": [
+      0.78,
+      0.66,
+      0.19,
+      0.3
+    ],
+    "radius": 400,
+    "focusY": 0.3
+  },
+  "matte": false,
+  "auto": {
+    "static": [
+      {
+        "type": "clip",
+        "clip": "main",
+        "layer": "bg",
+        "x": "=W/2",
+        "y": "=H/2",
+        "w": "=W",
+        "h": "=H",
+        "in": "none"
+      }
+    ],
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 8,
+      "y": "=H*0.93",
+      "maxChars": 50,
+      "x": "=W*0.42",
+      "w": "=W*0.7",
+      "className": "cap-pill"
+    },
+    "lists": {
+      "each": [
+        {
+          "type": "chip",
+          "text": "Step {n} · {text}",
+          "className": "ts-step",
+          "x": 50,
+          "y": 70,
+          "anchor": "top-left",
+          "in": "slideRight"
+        }
+      ]
+    }
+  },
+  "finish": {
+    "grade": "none",
+    "sharpen": true
+  },
+  "fps": 30
+}

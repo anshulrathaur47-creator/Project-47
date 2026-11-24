@@ -1,0 +1,47 @@
+{
+  "name": "terminal-tech",
+  "format": "9:16",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&display=swap",
+  "vars": {
+    "--font-display": "'JetBrains Mono',monospace",
+    "--c-accent": "#39FF14",
+    "--c-accent2": "#00E1FF",
+    "--cap-size": "52px",
+    "--cap-weight": "700"
+  },
+  "speaker": {
+    "mode": "full",
+    "focusY": 0.33
+  },
+  "matte": false,
+  "auto": {
+    "captions": {
+      "type": "captions",
+      "mode": "reveal",
+      "maxWords": 5,
+      "y": "=H*0.74",
+      "wordIn": "none",
+      "maxChars": 26,
+      "lowercase": true,
+      "w": "=W*0.9",
+      "className": "tt-cap"
+    },
+    "keywords": {
+      "every": 3,
+      "hold": 1.8,
+      "sfx": "type",
+      "sfxGain": 0.5,
+      "element": {
+        "type": "chip",
+        "text": "// {text}",
+        "className": "tt-chip",
+        "y": "=H*0.12",
+        "in": "wipe"
+      }
+    }
+  },
+  "finish": {
+    "grade": "cool"
+  },
+  "fps": 30
+}

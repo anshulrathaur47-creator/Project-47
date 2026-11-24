@@ -1,0 +1,66 @@
+{
+  "name": "halo-cut",
+  "format": "9:16",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@500;700&display=swap",
+  "vars": {
+    "--font-display": "'Montserrat','Arial Black',sans-serif",
+    "--font-body": "'Inter',Arial,sans-serif",
+    "--c-accent": "#FFE14D",
+    "--c-accent2": "#7CF7FF",
+    "--cap-size": "84px"
+  },
+  "speaker": {
+    "mode": "full",
+    "focusX": 0.5,
+    "focusY": 0.35
+  },
+  "matte": false,
+  "auto": {
+    "captions": {
+      "type": "captions",
+      "mode": "reveal",
+      "wordIn": "pop",
+      "maxWords": 3,
+      "uppercase": true,
+      "y": "=H*0.70",
+      "activeScale": 1.08,
+      "className": "halo-cap"
+    },
+    "keywords": {
+      "every": 2.4,
+      "zoom": 1.14,
+      "alternate": true,
+      "zoomHold": 1.1,
+      "sfx": "pop",
+      "sfxGain": 0.35
+    },
+    "cuts": {
+      "sfx": "swish",
+      "gain": 0.18,
+      "minGap": 2.5
+    },
+    "hook": {
+      "dur": 2.4,
+      "element": {
+        "type": "text",
+        "text": "{text}",
+        "className": "halo-hook",
+        "y": "=H*0.18",
+        "w": "=W*0.84",
+        "in": "pop"
+      }
+    },
+    "static": [
+      {
+        "type": "progress",
+        "position": "bottom",
+        "className": "halo-progress"
+      }
+    ]
+  },
+  "finish": {
+    "grade": "punchy",
+    "sharpen": true
+  },
+  "fps": 30
+}

@@ -1,0 +1,59 @@
+{
+  "name": "news-desk",
+  "format": "9:16",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700;800&display=swap",
+  "vars": {
+    "--font-display": "'Roboto Condensed',Arial,sans-serif",
+    "--font-body": "'Roboto Condensed',Arial,sans-serif",
+    "--c-mark": "#D7141A",
+    "--c-accent": "#D7141A",
+    "--cap-size": "50px",
+    "--c-card": "#0E1B2E"
+  },
+  "speaker": {
+    "mode": "full",
+    "focusY": 0.33
+  },
+  "matte": false,
+  "auto": {
+    "static": [
+      {
+        "type": "ticker",
+        "label": "BREAKING",
+        "text": "{title}",
+        "y": "=H-250"
+      },
+      {
+        "type": "chip",
+        "text": "● LIVE",
+        "className": "nd-live",
+        "x": 70,
+        "y": 120,
+        "anchor": "left",
+        "in": "fade"
+      }
+    ],
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 6,
+      "y": "=H*0.78",
+      "maxChars": 34,
+      "className": "cap-box nd-cap"
+    },
+    "hook": {
+      "dur": 4.5,
+      "element": {
+        "type": "lowerthird",
+        "name": "{text}",
+        "role": "BREAKING NEWS",
+        "y": "=H*0.6",
+        "className": "nd-lt"
+      }
+    }
+  },
+  "finish": {
+    "grade": "none"
+  },
+  "fps": 30
+}

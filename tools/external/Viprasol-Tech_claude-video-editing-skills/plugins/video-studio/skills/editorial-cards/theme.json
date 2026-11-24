@@ -1,0 +1,137 @@
+{
+  "name": "editorial-cards",
+  "format": "9:16",
+  "fps": 30,
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@600;800&family=Mukta:wght@600;800&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap",
+  "vars": {
+    "--font-display": "'Inter Tight','Mukta',sans-serif",
+    "--font-body": "'Inter Tight','Mukta',sans-serif",
+    "--c-bg": "#F4EFE6",
+    "--c-accent": "#111111",
+    "--c-accent2": "#E4572E",
+    "--c-mark": "#E4572E",
+    "--cap-size": "74px",
+    "--cap-weight": "800"
+  },
+  "speaker": {
+    "mode": "panel",
+    "rectFrac": [
+      0.12,
+      0.38,
+      0.6,
+      0.4
+    ],
+    "radius": 34,
+    "focusY": 0.3
+  },
+  "matte": false,
+  "background": "#F4EFE6",
+  "auto": {
+    "static": [
+      {
+        "type": "background",
+        "kind": "paper",
+        "className": "ed-bg"
+      }
+    ],
+    "captions": {
+      "type": "captions",
+      "mode": "reveal",
+      "maxWords": 6,
+      "maxChars": 26,
+      "y": "=H*0.2",
+      "className": "ed-cap"
+    },
+    "headlines": {
+      "maxWords": 1,
+      "element": [],
+      "layouts": [
+        {
+          "rectFrac": [
+            0.08,
+            0.36,
+            0.68,
+            0.42
+          ],
+          "radius": 34,
+          "rot": -3
+        },
+        {
+          "rectFrac": [
+            0.24,
+            0.38,
+            0.68,
+            0.42
+          ],
+          "radius": 34,
+          "rot": 3
+        },
+        {
+          "rectFrac": [
+            0.14,
+            0.4,
+            0.72,
+            0.38
+          ],
+          "radius": 34,
+          "rot": -1.5
+        }
+      ]
+    },
+    "keywords": {
+      "every": 3.2,
+      "hold": 1.8,
+      "element": [
+        [
+          {
+            "type": "text",
+            "text": "{text}",
+            "className": "ed-key",
+            "x": "=W*0.44",
+            "y": "=H*0.84",
+            "in": "maskUp"
+          },
+          {
+            "type": "scribble",
+            "kind": "circle",
+            "x": "=W*0.44",
+            "y": "=H*0.84",
+            "w": "=W*0.5",
+            "h": 150,
+            "strokeWidth": 7,
+            "drawDur": 0.5,
+            "color": "#E4572E",
+            "className": "ed-mark"
+          }
+        ],
+        [
+          {
+            "type": "text",
+            "text": "{text}",
+            "className": "ed-key",
+            "x": "=W*0.44",
+            "y": "=H*0.84",
+            "in": "maskUp"
+          },
+          {
+            "type": "scribble",
+            "kind": "underline",
+            "x": "=W*0.44",
+            "y": "=H*0.85",
+            "w": "=W*0.46",
+            "h": 120,
+            "strokeWidth": 7,
+            "drawDur": 0.4,
+            "color": "#E4572E",
+            "className": "ed-mark"
+          }
+        ]
+      ]
+    }
+  },
+  "finish": {
+    "grade": "none",
+    "grain": 3
+  },
+  "sequence": "explainer"
+}

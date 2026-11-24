@@ -64,5 +64,22 @@ log "3D: Remotion + three.js starter (from github.com/remotion-dev/template-thre
 if [ -d tools/three-starter/node_modules/@remotion/three ]; then echo "already installed"
 else (cd tools/three-starter && npm install --silent); fi
 
+log "Style analysis toolkit (scene cuts, beats, OCR, faces, motion, colour, stems, cutouts)"
+if have tesseract && tesseract --list-langs 2>/dev/null | grep -q hin; then echo "tesseract already installed"
+else apt-get update -qq && apt-get install -y -qq tesseract-ocr tesseract-ocr-hin tesseract-ocr-eng; fi
+ldconfig -p | grep -q libGLESv2 || apt-get install -y -qq libgles2
+if python3 -c "import scenedetect, pytesseract, mediapipe, cv2, moviepy, pyloudnorm, rembg, audio_separator, audioread, fastapi, fontTools" 2>/dev/null; then echo "python packages already installed"
+else python3 -m pip install -q "scenedetect[opencv-headless]" pytesseract mediapipe opencv-python-headless moviepy pyloudnorm "rembg[cpu]" "audio-separator[cpu]" audioread auto-editor fastapi uvicorn fonttools
+MP="$ROOT/tools/models/mediapipe"; mkdir -p "$MP"
+for u in face_detector/blaze_face_short_range/float16/1/blaze_face_short_range.tflite pose_landmarker/pose_landmarker_lite/float16/1/pose_landmarker_lite.task \
+         image_segmenter/selfie_segmenter/float16/latest/selfie_segmenter.tflite face_landmarker/face_landmarker/float16/1/face_landmarker.task; do
+  [ -s "$MP/$(basename $u)" ] || curl -fsSL -o "$MP/$(basename $u)" "https://storage.googleapis.com/mediapipe-models/$u"
+done
+RB="$ROOT/tools/models/rembg"; mkdir -p "$RB"
+for m in u2net isnet-general-use; do [ -s "$RB/$m.onnx" ] || curl -fsSL -o "$RB/$m.onnx" "https://github.com/danielgatis/rembg/releases/download/v0.0.0/$m.onnx"; done
+UV="$ROOT/tools/models/uvr"; mkdir -p "$UV"
+[ -s "$UV/UVR-MDX-NET-Inst_HQ_3.onnx" ] || curl -fsSL -o "$UV/UVR-MDX-NET-Inst_HQ_3.onnx" "https://github.com/TRvlvr/model_repo/releases/download/all_public_uvr_models/UVR-MDX-NET-Inst_HQ_3.onnx"
+echo "models ready in tools/models/{mediapipe,rembg,uvr}"
+
 log "Testing everything"
 bash tools/verify.sh

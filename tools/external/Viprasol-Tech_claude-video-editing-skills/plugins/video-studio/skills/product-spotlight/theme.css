@@ -1,0 +1,6 @@
+/* Product Spotlight — Studio product shot: your product image floats on a spotlight, feature callouts draw in with arrows. */
+.ps-spot .anim { background: radial-gradient(circle, #ffffff 0%, rgba(255,255,255,0) 65%); }
+.ps-prod .clip-media { object-fit: contain; filter: drop-shadow(0 40px 50px rgba(0,0,0,.25)); }
+.ps-title .anim { font-size: 96px; font-weight: 800; color: #111; letter-spacing: -0.03em; }
+.ps-call .anim, .el-chip .anim { background: #111; color: #fff; font-size: 40px; }
+.ps-cta .anim { background: var(--c-accent2); color: #fff; font-size: 56px; }

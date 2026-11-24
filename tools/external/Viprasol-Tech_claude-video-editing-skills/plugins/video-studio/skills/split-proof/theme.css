@@ -1,0 +1,4 @@
+/* Split Proof — Speaker in the bottom half, proof in the top half: a new card, number, image or clip for every claim. */
+.sp-cap .cap-line { font-size: 56px; background: #000; } .sp-cap .cap-word.is-active { color: var(--c-accent); }
+.sp-tile .anim { font-size: 92px; font-weight: 900; background: #fff; color: #0d0f12; padding: 40px; letter-spacing: -0.02em; }
+.sp-hook .anim { font-size: 84px; font-weight: 900; line-height: 1.05; color: #fff; }

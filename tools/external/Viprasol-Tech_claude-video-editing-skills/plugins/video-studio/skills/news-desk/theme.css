@@ -1,0 +1,6 @@
+/* News Desk — Broadcast news look: breaking-news lower third, scrolling ticker, LIVE chip and boxed captions. */
+.nd-live .anim { background: #D7141A; color: #fff; font-size: 34px; border-radius: 6px; font-family: var(--font-display); }
+.nd-cap .cap-line { background: #fff; color: #111; text-shadow: none; padding: 6px 18px; } .nd-cap .cap-word.is-active { background: #D7141A; color: #fff; }
+.nd-lt .anim { border-left: 0; border-top: 10px solid #D7141A; border-radius: 0; max-width: 940px; }
+.nd-lt .lt-name { font-size: 54px; } .nd-lt .lt-role { color: #ff8b8f; font-weight: 800; letter-spacing: .1em; }
+.el-ticker { font-family: var(--font-display); }

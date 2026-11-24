@@ -1,0 +1,46 @@
+{
+  "name": "cinematic-phone",
+  "format": "9:16",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&display=swap",
+  "vars": {
+    "--font-display": "'Cormorant Garamond',Georgia,serif",
+    "--cap-size": "48px",
+    "--cap-weight": "500"
+  },
+  "speaker": {
+    "mode": "full",
+    "push": 0.05,
+    "focusY": 0.4
+  },
+  "matte": false,
+  "auto": {
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 6,
+      "y": "=H*0.8",
+      "maxChars": 34,
+      "className": "cap-soft cph-cap"
+    },
+    "hook": {
+      "dur": 2.8,
+      "element": {
+        "type": "text",
+        "text": "{title}",
+        "className": "cph-title",
+        "y": "=H*0.5",
+        "w": "=W*0.86",
+        "in": "blur",
+        "inDur": 1.0,
+        "out": "blur"
+      }
+    }
+  },
+  "finish": {
+    "grade": "teal-orange",
+    "grain": 6,
+    "letterbox": 0.14,
+    "vignette": true
+  },
+  "fps": 30
+}

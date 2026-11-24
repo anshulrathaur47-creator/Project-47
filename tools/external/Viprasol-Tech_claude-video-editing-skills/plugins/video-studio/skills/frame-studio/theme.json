@@ -1,0 +1,68 @@
+{
+  "name": "frame-studio",
+  "format": "9:16",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,500&family=Inter:wght@600;800&display=swap",
+  "vars": {
+    "--font-display": "'Fraunces',Georgia,serif",
+    "--c-bg": "#F3EDE2",
+    "--c-accent": "#111111",
+    "--c-accent2": "#C2410C",
+    "--cap-size": "54px",
+    "--cap-weight": "500"
+  },
+  "speaker": {
+    "mode": "panel",
+    "rectFrac": [
+      0.06,
+      0.2,
+      0.88,
+      0.58
+    ],
+    "radius": 44,
+    "focusY": 0.3
+  },
+  "matte": false,
+  "auto": {
+    "static": [
+      {
+        "type": "background",
+        "kind": "solid"
+      },
+      {
+        "type": "text",
+        "text": "{title}",
+        "className": "fs-head",
+        "x": "=W/2",
+        "y": "=H*0.115",
+        "w": "=W*0.88",
+        "in": "rise",
+        "fit": true
+      }
+    ],
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 5,
+      "y": "=H*0.86",
+      "maxChars": 30,
+      "className": "fs-cap"
+    },
+    "keywords": {
+      "every": 3.5,
+      "hold": 1.8,
+      "element": {
+        "type": "chip",
+        "text": "{text}",
+        "className": "fs-chip",
+        "x": "=W*0.82",
+        "y": "=H*0.22",
+        "in": "pop"
+      },
+      "uppercase": true
+    }
+  },
+  "finish": {
+    "grade": "none"
+  },
+  "fps": 30
+}

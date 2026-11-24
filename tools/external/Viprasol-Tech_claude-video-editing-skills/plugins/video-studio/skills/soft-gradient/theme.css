@@ -1,0 +1,4 @@
+/* Soft Gradient — Airy wellness look: speaker in a big rounded frame on a slowly moving pastel gradient, glassy word chips. */
+.sg-cap .cap-line { color: rgba(40,20,60,.45); text-shadow: none; } .sg-cap .cap-word.is-active, .sg-cap .cap-word.is-spoken { color: #2a1440; }
+.sg-chip .anim { background: rgba(255,255,255,.55); color: #2a1440; border: 2px solid rgba(255,255,255,.8); font-size: 44px; backdrop-filter: blur(16px); }
+.sg-hook .anim { font-size: 50px; color: #2a1440; font-weight: 700; }

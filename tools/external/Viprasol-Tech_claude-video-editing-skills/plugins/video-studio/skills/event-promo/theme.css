@@ -1,0 +1,5 @@
+/* Event Promo — Announcement promo: event name in kinetic type, date and place chips, countdown-style energy, ticket CTA. */
+.ep-title .anim { font-family: var(--font-display); font-size: 200px; line-height: .88; color: #fff; text-transform: uppercase; text-shadow: 0 0 60px var(--c-accent); }
+.ep-chip .anim, .ep-cta .anim { font-family: 'Inter',sans-serif; font-weight: 700; }
+.ep-chip .anim { background: var(--c-accent); color: #fff; font-size: 46px; }
+.ep-cta .anim { font-family: var(--font-display); font-size: 110px; background: #fff; color: var(--c-bg); padding: 20px 60px; }

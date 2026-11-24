@@ -1,0 +1,74 @@
+{
+  "name": "glow-cutout",
+  "format": "9:16",
+  "fps": 30,
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@500;700;800&family=Mukta:wght@500;700;800&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap",
+  "vars": {
+    "--font-display": "'Inter','Mukta',sans-serif",
+    "--font-body": "'Inter','Mukta',sans-serif",
+    "--c-accent": "#F5B942",
+    "--c-accent2": "#FFE2A0",
+    "--cap-size": "48px",
+    "--cap-weight": "700"
+  },
+  "speaker": {
+    "mode": "full",
+    "focusX": 0.5,
+    "focusY": 0.3,
+    "backdrop": "blur",
+    "backdropBlur": 36,
+    "backdropDim": 0.5,
+    "glow": {
+      "color": "#F5B942",
+      "size": 16,
+      "strength": 1.7
+    },
+    "person": true,
+    "personScale": 0.84
+  },
+  "matte": true,
+  "auto": {
+    "static": [
+      {
+        "type": "text",
+        "text": "{title}",
+        "className": "gc-title",
+        "x": "=W/2",
+        "y": "=H*0.135",
+        "w": "=W*0.74",
+        "in": "maskUp",
+        "html": true,
+        "fit": true,
+        "z": 2
+      }
+    ],
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 3,
+      "uppercase": true,
+      "y": "=H*0.72",
+      "className": "gc-cap"
+    },
+    "keywords": {
+      "every": 3.0,
+      "hold": 1.6,
+      "zoom": 1.06,
+      "zoomHold": 1.2,
+      "element": {
+        "type": "chip",
+        "text": "{text}",
+        "className": "gc-card",
+        "x": "=W*0.3",
+        "y": "=H*0.21",
+        "in": "maskUp"
+      }
+    }
+  },
+  "finish": {
+    "grade": "film",
+    "grain": 5,
+    "vignette": true
+  },
+  "sequence": "aurora"
+}

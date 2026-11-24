@@ -44,6 +44,20 @@ Notes:
 
 Read `summary.json` first.
 
+Then run the measured analysis too, which adds what the extractor doesn't give:
+- camera motion per shot
+- shot sizes from faces
+- colour and palette per shot
+- on-screen text with position
+- cut-on-beat rate
+- vocal and music stems
+
+```
+python3 tools/analyze_style.py references/watch/<slug>/source.mp4 --name <slug> --stems
+```
+
+Read `references/analysis/<slug>/report.md` and `contact_sheet.jpg`, and use those numbers in the style skill you write.
+
 ## Step 2: Frame pair pass
 
 Open the images in `pairs/` using Read, about 10 at a time. Each image shows frame A and frame B with timestamps. For every pair, compare A to B and write a short note into `references/watch/<slug>/analysis/timeline.md`.

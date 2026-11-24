@@ -1,0 +1,4 @@
+/* Doc Real — Documentary realism: letterboxed frame, film grade, small lowercase subtitles and a location tag. */
+.dr-cap .cap-line { text-shadow: 0 1px 6px rgba(0,0,0,.8); }
+.dr-tag .anim { font-family: 'IBM Plex Mono', monospace; font-size: 32px; color: #fff; text-align: left; letter-spacing: .04em; }
+.dr-chapter .tc-title { font-family: 'IBM Plex Sans'; font-weight: 400; font-size: 80px; text-transform: lowercase; }

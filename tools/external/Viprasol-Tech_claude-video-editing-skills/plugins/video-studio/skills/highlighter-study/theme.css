@@ -1,0 +1,8 @@
+/* Highlighter Study — Study-notes look: key words in the captions get a yellow highlighter swipe, notes cards pop up for definitions and lists. */
+.hs-cap .cap-line { background: #fff; color: #222; text-shadow: none; padding: 8px 22px; border-radius: 10px; }
+.hs-cap .cap-word.is-key { background: linear-gradient(transparent 45%, #FFE94D 45%, #FFE94D 92%, transparent 92%); color: #111; }
+.hs-cap .cap-word.is-active { color: #000; text-decoration: underline; text-decoration-thickness: 4px; }
+.hs-note .anim { border-left: 10px solid #E8505B; background-image: repeating-linear-gradient(#FFFDF4 0 58px, #d6e4ff 58px 60px); }
+.hs-note .card-title { font-family: 'Kalam', cursive; }
+.hs-num .counter-num { color: #111; text-shadow: none; background: #FFE94D; padding: 0 30px; border-radius: 12px; }
+.hs-hook .anim { font-family: 'Kalam', cursive; font-size: 70px; background: #FFE94D; color: #111; padding: 18px 30px; transform: rotate(-2deg); }

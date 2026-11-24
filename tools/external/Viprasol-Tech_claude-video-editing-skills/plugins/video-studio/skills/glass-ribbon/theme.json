@@ -1,0 +1,156 @@
+{
+  "name": "glass-ribbon",
+  "format": "9:16",
+  "fps": 30,
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@500;600;800&family=Mukta:wght@500;700;800&family=Rozha+One&display=swap",
+  "vars": {
+    "--font-display": "'Inter','Mukta',sans-serif",
+    "--font-body": "'Inter','Mukta',sans-serif",
+    "--c-bg": "#0D0518",
+    "--c-accent": "#B78CFF",
+    "--c-accent2": "#6B3BFF",
+    "--cap-size": "58px",
+    "--cap-weight": "600",
+    "--c-card": "rgba(244,240,252,.9)",
+    "--c-card-fg": "#1B1530"
+  },
+  "speaker": {
+    "mode": "full",
+    "focusX": 0.5,
+    "focusY": 0.3,
+    "backdrop": "hide",
+    "person": true,
+    "personDrop": 0.1,
+    "glow": {
+      "color": "#A67CFF",
+      "size": 24,
+      "strength": 1.3
+    }
+  },
+  "matte": true,
+  "background": "#0D0518",
+  "auto": {
+    "static": [
+      {
+        "type": "background",
+        "kind": "solid",
+        "className": "gr-bg"
+      },
+      {
+        "type": "shape",
+        "kind": "bubbles",
+        "layer": "behind",
+        "count": 10,
+        "className": "gr-orbs",
+        "x": "=W/2",
+        "y": "=H/2",
+        "w": "=W",
+        "h": "=H",
+        "speed": 0.2
+      },
+      {
+        "type": "shape",
+        "kind": "ribbon",
+        "layer": "behind",
+        "className": "gr-ribbon",
+        "x": "=W*0.5",
+        "y": "=H*0.46",
+        "w": "=W*1.9",
+        "h": "=H*0.26",
+        "thickness": 170,
+        "color": "#E6D6FF",
+        "color2": "#7B3DF0",
+        "speed": 0.4,
+        "keys": {
+          "r": [
+            [
+              0,
+              -16
+            ]
+          ]
+        }
+      },
+      {
+        "type": "shape",
+        "kind": "ribbon",
+        "layer": "behind",
+        "className": "gr-ribbon-hl",
+        "x": "=W*0.5",
+        "y": "=H*0.46",
+        "w": "=W*1.9",
+        "h": "=H*0.26",
+        "thickness": 26,
+        "color": "#FFFFFF",
+        "color2": "#D8C4FF",
+        "speed": 0.4,
+        "keys": {
+          "r": [
+            [
+              0,
+              -16
+            ]
+          ]
+        }
+      },
+      {
+        "type": "shape",
+        "kind": "ribbon",
+        "layer": "front",
+        "className": "gr-ribbon gr-ribbon-front",
+        "x": "=W*1.0",
+        "y": "=H*0.66",
+        "w": "=W*0.7",
+        "h": "=H*0.16",
+        "thickness": 120,
+        "color": "#E6D6FF",
+        "color2": "#7B3DF0",
+        "speed": 0.4,
+        "keys": {
+          "r": [
+            [
+              0,
+              -50
+            ]
+          ]
+        }
+      }
+    ],
+    "captions": {
+      "type": "captions",
+      "mode": "static",
+      "maxWords": 4,
+      "y": "=H*0.62",
+      "className": "gr-pill"
+    },
+    "keywords": {
+      "every": 2.8,
+      "hold": 1.6,
+      "zoom": 1.06,
+      "zoomHold": 1.0,
+      "element": [
+        {
+          "type": "chip",
+          "text": "{text}",
+          "className": "gr-card",
+          "x": "=W*0.3",
+          "y": "=H*0.17",
+          "in": "springPop"
+        },
+        {
+          "type": "chip",
+          "text": "{text}",
+          "className": "gr-card",
+          "x": "=W*0.62",
+          "y": "=H*0.22",
+          "in": "springPop"
+        }
+      ]
+    }
+  },
+  "finish": {
+    "grade": "none",
+    "grain": 3,
+    "vignette": true
+  },
+  "sequence": "ribbon"
+}

@@ -1,0 +1,96 @@
+{
+  "name": "essay-mode",
+  "format": "16:9",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;800&display=swap",
+  "vars": {
+    "--font-display": "'Playfair Display',Georgia,serif",
+    "--font-body": "'Inter',Arial,sans-serif",
+    "--c-accent": "#F5C518",
+    "--c-accent2": "#D9480F",
+    "--c-card": "#F6F1E7",
+    "--c-card-fg": "#1b1b1b",
+    "--c-mark": "#D9480F",
+    "--cap-size": "40px",
+    "--cap-weight": "600",
+    "--radius": "6px"
+  },
+  "speaker": {
+    "mode": "full",
+    "push": 0.03
+  },
+  "matte": false,
+  "auto": {
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 7,
+      "maxChars": 46,
+      "lowercase": true,
+      "y": "=H*0.9",
+      "className": "cap-soft essay-cap"
+    },
+    "keywords": {
+      "every": 8,
+      "hold": 3.2,
+      "element": [
+        {
+          "type": "tile",
+          "text": "{text}",
+          "className": "essay-card",
+          "x": "=W*0.24",
+          "y": "=H*0.42",
+          "in": "rise"
+        },
+        {
+          "type": "tile",
+          "text": "{text}",
+          "className": "essay-card",
+          "x": "=W*0.76",
+          "y": "=H*0.42",
+          "in": "rise"
+        }
+      ]
+    },
+    "numbers": {
+      "element": {
+        "type": "counter",
+        "label": "{label}",
+        "className": "essay-counter",
+        "x": "=W*0.26",
+        "y": "=H*0.45",
+        "in": "rise"
+      },
+      "hold": 3,
+      "sfx": "click"
+    },
+    "lists": {
+      "title": "Key points",
+      "element": {
+        "type": "card",
+        "title": "{title}",
+        "x": "=W*0.27",
+        "y": "=H*0.48",
+        "w": "=W*0.42",
+        "in": "rise",
+        "numbered": true
+      }
+    },
+    "hook": {
+      "dur": 3,
+      "element": {
+        "type": "titlecard",
+        "title": "{text}",
+        "kicker": "chapter one",
+        "className": "paper-title",
+        "in": "fade",
+        "out": "fade"
+      }
+    }
+  },
+  "finish": {
+    "grade": "film",
+    "grain": 6,
+    "vignette": true
+  },
+  "fps": 30
+}
