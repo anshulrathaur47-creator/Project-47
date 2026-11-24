@@ -493,7 +493,7 @@ function camAt(t: number): Cam {
   }
   if (t < 7.66) {  // masks come down: dutch close-up pan across the smirks
     const k = Easing.inOut(Easing.quad)((t - 5.15) / 2.51);
-    return { pos: lerp3([-0.5, 1.5, -0.35], [0.5, 1.5, -0.35], k), target: lerp3([-0.85, 1.42, 0.55], [0.85, 1.45, 0.55], k), fov: 34, roll: lerp(0.16, -0.16, k) };
+    return { pos: lerp3([-0.45, 1.5, -0.4], [0.2, 1.5, -0.35], k), target: lerp3([-0.75, 1.42, 0.55], [-0.1, 1.5, 1.15], k), fov: 40, roll: lerp(0.16, -0.16, k) };
   }
   if (t < 10.0) {  // low, behind her on the crate: they tower over her, laughing
     const k = (t - 7.66) / 2.34;
