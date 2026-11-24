@@ -24,3 +24,5 @@ tools/three-starter/out/
 projects/*/out/
 projects/2026-11-24-fursat-3d/node_modules
 projects/2026-11-24-gaadi-sheesha-3d/node_modules
+projects/*/_audio.wav
+projects/*/_silent.mp4
