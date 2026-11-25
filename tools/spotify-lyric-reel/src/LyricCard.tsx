@@ -43,7 +43,7 @@ export const LyricCard: React.FC<Props & { cardColor?: string }> = (p) => {
 
   return (
     <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 40%, #2a1420 0%, #0b0709 60%, #050405 100%)", overflow: "hidden" }}>
-      <Audio src={staticFile(p.audio)} />
+      <Audio src={staticFile(p.audio)} volume={p.volume ?? 1} />
       {/* coloured spill of the card on the dark stage */}
       <AbsoluteFill style={{ background: `radial-gradient(ellipse at 50% 46%, ${card}${Math.round(40 + bass * 50).toString(16).padStart(2, "0")} 0%, transparent 55%)` }} />
       <AbsoluteFill style={{ perspective: 1500, perspectiveOrigin: "50% 40%" }}>
@@ -102,7 +102,7 @@ export const LyricCard: React.FC<Props & { cardColor?: string }> = (p) => {
             background: `linear-gradient(115deg, transparent ${sheen - 18}%, rgba(255,255,255,0.16) ${sheen}%, transparent ${sheen + 18}%)` }} />
         </div>
       </AbsoluteFill>
-      <AbsoluteFill style={{ backgroundColor: "#000", opacity: interpolate(t, [0, 0.35, p.durationSec - 0.7, p.durationSec], [1, 0, 0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }} />
+      <AbsoluteFill style={{ backgroundColor: "#000", opacity: p.noFade ? 0 : interpolate(t, [0, 0.35, p.durationSec - 0.7, p.durationSec], [1, 0, 0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }} />
     </AbsoluteFill>
   );
 };

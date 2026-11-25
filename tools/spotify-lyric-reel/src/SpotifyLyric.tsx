@@ -18,6 +18,8 @@ export type Props = {
   lines: Line[];
   font?: string;
   cardColor?: string;     // LyricCard: panel colour
+  volume?: number;        // song volume (embedding in other videos)
+  noFade?: boolean;       // skip the fade in/out (embedding)
 };
 
 const W = 1080;
@@ -85,7 +87,7 @@ export const SpotifyLyric: React.FC<Props> = (p) => {
 
   return (
     <AbsoluteFill style={{ background: p.bg, fontFamily: font, overflow: "hidden" }}>
-      <Audio src={staticFile(p.audio)} />
+      <Audio src={staticFile(p.audio)} volume={p.volume ?? 1} />
       {/* blurred cover wash + moving light leaks */}
       {p.cover ? (
         <Img src={staticFile(p.cover)} style={{ position: "absolute", left: -300, top: -200, width: 1680, height: 1680, objectFit: "cover",
@@ -172,7 +174,7 @@ export const SpotifyLyric: React.FC<Props> = (p) => {
             boxShadow: `0 0 ${8 + v * 30}px ${p.accent}`, opacity: 0.85 }} />;
         })}
       </div>
-      <AbsoluteFill style={{ backgroundColor: "#000", opacity: interpolate(t, [0, 0.4, p.durationSec - 0.8, p.durationSec], [1, 0, 0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }} />
+      <AbsoluteFill style={{ backgroundColor: "#000", opacity: p.noFade ? 0 : interpolate(t, [0, 0.4, p.durationSec - 0.8, p.durationSec], [1, 0, 0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }} />
     </AbsoluteFill>
   );
 };
