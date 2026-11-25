@@ -20,3 +20,10 @@
 
 - **Audio:** VO, the demo song at about 0.2 under it, whooshes on cuts, loudnorm -14 LUFS.
 - **Render:** `npx remotion render src/index.ts Tutorial out/tutorial.mp4`.
+
+## v2: ElevenLabs voice-over
+- The user generated the VO in ElevenLabs (Eleven v4, voice "Rohit - Calm Hindi Storyteller"): `vo_eleven.mp3`, 27.1 s.
+- ElevenLabs added "बनाने" to the last line, so the script and captions were updated to match.
+- Captions are re-timed from Whisper on that file (`captions_eleven.json`).
+- Scenes now follow the VO automatically: one scene per VO line, from the caption start times. The "Pink Card" and "Music Player" highlights use the times of the words "pink" and "music".
+- Export: `exports/2026-11-25_claude-lyric-tutorial_v2.mp4`, 28.1 s, -14.7 LUFS.

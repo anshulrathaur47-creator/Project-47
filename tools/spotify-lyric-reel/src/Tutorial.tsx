@@ -6,12 +6,16 @@ import demo from "../public/props.json";
 
 // Tutorial reel: "Claude se Spotify-theme lyrical reel kaise banaye" (Hindi AI voice-over, Hinglish captions).
 const FPS = 30;
-export const TUTORIAL_SEC = 31.0;
+export const VO_FILE = "vo_eleven.mp3";   // the voice-over in public/ (ElevenLabs v4, voice "Rohit")
 const clamp = (x: number, a = 0, b = 1) => Math.max(a, Math.min(b, x));
 type Cap = { start: number; end: number; words: { t: number; e: number; w: string }[] };
 const CAPS = caps as Cap[];
 const D = demo as unknown as Props;
-const SCENES = [0, 4.35, 6.8, 10.3, 15.8, 19.7, 23.7, 26.2, TUTORIAL_SEC];
+export const TUTORIAL_SEC = Math.ceil((CAPS[CAPS.length - 1].end + 0.9) * 10) / 10;
+// one scene per voice-over line: scenes follow the VO timing automatically
+const SCENES = [0, ...CAPS.slice(1).map((c) => Math.max(0, c.start - 0.08)), TUTORIAL_SEC];
+const wordAt = (w: string, fallback: number) => CAPS.flatMap((c) => c.words).find((x) => x.w.toLowerCase().startsWith(w))?.t ?? fallback;
+const T_PINK = wordAt("pink", 16.8), T_PLAYER = wordAt("music", 18.7);
 const PINK = "#d9497c";
 const BG = "#0d0b10";
 
@@ -157,7 +161,7 @@ export const Tutorial: React.FC = () => {
   const sel = (u: number) => spring({ frame: Math.round((t - u) * FPS), fps, config: { damping: 14 } });
   return (
     <AbsoluteFill style={{ background: BG }}>
-      <Audio src={staticFile("vo.wav")} />
+      <Audio src={staticFile(VO_FILE)} />
       {SCENES.slice(1, -1).map((c, i) => (
         <Sequence key={i} from={Math.max(0, Math.round((c - 0.25) * FPS))} durationInFrames={20}><Audio src={staticFile("whoosh.wav")} volume={0.35} /></Sequence>
       ))}
@@ -189,9 +193,9 @@ export const Tutorial: React.FC = () => {
       {/* 5: two themes side by side */}
       <Sequence from={s(4)} durationInFrames={len(4)}>
         <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 40%, #241a2c, #0b0709)" }}>
-          <Phone scale={0.4} x={70} y={260} glow={t > 16.8 && t < 18.7 ? PINK : undefined} rot={-3}><LyricCard {...D} volume={0.15} noFade /></Phone>
-          <Phone scale={0.4} x={566} y={260} glow={t > 18.7 ? "#ffc272" : undefined} rot={3}><SpotifyLyric {...D} volume={0} noFade /></Phone>
-          {[{ x: 70, l: "Pink Card", on: t > 16.8 }, { x: 566, l: "Music Player", on: t > 18.7 }].map((b) => (
+          <Phone scale={0.4} x={70} y={260} glow={t > T_PINK && t < T_PLAYER ? PINK : undefined} rot={-3}><LyricCard {...D} volume={0.15} noFade /></Phone>
+          <Phone scale={0.4} x={566} y={260} glow={t > T_PLAYER ? "#ffc272" : undefined} rot={3}><SpotifyLyric {...D} volume={0} noFade /></Phone>
+          {[{ x: 70, l: "Pink Card", on: t > T_PINK }, { x: 566, l: "Music Player", on: t > T_PLAYER }].map((b) => (
             <div key={b.l} style={{ position: "absolute", top: 1080, left: b.x, width: 456, textAlign: "center", fontFamily: "Inter, sans-serif", fontWeight: 800, fontSize: 44,
               color: b.on ? "#fff" : "rgba(255,255,255,0.4)", transform: `scale(${b.on ? 1.08 : 1})` }}>{b.l}</div>
           ))}
