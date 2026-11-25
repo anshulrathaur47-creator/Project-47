@@ -17,3 +17,10 @@
   --reference-face-distance 0.5 --face-mask-types box occlusion --face-mask-blur 0.4 \
   -s <ref.jpg> -t <video> -o swap_v1.mp4
 ```
+
+## v2 (user: "dono characters pe kyun laga diya, fix karo aur smooth karo")
+- v1 also swapped the manager in his two shots (3.7–6.2 s, 8.1–9.7 s), because reference mode at distance 0.5 was too loose.
+- v2 splits the clip at the cuts (PySceneDetect) and runs FaceFusion only on the main-character shots: frames 0–110, 186–244, 292–341, 413–502 and 683–706, in `one` mode (largest face).
+- Every other shot is copied untouched from the source.
+- Smoother: enhancer blend 45 (was 65), mask blur 0.5, and light temporal smoothing (`hqdn3d=0:0:5:5`) on the swapped shots only.
+- Re-join with `python3 assemble.py v2`.
