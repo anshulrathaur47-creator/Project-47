@@ -83,3 +83,12 @@ Music and effect repos added on 2026-11-25 (sources in `tools/external/SOURCES.m
 - Joker-chichi/claude-mv-skill (`painted-animation` skill)
 - SyanChen7/dancing-notes (`dancing-notes` skill)
 - myceldigital/remotion-claude-skill (`remotion-motion-designer` skill)
+
+## FaceFusion (face swap), in tools/external/facefusion
+
+Replaces one person's face in a video with a reference photo. Use it only with the user's own face, or a face they have the rights to.
+- Patch: `facefusion/curl_builder.py` `ping()`, because a HEAD on the bare github.com root fails through this proxy.
+- Models (about 1.7 GB) download to `.assets/` on the first run with `--download-providers github`.
+- Best model so far: `hyperswap_1c_256`, pixel boost 512, plus `gfpgan_1.4` at 65 % blend.
+- Use `--face-selector-mode reference --reference-frame-number <a frame with the person>` so only that person is swapped.
+- Example: `projects/2026-11-25-taxi-faceswap/notes.md`.

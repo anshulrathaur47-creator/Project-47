@@ -100,5 +100,11 @@ else
   ls -d "$AK"/models/sherpa-onnx-nemo-parakeet* >/dev/null 2>&1 || (curl -fsSL -o "$AK/models/p.tar.bz2" https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8.tar.bz2 && cd "$AK/models" && tar xjf p.tar.bz2 && rm p.tar.bz2)
 fi
 
+log "FaceFusion (face swap)"
+FF="$ROOT/tools/external/facefusion"
+if [ -x "$FF/.venv/bin/python" ]; then echo "already installed"
+else python3 -m venv "$FF/.venv" && "$FF/.venv/bin/pip" install -q -r "$FF/requirements.txt"; fi
+# models download on first run from GitHub (curl_builder.ping is patched for this proxy)
+
 log "Testing everything"
 bash tools/verify.sh

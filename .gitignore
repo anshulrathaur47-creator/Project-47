@@ -32,3 +32,6 @@ tools/external/*/kit/.venv/
 tools/external/*/kit/models/
 tools/external/*/kit/__pycache__/
 tools/spotify-lyric-reel/out/
+tools/external/facefusion/.venv/
+tools/external/facefusion/.assets/
+projects/*/swap_*.mp4.tmp

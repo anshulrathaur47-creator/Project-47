@@ -15,3 +15,4 @@ Cloned from GitHub on 2026-11-24 (shallow), `.git` removed, showcase videos over
 | https://github.com/SyanChen7/dancing-notes | f74c0eb |
 | https://github.com/myceldigital/remotion-claude-skill | f1a03cc |
 | https://github.com/JonnyBurger/remotion-wrapped | a48fe5b |
+| https://github.com/facefusion/facefusion | decc6c9 |
