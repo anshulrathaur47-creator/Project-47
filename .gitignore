@@ -36,3 +36,4 @@ tools/external/facefusion/.venv/
 tools/external/facefusion/.assets/
 projects/*/swap_*.mp4.tmp
 projects/2026-11-25-taxi-faceswap/work/
+projects/2026-11-25-chor-3d/node_modules
