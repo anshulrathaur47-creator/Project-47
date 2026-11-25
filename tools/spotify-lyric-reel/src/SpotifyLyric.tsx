@@ -17,6 +17,7 @@ export type Props = {
   durationSec: number;
   lines: Line[];
   font?: string;
+  cardColor?: string;     // LyricCard: panel colour
 };
 
 const W = 1080;

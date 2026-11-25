@@ -5,6 +5,17 @@ description: Make a music-player style lyric reel (the "Spotify theme" look). It
 
 # Spotify-style lyric reel
 
+There are two looks in the same project:
+- **`SpotifyLyric`:** a full player screen with a now-playing card, glowing scrolling lyrics and spectrum bars.
+- **`LyricCard`:** the "pink lyrics card" look that is popular on Reels. A coloured lyrics panel floats tilted in 3D on a dark stage and drifts slowly.
+  - Small cover, title and artist at the top.
+  - Big bold lines: the sung line is white with a bloom on each word, the lines ahead are dark and translucent, and the far lines blur out.
+  - Pass `--card "#d9497c"` (pink, the default) or any colour.
+  - Render with `npx remotion render src/index.ts LyricCard out/reel.mp4 --props=public/props.json`.
+  - Reference: `inspirations/2026-11-25_pink-spotify-lyrics-card.jpg`.
+  - Demo: `exports/2026-11-25_pink-lyric-card-demo_v1.mp4`.
+- **Roman / Hinglish lyrics:** keep `--lyrics` in Devanagari, which Whisper times, and pass `--display roman.txt` with the same number of lines in Roman script. The Roman text is shown with the Devanagari timing.
+
 The project lives in `tools/spotify-lyric-reel/` (Remotion; `node_modules` links to `tools/remotion-starter/node_modules`).
 It is a generic player look. Never add the Spotify logo or wordmark, or any other brand's logo.
 

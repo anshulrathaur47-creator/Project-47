@@ -128,6 +128,8 @@ def main():
     ap.add_argument("--end", type=float)
     ap.add_argument("--accent")
     ap.add_argument("--bg")
+    ap.add_argument("--display", help="lines to show instead (same count), e.g. Roman/Hinglish; timing still comes from --lyrics")
+    ap.add_argument("--card", help="LyricCard panel colour, e.g. #d9497c (pink)")
     a = ap.parse_args()
     os.makedirs(PUB, exist_ok=True)
 
@@ -174,6 +176,18 @@ def main():
     else:
         sys.exit("could not align the lyrics to the audio; give explicit times as start|end|text")
 
+    if a.display:   # show other text (e.g. Roman) with the timing of the aligned lines
+        disp = [l.strip() for l in open(a.display, encoding="utf-8") if l.strip()]
+        if len(disp) != len(out_lines):
+            sys.exit(f"--display has {len(disp)} lines but --lyrics has {len(out_lines)}")
+        for l, d in zip(out_lines, disp):
+            src, toks = l["words"], d.split()
+            new = []
+            for k, tok in enumerate(toks):
+                j0 = int(k * len(src) / len(toks))
+                j1 = max(j0, int((k + 1) * len(src) / len(toks)) - 1)
+                new.append({"t": src[j0]["t"], "e": src[j1]["e"], "w": tok})
+            l["text"], l["words"] = d, new
     bg, accent = "#1f2a44", "#7ad7ff"
     cover_name = None
     if a.cover:
@@ -183,6 +197,8 @@ def main():
         bg, accent = dominant(a.cover)
     props = {"audio": "audio.mp3", "cover": cover_name, "title": a.title, "artist": a.artist, "bg": a.bg or bg,
              "accent": a.accent or accent, "durationSec": round(dur, 2), "lines": out_lines}
+    if a.card:
+        props["cardColor"] = a.card
     json.dump(props, open(os.path.join(PUB, "props.json"), "w"), ensure_ascii=False, indent=1)
     print(f"public/props.json: {len(out_lines)} lines, {dur:.1f}s, bg {props['bg']}, accent {props['accent']}")
     for l in out_lines:
