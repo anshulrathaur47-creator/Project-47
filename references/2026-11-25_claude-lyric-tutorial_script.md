@@ -58,3 +58,18 @@ The same for Eleven v3, with emotion tags:
 ```
 
 ElevenLabs Music prompt: the same as the background music prompt above (30 s, instrumental).
+
+## Eleven v4 version
+- v4 does not take SSML `<break>`. Use `[pause]` and punctuation.
+- Tags are free text in square brackets, at most one per sentence.
+
+```
+[excited, young tech creator energy] इंस्टाग्राम पर ये स्पॉटिफ़ाई वाली लिरिकल रील्स देखी हैं?
+[confident smile] इन्हें बनाना अब बहुत आसान है!
+बस क्लॉड को अपना गाना और उसके लिरिक्स भेजो।
+[impressed] क्लॉड खुद हर शब्द की टाइमिंग निकालता है... ताकि लिरिक्स गाने के साथ सिंक रहें।
+[playful] फिर थीम चुनो — पिंक कार्ड वाली, या पूरा म्यूज़िक प्लेयर।
+[excited] हर शब्द गाते ही ग्लो करता है, और बार्स बीट पर नाचते हैं!
+एक कमांड... [pause] और आपकी रील तैयार।
+[cheerful, slightly faster] ऐसी और रील्स के लिए फ़ॉलो करो, और कमेंट में "लिरिक्स" लिखो!
+```
