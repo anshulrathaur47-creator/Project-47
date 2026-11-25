@@ -39,10 +39,30 @@ def call(client, path, language):
     return r.model_dump() if hasattr(r, 'model_dump') else dict(r)
 
 
+def transcribe_local(video, out=None, language=None):
+    """Project-47 patch: no Groq key needed. Uses the workspace's local faster-whisper model, same JSON shape."""
+    from faster_whisper import WhisperModel
+    video = Path(video)
+    out = Path(out) if out else video.with_name(video.stem + '.transcript.json')
+    root = Path(__file__).resolve().parents[3]
+    mp = root / 'models' / 'whisper-small-int8'
+    m = WhisperModel(str(mp) if mp.is_dir() else 'small', device='cpu', compute_type='int8')
+    segs, _ = m.transcribe(str(video), language=language, word_timestamps=True, vad_filter=False)
+    words, segments, text = [], [], []
+    for s in segs:
+        segments.append(dict(start=round(s.start, 3), end=round(s.end, 3), text=s.text))
+        text.append(s.text)
+        for w in s.words or []:
+            words.append(dict(word=w.word, start=round(w.start, 3), end=round(w.end, 3)))
+    data = dict(text=' '.join(x.strip() for x in text), segments=segments, words=words, duration=duration(video), model='faster-whisper-small (local)')
+    out.write_text(json.dumps(data, indent=1, ensure_ascii=False))
+    return out
+
+
 def transcribe(video, out=None, language=None):
-    from groq import Groq
     if not os.environ.get('GROQ_API_KEY'):
-        sys.exit('GROQ_API_KEY is not set. Get a free key at https://console.groq.com/keys and export it.')
+        return transcribe_local(video, out, language)
+    from groq import Groq
     video = Path(video).resolve()
     out = Path(out) if out else video.with_name(video.stem + '.transcript.json')
     client = Groq()

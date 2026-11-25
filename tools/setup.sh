@@ -69,7 +69,7 @@ if have tesseract && tesseract --list-langs 2>/dev/null | grep -q hin; then echo
 else apt-get update -qq && apt-get install -y -qq tesseract-ocr tesseract-ocr-hin tesseract-ocr-eng; fi
 ldconfig -p | grep -q libGLESv2 || apt-get install -y -qq libgles2
 if python3 -c "import scenedetect, pytesseract, mediapipe, cv2, moviepy, pyloudnorm, rembg, audio_separator, audioread, fastapi, fontTools" 2>/dev/null; then echo "python packages already installed"
-else python3 -m pip install -q "scenedetect[opencv-headless]" pytesseract mediapipe opencv-python-headless moviepy pyloudnorm "rembg[cpu]" "audio-separator[cpu]" audioread auto-editor fastapi uvicorn fonttools
+else python3 -m pip install -q "scenedetect[opencv-headless]" pytesseract mediapipe opencv-python-headless moviepy pyloudnorm "rembg[cpu]" "audio-separator[cpu]" audioread auto-editor fastapi uvicorn fonttools; fi
 MP="$ROOT/tools/models/mediapipe"; mkdir -p "$MP"
 for u in face_detector/blaze_face_short_range/float16/1/blaze_face_short_range.tflite pose_landmarker/pose_landmarker_lite/float16/1/pose_landmarker_lite.task \
          image_segmenter/selfie_segmenter/float16/latest/selfie_segmenter.tflite face_landmarker/face_landmarker/float16/1/face_landmarker.task; do
@@ -80,6 +80,25 @@ for m in u2net isnet-general-use; do [ -s "$RB/$m.onnx" ] || curl -fsSL -o "$RB/
 UV="$ROOT/tools/models/uvr"; mkdir -p "$UV"
 [ -s "$UV/UVR-MDX-NET-Inst_HQ_3.onnx" ] || curl -fsSL -o "$UV/UVR-MDX-NET-Inst_HQ_3.onnx" "https://github.com/TRvlvr/model_repo/releases/download/all_public_uvr_models/UVR-MDX-NET-Inst_HQ_3.onnx"
 echo "models ready in tools/models/{mediapipe,rembg,uvr}"
+
+log "GitHub skill kits (artemnovitckii editing + animation)"
+EXT="$ROOT/tools/external"; EK="$EXT/artemnovitckii_claude-editing-skills/kit"; AK="$EXT/artemnovitckii_claude-animation-skills/kit"
+if [ ! -s "$EK/vendor/gsap.min.js" ] || [ ! -s "$AK/vendor/gsap.min.js" ]; then   # cdnjs is blocked here, so take GSAP from npm
+  G=$(mktemp -d); (cd "$G" && npm pack gsap@3.12.5 --silent >/dev/null 2>&1 && tar xzf gsap-3.12.5.tgz)
+  for k in "$EK" "$AK"; do mkdir -p "$k/vendor"; cp "$G/package/dist/gsap.min.js" "$k/vendor/"; done; rm -rf "$G"
+fi
+if [ -x "$EK/.venv/bin/python" ] && [ -s "$EK/models/rvm_mobilenetv3_fp32.onnx" ]; then echo "editing kit ready"
+else bash "$EK/setup.sh" --cutout >/dev/null 2>&1; "$EK/.venv/bin/python" -m pip install -q faster-whisper "av<16"; fi
+[ -d "$AK/node_modules/three" ] || (cd "$AK" && PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm install --silent --no-audit --no-fund)
+if [ -x "$AK/.venv/bin/python" ] && [ -s "$AK/models/kokoro-v1.0.onnx" ] && ls -d "$AK"/models/sherpa-onnx-nemo-parakeet* >/dev/null 2>&1; then echo "animation kit ready"
+else
+  [ -x "$AK/.venv/bin/python" ] || python3 -m venv "$AK/.venv"
+  "$AK/.venv/bin/python" -m pip install -q numpy scipy soundfile kokoro-onnx sherpa-onnx
+  mkdir -p "$AK/models"
+  [ -s "$AK/models/kokoro-v1.0.onnx" ] || curl -fsSL -o "$AK/models/kokoro-v1.0.onnx" https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx
+  [ -s "$AK/models/voices-v1.0.bin" ] || curl -fsSL -o "$AK/models/voices-v1.0.bin" https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin
+  ls -d "$AK"/models/sherpa-onnx-nemo-parakeet* >/dev/null 2>&1 || (curl -fsSL -o "$AK/models/p.tar.bz2" https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8.tar.bz2 && cd "$AK/models" && tar xjf p.tar.bz2 && rm p.tar.bz2)
+fi
 
 log "Testing everything"
 bash tools/verify.sh

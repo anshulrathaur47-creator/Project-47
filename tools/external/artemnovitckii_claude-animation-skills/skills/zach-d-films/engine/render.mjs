@@ -17,7 +17,7 @@ const port = server.address().port;
 
 // GL=swiftshader forces software WebGL (slow, but works on machines without a usable GPU)
 const GL = process.env.GL === 'swiftshader' ? ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'] : ['--enable-gpu'];
-const browser = await chromium.launch({ args: [...GL, '--ignore-gpu-blocklist'] });
+const browser = await chromium.launch({ executablePath: process.env.CHROME || '/opt/pw-browsers/chromium', args: [...GL, '--ignore-gpu-blocklist'] });  // Project-47: use the preinstalled Chromium
 const page = await browser.newPage({ viewport: { width: 720, height: 1280 } });
 page.on('console', m => { if (m.type() === 'error' || m.type() === 'warning') console.log('[page]', m.text()); });
 page.on('pageerror', e => console.log('[pageerror]', e.message));

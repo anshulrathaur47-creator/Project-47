@@ -65,7 +65,11 @@ Learned from past feedback. Follow these unless the user says otherwise.
   - **artemnovitckii animation:** zach-3d-films, low-poly, stick-figure, minecraft, kurzgesagt, map-route.
   - **rsdabid:** reel-editor.
   - Pick the one whose description fits the job.
-  - Their own setup scripts (`kit/setup.sh`, `install.sh`) have not been run; ask the user first.
+  - The artemnovitckii kits are set up (user approved, 2026-11-25), and `tools/setup.sh` redoes this in a fresh container.
+    - editing kit: venv, matting model, GSAP from npm
+    - animation kit: three.js, Kokoro voice, Parakeet word timings
+    - Their engines are patched to use the preinstalled Chromium.
+    - Their transcription falls back to local Whisper when there is no Groq key.
   - Use local Whisper instead of Groq or ElevenLabs keys.
   - See `tools/README.md`.
 - **Study a reference first:** for any reference reel the user sends, run `python3 tools/analyze_style.py <video> --name <slug> --words`.

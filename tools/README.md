@@ -60,9 +60,11 @@ Chosen on 2026-11-24 from the most-cited Claude video skill repos. Sources and c
   - micro-drama, clip-miner, event-recap, finishing-pro, and more
 - **artemnovitckii/claude-editing-skills:** storytelling, trial-reels, behind-the-person, explainer, split-screen, orbit-reel, scene-switch and more.
   - Their transcription expects `GROQ_API_KEY`; in this workspace use local Whisper (`tools/transcribe.py`) instead.
-  - Their kit setup (`kit/setup.sh`) has not been run. Ask the user before running it.
+  - The kit is set up (venv, matting model `kit/models/rvm_mobilenetv3_fp32.onnx`, GSAP).
+  - `kit/transcribe.py` is patched to use local faster-whisper when there is no Groq key.
 - **artemnovitckii/claude-animation-skills:** zach-3d-films, zach-d-films, low-poly, stick-figure, minecraft, kurzgesagt, map-route, graph and more (animated reels with no footage).
-  - Their kit needs `npm install` in `kit/`. Not run yet; ask first.
-  - Use the preinstalled Chromium, never `playwright install`.
+  - The kit is set up: `kit/node_modules` (three.js, Playwright without a browser download), the Kokoro TTS voice and Parakeet word timings in `kit/models`.
+  - The engines (zach-d-films, stick-figure) are patched to launch `/opt/pw-browsers/chromium`; never run `playwright install`.
+  - zach-d-films test still rendered fine (`GL=swiftshader node render.mjs stills 1.5 stills`).
 - **rsdabid/claude-video-editing-skills:** reel-editor (Remotion, word-by-word captions, person cut-out) and fullscreen-talking-head-edit.
 - **Catalogue of about 180 more repos:** `references/awesome-claude-video-skills/README.md`.
