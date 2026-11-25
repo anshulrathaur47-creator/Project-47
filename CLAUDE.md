@@ -72,6 +72,17 @@ Learned from past feedback. Follow these unless the user says otherwise.
     - Their transcription falls back to local Whisper when there is no Groq key.
   - Use local Whisper instead of Groq or ElevenLabs keys.
   - See `tools/README.md`.
+- **`spotify-lyric-reel`** (our own, in `tools/spotify-lyric-reel/`): a music-player "Spotify theme" lyric reel.
+  - Now-playing card and lyrics that scroll and glow word by word.
+  - Beat-reactive glowing bars, light leaks and particles; colours come from the cover.
+  - One command aligns the user's lyrics to Whisper timings.
+- **Music and effect skills from GitHub:**
+  - `painted-animation`: hand-painted watercolour lyric music videos
+  - `dancing-notes`: glowing notes that dance to the music
+  - `remotion-motion-designer`: audio-reactive visuals, kinetic type, cinematic transitions
+  - Repos in `tools/external/`: Remotion's music-visualization template, Spotify Wrapped in Remotion, an LRC lyric-video generator
+  - Glow looks: `neon-orbit`, `neon-marquee`, `glow-cutout`, `glass-ribbon`, `lyric-video`
+  - Hyperframes registry blocks: `spotify-card`, `light-leak`, `shimmer-sweep`, `glitch`, `grain-overlay`
 - **Study a reference first:** for any reference reel the user sends, run `python3 tools/analyze_style.py <video> --name <slug> --words`.
   - Then read `references/analysis/<slug>/report.md` and the contact sheet.
   - Match its pacing (cuts per minute, shot length), cut-on-beat rate, motion mix, shot sizes, colour and text placement.

@@ -31,3 +31,4 @@ tools/external/*/kit/node_modules/
 tools/external/*/kit/.venv/
 tools/external/*/kit/models/
 tools/external/*/kit/__pycache__/
+tools/spotify-lyric-reel/out/

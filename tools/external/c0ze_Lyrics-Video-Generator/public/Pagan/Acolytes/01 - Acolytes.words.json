@@ -1,0 +1,2367 @@
+{
+ "title": "Acolytes",
+ "audio": "01 - Acolytes.flac",
+ "source_lrc": "01 - Acolytes.lrc",
+ "method": "htdemucs vocal stem -> torchaudio MMS_FA forced alignment, each line inside its hand-stamped window, checked by a pass with each line's neighbours in a wider window",
+ "generated": "2026-11-20",
+ "units": "seconds",
+ "notes": "start/end: aligned onset/offset (line start falls back to hand_start when its words do not agree between the two passes). hand_start: the hand-stamped LRC time. dev = start - hand_start. score/confidence: mean CTC posterior (0..1); sung vowels score low even when placed right. agree: the anchored and the context pass put the word start within 0.35 s; rating comes from the share of agreeing words.",
+ "confidence": 0.301,
+ "rating": "high",
+ "summary": {
+  "lines": 50,
+  "words": 149,
+  "mean_word_score": 0.321,
+  "word_agreement": 0.96,
+  "line_agreement": 0.94,
+  "line_median_offset": 0.1,
+  "check_lines": [
+   36,
+   39
+  ],
+  "ok_words": 0.987,
+  "confidence": "high"
+ },
+ "lines": [
+  {
+   "i": 0,
+   "tag": "",
+   "text": "Ichor",
+   "start": 13.76,
+   "end": 14.16,
+   "hand_start": 13.67,
+   "dev": 0.09,
+   "confidence": 0.232,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.0,
+   "global_start": 13.76,
+   "words": [
+    {
+     "w": "Ichor",
+     "start": 13.76,
+     "end": 14.16,
+     "score": 0.232,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 13.76,
+     "global_start": 13.76
+    }
+   ]
+  },
+  {
+   "i": 1,
+   "tag": "",
+   "text": "In hoc signo vinces",
+   "start": 14.46,
+   "end": 18.46,
+   "hand_start": 14.44,
+   "dev": 0.02,
+   "confidence": 0.447,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 1.6,
+   "global_start": 14.46,
+   "words": [
+    {
+     "w": "In",
+     "start": 14.46,
+     "end": 14.6,
+     "score": 0.616,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 14.46,
+     "global_start": 14.46
+    },
+    {
+     "w": "hoc",
+     "start": 14.66,
+     "end": 15.22,
+     "score": 0.428,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 14.66,
+     "global_start": 14.66
+    },
+    {
+     "w": "signo",
+     "start": 16.82,
+     "end": 17.2,
+     "score": 0.353,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 16.82,
+     "global_start": 16.82
+    },
+    {
+     "w": "vinces",
+     "start": 17.62,
+     "end": 18.46,
+     "score": 0.39,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 17.62,
+     "global_start": 17.62
+    }
+   ]
+  },
+  {
+   "i": 2,
+   "tag": "",
+   "text": "Godly vitals",
+   "start": 20.06,
+   "end": 23.22,
+   "hand_start": 20.06,
+   "dev": 0.0,
+   "confidence": 0.136,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.38,
+   "global_start": 20.06,
+   "words": [
+    {
+     "w": "Godly",
+     "start": 20.06,
+     "end": 20.44,
+     "score": 0.068,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 20.06,
+     "global_start": 20.06
+    },
+    {
+     "w": "vitals",
+     "start": 20.82,
+     "end": 23.22,
+     "score": 0.203,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 20.82,
+     "global_start": 20.82
+    }
+   ]
+  },
+  {
+   "i": 3,
+   "tag": "",
+   "text": "My servants, hark!",
+   "start": 23.06,
+   "end": 26.7,
+   "hand_start": 23.22,
+   "dev": -0.16,
+   "confidence": 0.215,
+   "source": "aligned",
+   "agree": 0.667,
+   "check": false,
+   "max_gap": 0.1,
+   "global_start": 23.06,
+   "words": [
+    {
+     "w": "My",
+     "start": 23.06,
+     "end": 23.18,
+     "score": 0.059,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 23.06,
+     "global_start": 23.06
+    },
+    {
+     "w": "servants,",
+     "start": 23.28,
+     "end": 26.12,
+     "score": 0.17,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 23.28,
+     "global_start": 23.28
+    },
+    {
+     "w": "hark!",
+     "start": 26.12,
+     "end": 26.7,
+     "score": 0.415,
+     "agree": false,
+     "from": "context",
+     "context_start": 26.12,
+     "global_start": 26.12
+    }
+   ]
+  },
+  {
+   "i": 4,
+   "tag": "",
+   "text": "Father",
+   "start": 40.02,
+   "end": 41.38,
+   "hand_start": 40.26,
+   "dev": -0.24,
+   "confidence": 0.557,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.0,
+   "global_start": 40.02,
+   "words": [
+    {
+     "w": "Father",
+     "start": 40.02,
+     "end": 41.38,
+     "score": 0.557,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 40.02,
+     "global_start": 40.02
+    }
+   ]
+  },
+  {
+   "i": 5,
+   "tag": "",
+   "text": "O' hear my cry!",
+   "start": 41.34,
+   "end": 42.94,
+   "hand_start": 41.38,
+   "dev": -0.04,
+   "confidence": 0.358,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.26,
+   "global_start": 41.34,
+   "words": [
+    {
+     "w": "O'",
+     "start": 41.34,
+     "end": 41.38,
+     "score": 0.03,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 41.34,
+     "global_start": 41.34
+    },
+    {
+     "w": "hear",
+     "start": 41.62,
+     "end": 42.0,
+     "score": 0.536,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 41.62,
+     "global_start": 41.62
+    },
+    {
+     "w": "my",
+     "start": 42.06,
+     "end": 42.2,
+     "score": 0.479,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 42.06,
+     "global_start": 42.06
+    },
+    {
+     "w": "cry!",
+     "start": 42.46,
+     "end": 42.94,
+     "score": 0.386,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 42.46,
+     "global_start": 42.46
+    }
+   ]
+  },
+  {
+   "i": 6,
+   "tag": "",
+   "text": "Mother",
+   "start": 43.66,
+   "end": 44.97,
+   "hand_start": 43.51,
+   "dev": 0.15,
+   "confidence": 0.279,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.0,
+   "global_start": 43.66,
+   "words": [
+    {
+     "w": "Mother",
+     "start": 43.66,
+     "end": 44.97,
+     "score": 0.279,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 43.66,
+     "global_start": 43.66
+    }
+   ]
+  },
+  {
+   "i": 7,
+   "tag": "",
+   "text": "Embrace me with thy sublime light",
+   "start": 44.94,
+   "end": 48.82,
+   "hand_start": 44.97,
+   "dev": -0.03,
+   "confidence": 0.282,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.24,
+   "global_start": 44.94,
+   "words": [
+    {
+     "w": "Embrace",
+     "start": 44.94,
+     "end": 45.64,
+     "score": 0.344,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 44.94,
+     "global_start": 44.94
+    },
+    {
+     "w": "me",
+     "start": 45.68,
+     "end": 45.8,
+     "score": 0.453,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 45.68,
+     "global_start": 45.68
+    },
+    {
+     "w": "with",
+     "start": 46.04,
+     "end": 46.4,
+     "score": 0.207,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 46.04,
+     "global_start": 46.04
+    },
+    {
+     "w": "thy",
+     "start": 46.44,
+     "end": 46.64,
+     "score": 0.032,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 46.44,
+     "global_start": 46.44
+    },
+    {
+     "w": "sublime",
+     "start": 46.88,
+     "end": 47.72,
+     "score": 0.276,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 46.88,
+     "global_start": 46.88
+    },
+    {
+     "w": "light",
+     "start": 47.72,
+     "end": 48.82,
+     "score": 0.378,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 47.72,
+     "global_start": 47.72
+    }
+   ]
+  },
+  {
+   "i": 8,
+   "tag": "",
+   "text": "Carnal",
+   "start": 48.86,
+   "end": 49.64,
+   "hand_start": 48.82,
+   "dev": 0.04,
+   "confidence": 0.54,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.0,
+   "global_start": 48.86,
+   "words": [
+    {
+     "w": "Carnal",
+     "start": 48.86,
+     "end": 49.64,
+     "score": 0.54,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 48.86,
+     "global_start": 48.86
+    }
+   ]
+  },
+  {
+   "i": 9,
+   "tag": "",
+   "text": "Divine",
+   "start": 50.06,
+   "end": 50.78,
+   "hand_start": 50.04,
+   "dev": 0.02,
+   "confidence": 0.385,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.0,
+   "global_start": 50.06,
+   "words": [
+    {
+     "w": "Divine",
+     "start": 50.06,
+     "end": 50.78,
+     "score": 0.385,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 50.06,
+     "global_start": 50.06
+    }
+   ]
+  },
+  {
+   "i": 10,
+   "tag": "",
+   "text": "Chaos",
+   "start": 50.86,
+   "end": 52.36,
+   "hand_start": 50.78,
+   "dev": 0.08,
+   "confidence": 0.228,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.0,
+   "global_start": 50.86,
+   "words": [
+    {
+     "w": "Chaos",
+     "start": 50.86,
+     "end": 52.36,
+     "score": 0.228,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 50.86,
+     "global_start": 50.86
+    }
+   ]
+  },
+  {
+   "i": 11,
+   "tag": "",
+   "text": "Neophytes!",
+   "start": 52.42,
+   "end": 53.67,
+   "hand_start": 52.36,
+   "dev": 0.06,
+   "confidence": 0.232,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.0,
+   "global_start": 52.42,
+   "words": [
+    {
+     "w": "Neophytes!",
+     "start": 52.42,
+     "end": 53.67,
+     "score": 0.232,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 52.42,
+     "global_start": 52.42
+    }
+   ]
+  },
+  {
+   "i": 12,
+   "tag": "",
+   "text": "The blade was cold and flesh was ripe",
+   "start": 53.52,
+   "end": 57.66,
+   "hand_start": 53.67,
+   "dev": -0.15,
+   "confidence": 0.422,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.12,
+   "global_start": 53.52,
+   "words": [
+    {
+     "w": "The",
+     "start": 53.52,
+     "end": 53.64,
+     "score": 0.316,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 53.52,
+     "global_start": 53.52
+    },
+    {
+     "w": "blade",
+     "start": 53.74,
+     "end": 54.12,
+     "score": 0.228,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 53.74,
+     "global_start": 53.74
+    },
+    {
+     "w": "was",
+     "start": 54.12,
+     "end": 54.38,
+     "score": 0.591,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 54.12,
+     "global_start": 54.12
+    },
+    {
+     "w": "cold",
+     "start": 54.48,
+     "end": 54.92,
+     "score": 0.484,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 54.48,
+     "global_start": 54.48
+    },
+    {
+     "w": "and",
+     "start": 54.98,
+     "end": 55.16,
+     "score": 0.329,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 54.98,
+     "global_start": 54.98
+    },
+    {
+     "w": "flesh",
+     "start": 55.22,
+     "end": 55.6,
+     "score": 0.309,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 55.22,
+     "global_start": 55.22
+    },
+    {
+     "w": "was",
+     "start": 55.64,
+     "end": 55.98,
+     "score": 0.553,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 55.64,
+     "global_start": 55.64
+    },
+    {
+     "w": "ripe",
+     "start": 56.1,
+     "end": 57.66,
+     "score": 0.568,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 56.1,
+     "global_start": 56.1
+    }
+   ]
+  },
+  {
+   "i": 13,
+   "tag": "",
+   "text": "Nescience",
+   "start": 57.66,
+   "end": 58.85,
+   "hand_start": 57.66,
+   "dev": 0.0,
+   "confidence": 0.307,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.0,
+   "global_start": 57.66,
+   "words": [
+    {
+     "w": "Nescience",
+     "start": 57.66,
+     "end": 58.85,
+     "score": 0.307,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 57.66,
+     "global_start": 57.66
+    }
+   ]
+  },
+  {
+   "i": 14,
+   "tag": "",
+   "text": "Upon which they feed",
+   "start": 58.44,
+   "end": 61.02,
+   "hand_start": 58.85,
+   "dev": -0.41,
+   "confidence": 0.203,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 1.0,
+   "global_start": 58.46,
+   "words": [
+    {
+     "w": "Upon",
+     "start": 58.44,
+     "end": 59.12,
+     "score": 0.229,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 58.46,
+     "global_start": 58.46
+    },
+    {
+     "w": "which",
+     "start": 59.2,
+     "end": 59.52,
+     "score": 0.23,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 59.2,
+     "global_start": 59.2
+    },
+    {
+     "w": "they",
+     "start": 59.62,
+     "end": 60.18,
+     "score": 0.28,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 59.62,
+     "global_start": 59.62
+    },
+    {
+     "w": "feed",
+     "start": 61.18,
+     "end": 61.02,
+     "score": 0.074,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 61.18,
+     "global_start": 60.06
+    }
+   ]
+  },
+  {
+   "i": 15,
+   "tag": "",
+   "text": "Infernal",
+   "start": 61.06,
+   "end": 62.35,
+   "hand_start": 61.02,
+   "dev": 0.04,
+   "confidence": 0.209,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.0,
+   "global_start": 61.06,
+   "words": [
+    {
+     "w": "Infernal",
+     "start": 61.06,
+     "end": 62.35,
+     "score": 0.209,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 61.06,
+     "global_start": 61.06
+    }
+   ]
+  },
+  {
+   "i": 16,
+   "tag": "",
+   "text": "Devastation of the mankind",
+   "start": 62.38,
+   "end": 66.38,
+   "hand_start": 62.35,
+   "dev": 0.03,
+   "confidence": 0.597,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.26,
+   "global_start": 62.38,
+   "words": [
+    {
+     "w": "Devastation",
+     "start": 62.38,
+     "end": 63.56,
+     "score": 0.433,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 62.38,
+     "global_start": 62.38
+    },
+    {
+     "w": "of",
+     "start": 63.76,
+     "end": 64.0,
+     "score": 0.782,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 63.76,
+     "global_start": 63.76
+    },
+    {
+     "w": "the",
+     "start": 64.08,
+     "end": 64.22,
+     "score": 0.743,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 64.08,
+     "global_start": 64.08
+    },
+    {
+     "w": "mankind",
+     "start": 64.48,
+     "end": 66.38,
+     "score": 0.429,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 64.48,
+     "global_start": 64.48
+    }
+   ]
+  },
+  {
+   "i": 17,
+   "tag": "",
+   "text": "Supreme",
+   "start": 66.48,
+   "end": 67.68,
+   "hand_start": 66.38,
+   "dev": 0.1,
+   "confidence": 0.246,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.0,
+   "global_start": 66.48,
+   "words": [
+    {
+     "w": "Supreme",
+     "start": 66.48,
+     "end": 67.68,
+     "score": 0.246,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 66.48,
+     "global_start": 66.48
+    }
+   ]
+  },
+  {
+   "i": 18,
+   "tag": "",
+   "text": "Wielding the blood",
+   "start": 67.6,
+   "end": 69.8,
+   "hand_start": 67.68,
+   "dev": -0.08,
+   "confidence": 0.443,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.26,
+   "global_start": 67.6,
+   "words": [
+    {
+     "w": "Wielding",
+     "start": 67.6,
+     "end": 68.36,
+     "score": 0.38,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 67.6,
+     "global_start": 67.6
+    },
+    {
+     "w": "the",
+     "start": 68.4,
+     "end": 68.54,
+     "score": 0.552,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 68.4,
+     "global_start": 68.4
+    },
+    {
+     "w": "blood",
+     "start": 68.8,
+     "end": 69.8,
+     "score": 0.396,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 68.8,
+     "global_start": 68.8
+    }
+   ]
+  },
+  {
+   "i": 19,
+   "tag": "",
+   "text": "Eternal",
+   "start": 69.86,
+   "end": 71.07,
+   "hand_start": 69.8,
+   "dev": 0.06,
+   "confidence": 0.152,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.0,
+   "global_start": 69.86,
+   "words": [
+    {
+     "w": "Eternal",
+     "start": 69.86,
+     "end": 71.07,
+     "score": 0.152,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 69.86,
+     "global_start": 69.86
+    }
+   ]
+  },
+  {
+   "i": 20,
+   "tag": "",
+   "text": "Sacrificing the disposable",
+   "start": 71.18,
+   "end": 76.28,
+   "hand_start": 71.07,
+   "dev": 0.11,
+   "confidence": 0.418,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.26,
+   "global_start": 71.18,
+   "words": [
+    {
+     "w": "Sacrificing",
+     "start": 71.18,
+     "end": 72.8,
+     "score": 0.365,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 71.18,
+     "global_start": 71.18
+    },
+    {
+     "w": "the",
+     "start": 72.88,
+     "end": 73.02,
+     "score": 0.367,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 72.88,
+     "global_start": 72.88
+    },
+    {
+     "w": "disposable",
+     "start": 73.28,
+     "end": 76.28,
+     "score": 0.523,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 73.28,
+     "global_start": 73.28
+    }
+   ]
+  },
+  {
+   "i": 21,
+   "tag": "",
+   "text": "To know the inner secrets",
+   "start": 129.14,
+   "end": 132.51,
+   "hand_start": 129.54,
+   "dev": -0.4,
+   "confidence": 0.308,
+   "source": "aligned",
+   "agree": 0.8,
+   "check": false,
+   "max_gap": 0.22,
+   "global_start": 103.8,
+   "words": [
+    {
+     "w": "To",
+     "start": 129.14,
+     "end": 129.24,
+     "score": 0.156,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 103.8,
+     "global_start": 103.8
+    },
+    {
+     "w": "know",
+     "start": 129.46,
+     "end": 130.32,
+     "score": 0.456,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 129.46,
+     "global_start": 129.46
+    },
+    {
+     "w": "the",
+     "start": 130.46,
+     "end": 130.52,
+     "score": 0.254,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 130.46,
+     "global_start": 130.46
+    },
+    {
+     "w": "inner",
+     "start": 130.52,
+     "end": 130.92,
+     "score": 0.261,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 130.52,
+     "global_start": 130.52
+    },
+    {
+     "w": "secrets",
+     "start": 131.06,
+     "end": 132.51,
+     "score": 0.411,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 131.06,
+     "global_start": 131.06
+    }
+   ]
+  },
+  {
+   "i": 22,
+   "tag": "",
+   "text": "Of those who move beyond the realms of the unknown",
+   "start": 132.5,
+   "end": 138.32,
+   "hand_start": 132.51,
+   "dev": -0.01,
+   "confidence": 0.357,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.62,
+   "global_start": 132.5,
+   "words": [
+    {
+     "w": "Of",
+     "start": 132.5,
+     "end": 132.72,
+     "score": 0.851,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 132.5,
+     "global_start": 132.5
+    },
+    {
+     "w": "those",
+     "start": 132.84,
+     "end": 133.38,
+     "score": 0.187,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 132.84,
+     "global_start": 132.84
+    },
+    {
+     "w": "who",
+     "start": 133.4,
+     "end": 133.58,
+     "score": 0.037,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 133.4,
+     "global_start": 133.4
+    },
+    {
+     "w": "move",
+     "start": 133.64,
+     "end": 134.08,
+     "score": 0.079,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 133.64,
+     "global_start": 133.64
+    },
+    {
+     "w": "beyond",
+     "start": 134.08,
+     "end": 134.92,
+     "score": 0.499,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 134.08,
+     "global_start": 134.08
+    },
+    {
+     "w": "the",
+     "start": 135.54,
+     "end": 135.64,
+     "score": 0.056,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 135.54,
+     "global_start": 135.54
+    },
+    {
+     "w": "realms",
+     "start": 135.64,
+     "end": 136.16,
+     "score": 0.426,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 135.64,
+     "global_start": 135.64
+    },
+    {
+     "w": "of",
+     "start": 136.22,
+     "end": 136.38,
+     "score": 0.899,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 136.22,
+     "global_start": 136.22
+    },
+    {
+     "w": "the",
+     "start": 136.44,
+     "end": 136.58,
+     "score": 0.312,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 136.44,
+     "global_start": 136.44
+    },
+    {
+     "w": "unknown",
+     "start": 136.66,
+     "end": 138.32,
+     "score": 0.228,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 136.66,
+     "global_start": 136.66
+    }
+   ]
+  },
+  {
+   "i": 23,
+   "tag": "",
+   "text": "Into the precinct of fire",
+   "start": 138.32,
+   "end": 140.62,
+   "hand_start": 138.32,
+   "dev": 0.0,
+   "confidence": 0.286,
+   "source": "aligned",
+   "agree": 0.8,
+   "check": false,
+   "max_gap": 0.46,
+   "global_start": 138.32,
+   "words": [
+    {
+     "w": "Into",
+     "start": 138.32,
+     "end": 138.64,
+     "score": 0.264,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 138.32,
+     "global_start": 138.32
+    },
+    {
+     "w": "the",
+     "start": 139.1,
+     "end": 139.22,
+     "score": 0.284,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 139.1,
+     "global_start": 139.1
+    },
+    {
+     "w": "precinct",
+     "start": 139.3,
+     "end": 139.96,
+     "score": 0.292,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 139.3,
+     "global_start": 139.3
+    },
+    {
+     "w": "of",
+     "start": 139.98,
+     "end": 140.14,
+     "score": 0.462,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 139.98,
+     "global_start": 139.98
+    },
+    {
+     "w": "fire",
+     "start": 140.14,
+     "end": 140.62,
+     "score": 0.129,
+     "agree": false,
+     "from": "context",
+     "context_start": 140.14,
+     "global_start": 140.14
+    }
+   ]
+  },
+  {
+   "i": 24,
+   "tag": "",
+   "text": "Thus do we dedicate ourselves",
+   "start": 142.04,
+   "end": 145.06,
+   "hand_start": 142.53,
+   "dev": -0.49,
+   "confidence": 0.252,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.26,
+   "global_start": 142.04,
+   "words": [
+    {
+     "w": "Thus",
+     "start": 142.04,
+     "end": 142.44,
+     "score": 0.222,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 142.04,
+     "global_start": 142.04
+    },
+    {
+     "w": "do",
+     "start": 142.5,
+     "end": 142.64,
+     "score": 0.135,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 142.5,
+     "global_start": 142.5
+    },
+    {
+     "w": "we",
+     "start": 142.9,
+     "end": 143.02,
+     "score": 0.452,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 142.9,
+     "global_start": 142.9
+    },
+    {
+     "w": "dedicate",
+     "start": 143.14,
+     "end": 143.84,
+     "score": 0.277,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 143.14,
+     "global_start": 143.14
+    },
+    {
+     "w": "ourselves",
+     "start": 143.9,
+     "end": 145.06,
+     "score": 0.172,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 143.9,
+     "global_start": 143.9
+    }
+   ]
+  },
+  {
+   "i": 25,
+   "tag": "",
+   "text": "To your service and your commands",
+   "start": 145.3,
+   "end": 148.51,
+   "hand_start": 145.06,
+   "dev": 0.24,
+   "confidence": 0.266,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.1,
+   "global_start": 145.3,
+   "words": [
+    {
+     "w": "To",
+     "start": 145.3,
+     "end": 145.36,
+     "score": 0.114,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 145.3,
+     "global_start": 145.3
+    },
+    {
+     "w": "your",
+     "start": 145.36,
+     "end": 145.6,
+     "score": 0.099,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 145.36,
+     "global_start": 145.36
+    },
+    {
+     "w": "service",
+     "start": 145.7,
+     "end": 146.32,
+     "score": 0.181,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 145.7,
+     "global_start": 145.7
+    },
+    {
+     "w": "and",
+     "start": 146.38,
+     "end": 146.6,
+     "score": 0.609,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 146.38,
+     "global_start": 146.38
+    },
+    {
+     "w": "your",
+     "start": 146.62,
+     "end": 146.94,
+     "score": 0.288,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 146.62,
+     "global_start": 146.62
+    },
+    {
+     "w": "commands",
+     "start": 147.02,
+     "end": 148.51,
+     "score": 0.302,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 147.02,
+     "global_start": 147.02
+    }
+   ]
+  },
+  {
+   "i": 26,
+   "tag": "",
+   "text": "We accept your guidance",
+   "start": 148.46,
+   "end": 150.74,
+   "hand_start": 148.51,
+   "dev": -0.05,
+   "confidence": 0.21,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.08,
+   "global_start": 148.46,
+   "words": [
+    {
+     "w": "We",
+     "start": 148.46,
+     "end": 148.6,
+     "score": 0.323,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 148.46,
+     "global_start": 148.46
+    },
+    {
+     "w": "accept",
+     "start": 148.62,
+     "end": 149.32,
+     "score": 0.049,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 148.62,
+     "global_start": 148.62
+    },
+    {
+     "w": "your",
+     "start": 149.36,
+     "end": 149.7,
+     "score": 0.225,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 149.36,
+     "global_start": 149.36
+    },
+    {
+     "w": "guidance",
+     "start": 149.78,
+     "end": 150.74,
+     "score": 0.242,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 149.78,
+     "global_start": 149.78
+    }
+   ]
+  },
+  {
+   "i": 27,
+   "tag": "",
+   "text": "And your mighty power",
+   "start": 151.08,
+   "end": 154.4,
+   "hand_start": 151.08,
+   "dev": 0.0,
+   "confidence": 0.307,
+   "source": "hand",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.34,
+   "global_start": 151.74,
+   "words": [
+    {
+     "w": "And",
+     "start": 151.74,
+     "end": 152.12,
+     "score": 0.722,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 151.74,
+     "global_start": 151.74
+    },
+    {
+     "w": "your",
+     "start": 152.14,
+     "end": 152.62,
+     "score": 0.184,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 152.14,
+     "global_start": 152.14
+    },
+    {
+     "w": "mighty",
+     "start": 152.8,
+     "end": 153.34,
+     "score": 0.183,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 152.8,
+     "global_start": 152.8
+    },
+    {
+     "w": "power",
+     "start": 153.68,
+     "end": 154.4,
+     "score": 0.138,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 153.68,
+     "global_start": 153.68
+    }
+   ]
+  },
+  {
+   "i": 28,
+   "tag": "",
+   "text": "Father",
+   "start": 168.82,
+   "end": 170.02,
+   "hand_start": 168.27,
+   "dev": 0.55,
+   "confidence": 0.336,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.0,
+   "global_start": 168.82,
+   "words": [
+    {
+     "w": "Father",
+     "start": 168.82,
+     "end": 170.02,
+     "score": 0.336,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 168.82,
+     "global_start": 168.82
+    }
+   ]
+  },
+  {
+   "i": 29,
+   "tag": "",
+   "text": "O' deceiver!",
+   "start": 170.16,
+   "end": 171.66,
+   "hand_start": 170.02,
+   "dev": 0.14,
+   "confidence": 0.341,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.28,
+   "global_start": 170.16,
+   "words": [
+    {
+     "w": "O'",
+     "start": 170.16,
+     "end": 170.2,
+     "score": 0.463,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 170.16,
+     "global_start": 170.16
+    },
+    {
+     "w": "deceiver!",
+     "start": 170.48,
+     "end": 171.66,
+     "score": 0.218,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 170.48,
+     "global_start": 170.48
+    }
+   ]
+  },
+  {
+   "i": 30,
+   "tag": "",
+   "text": "Mother",
+   "start": 172.44,
+   "end": 173.45,
+   "hand_start": 172.22,
+   "dev": 0.22,
+   "confidence": 0.148,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.0,
+   "global_start": 172.44,
+   "words": [
+    {
+     "w": "Mother",
+     "start": 172.44,
+     "end": 173.45,
+     "score": 0.148,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 172.44,
+     "global_start": 172.44
+    }
+   ]
+  },
+  {
+   "i": 31,
+   "tag": "",
+   "text": "Shined on me with your whoredom",
+   "start": 173.68,
+   "end": 177.61,
+   "hand_start": 173.45,
+   "dev": 0.23,
+   "confidence": 0.157,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.24,
+   "global_start": 173.68,
+   "words": [
+    {
+     "w": "Shined",
+     "start": 173.68,
+     "end": 174.14,
+     "score": 0.164,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 173.68,
+     "global_start": 173.68
+    },
+    {
+     "w": "on",
+     "start": 174.2,
+     "end": 174.38,
+     "score": 0.024,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 174.2,
+     "global_start": 174.2
+    },
+    {
+     "w": "me",
+     "start": 174.48,
+     "end": 174.64,
+     "score": 0.361,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 174.48,
+     "global_start": 174.48
+    },
+    {
+     "w": "with",
+     "start": 174.88,
+     "end": 175.3,
+     "score": 0.154,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 174.88,
+     "global_start": 174.88
+    },
+    {
+     "w": "your",
+     "start": 175.3,
+     "end": 175.56,
+     "score": 0.025,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 175.3,
+     "global_start": 175.3
+    },
+    {
+     "w": "whoredom",
+     "start": 175.56,
+     "end": 177.61,
+     "score": 0.211,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 175.56,
+     "global_start": 175.56
+    }
+   ]
+  },
+  {
+   "i": 32,
+   "tag": "",
+   "text": "Carnal",
+   "start": 177.62,
+   "end": 178.79,
+   "hand_start": 177.61,
+   "dev": 0.01,
+   "confidence": 0.379,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.0,
+   "global_start": 177.62,
+   "words": [
+    {
+     "w": "Carnal",
+     "start": 177.62,
+     "end": 178.79,
+     "score": 0.379,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 177.62,
+     "global_start": 177.62
+    }
+   ]
+  },
+  {
+   "i": 33,
+   "tag": "",
+   "text": "Divine",
+   "start": 178.86,
+   "end": 179.63,
+   "hand_start": 178.79,
+   "dev": 0.07,
+   "confidence": 0.237,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.0,
+   "global_start": 178.86,
+   "words": [
+    {
+     "w": "Divine",
+     "start": 178.86,
+     "end": 179.63,
+     "score": 0.237,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 178.86,
+     "global_start": 178.86
+    }
+   ]
+  },
+  {
+   "i": 34,
+   "tag": "",
+   "text": "Chaos",
+   "start": 179.66,
+   "end": 180.58,
+   "hand_start": 179.63,
+   "dev": 0.03,
+   "confidence": 0.081,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.0,
+   "global_start": 179.66,
+   "words": [
+    {
+     "w": "Chaos",
+     "start": 179.66,
+     "end": 180.58,
+     "score": 0.081,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 179.66,
+     "global_start": 179.66
+    }
+   ]
+  },
+  {
+   "i": 35,
+   "tag": "",
+   "text": "Acolytes!",
+   "start": 181.27,
+   "end": 182.53,
+   "hand_start": 181.27,
+   "dev": 0.0,
+   "confidence": 0.11,
+   "source": "hand",
+   "agree": 0.0,
+   "check": true,
+   "max_gap": 0.0,
+   "global_start": 181.08,
+   "words": [
+    {
+     "w": "Acolytes!",
+     "start": 181.28,
+     "end": 182.53,
+     "score": 0.11,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 179.8,
+     "global_start": 181.08
+    }
+   ]
+  },
+  {
+   "i": 36,
+   "tag": "",
+   "text": "The blood was lucious",
+   "start": 182.02,
+   "end": 184.28,
+   "hand_start": 182.53,
+   "dev": -0.51,
+   "confidence": 0.267,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.2,
+   "global_start": 181.96,
+   "words": [
+    {
+     "w": "The",
+     "start": 182.02,
+     "end": 182.22,
+     "score": 0.001,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 181.96,
+     "global_start": 181.96
+    },
+    {
+     "w": "blood",
+     "start": 182.42,
+     "end": 182.82,
+     "score": 0.389,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 182.42,
+     "global_start": 182.42
+    },
+    {
+     "w": "was",
+     "start": 182.86,
+     "end": 183.18,
+     "score": 0.549,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 182.86,
+     "global_start": 182.86
+    },
+    {
+     "w": "lucious",
+     "start": 183.28,
+     "end": 184.28,
+     "score": 0.129,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 183.28,
+     "global_start": 183.28
+    }
+   ]
+  },
+  {
+   "i": 37,
+   "tag": "",
+   "text": "Rejuvenate",
+   "start": 184.12,
+   "end": 187.02,
+   "hand_start": 184.28,
+   "dev": -0.16,
+   "confidence": 0.345,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.0,
+   "global_start": 184.12,
+   "words": [
+    {
+     "w": "Rejuvenate",
+     "start": 184.12,
+     "end": 187.02,
+     "score": 0.345,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 184.12,
+     "global_start": 184.12
+    }
+   ]
+  },
+  {
+   "i": 38,
+   "tag": "",
+   "text": "Nescience",
+   "start": 187.79,
+   "end": 188.18,
+   "hand_start": 187.79,
+   "dev": 0.0,
+   "confidence": 0.101,
+   "source": "hand",
+   "agree": 0.0,
+   "check": true,
+   "max_gap": 0.0,
+   "global_start": 186.5,
+   "words": [
+    {
+     "w": "Nescience",
+     "start": 187.66,
+     "end": 188.18,
+     "score": 0.101,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 186.5,
+     "global_start": 186.5
+    }
+   ]
+  },
+  {
+   "i": 39,
+   "tag": "",
+   "text": "Upon which they feed",
+   "start": 187.76,
+   "end": 190.0,
+   "hand_start": 188.18,
+   "dev": -0.42,
+   "confidence": 0.185,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.82,
+   "global_start": 187.92,
+   "words": [
+    {
+     "w": "Upon",
+     "start": 187.76,
+     "end": 188.44,
+     "score": 0.258,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 187.94,
+     "global_start": 187.92
+    },
+    {
+     "w": "which",
+     "start": 188.46,
+     "end": 188.88,
+     "score": 0.134,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 188.46,
+     "global_start": 188.46
+    },
+    {
+     "w": "they",
+     "start": 188.9,
+     "end": 189.2,
+     "score": 0.145,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 188.9,
+     "global_start": 188.9
+    },
+    {
+     "w": "feed",
+     "start": 190.02,
+     "end": 190.0,
+     "score": 0.202,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 190.02,
+     "global_start": 189.3
+    }
+   ]
+  },
+  {
+   "i": 40,
+   "tag": "",
+   "text": "Infernal",
+   "start": 189.92,
+   "end": 191.3,
+   "hand_start": 190.0,
+   "dev": -0.08,
+   "confidence": 0.226,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.0,
+   "global_start": 189.92,
+   "words": [
+    {
+     "w": "Infernal",
+     "start": 189.92,
+     "end": 191.3,
+     "score": 0.226,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 189.92,
+     "global_start": 189.92
+    }
+   ]
+  },
+  {
+   "i": 41,
+   "tag": "",
+   "text": "Devastation of the mankind",
+   "start": 191.18,
+   "end": 195.17,
+   "hand_start": 191.34,
+   "dev": -0.16,
+   "confidence": 0.391,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.26,
+   "global_start": 191.18,
+   "words": [
+    {
+     "w": "Devastation",
+     "start": 191.18,
+     "end": 192.44,
+     "score": 0.255,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 191.18,
+     "global_start": 191.18
+    },
+    {
+     "w": "of",
+     "start": 192.58,
+     "end": 192.84,
+     "score": 0.597,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 192.58,
+     "global_start": 192.58
+    },
+    {
+     "w": "the",
+     "start": 192.88,
+     "end": 193.02,
+     "score": 0.357,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 192.88,
+     "global_start": 192.88
+    },
+    {
+     "w": "mankind",
+     "start": 193.28,
+     "end": 195.17,
+     "score": 0.353,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 193.28,
+     "global_start": 193.28
+    }
+   ]
+  },
+  {
+   "i": 42,
+   "tag": "",
+   "text": "Supreme",
+   "start": 195.24,
+   "end": 196.37,
+   "hand_start": 195.17,
+   "dev": 0.07,
+   "confidence": 0.512,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.0,
+   "global_start": 195.24,
+   "words": [
+    {
+     "w": "Supreme",
+     "start": 195.24,
+     "end": 196.37,
+     "score": 0.512,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 195.24,
+     "global_start": 195.24
+    }
+   ]
+  },
+  {
+   "i": 43,
+   "tag": "",
+   "text": "Wielding the blood",
+   "start": 196.42,
+   "end": 198.2,
+   "hand_start": 196.37,
+   "dev": 0.05,
+   "confidence": 0.238,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.3,
+   "global_start": 196.42,
+   "words": [
+    {
+     "w": "Wielding",
+     "start": 196.42,
+     "end": 197.24,
+     "score": 0.287,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 196.42,
+     "global_start": 196.42
+    },
+    {
+     "w": "the",
+     "start": 197.26,
+     "end": 197.4,
+     "score": 0.217,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 197.26,
+     "global_start": 197.26
+    },
+    {
+     "w": "blood",
+     "start": 197.7,
+     "end": 198.2,
+     "score": 0.209,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 197.7,
+     "global_start": 197.7
+    }
+   ]
+  },
+  {
+   "i": 44,
+   "tag": "",
+   "text": "Eternal",
+   "start": 198.76,
+   "end": 200.02,
+   "hand_start": 198.53,
+   "dev": 0.23,
+   "confidence": 0.115,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.0,
+   "global_start": 198.76,
+   "words": [
+    {
+     "w": "Eternal",
+     "start": 198.76,
+     "end": 200.02,
+     "score": 0.115,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 198.76,
+     "global_start": 198.76
+    }
+   ]
+  },
+  {
+   "i": 45,
+   "tag": "",
+   "text": "Sacrificing the disposable",
+   "start": 200.08,
+   "end": 205.14,
+   "hand_start": 200.02,
+   "dev": 0.06,
+   "confidence": 0.3,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.28,
+   "global_start": 200.08,
+   "words": [
+    {
+     "w": "Sacrificing",
+     "start": 200.08,
+     "end": 201.66,
+     "score": 0.276,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 200.08,
+     "global_start": 200.08
+    },
+    {
+     "w": "the",
+     "start": 201.72,
+     "end": 201.86,
+     "score": 0.164,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 201.72,
+     "global_start": 201.72
+    },
+    {
+     "w": "disposable",
+     "start": 202.14,
+     "end": 205.14,
+     "score": 0.46,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 202.14,
+     "global_start": 202.14
+    }
+   ]
+  },
+  {
+   "i": 46,
+   "tag": "",
+   "text": "From the midst of distant nebulae",
+   "start": 254.4,
+   "end": 261.05,
+   "hand_start": 254.51,
+   "dev": -0.11,
+   "confidence": 0.355,
+   "source": "aligned",
+   "agree": 0.833,
+   "check": false,
+   "max_gap": 0.48,
+   "global_start": 238.66,
+   "words": [
+    {
+     "w": "From",
+     "start": 254.4,
+     "end": 255.36,
+     "score": 0.266,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 238.66,
+     "global_start": 238.66
+    },
+    {
+     "w": "the",
+     "start": 255.68,
+     "end": 255.8,
+     "score": 0.338,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 255.68,
+     "global_start": 255.68
+    },
+    {
+     "w": "midst",
+     "start": 255.88,
+     "end": 256.34,
+     "score": 0.27,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 255.88,
+     "global_start": 255.88
+    },
+    {
+     "w": "of",
+     "start": 256.4,
+     "end": 256.76,
+     "score": 0.425,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 256.4,
+     "global_start": 256.4
+    },
+    {
+     "w": "distant",
+     "start": 257.24,
+     "end": 257.98,
+     "score": 0.456,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 257.24,
+     "global_start": 257.24
+    },
+    {
+     "w": "nebulae",
+     "start": 258.1,
+     "end": 261.05,
+     "score": 0.374,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 258.1,
+     "global_start": 258.1
+    }
+   ]
+  },
+  {
+   "i": 47,
+   "tag": "",
+   "text": "Humming to the minds of frail mankind",
+   "start": 260.6,
+   "end": 267.08,
+   "hand_start": 261.05,
+   "dev": -0.45,
+   "confidence": 0.494,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.42,
+   "global_start": 260.6,
+   "words": [
+    {
+     "w": "Humming",
+     "start": 260.6,
+     "end": 261.58,
+     "score": 0.43,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 260.6,
+     "global_start": 260.6
+    },
+    {
+     "w": "to",
+     "start": 262.0,
+     "end": 262.12,
+     "score": 0.843,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 262.0,
+     "global_start": 262.0
+    },
+    {
+     "w": "the",
+     "start": 262.18,
+     "end": 262.28,
+     "score": 0.544,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 262.18,
+     "global_start": 262.18
+    },
+    {
+     "w": "minds",
+     "start": 262.42,
+     "end": 262.9,
+     "score": 0.241,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 262.42,
+     "global_start": 262.42
+    },
+    {
+     "w": "of",
+     "start": 263.0,
+     "end": 263.22,
+     "score": 0.779,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 263.0,
+     "global_start": 263.0
+    },
+    {
+     "w": "frail",
+     "start": 263.6,
+     "end": 263.98,
+     "score": 0.204,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 263.6,
+     "global_start": 263.6
+    },
+    {
+     "w": "mankind",
+     "start": 264.08,
+     "end": 267.08,
+     "score": 0.414,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 264.08,
+     "global_start": 264.08
+    }
+   ]
+  },
+  {
+   "i": 48,
+   "tag": "",
+   "text": "Eons of existence",
+   "start": 267.59,
+   "end": 273.08,
+   "hand_start": 267.59,
+   "dev": 0.0,
+   "confidence": 0.467,
+   "source": "hand",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.58,
+   "global_start": 267.32,
+   "words": [
+    {
+     "w": "Eons",
+     "start": 268.6,
+     "end": 269.0,
+     "score": 0.502,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 268.6,
+     "global_start": 267.32
+    },
+    {
+     "w": "of",
+     "start": 269.0,
+     "end": 269.5,
+     "score": 0.432,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 269.0,
+     "global_start": 269.0
+    },
+    {
+     "w": "existence",
+     "start": 270.08,
+     "end": 273.08,
+     "score": 0.467,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 270.08,
+     "global_start": 270.08
+    }
+   ]
+  },
+  {
+   "i": 49,
+   "tag": "",
+   "text": "Deep into our slumber now",
+   "start": 273.64,
+   "end": 278.04,
+   "hand_start": 273.72,
+   "dev": -0.08,
+   "confidence": 0.378,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.5,
+   "global_start": 273.64,
+   "words": [
+    {
+     "w": "Deep",
+     "start": 273.64,
+     "end": 274.82,
+     "score": 0.287,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 273.64,
+     "global_start": 273.64
+    },
+    {
+     "w": "into",
+     "start": 274.9,
+     "end": 275.16,
+     "score": 0.309,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 274.9,
+     "global_start": 274.9
+    },
+    {
+     "w": "our",
+     "start": 275.4,
+     "end": 275.96,
+     "score": 0.246,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 275.4,
+     "global_start": 275.4
+    },
+    {
+     "w": "slumber",
+     "start": 276.46,
+     "end": 277.14,
+     "score": 0.414,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 276.46,
+     "global_start": 276.46
+    },
+    {
+     "w": "now",
+     "start": 277.3,
+     "end": 278.04,
+     "score": 0.635,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 277.3,
+     "global_start": 277.3
+    }
+   ]
+  }
+ ]
+}

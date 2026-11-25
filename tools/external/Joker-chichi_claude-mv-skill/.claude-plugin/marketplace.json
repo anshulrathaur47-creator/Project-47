@@ -1,0 +1,22 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "opus-video-skills",
+  "owner": {
+    "name": "tuzhechen2005"
+  },
+  "metadata": {
+    "description": "A hand-painted animation skill for Claude Opus 5.5 in Claude Code, with code-generated frames, music-video storyboarding and lyric sync."
+  },
+  "plugins": [
+    {
+      "name": "painted-animation",
+      "description": "Hand-painted watercolour-and-ink cartoons and lyric videos: p5.js + p5.brush, rendered frame by frame in headless Chrome, with storyboarding, character acting, beat sync and karaoke.",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/painted-animation"],
+      "category": "design",
+      "keywords": ["animation", "watercolour", "lyric-video", "music-video", "p5js"],
+      "homepage": "https://github.com/tuzhechen2005/opus-video-skills/tree/main/skills/painted-animation"
+    }
+  ]
+}

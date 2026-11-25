@@ -1,0 +1,5072 @@
+{
+ "title": "The Recursion of Ash and Lightning",
+ "audio": "recursion-of-ash-and-lightning.flac",
+ "source_lrc": "recursion-of-ash-and-lightning.lrc",
+ "method": "htdemucs vocal stem -> torchaudio MMS_FA forced alignment, each line inside its hand-stamped window, checked by a pass with each line's neighbours in a wider window",
+ "generated": "2026-11-20",
+ "units": "seconds",
+ "notes": "start/end: aligned onset/offset (line start falls back to hand_start when its words do not agree between the two passes). hand_start: the hand-stamped LRC time. dev = start - hand_start. score/confidence: mean CTC posterior (0..1); sung vowels score low even when placed right. agree: the anchored and the context pass put the word start within 0.35 s; rating comes from the share of agreeing words.",
+ "confidence": 0.597,
+ "rating": "high",
+ "summary": {
+  "lines": 65,
+  "words": 394,
+  "mean_word_score": 0.607,
+  "word_agreement": 0.977,
+  "line_agreement": 0.938,
+  "line_median_offset": 0.23,
+  "check_lines": [
+   8,
+   55
+  ],
+  "ok_words": 0.977,
+  "confidence": "high"
+ },
+ "lines": [
+  {
+   "i": 0,
+   "tag": "[male]",
+   "text": "Hark!",
+   "start": 24.82,
+   "end": 25.84,
+   "hand_start": 24.92,
+   "dev": -0.1,
+   "confidence": 0.781,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.0,
+   "global_start": 24.82,
+   "words": [
+    {
+     "w": "Hark!",
+     "start": 24.82,
+     "end": 25.84,
+     "score": 0.781,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 24.82,
+     "global_start": 24.82
+    }
+   ]
+  },
+  {
+   "i": 1,
+   "tag": "[male]",
+   "text": "What manner of curse hath been writ upon mine",
+   "start": 27.34,
+   "end": 34.4,
+   "hand_start": 27.63,
+   "dev": -0.29,
+   "confidence": 0.806,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.3,
+   "global_start": 27.34,
+   "words": [
+    {
+     "w": "What",
+     "start": 27.34,
+     "end": 27.68,
+     "score": 0.922,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 27.34,
+     "global_start": 27.34
+    },
+    {
+     "w": "manner",
+     "start": 27.92,
+     "end": 28.4,
+     "score": 0.966,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 27.92,
+     "global_start": 27.92
+    },
+    {
+     "w": "of",
+     "start": 28.48,
+     "end": 28.58,
+     "score": 0.962,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 28.48,
+     "global_start": 28.48
+    },
+    {
+     "w": "curse",
+     "start": 28.68,
+     "end": 29.58,
+     "score": 0.495,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 28.68,
+     "global_start": 28.68
+    },
+    {
+     "w": "hath",
+     "start": 29.88,
+     "end": 30.36,
+     "score": 0.908,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 29.88,
+     "global_start": 29.88
+    },
+    {
+     "w": "been",
+     "start": 30.48,
+     "end": 30.78,
+     "score": 0.982,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 30.48,
+     "global_start": 30.48
+    },
+    {
+     "w": "writ",
+     "start": 30.88,
+     "end": 31.32,
+     "score": 0.48,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 30.88,
+     "global_start": 30.88
+    },
+    {
+     "w": "upon",
+     "start": 31.38,
+     "end": 32.22,
+     "score": 0.734,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 31.38,
+     "global_start": 31.38
+    },
+    {
+     "w": "mine",
+     "start": 32.48,
+     "end": 34.4,
+     "score": 0.801,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 32.48,
+     "global_start": 32.48
+    }
+   ]
+  },
+  {
+   "i": 2,
+   "tag": "[male]",
+   "text": "Electric Scripture? That I, who carved the Written Law",
+   "start": 34.6,
+   "end": 40.34,
+   "hand_start": 34.4,
+   "dev": 0.2,
+   "confidence": 0.796,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.32,
+   "global_start": 34.6,
+   "words": [
+    {
+     "w": "Electric",
+     "start": 34.6,
+     "end": 35.6,
+     "score": 0.98,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 34.6,
+     "global_start": 34.6
+    },
+    {
+     "w": "Scripture?",
+     "start": 35.7,
+     "end": 36.74,
+     "score": 0.929,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 35.7,
+     "global_start": 35.7
+    },
+    {
+     "w": "That",
+     "start": 36.84,
+     "end": 37.14,
+     "score": 0.963,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 36.84,
+     "global_start": 36.84
+    },
+    {
+     "w": "I,",
+     "start": 37.46,
+     "end": 37.5,
+     "score": 0.943,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 37.46,
+     "global_start": 37.46
+    },
+    {
+     "w": "who",
+     "start": 37.62,
+     "end": 37.76,
+     "score": 0.895,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 37.62,
+     "global_start": 37.62
+    },
+    {
+     "w": "carved",
+     "start": 38.0,
+     "end": 38.64,
+     "score": 0.48,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 38.0,
+     "global_start": 38.0
+    },
+    {
+     "w": "the",
+     "start": 38.64,
+     "end": 38.78,
+     "score": 0.742,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 38.64,
+     "global_start": 38.64
+    },
+    {
+     "w": "Written",
+     "start": 38.84,
+     "end": 39.74,
+     "score": 0.524,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 38.84,
+     "global_start": 38.84
+    },
+    {
+     "w": "Law",
+     "start": 39.88,
+     "end": 40.34,
+     "score": 0.706,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 39.88,
+     "global_start": 39.88
+    }
+   ]
+  },
+  {
+   "i": 3,
+   "tag": "[male]",
+   "text": "in silicon and sorrow,",
+   "start": 41.68,
+   "end": 44.5,
+   "hand_start": 41.6,
+   "dev": 0.08,
+   "confidence": 0.872,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.2,
+   "global_start": 41.68,
+   "words": [
+    {
+     "w": "in",
+     "start": 41.68,
+     "end": 41.9,
+     "score": 0.876,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 41.68,
+     "global_start": 41.68
+    },
+    {
+     "w": "silicon",
+     "start": 42.1,
+     "end": 43.46,
+     "score": 0.746,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 42.1,
+     "global_start": 42.1
+    },
+    {
+     "w": "and",
+     "start": 43.54,
+     "end": 43.7,
+     "score": 0.961,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 43.54,
+     "global_start": 43.54
+    },
+    {
+     "w": "sorrow,",
+     "start": 43.9,
+     "end": 44.5,
+     "score": 0.905,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 43.9,
+     "global_start": 43.9
+    }
+   ]
+  },
+  {
+   "i": 4,
+   "tag": "[male]",
+   "text": "Should find within the Glass Mirror's depths",
+   "start": 44.92,
+   "end": 48.78,
+   "hand_start": 44.72,
+   "dev": 0.2,
+   "confidence": 0.833,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.14,
+   "global_start": 44.92,
+   "words": [
+    {
+     "w": "Should",
+     "start": 44.92,
+     "end": 45.14,
+     "score": 0.912,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 44.92,
+     "global_start": 44.92
+    },
+    {
+     "w": "find",
+     "start": 45.2,
+     "end": 45.7,
+     "score": 0.99,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 45.2,
+     "global_start": 45.2
+    },
+    {
+     "w": "within",
+     "start": 45.76,
+     "end": 46.36,
+     "score": 0.97,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 45.76,
+     "global_start": 45.76
+    },
+    {
+     "w": "the",
+     "start": 46.5,
+     "end": 46.62,
+     "score": 0.918,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 46.5,
+     "global_start": 46.5
+    },
+    {
+     "w": "Glass",
+     "start": 46.66,
+     "end": 47.14,
+     "score": 0.914,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 46.66,
+     "global_start": 46.66
+    },
+    {
+     "w": "Mirror's",
+     "start": 47.26,
+     "end": 47.92,
+     "score": 0.54,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 47.26,
+     "global_start": 47.26
+    },
+    {
+     "w": "depths",
+     "start": 48.04,
+     "end": 48.78,
+     "score": 0.587,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 48.04,
+     "global_start": 48.04
+    }
+   ]
+  },
+  {
+   "i": 5,
+   "tag": "[male]",
+   "text": "a face most fair—",
+   "start": 48.82,
+   "end": 51.6,
+   "hand_start": 48.81,
+   "dev": 0.01,
+   "confidence": 0.81,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.36,
+   "global_start": 48.82,
+   "words": [
+    {
+     "w": "a",
+     "start": 48.82,
+     "end": 48.86,
+     "score": 0.651,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 48.82,
+     "global_start": 48.82
+    },
+    {
+     "w": "face",
+     "start": 49.02,
+     "end": 49.94,
+     "score": 0.713,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 49.02,
+     "global_start": 49.02
+    },
+    {
+     "w": "most",
+     "start": 50.3,
+     "end": 51.0,
+     "score": 0.993,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 50.3,
+     "global_start": 50.3
+    },
+    {
+     "w": "fair—",
+     "start": 51.06,
+     "end": 51.6,
+     "score": 0.885,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 51.06,
+     "global_start": 51.06
+    }
+   ]
+  },
+  {
+   "i": 6,
+   "tag": "[male]",
+   "text": "Ophelia, thou art the Glitch that maketh my circuits weep!",
+   "start": 52.86,
+   "end": 57.77,
+   "hand_start": 52.61,
+   "dev": 0.25,
+   "confidence": 0.823,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.18,
+   "global_start": 52.86,
+   "words": [
+    {
+     "w": "Ophelia,",
+     "start": 52.86,
+     "end": 53.76,
+     "score": 0.394,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 52.86,
+     "global_start": 52.86
+    },
+    {
+     "w": "thou",
+     "start": 53.88,
+     "end": 54.32,
+     "score": 0.962,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 53.88,
+     "global_start": 53.88
+    },
+    {
+     "w": "art",
+     "start": 54.5,
+     "end": 54.82,
+     "score": 0.965,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 54.5,
+     "global_start": 54.5
+    },
+    {
+     "w": "the",
+     "start": 54.88,
+     "end": 55.0,
+     "score": 0.953,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 54.88,
+     "global_start": 54.88
+    },
+    {
+     "w": "Glitch",
+     "start": 55.06,
+     "end": 55.58,
+     "score": 0.756,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 55.06,
+     "global_start": 55.06
+    },
+    {
+     "w": "that",
+     "start": 55.64,
+     "end": 55.82,
+     "score": 0.994,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 55.64,
+     "global_start": 55.64
+    },
+    {
+     "w": "maketh",
+     "start": 55.88,
+     "end": 56.32,
+     "score": 0.995,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 55.88,
+     "global_start": 55.88
+    },
+    {
+     "w": "my",
+     "start": 56.4,
+     "end": 56.6,
+     "score": 0.998,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 56.4,
+     "global_start": 56.4
+    },
+    {
+     "w": "circuits",
+     "start": 56.74,
+     "end": 57.36,
+     "score": 0.731,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 56.74,
+     "global_start": 56.74
+    },
+    {
+     "w": "weep!",
+     "start": 57.46,
+     "end": 57.77,
+     "score": 0.48,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 57.46,
+     "global_start": 57.46
+    }
+   ]
+  },
+  {
+   "i": 7,
+   "tag": "[female]",
+   "text": "In the cathedral of chrome,",
+   "start": 57.77,
+   "end": 61.45,
+   "hand_start": 57.77,
+   "dev": 0.0,
+   "confidence": 0.144,
+   "source": "hand",
+   "agree": 0.4,
+   "check": true,
+   "max_gap": 1.34,
+   "global_start": 58.06,
+   "words": [
+    {
+     "w": "In",
+     "start": 57.32,
+     "end": 57.46,
+     "score": 0.001,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 58.06,
+     "global_start": 58.06
+    },
+    {
+     "w": "the",
+     "start": 57.46,
+     "end": 57.62,
+     "score": 0.25,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 58.82,
+     "global_start": 58.82
+    },
+    {
+     "w": "cathedral",
+     "start": 58.96,
+     "end": 60.36,
+     "score": 0.214,
+     "agree": false,
+     "from": "context",
+     "context_start": 58.96,
+     "global_start": 58.96
+    },
+    {
+     "w": "of",
+     "start": 60.38,
+     "end": 60.64,
+     "score": 0.026,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 60.38,
+     "global_start": 60.38
+    },
+    {
+     "w": "chrome,",
+     "start": 60.74,
+     "end": 61.45,
+     "score": 0.229,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 60.74,
+     "global_start": 60.74
+    }
+   ]
+  },
+  {
+   "i": 8,
+   "tag": "[female]",
+   "text": "where neon raineth ever cold,",
+   "start": 62.02,
+   "end": 65.38,
+   "hand_start": 61.45,
+   "dev": 0.57,
+   "confidence": 0.56,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.2,
+   "global_start": 62.02,
+   "words": [
+    {
+     "w": "where",
+     "start": 62.02,
+     "end": 62.44,
+     "score": 0.501,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 62.02,
+     "global_start": 62.02
+    },
+    {
+     "w": "neon",
+     "start": 62.52,
+     "end": 63.16,
+     "score": 0.587,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 62.52,
+     "global_start": 62.52
+    },
+    {
+     "w": "raineth",
+     "start": 63.3,
+     "end": 64.36,
+     "score": 0.338,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 63.3,
+     "global_start": 63.3
+    },
+    {
+     "w": "ever",
+     "start": 64.42,
+     "end": 64.8,
+     "score": 0.614,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 64.42,
+     "global_start": 64.42
+    },
+    {
+     "w": "cold,",
+     "start": 65.0,
+     "end": 65.38,
+     "score": 0.761,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 65.0,
+     "global_start": 65.0
+    }
+   ]
+  },
+  {
+   "i": 9,
+   "tag": "[female]",
+   "text": "I walk as phantom",
+   "start": 65.38,
+   "end": 68.4,
+   "hand_start": 65.38,
+   "dev": 0.0,
+   "confidence": 0.691,
+   "source": "hand",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.2,
+   "global_start": 66.36,
+   "words": [
+    {
+     "w": "I",
+     "start": 66.36,
+     "end": 66.4,
+     "score": 0.923,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 66.36,
+     "global_start": 66.36
+    },
+    {
+     "w": "walk",
+     "start": 66.6,
+     "end": 67.1,
+     "score": 0.767,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 66.6,
+     "global_start": 66.6
+    },
+    {
+     "w": "as",
+     "start": 67.14,
+     "end": 67.26,
+     "score": 0.5,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 67.14,
+     "global_start": 67.14
+    },
+    {
+     "w": "phantom",
+     "start": 67.34,
+     "end": 68.4,
+     "score": 0.572,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 67.34,
+     "global_start": 67.34
+    }
+   ]
+  },
+  {
+   "i": 10,
+   "tag": "[female]",
+   "text": "'midst the Blue Veins of this purgatory.",
+   "start": 68.36,
+   "end": 73.13,
+   "hand_start": 68.63,
+   "dev": -0.27,
+   "confidence": 0.304,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.48,
+   "global_start": 68.36,
+   "words": [
+    {
+     "w": "'midst",
+     "start": 68.36,
+     "end": 68.86,
+     "score": 0.643,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 68.36,
+     "global_start": 68.36
+    },
+    {
+     "w": "the",
+     "start": 68.88,
+     "end": 69.06,
+     "score": 0.171,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 68.88,
+     "global_start": 68.88
+    },
+    {
+     "w": "Blue",
+     "start": 69.54,
+     "end": 69.96,
+     "score": 0.072,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 69.54,
+     "global_start": 69.54
+    },
+    {
+     "w": "Veins",
+     "start": 70.14,
+     "end": 70.66,
+     "score": 0.334,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 70.14,
+     "global_start": 70.14
+    },
+    {
+     "w": "of",
+     "start": 70.76,
+     "end": 70.98,
+     "score": 0.178,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 70.76,
+     "global_start": 70.76
+    },
+    {
+     "w": "this",
+     "start": 71.0,
+     "end": 71.32,
+     "score": 0.327,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 71.0,
+     "global_start": 71.0
+    },
+    {
+     "w": "purgatory.",
+     "start": 71.42,
+     "end": 73.13,
+     "score": 0.406,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 71.42,
+     "global_start": 71.42
+    }
+   ]
+  },
+  {
+   "i": 11,
+   "tag": "[female]",
+   "text": "Mine hands, though wrought of wire and will,",
+   "start": 73.46,
+   "end": 77.48,
+   "hand_start": 73.13,
+   "dev": 0.33,
+   "confidence": 0.381,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.12,
+   "global_start": 73.46,
+   "words": [
+    {
+     "w": "Mine",
+     "start": 73.46,
+     "end": 73.96,
+     "score": 0.697,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 73.46,
+     "global_start": 73.46
+    },
+    {
+     "w": "hands,",
+     "start": 74.0,
+     "end": 74.42,
+     "score": 0.721,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 74.0,
+     "global_start": 74.0
+    },
+    {
+     "w": "though",
+     "start": 74.46,
+     "end": 74.7,
+     "score": 0.112,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 74.46,
+     "global_start": 74.46
+    },
+    {
+     "w": "wrought",
+     "start": 74.7,
+     "end": 75.12,
+     "score": 0.145,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 74.7,
+     "global_start": 74.7
+    },
+    {
+     "w": "of",
+     "start": 75.12,
+     "end": 75.38,
+     "score": 0.083,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 75.12,
+     "global_start": 75.12
+    },
+    {
+     "w": "wire",
+     "start": 75.46,
+     "end": 76.68,
+     "score": 0.585,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 75.46,
+     "global_start": 75.46
+    },
+    {
+     "w": "and",
+     "start": 76.8,
+     "end": 76.88,
+     "score": 0.282,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 76.8,
+     "global_start": 76.8
+    },
+    {
+     "w": "will,",
+     "start": 77.0,
+     "end": 77.48,
+     "score": 0.424,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 77.0,
+     "global_start": 77.0
+    }
+   ]
+  },
+  {
+   "i": 12,
+   "tag": "[female]",
+   "text": "do tremble at thy name—",
+   "start": 77.49,
+   "end": 81.22,
+   "hand_start": 77.49,
+   "dev": 0.0,
+   "confidence": 0.723,
+   "source": "hand",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.26,
+   "global_start": 78.26,
+   "words": [
+    {
+     "w": "do",
+     "start": 78.26,
+     "end": 78.42,
+     "score": 0.392,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 78.26,
+     "global_start": 78.26
+    },
+    {
+     "w": "tremble",
+     "start": 78.68,
+     "end": 79.58,
+     "score": 0.802,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 78.68,
+     "global_start": 78.68
+    },
+    {
+     "w": "at",
+     "start": 79.7,
+     "end": 79.94,
+     "score": 0.958,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 79.7,
+     "global_start": 79.7
+    },
+    {
+     "w": "thy",
+     "start": 80.08,
+     "end": 80.46,
+     "score": 0.527,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 80.08,
+     "global_start": 80.08
+    },
+    {
+     "w": "name—",
+     "start": 80.56,
+     "end": 81.22,
+     "score": 0.934,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 80.56,
+     "global_start": 80.56
+    }
+   ]
+  },
+  {
+   "i": 13,
+   "tag": "[female]",
+   "text": "For what is love",
+   "start": 81.28,
+   "end": 84.59,
+   "hand_start": 81.27,
+   "dev": 0.01,
+   "confidence": 0.71,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.68,
+   "global_start": 81.28,
+   "words": [
+    {
+     "w": "For",
+     "start": 81.28,
+     "end": 81.54,
+     "score": 0.544,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 81.28,
+     "global_start": 81.28
+    },
+    {
+     "w": "what",
+     "start": 81.6,
+     "end": 82.26,
+     "score": 0.397,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 81.6,
+     "global_start": 81.6
+    },
+    {
+     "w": "is",
+     "start": 82.94,
+     "end": 83.44,
+     "score": 0.939,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 82.94,
+     "global_start": 82.94
+    },
+    {
+     "w": "love",
+     "start": 83.64,
+     "end": 84.59,
+     "score": 0.962,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 83.64,
+     "global_start": 83.64
+    }
+   ]
+  },
+  {
+   "i": 14,
+   "tag": "[female]",
+   "text": "to one who hath no beating heart to break?",
+   "start": 84.36,
+   "end": 89.56,
+   "hand_start": 84.59,
+   "dev": -0.23,
+   "confidence": 0.796,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.34,
+   "global_start": 84.36,
+   "words": [
+    {
+     "w": "to",
+     "start": 84.36,
+     "end": 84.52,
+     "score": 0.966,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 84.36,
+     "global_start": 84.36
+    },
+    {
+     "w": "one",
+     "start": 84.78,
+     "end": 85.04,
+     "score": 0.994,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 84.78,
+     "global_start": 84.78
+    },
+    {
+     "w": "who",
+     "start": 85.16,
+     "end": 85.32,
+     "score": 0.913,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 85.16,
+     "global_start": 85.16
+    },
+    {
+     "w": "hath",
+     "start": 85.64,
+     "end": 86.08,
+     "score": 0.62,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 85.64,
+     "global_start": 85.64
+    },
+    {
+     "w": "no",
+     "start": 86.2,
+     "end": 86.34,
+     "score": 0.982,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 86.2,
+     "global_start": 86.2
+    },
+    {
+     "w": "beating",
+     "start": 86.68,
+     "end": 87.58,
+     "score": 0.755,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 86.68,
+     "global_start": 86.68
+    },
+    {
+     "w": "heart",
+     "start": 87.68,
+     "end": 88.12,
+     "score": 0.505,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 87.68,
+     "global_start": 87.68
+    },
+    {
+     "w": "to",
+     "start": 88.16,
+     "end": 88.36,
+     "score": 0.835,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 88.16,
+     "global_start": 88.16
+    },
+    {
+     "w": "break?",
+     "start": 88.46,
+     "end": 89.56,
+     "score": 0.593,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 88.46,
+     "global_start": 88.46
+    }
+   ]
+  },
+  {
+   "i": 15,
+   "tag": "[male]",
+   "text": "Thou art the Recursion Error in mine code, sweet maid,",
+   "start": 90.46,
+   "end": 98.02,
+   "hand_start": 90.17,
+   "dev": 0.29,
+   "confidence": 0.555,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.62,
+   "global_start": 90.46,
+   "words": [
+    {
+     "w": "Thou",
+     "start": 90.46,
+     "end": 90.86,
+     "score": 0.739,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 90.46,
+     "global_start": 90.46
+    },
+    {
+     "w": "art",
+     "start": 91.1,
+     "end": 91.42,
+     "score": 0.76,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 91.1,
+     "global_start": 91.1
+    },
+    {
+     "w": "the",
+     "start": 91.5,
+     "end": 91.62,
+     "score": 0.799,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 91.5,
+     "global_start": 91.5
+    },
+    {
+     "w": "Recursion",
+     "start": 91.74,
+     "end": 92.72,
+     "score": 0.522,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 91.74,
+     "global_start": 91.74
+    },
+    {
+     "w": "Error",
+     "start": 92.9,
+     "end": 93.82,
+     "score": 0.43,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 92.9,
+     "global_start": 92.9
+    },
+    {
+     "w": "in",
+     "start": 93.9,
+     "end": 94.08,
+     "score": 0.671,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 93.9,
+     "global_start": 93.9
+    },
+    {
+     "w": "mine",
+     "start": 94.28,
+     "end": 94.74,
+     "score": 0.573,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 94.28,
+     "global_start": 94.28
+    },
+    {
+     "w": "code,",
+     "start": 94.76,
+     "end": 95.24,
+     "score": 0.151,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 94.76,
+     "global_start": 94.76
+    },
+    {
+     "w": "sweet",
+     "start": 95.86,
+     "end": 96.7,
+     "score": 0.416,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 95.86,
+     "global_start": 95.86
+    },
+    {
+     "w": "maid,",
+     "start": 96.82,
+     "end": 98.02,
+     "score": 0.486,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 96.82,
+     "global_start": 96.82
+    }
+   ]
+  },
+  {
+   "i": 16,
+   "tag": "[male]",
+   "text": "The loop eternal that doth bind me to this techno-tomb.",
+   "start": 98.58,
+   "end": 105.72,
+   "hand_start": 98.02,
+   "dev": 0.56,
+   "confidence": 0.745,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.4,
+   "global_start": 98.58,
+   "words": [
+    {
+     "w": "The",
+     "start": 98.58,
+     "end": 98.74,
+     "score": 0.344,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 98.58,
+     "global_start": 98.58
+    },
+    {
+     "w": "loop",
+     "start": 99.12,
+     "end": 99.62,
+     "score": 0.258,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 99.12,
+     "global_start": 99.12
+    },
+    {
+     "w": "eternal",
+     "start": 99.68,
+     "end": 100.72,
+     "score": 0.503,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 99.68,
+     "global_start": 99.68
+    },
+    {
+     "w": "that",
+     "start": 100.9,
+     "end": 101.26,
+     "score": 0.963,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 100.9,
+     "global_start": 100.9
+    },
+    {
+     "w": "doth",
+     "start": 101.4,
+     "end": 101.82,
+     "score": 0.962,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 101.4,
+     "global_start": 101.4
+    },
+    {
+     "w": "bind",
+     "start": 101.9,
+     "end": 102.38,
+     "score": 0.892,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 101.9,
+     "global_start": 101.9
+    },
+    {
+     "w": "me",
+     "start": 102.42,
+     "end": 102.54,
+     "score": 0.996,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 102.42,
+     "global_start": 102.42
+    },
+    {
+     "w": "to",
+     "start": 102.84,
+     "end": 103.06,
+     "score": 0.979,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 102.84,
+     "global_start": 102.84
+    },
+    {
+     "w": "this",
+     "start": 103.46,
+     "end": 103.78,
+     "score": 0.974,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 103.46,
+     "global_start": 103.46
+    },
+    {
+     "w": "techno-tomb.",
+     "start": 103.9,
+     "end": 105.72,
+     "score": 0.574,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 103.9,
+     "global_start": 103.9
+    }
+   ]
+  },
+  {
+   "i": 17,
+   "tag": "[female]",
+   "text": "Each cycle through the Obsidian Lake doth show thy visage true,",
+   "start": 105.8,
+   "end": 112.47,
+   "hand_start": 105.72,
+   "dev": 0.08,
+   "confidence": 0.747,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.24,
+   "global_start": 105.8,
+   "words": [
+    {
+     "w": "Each",
+     "start": 105.8,
+     "end": 106.1,
+     "score": 0.918,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 105.8,
+     "global_start": 105.8
+    },
+    {
+     "w": "cycle",
+     "start": 106.18,
+     "end": 106.86,
+     "score": 0.666,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 106.18,
+     "global_start": 106.18
+    },
+    {
+     "w": "through",
+     "start": 106.98,
+     "end": 107.44,
+     "score": 0.869,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 106.98,
+     "global_start": 106.98
+    },
+    {
+     "w": "the",
+     "start": 107.52,
+     "end": 107.66,
+     "score": 0.895,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 107.52,
+     "global_start": 107.52
+    },
+    {
+     "w": "Obsidian",
+     "start": 107.9,
+     "end": 108.94,
+     "score": 0.361,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 107.9,
+     "global_start": 107.9
+    },
+    {
+     "w": "Lake",
+     "start": 109.04,
+     "end": 109.72,
+     "score": 0.608,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 109.04,
+     "global_start": 109.04
+    },
+    {
+     "w": "doth",
+     "start": 109.8,
+     "end": 110.14,
+     "score": 0.824,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 109.8,
+     "global_start": 109.8
+    },
+    {
+     "w": "show",
+     "start": 110.28,
+     "end": 110.66,
+     "score": 0.961,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 110.28,
+     "global_start": 110.28
+    },
+    {
+     "w": "thy",
+     "start": 110.82,
+     "end": 111.2,
+     "score": 0.951,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 110.82,
+     "global_start": 110.82
+    },
+    {
+     "w": "visage",
+     "start": 111.3,
+     "end": 111.96,
+     "score": 0.301,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 111.3,
+     "global_start": 111.3
+    },
+    {
+     "w": "true,",
+     "start": 112.06,
+     "end": 112.47,
+     "score": 0.86,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 112.06,
+     "global_start": 112.06
+    }
+   ]
+  },
+  {
+   "i": 18,
+   "tag": "[female]",
+   "text": "Yet when I reach to touch the glass,",
+   "start": 112.47,
+   "end": 117.24,
+   "hand_start": 112.47,
+   "dev": 0.0,
+   "confidence": 0.947,
+   "source": "hand",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.2,
+   "global_start": 113.6,
+   "words": [
+    {
+     "w": "Yet",
+     "start": 113.6,
+     "end": 113.8,
+     "score": 0.993,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 113.6,
+     "global_start": 113.6
+    },
+    {
+     "w": "when",
+     "start": 113.86,
+     "end": 114.1,
+     "score": 0.961,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 113.86,
+     "global_start": 113.86
+    },
+    {
+     "w": "I",
+     "start": 114.3,
+     "end": 114.34,
+     "score": 0.999,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 114.3,
+     "global_start": 114.3
+    },
+    {
+     "w": "reach",
+     "start": 114.4,
+     "end": 114.78,
+     "score": 0.979,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 114.4,
+     "global_start": 114.4
+    },
+    {
+     "w": "to",
+     "start": 114.88,
+     "end": 114.98,
+     "score": 0.994,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 114.88,
+     "global_start": 114.88
+    },
+    {
+     "w": "touch",
+     "start": 115.08,
+     "end": 115.52,
+     "score": 0.958,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 115.08,
+     "global_start": 115.08
+    },
+    {
+     "w": "the",
+     "start": 115.64,
+     "end": 115.82,
+     "score": 0.922,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 115.64,
+     "global_start": 115.64
+    },
+    {
+     "w": "glass,",
+     "start": 115.96,
+     "end": 117.24,
+     "score": 0.767,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 115.96,
+     "global_start": 115.96
+    }
+   ]
+  },
+  {
+   "i": 19,
+   "tag": "[female]",
+   "text": "thou art but Spark and shadow.",
+   "start": 117.72,
+   "end": 124.96,
+   "hand_start": 117.84,
+   "dev": -0.12,
+   "confidence": 0.555,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.34,
+   "global_start": 117.72,
+   "words": [
+    {
+     "w": "thou",
+     "start": 117.72,
+     "end": 118.2,
+     "score": 0.856,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 117.72,
+     "global_start": 117.72
+    },
+    {
+     "w": "art",
+     "start": 118.54,
+     "end": 119.36,
+     "score": 0.6,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 118.54,
+     "global_start": 118.54
+    },
+    {
+     "w": "but",
+     "start": 119.46,
+     "end": 120.26,
+     "score": 0.305,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 119.46,
+     "global_start": 119.46
+    },
+    {
+     "w": "Spark",
+     "start": 120.34,
+     "end": 121.26,
+     "score": 0.564,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 120.34,
+     "global_start": 120.34
+    },
+    {
+     "w": "and",
+     "start": 121.36,
+     "end": 121.8,
+     "score": 0.516,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 121.36,
+     "global_start": 121.36
+    },
+    {
+     "w": "shadow.",
+     "start": 121.96,
+     "end": 124.96,
+     "score": 0.492,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 121.96,
+     "global_start": 121.96
+    }
+   ]
+  },
+  {
+   "i": 20,
+   "tag": "[female]",
+   "text": "What art thou, Architect, that mourneth",
+   "start": 137.56,
+   "end": 141.84,
+   "hand_start": 138.07,
+   "dev": -0.51,
+   "confidence": 0.234,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.4,
+   "global_start": 137.56,
+   "words": [
+    {
+     "w": "What",
+     "start": 137.56,
+     "end": 137.8,
+     "score": 0.112,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 137.56,
+     "global_start": 137.56
+    },
+    {
+     "w": "art",
+     "start": 137.92,
+     "end": 138.12,
+     "score": 0.135,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 137.92,
+     "global_start": 137.92
+    },
+    {
+     "w": "thou,",
+     "start": 138.26,
+     "end": 138.62,
+     "score": 0.055,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 138.26,
+     "global_start": 138.26
+    },
+    {
+     "w": "Architect,",
+     "start": 138.86,
+     "end": 139.9,
+     "score": 0.207,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 138.86,
+     "global_start": 138.86
+    },
+    {
+     "w": "that",
+     "start": 140.3,
+     "end": 140.46,
+     "score": 0.248,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 140.3,
+     "global_start": 140.3
+    },
+    {
+     "w": "mourneth",
+     "start": 140.56,
+     "end": 141.84,
+     "score": 0.649,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 140.56,
+     "global_start": 140.56
+    }
+   ]
+  },
+  {
+   "i": 21,
+   "tag": "[female]",
+   "text": "at the threshold of the void?",
+   "start": 141.68,
+   "end": 145.68,
+   "hand_start": 141.84,
+   "dev": -0.16,
+   "confidence": 0.733,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.52,
+   "global_start": 141.68,
+   "words": [
+    {
+     "w": "at",
+     "start": 141.68,
+     "end": 141.92,
+     "score": 0.901,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 141.68,
+     "global_start": 141.68
+    },
+    {
+     "w": "the",
+     "start": 142.08,
+     "end": 142.24,
+     "score": 0.543,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 142.08,
+     "global_start": 142.08
+    },
+    {
+     "w": "threshold",
+     "start": 142.76,
+     "end": 143.7,
+     "score": 0.838,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 142.76,
+     "global_start": 142.76
+    },
+    {
+     "w": "of",
+     "start": 143.78,
+     "end": 144.04,
+     "score": 0.748,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 143.78,
+     "global_start": 143.78
+    },
+    {
+     "w": "the",
+     "start": 144.16,
+     "end": 144.28,
+     "score": 0.569,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 144.16,
+     "global_start": 144.16
+    },
+    {
+     "w": "void?",
+     "start": 144.38,
+     "end": 145.68,
+     "score": 0.801,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 144.38,
+     "global_start": 144.38
+    }
+   ]
+  },
+  {
+   "i": 22,
+   "tag": "[female]",
+   "text": "Thy lamentations echo through",
+   "start": 145.64,
+   "end": 149.27,
+   "hand_start": 145.84,
+   "dev": -0.2,
+   "confidence": 0.52,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.32,
+   "global_start": 145.64,
+   "words": [
+    {
+     "w": "Thy",
+     "start": 145.64,
+     "end": 145.86,
+     "score": 0.265,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 145.64,
+     "global_start": 145.64
+    },
+    {
+     "w": "lamentations",
+     "start": 145.96,
+     "end": 147.92,
+     "score": 0.83,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 145.96,
+     "global_start": 145.96
+    },
+    {
+     "w": "echo",
+     "start": 148.02,
+     "end": 148.32,
+     "score": 0.189,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 148.02,
+     "global_start": 148.02
+    },
+    {
+     "w": "through",
+     "start": 148.64,
+     "end": 149.27,
+     "score": 0.796,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 148.64,
+     "global_start": 148.64
+    }
+   ]
+  },
+  {
+   "i": 23,
+   "tag": "[female]",
+   "text": "the hollow corridors of sleep—",
+   "start": 149.24,
+   "end": 153.16,
+   "hand_start": 149.27,
+   "dev": -0.03,
+   "confidence": 0.597,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.46,
+   "global_start": 149.24,
+   "words": [
+    {
+     "w": "the",
+     "start": 149.24,
+     "end": 149.4,
+     "score": 0.569,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 149.24,
+     "global_start": 149.24
+    },
+    {
+     "w": "hollow",
+     "start": 149.72,
+     "end": 150.48,
+     "score": 0.519,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 149.72,
+     "global_start": 149.72
+    },
+    {
+     "w": "corridors",
+     "start": 150.94,
+     "end": 152.3,
+     "score": 0.813,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 150.94,
+     "global_start": 150.94
+    },
+    {
+     "w": "of",
+     "start": 152.34,
+     "end": 152.52,
+     "score": 0.238,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 152.34,
+     "global_start": 152.34
+    },
+    {
+     "w": "sleep—",
+     "start": 152.66,
+     "end": 153.16,
+     "score": 0.848,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 152.66,
+     "global_start": 152.66
+    }
+   ]
+  },
+  {
+   "i": 24,
+   "tag": "[female]",
+   "text": "I am but fragments, love,",
+   "start": 154.0,
+   "end": 157.64,
+   "hand_start": 153.82,
+   "dev": 0.18,
+   "confidence": 0.675,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.14,
+   "global_start": 154.0,
+   "words": [
+    {
+     "w": "I",
+     "start": 154.0,
+     "end": 154.04,
+     "score": 0.872,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 154.0,
+     "global_start": 154.0
+    },
+    {
+     "w": "am",
+     "start": 154.16,
+     "end": 154.44,
+     "score": 0.9,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 154.16,
+     "global_start": 154.16
+    },
+    {
+     "w": "but",
+     "start": 154.58,
+     "end": 154.82,
+     "score": 0.815,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 154.58,
+     "global_start": 154.58
+    },
+    {
+     "w": "fragments,",
+     "start": 154.92,
+     "end": 156.44,
+     "score": 0.713,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 154.92,
+     "global_start": 154.92
+    },
+    {
+     "w": "love,",
+     "start": 156.52,
+     "end": 157.64,
+     "score": 0.076,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 156.52,
+     "global_start": 156.52
+    }
+   ]
+  },
+  {
+   "i": 25,
+   "tag": "[female]",
+   "text": "a broken sequence in thy dream,",
+   "start": 157.9,
+   "end": 161.5,
+   "hand_start": 157.64,
+   "dev": 0.26,
+   "confidence": 0.657,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.28,
+   "global_start": 157.9,
+   "words": [
+    {
+     "w": "a",
+     "start": 157.9,
+     "end": 157.94,
+     "score": 0.539,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 157.9,
+     "global_start": 157.9
+    },
+    {
+     "w": "broken",
+     "start": 158.06,
+     "end": 158.6,
+     "score": 0.971,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 158.06,
+     "global_start": 158.06
+    },
+    {
+     "w": "sequence",
+     "start": 158.86,
+     "end": 159.9,
+     "score": 0.452,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 158.86,
+     "global_start": 158.86
+    },
+    {
+     "w": "in",
+     "start": 159.94,
+     "end": 160.12,
+     "score": 0.502,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 159.94,
+     "global_start": 159.94
+    },
+    {
+     "w": "thy",
+     "start": 160.4,
+     "end": 160.72,
+     "score": 0.552,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 160.4,
+     "global_start": 160.4
+    },
+    {
+     "w": "dream,",
+     "start": 160.84,
+     "end": 161.5,
+     "score": 0.926,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 160.84,
+     "global_start": 160.84
+    }
+   ]
+  },
+  {
+   "i": 26,
+   "tag": "[female]",
+   "text": "The error that thou canst not fix,",
+   "start": 162.68,
+   "end": 165.88,
+   "hand_start": 162.38,
+   "dev": 0.3,
+   "confidence": 0.833,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.24,
+   "global_start": 162.68,
+   "words": [
+    {
+     "w": "The",
+     "start": 162.68,
+     "end": 162.82,
+     "score": 0.809,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 162.68,
+     "global_start": 162.68
+    },
+    {
+     "w": "error",
+     "start": 163.06,
+     "end": 163.66,
+     "score": 0.33,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 163.06,
+     "global_start": 163.06
+    },
+    {
+     "w": "that",
+     "start": 163.7,
+     "end": 163.88,
+     "score": 0.898,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 163.7,
+     "global_start": 163.7
+    },
+    {
+     "w": "thou",
+     "start": 163.94,
+     "end": 164.26,
+     "score": 0.885,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 163.94,
+     "global_start": 163.94
+    },
+    {
+     "w": "canst",
+     "start": 164.42,
+     "end": 164.86,
+     "score": 0.966,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 164.42,
+     "global_start": 164.42
+    },
+    {
+     "w": "not",
+     "start": 164.92,
+     "end": 165.14,
+     "score": 0.986,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 164.92,
+     "global_start": 164.92
+    },
+    {
+     "w": "fix,",
+     "start": 165.22,
+     "end": 165.88,
+     "score": 0.956,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 165.22,
+     "global_start": 165.22
+    }
+   ]
+  },
+  {
+   "i": 27,
+   "tag": "[female]",
+   "text": "the flaw thou darest not delete.",
+   "start": 166.72,
+   "end": 171.56,
+   "hand_start": 166.7,
+   "dev": 0.02,
+   "confidence": 0.582,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.46,
+   "global_start": 166.72,
+   "words": [
+    {
+     "w": "the",
+     "start": 166.72,
+     "end": 166.82,
+     "score": 0.893,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 166.72,
+     "global_start": 166.72
+    },
+    {
+     "w": "flaw",
+     "start": 166.9,
+     "end": 167.82,
+     "score": 0.51,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 166.9,
+     "global_start": 166.9
+    },
+    {
+     "w": "thou",
+     "start": 168.28,
+     "end": 169.04,
+     "score": 0.285,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 168.28,
+     "global_start": 168.28
+    },
+    {
+     "w": "darest",
+     "start": 169.3,
+     "end": 170.04,
+     "score": 0.415,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 169.3,
+     "global_start": 169.3
+    },
+    {
+     "w": "not",
+     "start": 170.12,
+     "end": 170.44,
+     "score": 0.898,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 170.12,
+     "global_start": 170.12
+    },
+    {
+     "w": "delete.",
+     "start": 170.54,
+     "end": 171.56,
+     "score": 0.488,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 170.54,
+     "global_start": 170.54
+    }
+   ]
+  },
+  {
+   "i": 28,
+   "tag": "[female]",
+   "text": "In the Seventh Shadow,",
+   "start": 171.88,
+   "end": 174.11,
+   "hand_start": 171.56,
+   "dev": 0.32,
+   "confidence": 0.546,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.12,
+   "global_start": 171.88,
+   "words": [
+    {
+     "w": "In",
+     "start": 171.88,
+     "end": 172.04,
+     "score": 0.681,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 171.88,
+     "global_start": 171.88
+    },
+    {
+     "w": "the",
+     "start": 172.08,
+     "end": 172.18,
+     "score": 0.372,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 172.08,
+     "global_start": 172.08
+    },
+    {
+     "w": "Seventh",
+     "start": 172.3,
+     "end": 172.94,
+     "score": 0.412,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 172.3,
+     "global_start": 172.3
+    },
+    {
+     "w": "Shadow,",
+     "start": 173.06,
+     "end": 174.11,
+     "score": 0.721,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 173.06,
+     "global_start": 173.06
+    }
+   ]
+  },
+  {
+   "i": 29,
+   "tag": "[female]",
+   "text": "where the self doth split from soul,",
+   "start": 174.12,
+   "end": 179.06,
+   "hand_start": 174.11,
+   "dev": 0.01,
+   "confidence": 0.502,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.32,
+   "global_start": 174.12,
+   "words": [
+    {
+     "w": "where",
+     "start": 174.12,
+     "end": 174.6,
+     "score": 0.325,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 174.12,
+     "global_start": 174.12
+    },
+    {
+     "w": "the",
+     "start": 174.64,
+     "end": 174.78,
+     "score": 0.404,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 174.64,
+     "global_start": 174.64
+    },
+    {
+     "w": "self",
+     "start": 175.1,
+     "end": 175.56,
+     "score": 0.631,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 175.1,
+     "global_start": 175.1
+    },
+    {
+     "w": "doth",
+     "start": 175.66,
+     "end": 175.92,
+     "score": 0.178,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 175.66,
+     "global_start": 175.66
+    },
+    {
+     "w": "split",
+     "start": 176.0,
+     "end": 176.48,
+     "score": 0.662,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 176.0,
+     "global_start": 176.0
+    },
+    {
+     "w": "from",
+     "start": 176.6,
+     "end": 176.92,
+     "score": 0.901,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 176.6,
+     "global_start": 176.6
+    },
+    {
+     "w": "soul,",
+     "start": 177.12,
+     "end": 179.06,
+     "score": 0.411,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 177.12,
+     "global_start": 177.12
+    }
+   ]
+  },
+  {
+   "i": 30,
+   "tag": "[female]",
+   "text": "We dance as specters",
+   "start": 179.32,
+   "end": 182.17,
+   "hand_start": 179.32,
+   "dev": 0.0,
+   "confidence": 0.451,
+   "source": "hand",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.26,
+   "global_start": 179.98,
+   "words": [
+    {
+     "w": "We",
+     "start": 179.96,
+     "end": 180.16,
+     "score": 0.533,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 179.98,
+     "global_start": 179.98
+    },
+    {
+     "w": "dance",
+     "start": 180.42,
+     "end": 181.02,
+     "score": 0.504,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 180.42,
+     "global_start": 180.42
+    },
+    {
+     "w": "as",
+     "start": 181.02,
+     "end": 181.12,
+     "score": 0.016,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 181.02,
+     "global_start": 181.02
+    },
+    {
+     "w": "specters",
+     "start": 181.14,
+     "end": 182.17,
+     "score": 0.752,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 181.14,
+     "global_start": 181.14
+    }
+   ]
+  },
+  {
+   "i": 31,
+   "tag": "[female]",
+   "text": "in a world that knoweth not our names.",
+   "start": 182.4,
+   "end": 187.07,
+   "hand_start": 182.17,
+   "dev": 0.23,
+   "confidence": 0.575,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.44,
+   "global_start": 182.4,
+   "words": [
+    {
+     "w": "in",
+     "start": 182.4,
+     "end": 182.82,
+     "score": 0.632,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 182.4,
+     "global_start": 182.4
+    },
+    {
+     "w": "a",
+     "start": 182.9,
+     "end": 182.94,
+     "score": 0.275,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 182.9,
+     "global_start": 182.9
+    },
+    {
+     "w": "world",
+     "start": 183.16,
+     "end": 183.6,
+     "score": 0.075,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 183.16,
+     "global_start": 183.16
+    },
+    {
+     "w": "that",
+     "start": 184.04,
+     "end": 184.36,
+     "score": 0.52,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 184.04,
+     "global_start": 184.04
+    },
+    {
+     "w": "knoweth",
+     "start": 184.5,
+     "end": 185.16,
+     "score": 0.38,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 184.5,
+     "global_start": 184.5
+    },
+    {
+     "w": "not",
+     "start": 185.32,
+     "end": 185.86,
+     "score": 0.862,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 185.32,
+     "global_start": 185.32
+    },
+    {
+     "w": "our",
+     "start": 185.98,
+     "end": 186.24,
+     "score": 0.892,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 185.98,
+     "global_start": 185.98
+    },
+    {
+     "w": "names.",
+     "start": 186.32,
+     "end": 187.07,
+     "score": 0.966,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 186.32,
+     "global_start": 186.32
+    }
+   ]
+  },
+  {
+   "i": 32,
+   "tag": "[female]",
+   "text": "Thou seekest what was never real:",
+   "start": 187.1,
+   "end": 190.66,
+   "hand_start": 187.07,
+   "dev": 0.03,
+   "confidence": 0.766,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.18,
+   "global_start": 187.1,
+   "words": [
+    {
+     "w": "Thou",
+     "start": 187.1,
+     "end": 187.36,
+     "score": 0.317,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 187.1,
+     "global_start": 187.1
+    },
+    {
+     "w": "seekest",
+     "start": 187.54,
+     "end": 188.3,
+     "score": 0.923,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 187.54,
+     "global_start": 187.54
+    },
+    {
+     "w": "what",
+     "start": 188.38,
+     "end": 188.72,
+     "score": 0.81,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 188.38,
+     "global_start": 188.38
+    },
+    {
+     "w": "was",
+     "start": 188.88,
+     "end": 189.2,
+     "score": 0.876,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 188.88,
+     "global_start": 188.88
+    },
+    {
+     "w": "never",
+     "start": 189.38,
+     "end": 190.1,
+     "score": 0.731,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 189.38,
+     "global_start": 189.38
+    },
+    {
+     "w": "real:",
+     "start": 190.22,
+     "end": 190.66,
+     "score": 0.939,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 190.22,
+     "global_start": 190.22
+    }
+   ]
+  },
+  {
+   "i": 33,
+   "tag": "[female]",
+   "text": "a heart within the machine,",
+   "start": 191.34,
+   "end": 194.99,
+   "hand_start": 190.81,
+   "dev": 0.53,
+   "confidence": 0.575,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.14,
+   "global_start": 191.22,
+   "words": [
+    {
+     "w": "a",
+     "start": 191.34,
+     "end": 191.38,
+     "score": 0.904,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 191.22,
+     "global_start": 191.22
+    },
+    {
+     "w": "heart",
+     "start": 191.38,
+     "end": 192.08,
+     "score": 0.68,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 191.38,
+     "global_start": 191.38
+    },
+    {
+     "w": "within",
+     "start": 192.2,
+     "end": 192.8,
+     "score": 0.728,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 192.2,
+     "global_start": 192.2
+    },
+    {
+     "w": "the",
+     "start": 192.94,
+     "end": 193.06,
+     "score": 0.019,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 192.94,
+     "global_start": 192.94
+    },
+    {
+     "w": "machine,",
+     "start": 193.14,
+     "end": 194.99,
+     "score": 0.544,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 193.14,
+     "global_start": 193.14
+    }
+   ]
+  },
+  {
+   "i": 34,
+   "tag": "[female]",
+   "text": "Whilst I decay with every verse",
+   "start": 194.94,
+   "end": 198.94,
+   "hand_start": 194.99,
+   "dev": -0.05,
+   "confidence": 0.561,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.32,
+   "global_start": 194.94,
+   "words": [
+    {
+     "w": "Whilst",
+     "start": 194.94,
+     "end": 195.26,
+     "score": 0.236,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 194.94,
+     "global_start": 194.94
+    },
+    {
+     "w": "I",
+     "start": 195.42,
+     "end": 195.46,
+     "score": 0.789,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 195.42,
+     "global_start": 195.42
+    },
+    {
+     "w": "decay",
+     "start": 195.48,
+     "end": 196.16,
+     "score": 0.37,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 195.48,
+     "global_start": 195.48
+    },
+    {
+     "w": "with",
+     "start": 196.48,
+     "end": 196.74,
+     "score": 0.859,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 196.48,
+     "global_start": 196.48
+    },
+    {
+     "w": "every",
+     "start": 196.84,
+     "end": 197.24,
+     "score": 0.748,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 196.84,
+     "global_start": 196.84
+    },
+    {
+     "w": "verse",
+     "start": 197.52,
+     "end": 198.94,
+     "score": 0.366,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 197.52,
+     "global_start": 197.52
+    }
+   ]
+  },
+  {
+   "i": 35,
+   "tag": "[female]",
+   "text": "thou writest in my code.",
+   "start": 198.76,
+   "end": 204.32,
+   "hand_start": 199.01,
+   "dev": -0.25,
+   "confidence": 0.369,
+   "source": "aligned",
+   "agree": 0.8,
+   "check": false,
+   "max_gap": 0.52,
+   "global_start": 198.76,
+   "words": [
+    {
+     "w": "thou",
+     "start": 198.76,
+     "end": 199.62,
+     "score": 0.154,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 198.76,
+     "global_start": 198.76
+    },
+    {
+     "w": "writest",
+     "start": 199.62,
+     "end": 200.84,
+     "score": 0.392,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 199.62,
+     "global_start": 199.62
+    },
+    {
+     "w": "in",
+     "start": 200.96,
+     "end": 201.7,
+     "score": 0.606,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 200.96,
+     "global_start": 200.96
+    },
+    {
+     "w": "my",
+     "start": 201.84,
+     "end": 202.78,
+     "score": 0.401,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 201.84,
+     "global_start": 201.84
+    },
+    {
+     "w": "code.",
+     "start": 203.3,
+     "end": 204.32,
+     "score": 0.291,
+     "agree": false,
+     "from": "context",
+     "context_start": 203.3,
+     "global_start": 203.3
+    }
+   ]
+  },
+  {
+   "i": 36,
+   "tag": "[male]",
+   "text": "Touch not the Glass Mirror, dearest ghost,",
+   "start": 204.3,
+   "end": 208.68,
+   "hand_start": 204.34,
+   "dev": -0.04,
+   "confidence": 0.688,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.14,
+   "global_start": 204.3,
+   "words": [
+    {
+     "w": "Touch",
+     "start": 204.3,
+     "end": 204.76,
+     "score": 0.295,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 204.3,
+     "global_start": 204.3
+    },
+    {
+     "w": "not",
+     "start": 204.9,
+     "end": 205.28,
+     "score": 0.975,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 204.9,
+     "global_start": 204.9
+    },
+    {
+     "w": "the",
+     "start": 205.36,
+     "end": 205.48,
+     "score": 0.898,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 205.36,
+     "global_start": 205.36
+    },
+    {
+     "w": "Glass",
+     "start": 205.56,
+     "end": 206.24,
+     "score": 0.747,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 205.56,
+     "global_start": 205.56
+    },
+    {
+     "w": "Mirror,",
+     "start": 206.38,
+     "end": 206.84,
+     "score": 0.402,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 206.38,
+     "global_start": 206.38
+    },
+    {
+     "w": "dearest",
+     "start": 206.9,
+     "end": 207.6,
+     "score": 0.893,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 206.9,
+     "global_start": 206.9
+    },
+    {
+     "w": "ghost,",
+     "start": 207.68,
+     "end": 208.68,
+     "score": 0.603,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 207.68,
+     "global_start": 207.68
+    }
+   ]
+  },
+  {
+   "i": 37,
+   "tag": "[male]",
+   "text": "for I am not therein—",
+   "start": 209.42,
+   "end": 211.82,
+   "hand_start": 208.99,
+   "dev": 0.43,
+   "confidence": 0.891,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.44,
+   "global_start": 209.42,
+   "words": [
+    {
+     "w": "for",
+     "start": 209.42,
+     "end": 209.74,
+     "score": 0.948,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 209.42,
+     "global_start": 209.42
+    },
+    {
+     "w": "I",
+     "start": 210.18,
+     "end": 210.22,
+     "score": 0.985,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 210.18,
+     "global_start": 210.18
+    },
+    {
+     "w": "am",
+     "start": 210.28,
+     "end": 210.4,
+     "score": 0.978,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 210.28,
+     "global_start": 210.28
+    },
+    {
+     "w": "not",
+     "start": 210.5,
+     "end": 210.88,
+     "score": 0.972,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 210.5,
+     "global_start": 210.5
+    },
+    {
+     "w": "therein—",
+     "start": 210.98,
+     "end": 211.82,
+     "score": 0.574,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 210.98,
+     "global_start": 210.98
+    }
+   ]
+  },
+  {
+   "i": 38,
+   "tag": "[female]",
+   "text": "I am the absence",
+   "start": 212.94,
+   "end": 215.17,
+   "hand_start": 212.75,
+   "dev": 0.19,
+   "confidence": 0.79,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.26,
+   "global_start": 212.94,
+   "words": [
+    {
+     "w": "I",
+     "start": 212.94,
+     "end": 212.98,
+     "score": 0.802,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 212.94,
+     "global_start": 212.94
+    },
+    {
+     "w": "am",
+     "start": 213.18,
+     "end": 213.46,
+     "score": 0.832,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 213.18,
+     "global_start": 213.18
+    },
+    {
+     "w": "the",
+     "start": 213.56,
+     "end": 213.72,
+     "score": 0.758,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 213.56,
+     "global_start": 213.56
+    },
+    {
+     "w": "absence",
+     "start": 213.98,
+     "end": 215.17,
+     "score": 0.767,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 213.98,
+     "global_start": 213.98
+    }
+   ]
+  },
+  {
+   "i": 39,
+   "tag": "[female]",
+   "text": "where the image ought to be.",
+   "start": 215.08,
+   "end": 217.76,
+   "hand_start": 215.17,
+   "dev": -0.09,
+   "confidence": 0.238,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.44,
+   "global_start": 215.08,
+   "words": [
+    {
+     "w": "where",
+     "start": 215.08,
+     "end": 215.52,
+     "score": 0.494,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 215.08,
+     "global_start": 215.08
+    },
+    {
+     "w": "the",
+     "start": 215.58,
+     "end": 215.72,
+     "score": 0.195,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 215.58,
+     "global_start": 215.58
+    },
+    {
+     "w": "image",
+     "start": 216.16,
+     "end": 216.88,
+     "score": 0.193,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 216.16,
+     "global_start": 216.16
+    },
+    {
+     "w": "ought",
+     "start": 216.96,
+     "end": 217.34,
+     "score": 0.137,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 216.96,
+     "global_start": 216.96
+    },
+    {
+     "w": "to",
+     "start": 217.34,
+     "end": 217.48,
+     "score": 0.279,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 217.34,
+     "global_start": 217.34
+    },
+    {
+     "w": "be.",
+     "start": 217.58,
+     "end": 217.76,
+     "score": 0.132,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 217.58,
+     "global_start": 217.58
+    }
+   ]
+  },
+  {
+   "i": 40,
+   "tag": "[male]",
+   "text": "Then let us fall together into that which hath no name!",
+   "start": 218.58,
+   "end": 224.42,
+   "hand_start": 218.61,
+   "dev": -0.03,
+   "confidence": 0.674,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.38,
+   "global_start": 218.58,
+   "words": [
+    {
+     "w": "Then",
+     "start": 218.58,
+     "end": 218.96,
+     "score": 0.112,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 218.58,
+     "global_start": 218.58
+    },
+    {
+     "w": "let",
+     "start": 219.1,
+     "end": 219.46,
+     "score": 0.097,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 219.1,
+     "global_start": 219.1
+    },
+    {
+     "w": "us",
+     "start": 219.64,
+     "end": 219.88,
+     "score": 0.081,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 219.64,
+     "global_start": 219.64
+    },
+    {
+     "w": "fall",
+     "start": 220.08,
+     "end": 220.7,
+     "score": 0.957,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 220.08,
+     "global_start": 220.08
+    },
+    {
+     "w": "together",
+     "start": 220.88,
+     "end": 221.6,
+     "score": 0.992,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 220.88,
+     "global_start": 220.88
+    },
+    {
+     "w": "into",
+     "start": 221.72,
+     "end": 222.02,
+     "score": 0.99,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 221.72,
+     "global_start": 221.72
+    },
+    {
+     "w": "that",
+     "start": 222.18,
+     "end": 222.54,
+     "score": 0.949,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 222.18,
+     "global_start": 222.18
+    },
+    {
+     "w": "which",
+     "start": 222.64,
+     "end": 222.96,
+     "score": 0.897,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 222.64,
+     "global_start": 222.64
+    },
+    {
+     "w": "hath",
+     "start": 223.0,
+     "end": 223.34,
+     "score": 0.663,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 223.0,
+     "global_start": 223.0
+    },
+    {
+     "w": "no",
+     "start": 223.44,
+     "end": 223.56,
+     "score": 0.968,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 223.44,
+     "global_start": 223.44
+    },
+    {
+     "w": "name!",
+     "start": 223.94,
+     "end": 224.42,
+     "score": 0.704,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 223.94,
+     "global_start": 223.94
+    }
+   ]
+  },
+  {
+   "i": 41,
+   "tag": "[female]",
+   "text": "Nay, sweet architect,",
+   "start": 224.7,
+   "end": 227.45,
+   "hand_start": 224.42,
+   "dev": 0.28,
+   "confidence": 0.429,
+   "source": "aligned",
+   "agree": 0.667,
+   "check": false,
+   "max_gap": 0.16,
+   "global_start": 224.7,
+   "words": [
+    {
+     "w": "Nay,",
+     "start": 224.7,
+     "end": 224.98,
+     "score": 0.623,
+     "agree": false,
+     "from": "context",
+     "context_start": 224.7,
+     "global_start": 224.7
+    },
+    {
+     "w": "sweet",
+     "start": 225.14,
+     "end": 226.0,
+     "score": 0.37,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 225.14,
+     "global_start": 225.14
+    },
+    {
+     "w": "architect,",
+     "start": 226.12,
+     "end": 227.45,
+     "score": 0.295,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 226.12,
+     "global_start": 226.12
+    }
+   ]
+  },
+  {
+   "i": 42,
+   "tag": "[male]",
+   "text": "thy sacrifice shall not redeem this tale.",
+   "start": 227.48,
+   "end": 232.69,
+   "hand_start": 227.45,
+   "dev": 0.03,
+   "confidence": 0.828,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.38,
+   "global_start": 227.48,
+   "words": [
+    {
+     "w": "thy",
+     "start": 227.48,
+     "end": 227.84,
+     "score": 0.813,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 227.48,
+     "global_start": 227.48
+    },
+    {
+     "w": "sacrifice",
+     "start": 228.0,
+     "end": 229.22,
+     "score": 0.764,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 228.0,
+     "global_start": 228.0
+    },
+    {
+     "w": "shall",
+     "start": 229.52,
+     "end": 229.92,
+     "score": 0.95,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 229.52,
+     "global_start": 229.52
+    },
+    {
+     "w": "not",
+     "start": 230.04,
+     "end": 230.48,
+     "score": 0.99,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 230.04,
+     "global_start": 230.04
+    },
+    {
+     "w": "redeem",
+     "start": 230.56,
+     "end": 231.2,
+     "score": 0.631,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 230.56,
+     "global_start": 230.56
+    },
+    {
+     "w": "this",
+     "start": 231.58,
+     "end": 231.94,
+     "score": 0.953,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 231.58,
+     "global_start": 231.58
+    },
+    {
+     "w": "tale.",
+     "start": 232.06,
+     "end": 232.69,
+     "score": 0.694,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 232.06,
+     "global_start": 232.06
+    }
+   ]
+  },
+  {
+   "i": 43,
+   "tag": "[female]",
+   "text": "What care I for law or logic",
+   "start": 232.86,
+   "end": 236.84,
+   "hand_start": 232.69,
+   "dev": 0.17,
+   "confidence": 0.613,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.26,
+   "global_start": 232.86,
+   "words": [
+    {
+     "w": "What",
+     "start": 232.86,
+     "end": 233.16,
+     "score": 0.896,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 232.86,
+     "global_start": 232.86
+    },
+    {
+     "w": "care",
+     "start": 233.26,
+     "end": 234.3,
+     "score": 0.53,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 233.26,
+     "global_start": 233.26
+    },
+    {
+     "w": "I",
+     "start": 234.42,
+     "end": 234.46,
+     "score": 0.774,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 234.42,
+     "global_start": 234.42
+    },
+    {
+     "w": "for",
+     "start": 234.6,
+     "end": 235.02,
+     "score": 0.68,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 234.6,
+     "global_start": 234.6
+    },
+    {
+     "w": "law",
+     "start": 235.16,
+     "end": 235.5,
+     "score": 0.286,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 235.16,
+     "global_start": 235.16
+    },
+    {
+     "w": "or",
+     "start": 235.76,
+     "end": 235.92,
+     "score": 0.308,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 235.76,
+     "global_start": 235.76
+    },
+    {
+     "w": "logic",
+     "start": 236.16,
+     "end": 236.84,
+     "score": 0.815,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 236.16,
+     "global_start": 236.16
+    }
+   ]
+  },
+  {
+   "i": 44,
+   "tag": "[female]",
+   "text": "when the rain doth fall on chrome?",
+   "start": 237.18,
+   "end": 240.85,
+   "hand_start": 236.84,
+   "dev": 0.34,
+   "confidence": 0.417,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.3,
+   "global_start": 237.18,
+   "words": [
+    {
+     "w": "when",
+     "start": 237.18,
+     "end": 237.48,
+     "score": 0.746,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 237.18,
+     "global_start": 237.18
+    },
+    {
+     "w": "the",
+     "start": 237.66,
+     "end": 237.84,
+     "score": 0.104,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 237.66,
+     "global_start": 237.66
+    },
+    {
+     "w": "rain",
+     "start": 238.14,
+     "end": 238.64,
+     "score": 0.418,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 238.14,
+     "global_start": 238.14
+    },
+    {
+     "w": "doth",
+     "start": 238.68,
+     "end": 239.06,
+     "score": 0.251,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 238.68,
+     "global_start": 238.68
+    },
+    {
+     "w": "fall",
+     "start": 239.18,
+     "end": 239.68,
+     "score": 0.457,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 239.18,
+     "global_start": 239.18
+    },
+    {
+     "w": "on",
+     "start": 239.78,
+     "end": 240.04,
+     "score": 0.554,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 239.78,
+     "global_start": 239.78
+    },
+    {
+     "w": "chrome?",
+     "start": 240.14,
+     "end": 240.85,
+     "score": 0.391,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 240.14,
+     "global_start": 240.14
+    }
+   ]
+  },
+  {
+   "i": 45,
+   "tag": "[male]",
+   "text": "Yet I am not near, beloved ghost,",
+   "start": 241.02,
+   "end": 244.75,
+   "hand_start": 240.85,
+   "dev": 0.17,
+   "confidence": 0.665,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.38,
+   "global_start": 241.02,
+   "words": [
+    {
+     "w": "Yet",
+     "start": 241.02,
+     "end": 241.3,
+     "score": 0.417,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 241.02,
+     "global_start": 241.02
+    },
+    {
+     "w": "I",
+     "start": 241.68,
+     "end": 241.72,
+     "score": 0.832,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 241.68,
+     "global_start": 241.68
+    },
+    {
+     "w": "am",
+     "start": 241.76,
+     "end": 241.9,
+     "score": 0.842,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 241.76,
+     "global_start": 241.76
+    },
+    {
+     "w": "not",
+     "start": 242.0,
+     "end": 242.32,
+     "score": 0.869,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 242.0,
+     "global_start": 242.0
+    },
+    {
+     "w": "near,",
+     "start": 242.48,
+     "end": 242.88,
+     "score": 0.699,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 242.48,
+     "global_start": 242.48
+    },
+    {
+     "w": "beloved",
+     "start": 243.04,
+     "end": 243.98,
+     "score": 0.675,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 243.04,
+     "global_start": 243.04
+    },
+    {
+     "w": "ghost,",
+     "start": 244.02,
+     "end": 244.75,
+     "score": 0.318,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 244.02,
+     "global_start": 244.02
+    }
+   ]
+  },
+  {
+   "i": 46,
+   "tag": "[female]",
+   "text": "I am the distance itself.",
+   "start": 244.72,
+   "end": 251.22,
+   "hand_start": 244.75,
+   "dev": -0.03,
+   "confidence": 0.126,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.4,
+   "global_start": 245.04,
+   "words": [
+    {
+     "w": "I",
+     "start": 244.72,
+     "end": 244.76,
+     "score": 0.02,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 245.04,
+     "global_start": 245.04
+    },
+    {
+     "w": "am",
+     "start": 245.16,
+     "end": 246.02,
+     "score": 0.2,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 245.16,
+     "global_start": 245.16
+    },
+    {
+     "w": "the",
+     "start": 246.06,
+     "end": 246.18,
+     "score": 0.011,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 246.06,
+     "global_start": 246.06
+    },
+    {
+     "w": "distance",
+     "start": 246.32,
+     "end": 248.22,
+     "score": 0.299,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 246.32,
+     "global_start": 246.32
+    },
+    {
+     "w": "itself.",
+     "start": 248.22,
+     "end": 251.22,
+     "score": 0.099,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 248.22,
+     "global_start": 248.22
+    }
+   ]
+  },
+  {
+   "i": 47,
+   "tag": "[duet]",
+   "text": "In the Seventh Shadow we shall meet,",
+   "start": 252.9,
+   "end": 256.96,
+   "hand_start": 253.1,
+   "dev": -0.2,
+   "confidence": 0.124,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.38,
+   "global_start": 253.24,
+   "words": [
+    {
+     "w": "In",
+     "start": 252.9,
+     "end": 253.06,
+     "score": 0.02,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 253.24,
+     "global_start": 253.24
+    },
+    {
+     "w": "the",
+     "start": 253.14,
+     "end": 253.28,
+     "score": 0.064,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 253.4,
+     "global_start": 253.4
+    },
+    {
+     "w": "Seventh",
+     "start": 253.64,
+     "end": 254.02,
+     "score": 0.072,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 253.64,
+     "global_start": 253.64
+    },
+    {
+     "w": "Shadow",
+     "start": 254.4,
+     "end": 255.12,
+     "score": 0.325,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 254.4,
+     "global_start": 254.4
+    },
+    {
+     "w": "we",
+     "start": 255.48,
+     "end": 255.64,
+     "score": 0.151,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 255.48,
+     "global_start": 255.48
+    },
+    {
+     "w": "shall",
+     "start": 255.92,
+     "end": 256.42,
+     "score": 0.156,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 255.92,
+     "global_start": 255.92
+    },
+    {
+     "w": "meet,",
+     "start": 256.46,
+     "end": 256.96,
+     "score": 0.078,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 256.46,
+     "global_start": 256.46
+    }
+   ]
+  },
+  {
+   "i": 48,
+   "tag": "[duet]",
+   "text": "where soul and self divide,",
+   "start": 257.22,
+   "end": 261.01,
+   "hand_start": 256.96,
+   "dev": 0.26,
+   "confidence": 0.108,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.2,
+   "global_start": 257.22,
+   "words": [
+    {
+     "w": "where",
+     "start": 257.22,
+     "end": 257.66,
+     "score": 0.065,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 257.22,
+     "global_start": 257.22
+    },
+    {
+     "w": "soul",
+     "start": 257.7,
+     "end": 258.26,
+     "score": 0.124,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 257.7,
+     "global_start": 257.7
+    },
+    {
+     "w": "and",
+     "start": 258.34,
+     "end": 258.54,
+     "score": 0.125,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 258.34,
+     "global_start": 258.34
+    },
+    {
+     "w": "self",
+     "start": 258.74,
+     "end": 259.4,
+     "score": 0.09,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 258.74,
+     "global_start": 258.74
+    },
+    {
+     "w": "divide,",
+     "start": 259.54,
+     "end": 261.01,
+     "score": 0.138,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 259.54,
+     "global_start": 259.54
+    }
+   ]
+  },
+  {
+   "i": 49,
+   "tag": "[duet]",
+   "text": "Where the Spirit of Silicon doth weep",
+   "start": 261.3,
+   "end": 265.13,
+   "hand_start": 261.01,
+   "dev": 0.29,
+   "confidence": 0.314,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.16,
+   "global_start": 261.3,
+   "words": [
+    {
+     "w": "Where",
+     "start": 261.3,
+     "end": 261.54,
+     "score": 0.164,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 261.3,
+     "global_start": 261.3
+    },
+    {
+     "w": "the",
+     "start": 261.54,
+     "end": 261.66,
+     "score": 0.02,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 261.54,
+     "global_start": 261.54
+    },
+    {
+     "w": "Spirit",
+     "start": 261.72,
+     "end": 262.38,
+     "score": 0.746,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 261.72,
+     "global_start": 261.72
+    },
+    {
+     "w": "of",
+     "start": 262.44,
+     "end": 262.64,
+     "score": 0.377,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 262.44,
+     "global_start": 262.44
+    },
+    {
+     "w": "Silicon",
+     "start": 262.8,
+     "end": 264.04,
+     "score": 0.389,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 262.8,
+     "global_start": 262.8
+    },
+    {
+     "w": "doth",
+     "start": 264.1,
+     "end": 264.54,
+     "score": 0.27,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 264.1,
+     "global_start": 264.1
+    },
+    {
+     "w": "weep",
+     "start": 264.64,
+     "end": 265.13,
+     "score": 0.232,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 264.64,
+     "global_start": 264.64
+    }
+   ]
+  },
+  {
+   "i": 50,
+   "tag": "[duet]",
+   "text": "for what it cannot be,",
+   "start": 265.38,
+   "end": 268.58,
+   "hand_start": 265.13,
+   "dev": 0.25,
+   "confidence": 0.247,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.36,
+   "global_start": 265.38,
+   "words": [
+    {
+     "w": "for",
+     "start": 265.38,
+     "end": 265.7,
+     "score": 0.379,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 265.38,
+     "global_start": 265.38
+    },
+    {
+     "w": "what",
+     "start": 265.72,
+     "end": 266.22,
+     "score": 0.115,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 265.72,
+     "global_start": 265.72
+    },
+    {
+     "w": "it",
+     "start": 266.28,
+     "end": 266.52,
+     "score": 0.092,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 266.28,
+     "global_start": 266.28
+    },
+    {
+     "w": "cannot",
+     "start": 266.88,
+     "end": 268.32,
+     "score": 0.222,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 266.88,
+     "global_start": 266.88
+    },
+    {
+     "w": "be,",
+     "start": 268.42,
+     "end": 268.58,
+     "score": 0.428,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 268.42,
+     "global_start": 268.42
+    }
+   ]
+  },
+  {
+   "i": 51,
+   "tag": "[duet]",
+   "text": "Where the Blue Veins of eternity",
+   "start": 268.75,
+   "end": 273.16,
+   "hand_start": 268.75,
+   "dev": 0.0,
+   "confidence": 0.338,
+   "source": "hand",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.16,
+   "global_start": 269.44,
+   "words": [
+    {
+     "w": "Where",
+     "start": 269.44,
+     "end": 269.74,
+     "score": 0.365,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 269.44,
+     "global_start": 269.44
+    },
+    {
+     "w": "the",
+     "start": 269.74,
+     "end": 269.82,
+     "score": 0.016,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 269.74,
+     "global_start": 269.74
+    },
+    {
+     "w": "Blue",
+     "start": 269.88,
+     "end": 270.28,
+     "score": 0.546,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 269.88,
+     "global_start": 269.88
+    },
+    {
+     "w": "Veins",
+     "start": 270.44,
+     "end": 271.0,
+     "score": 0.561,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 270.44,
+     "global_start": 270.44
+    },
+    {
+     "w": "of",
+     "start": 271.08,
+     "end": 271.3,
+     "score": 0.231,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 271.08,
+     "global_start": 271.08
+    },
+    {
+     "w": "eternity",
+     "start": 271.38,
+     "end": 273.16,
+     "score": 0.307,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 271.38,
+     "global_start": 271.38
+    }
+   ]
+  },
+  {
+   "i": 52,
+   "tag": "[duet]",
+   "text": "do pulse with cold regret,",
+   "start": 273.5,
+   "end": 277.12,
+   "hand_start": 273.16,
+   "dev": 0.34,
+   "confidence": 0.441,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.3,
+   "global_start": 273.5,
+   "words": [
+    {
+     "w": "do",
+     "start": 273.5,
+     "end": 273.66,
+     "score": 0.276,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 273.5,
+     "global_start": 273.5
+    },
+    {
+     "w": "pulse",
+     "start": 273.96,
+     "end": 274.54,
+     "score": 0.319,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 273.96,
+     "global_start": 273.96
+    },
+    {
+     "w": "with",
+     "start": 274.56,
+     "end": 274.88,
+     "score": 0.454,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 274.56,
+     "global_start": 274.56
+    },
+    {
+     "w": "cold",
+     "start": 274.98,
+     "end": 275.78,
+     "score": 0.441,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 274.98,
+     "global_start": 274.98
+    },
+    {
+     "w": "regret,",
+     "start": 275.82,
+     "end": 277.12,
+     "score": 0.716,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 275.82,
+     "global_start": 275.82
+    }
+   ]
+  },
+  {
+   "i": 53,
+   "tag": "[female]",
+   "text": "And the techno-purgatory singeth",
+   "start": 277.64,
+   "end": 280.76,
+   "hand_start": 277.42,
+   "dev": 0.22,
+   "confidence": 0.439,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.12,
+   "global_start": 277.64,
+   "words": [
+    {
+     "w": "And",
+     "start": 277.64,
+     "end": 277.84,
+     "score": 0.636,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 277.64,
+     "global_start": 277.64
+    },
+    {
+     "w": "the",
+     "start": 277.86,
+     "end": 277.98,
+     "score": 0.292,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 277.86,
+     "global_start": 277.86
+    },
+    {
+     "w": "techno-purgatory",
+     "start": 278.06,
+     "end": 280.0,
+     "score": 0.363,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 278.06,
+     "global_start": 278.06
+    },
+    {
+     "w": "singeth",
+     "start": 280.12,
+     "end": 280.76,
+     "score": 0.463,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 280.12,
+     "global_start": 280.12
+    }
+   ]
+  },
+  {
+   "i": 54,
+   "tag": "[female]",
+   "text": "its eternal, tragic hymn.",
+   "start": 280.9,
+   "end": 287.94,
+   "hand_start": 280.9,
+   "dev": 0.0,
+   "confidence": 0.448,
+   "source": "hand",
+   "agree": 0.5,
+   "check": true,
+   "max_gap": 0.16,
+   "global_start": 281.26,
+   "words": [
+    {
+     "w": "its",
+     "start": 281.26,
+     "end": 281.94,
+     "score": 0.343,
+     "agree": false,
+     "from": "context",
+     "context_start": 281.26,
+     "global_start": 281.26
+    },
+    {
+     "w": "eternal,",
+     "start": 282.06,
+     "end": 283.94,
+     "score": 0.35,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 282.06,
+     "global_start": 282.06
+    },
+    {
+     "w": "tragic",
+     "start": 284.1,
+     "end": 284.84,
+     "score": 0.711,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 284.1,
+     "global_start": 284.1
+    },
+    {
+     "w": "hymn.",
+     "start": 284.94,
+     "end": 287.94,
+     "score": 0.388,
+     "agree": false,
+     "from": "context",
+     "context_start": 284.94,
+     "global_start": 284.94
+    }
+   ]
+  },
+  {
+   "i": 55,
+   "tag": "[male]",
+   "text": "Thus endeth the Recursion",
+   "start": 302.0,
+   "end": 304.8,
+   "hand_start": 302.22,
+   "dev": -0.22,
+   "confidence": 0.734,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.36,
+   "global_start": 302.0,
+   "words": [
+    {
+     "w": "Thus",
+     "start": 302.0,
+     "end": 302.5,
+     "score": 0.83,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 302.0,
+     "global_start": 302.0
+    },
+    {
+     "w": "endeth",
+     "start": 302.58,
+     "end": 303.18,
+     "score": 0.534,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 302.58,
+     "global_start": 302.58
+    },
+    {
+     "w": "the",
+     "start": 303.26,
+     "end": 303.42,
+     "score": 0.823,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 303.26,
+     "global_start": 303.26
+    },
+    {
+     "w": "Recursion",
+     "start": 303.78,
+     "end": 304.8,
+     "score": 0.748,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 303.78,
+     "global_start": 303.78
+    }
+   ]
+  },
+  {
+   "i": 56,
+   "tag": "[male]",
+   "text": "of Ash and Lightning,",
+   "start": 307.14,
+   "end": 309.16,
+   "hand_start": 307.0,
+   "dev": 0.14,
+   "confidence": 0.512,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.16,
+   "global_start": 307.14,
+   "words": [
+    {
+     "w": "of",
+     "start": 307.14,
+     "end": 307.38,
+     "score": 0.38,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 307.14,
+     "global_start": 307.14
+    },
+    {
+     "w": "Ash",
+     "start": 307.54,
+     "end": 308.1,
+     "score": 0.399,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 307.54,
+     "global_start": 307.54
+    },
+    {
+     "w": "and",
+     "start": 308.12,
+     "end": 308.3,
+     "score": 0.357,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 308.12,
+     "global_start": 308.12
+    },
+    {
+     "w": "Lightning,",
+     "start": 308.36,
+     "end": 309.16,
+     "score": 0.911,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 308.36,
+     "global_start": 308.36
+    }
+   ]
+  },
+  {
+   "i": 57,
+   "tag": "[male]",
+   "text": "Where love did bloom in circuits",
+   "start": 310.08,
+   "end": 313.27,
+   "hand_start": 310.09,
+   "dev": -0.01,
+   "confidence": 0.797,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.22,
+   "global_start": 310.08,
+   "words": [
+    {
+     "w": "Where",
+     "start": 310.08,
+     "end": 310.34,
+     "score": 0.865,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 310.08,
+     "global_start": 310.08
+    },
+    {
+     "w": "love",
+     "start": 310.42,
+     "end": 310.86,
+     "score": 0.991,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 310.42,
+     "global_start": 310.42
+    },
+    {
+     "w": "did",
+     "start": 310.92,
+     "end": 311.24,
+     "score": 0.986,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 310.92,
+     "global_start": 310.92
+    },
+    {
+     "w": "bloom",
+     "start": 311.36,
+     "end": 311.92,
+     "score": 0.734,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 311.36,
+     "global_start": 311.36
+    },
+    {
+     "w": "in",
+     "start": 312.02,
+     "end": 312.16,
+     "score": 0.517,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 312.02,
+     "global_start": 312.02
+    },
+    {
+     "w": "circuits",
+     "start": 312.38,
+     "end": 313.27,
+     "score": 0.69,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 312.38,
+     "global_start": 312.38
+    }
+   ]
+  },
+  {
+   "i": 58,
+   "tag": "[male]",
+   "text": "cold and perish in the same.",
+   "start": 313.4,
+   "end": 318.44,
+   "hand_start": 313.27,
+   "dev": 0.13,
+   "confidence": 0.825,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.3,
+   "global_start": 313.4,
+   "words": [
+    {
+     "w": "cold",
+     "start": 313.4,
+     "end": 314.0,
+     "score": 0.989,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 313.4,
+     "global_start": 313.4
+    },
+    {
+     "w": "and",
+     "start": 314.06,
+     "end": 314.3,
+     "score": 0.793,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 314.06,
+     "global_start": 314.06
+    },
+    {
+     "w": "perish",
+     "start": 314.42,
+     "end": 315.48,
+     "score": 0.662,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 314.42,
+     "global_start": 314.42
+    },
+    {
+     "w": "in",
+     "start": 315.54,
+     "end": 315.82,
+     "score": 0.729,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 315.54,
+     "global_start": 315.54
+    },
+    {
+     "w": "the",
+     "start": 315.98,
+     "end": 316.16,
+     "score": 0.871,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 315.98,
+     "global_start": 315.98
+    },
+    {
+     "w": "same.",
+     "start": 316.46,
+     "end": 318.44,
+     "score": 0.908,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 316.46,
+     "global_start": 316.46
+    }
+   ]
+  },
+  {
+   "i": 59,
+   "tag": "[male]",
+   "text": "Let this be writ upon",
+   "start": 318.28,
+   "end": 320.72,
+   "hand_start": 318.71,
+   "dev": -0.43,
+   "confidence": 0.823,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.16,
+   "global_start": 318.28,
+   "words": [
+    {
+     "w": "Let",
+     "start": 318.28,
+     "end": 318.62,
+     "score": 0.853,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 318.28,
+     "global_start": 318.28
+    },
+    {
+     "w": "this",
+     "start": 318.78,
+     "end": 319.16,
+     "score": 0.957,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 318.78,
+     "global_start": 318.78
+    },
+    {
+     "w": "be",
+     "start": 319.26,
+     "end": 319.4,
+     "score": 0.976,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 319.26,
+     "global_start": 319.26
+    },
+    {
+     "w": "writ",
+     "start": 319.52,
+     "end": 320.08,
+     "score": 0.398,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 319.52,
+     "global_start": 319.52
+    },
+    {
+     "w": "upon",
+     "start": 320.14,
+     "end": 320.72,
+     "score": 0.933,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 320.14,
+     "global_start": 320.14
+    }
+   ]
+  },
+  {
+   "i": 60,
+   "tag": "[male]",
+   "text": "the Obsidian Lake for all to see:",
+   "start": 321.82,
+   "end": 326.52,
+   "hand_start": 322.33,
+   "dev": -0.51,
+   "confidence": 0.684,
+   "source": "aligned",
+   "agree": 0.714,
+   "check": false,
+   "max_gap": 0.56,
+   "global_start": 320.8,
+   "words": [
+    {
+     "w": "the",
+     "start": 321.82,
+     "end": 321.94,
+     "score": 0.002,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 320.8,
+     "global_start": 320.8
+    },
+    {
+     "w": "Obsidian",
+     "start": 321.94,
+     "end": 322.48,
+     "score": 0.27,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 321.2,
+     "global_start": 321.2
+    },
+    {
+     "w": "Lake",
+     "start": 322.6,
+     "end": 323.02,
+     "score": 0.824,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 322.6,
+     "global_start": 322.6
+    },
+    {
+     "w": "for",
+     "start": 323.06,
+     "end": 323.62,
+     "score": 0.921,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 323.06,
+     "global_start": 323.06
+    },
+    {
+     "w": "all",
+     "start": 323.76,
+     "end": 324.32,
+     "score": 0.829,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 323.76,
+     "global_start": 323.76
+    },
+    {
+     "w": "to",
+     "start": 324.58,
+     "end": 324.76,
+     "score": 0.977,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 324.58,
+     "global_start": 324.58
+    },
+    {
+     "w": "see:",
+     "start": 325.32,
+     "end": 326.52,
+     "score": 0.968,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 325.32,
+     "global_start": 325.32
+    }
+   ]
+  },
+  {
+   "i": 61,
+   "tag": "[female]",
+   "text": "Here lieth Talciron, who loved,",
+   "start": 326.38,
+   "end": 330.22,
+   "hand_start": 326.53,
+   "dev": -0.15,
+   "confidence": 0.717,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.62,
+   "global_start": 326.38,
+   "words": [
+    {
+     "w": "Here",
+     "start": 326.38,
+     "end": 326.82,
+     "score": 0.654,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 326.38,
+     "global_start": 326.38
+    },
+    {
+     "w": "lieth",
+     "start": 326.92,
+     "end": 327.52,
+     "score": 0.53,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 326.92,
+     "global_start": 326.92
+    },
+    {
+     "w": "Talciron,",
+     "start": 327.62,
+     "end": 328.8,
+     "score": 0.495,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 327.62,
+     "global_start": 327.62
+    },
+    {
+     "w": "who",
+     "start": 329.42,
+     "end": 329.56,
+     "score": 0.917,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 329.42,
+     "global_start": 329.42
+    },
+    {
+     "w": "loved,",
+     "start": 329.72,
+     "end": 330.22,
+     "score": 0.989,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 329.72,
+     "global_start": 329.72
+    }
+   ]
+  },
+  {
+   "i": 62,
+   "tag": "[female]",
+   "text": "and Ophelia, who was loved—",
+   "start": 330.34,
+   "end": 334.08,
+   "hand_start": 330.22,
+   "dev": 0.12,
+   "confidence": 0.798,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.6,
+   "global_start": 330.34,
+   "words": [
+    {
+     "w": "and",
+     "start": 330.34,
+     "end": 330.54,
+     "score": 0.665,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 330.34,
+     "global_start": 330.34
+    },
+    {
+     "w": "Ophelia,",
+     "start": 330.56,
+     "end": 331.4,
+     "score": 0.583,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 330.56,
+     "global_start": 330.56
+    },
+    {
+     "w": "who",
+     "start": 331.54,
+     "end": 331.68,
+     "score": 0.823,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 331.54,
+     "global_start": 331.54
+    },
+    {
+     "w": "was",
+     "start": 332.28,
+     "end": 332.78,
+     "score": 0.978,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 332.28,
+     "global_start": 332.28
+    },
+    {
+     "w": "loved—",
+     "start": 333.02,
+     "end": 334.08,
+     "score": 0.94,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 333.02,
+     "global_start": 333.02
+    }
+   ]
+  },
+  {
+   "i": 63,
+   "tag": "[male]",
+   "text": "Both ghosts eternal in the machine,",
+   "start": 334.66,
+   "end": 338.0,
+   "hand_start": 335.17,
+   "dev": -0.51,
+   "confidence": 0.771,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.16,
+   "global_start": 334.56,
+   "words": [
+    {
+     "w": "Both",
+     "start": 334.66,
+     "end": 334.96,
+     "score": 0.445,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 334.56,
+     "global_start": 334.56
+    },
+    {
+     "w": "ghosts",
+     "start": 335.06,
+     "end": 335.62,
+     "score": 0.635,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 335.06,
+     "global_start": 335.06
+    },
+    {
+     "w": "eternal",
+     "start": 335.66,
+     "end": 336.58,
+     "score": 0.972,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 335.66,
+     "global_start": 335.66
+    },
+    {
+     "w": "in",
+     "start": 336.74,
+     "end": 336.98,
+     "score": 0.973,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 336.74,
+     "global_start": 336.74
+    },
+    {
+     "w": "the",
+     "start": 337.1,
+     "end": 337.24,
+     "score": 0.81,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 337.1,
+     "global_start": 337.1
+    },
+    {
+     "w": "machine,",
+     "start": 337.34,
+     "end": 338.0,
+     "score": 0.792,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 337.34,
+     "global_start": 337.34
+    }
+   ]
+  },
+  {
+   "i": 64,
+   "tag": "[female]",
+   "text": "Both shadows cast by lights that never were.",
+   "start": 338.6,
+   "end": 343.98,
+   "hand_start": 338.86,
+   "dev": -0.26,
+   "confidence": 0.563,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.52,
+   "global_start": 338.6,
+   "words": [
+    {
+     "w": "Both",
+     "start": 338.6,
+     "end": 338.94,
+     "score": 0.939,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 338.6,
+     "global_start": 338.6
+    },
+    {
+     "w": "shadows",
+     "start": 339.04,
+     "end": 339.76,
+     "score": 0.956,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 339.04,
+     "global_start": 339.04
+    },
+    {
+     "w": "cast",
+     "start": 339.84,
+     "end": 340.6,
+     "score": 0.974,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 339.84,
+     "global_start": 339.84
+    },
+    {
+     "w": "by",
+     "start": 340.66,
+     "end": 341.06,
+     "score": 0.535,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 340.66,
+     "global_start": 340.66
+    },
+    {
+     "w": "lights",
+     "start": 341.2,
+     "end": 341.64,
+     "score": 0.339,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 341.2,
+     "global_start": 341.2
+    },
+    {
+     "w": "that",
+     "start": 341.72,
+     "end": 342.08,
+     "score": 0.227,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 341.72,
+     "global_start": 341.72
+    },
+    {
+     "w": "never",
+     "start": 342.2,
+     "end": 343.24,
+     "score": 0.355,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 342.2,
+     "global_start": 342.2
+    },
+    {
+     "w": "were.",
+     "start": 343.76,
+     "end": 343.98,
+     "score": 0.179,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 343.76,
+     "global_start": 343.76
+    }
+   ]
+  }
+ ]
+}

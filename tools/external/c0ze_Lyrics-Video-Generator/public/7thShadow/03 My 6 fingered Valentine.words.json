@@ -1,0 +1,3830 @@
+{
+ "title": "My 6 Fingered Valentine",
+ "audio": "03 My 6 fingered Valentine.flac",
+ "source_lrc": "03 My 6 fingered Valentine.lrc",
+ "method": "htdemucs vocal stem -> torchaudio MMS_FA forced alignment, each line inside its hand-stamped window, checked by a pass with each line's neighbours in a wider window",
+ "generated": "2026-11-20",
+ "units": "seconds",
+ "notes": "start/end: aligned onset/offset (line start falls back to hand_start when its words do not agree between the two passes). hand_start: the hand-stamped LRC time. dev = start - hand_start. score/confidence: mean CTC posterior (0..1); sung vowels score low even when placed right. agree: the anchored and the context pass put the word start within 0.35 s; rating comes from the share of agreeing words.",
+ "confidence": 0.408,
+ "rating": "high",
+ "summary": {
+  "lines": 50,
+  "words": 295,
+  "mean_word_score": 0.44,
+  "word_agreement": 0.939,
+  "line_agreement": 0.9,
+  "line_median_offset": 0.13,
+  "check_lines": [
+   16,
+   28,
+   32,
+   42,
+   46
+  ],
+  "ok_words": 0.932,
+  "confidence": "high"
+ },
+ "lines": [
+  {
+   "i": 0,
+   "tag": "",
+   "text": "I trace the pale lines on your hand",
+   "start": 25.85,
+   "end": 31.44,
+   "hand_start": 25.85,
+   "dev": 0.0,
+   "confidence": 0.585,
+   "source": "hand",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.1,
+   "global_start": 7.6,
+   "words": [
+    {
+     "w": "I",
+     "start": 26.98,
+     "end": 27.02,
+     "score": 0.028,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 26.98,
+     "global_start": 7.6
+    },
+    {
+     "w": "trace",
+     "start": 27.02,
+     "end": 27.96,
+     "score": 0.638,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 27.02,
+     "global_start": 27.02
+    },
+    {
+     "w": "the",
+     "start": 27.98,
+     "end": 28.08,
+     "score": 0.832,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 27.98,
+     "global_start": 27.98
+    },
+    {
+     "w": "pale",
+     "start": 28.16,
+     "end": 28.64,
+     "score": 0.735,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 28.16,
+     "global_start": 28.16
+    },
+    {
+     "w": "lines",
+     "start": 28.64,
+     "end": 29.04,
+     "score": 0.391,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 28.64,
+     "global_start": 28.64
+    },
+    {
+     "w": "on",
+     "start": 29.14,
+     "end": 29.34,
+     "score": 0.935,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 29.14,
+     "global_start": 29.14
+    },
+    {
+     "w": "your",
+     "start": 29.44,
+     "end": 29.78,
+     "score": 0.784,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 29.44,
+     "global_start": 29.44
+    },
+    {
+     "w": "hand",
+     "start": 29.88,
+     "end": 31.44,
+     "score": 0.334,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 29.88,
+     "global_start": 29.88
+    }
+   ]
+  },
+  {
+   "i": 1,
+   "tag": "",
+   "text": "A beautiful mistake in this broken land",
+   "start": 31.52,
+   "end": 37.0,
+   "hand_start": 31.44,
+   "dev": 0.08,
+   "confidence": 0.771,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 1.28,
+   "global_start": 31.52,
+   "words": [
+    {
+     "w": "A",
+     "start": 31.52,
+     "end": 31.56,
+     "score": 0.963,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 31.52,
+     "global_start": 31.52
+    },
+    {
+     "w": "beautiful",
+     "start": 31.66,
+     "end": 32.62,
+     "score": 0.545,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 31.66,
+     "global_start": 31.66
+    },
+    {
+     "w": "mistake",
+     "start": 32.7,
+     "end": 33.64,
+     "score": 0.434,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 32.7,
+     "global_start": 32.7
+    },
+    {
+     "w": "in",
+     "start": 34.92,
+     "end": 35.16,
+     "score": 0.989,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 34.92,
+     "global_start": 34.92
+    },
+    {
+     "w": "this",
+     "start": 35.24,
+     "end": 35.5,
+     "score": 0.972,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 35.24,
+     "global_start": 35.24
+    },
+    {
+     "w": "broken",
+     "start": 35.58,
+     "end": 36.3,
+     "score": 0.969,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 35.58,
+     "global_start": 35.58
+    },
+    {
+     "w": "land",
+     "start": 36.48,
+     "end": 37.0,
+     "score": 0.528,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 36.48,
+     "global_start": 36.48
+    }
+   ]
+  },
+  {
+   "i": 2,
+   "tag": "",
+   "text": "You hide the truth beneath the lace",
+   "start": 38.76,
+   "end": 44.42,
+   "hand_start": 38.63,
+   "dev": 0.13,
+   "confidence": 0.502,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.42,
+   "global_start": 38.76,
+   "words": [
+    {
+     "w": "You",
+     "start": 38.76,
+     "end": 39.16,
+     "score": 0.329,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 38.76,
+     "global_start": 38.76
+    },
+    {
+     "w": "hide",
+     "start": 39.58,
+     "end": 41.12,
+     "score": 0.226,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 39.58,
+     "global_start": 39.58
+    },
+    {
+     "w": "the",
+     "start": 41.2,
+     "end": 41.3,
+     "score": 0.862,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 41.2,
+     "global_start": 41.2
+    },
+    {
+     "w": "truth",
+     "start": 41.38,
+     "end": 41.98,
+     "score": 0.879,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 41.38,
+     "global_start": 41.38
+    },
+    {
+     "w": "beneath",
+     "start": 42.02,
+     "end": 42.6,
+     "score": 0.439,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 42.02,
+     "global_start": 42.02
+    },
+    {
+     "w": "the",
+     "start": 42.64,
+     "end": 42.8,
+     "score": 0.235,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 42.64,
+     "global_start": 42.64
+    },
+    {
+     "w": "lace",
+     "start": 43.02,
+     "end": 44.42,
+     "score": 0.543,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 43.02,
+     "global_start": 43.02
+    }
+   ]
+  },
+  {
+   "i": 3,
+   "tag": "",
+   "text": "The seventh shadow in this cursed space",
+   "start": 44.52,
+   "end": 52.42,
+   "hand_start": 44.42,
+   "dev": 0.1,
+   "confidence": 0.707,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.66,
+   "global_start": 44.52,
+   "words": [
+    {
+     "w": "The",
+     "start": 44.52,
+     "end": 44.64,
+     "score": 0.842,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 44.52,
+     "global_start": 44.52
+    },
+    {
+     "w": "seventh",
+     "start": 44.9,
+     "end": 45.92,
+     "score": 0.724,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 44.9,
+     "global_start": 44.9
+    },
+    {
+     "w": "shadow",
+     "start": 46.1,
+     "end": 47.28,
+     "score": 0.712,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 46.1,
+     "global_start": 46.1
+    },
+    {
+     "w": "in",
+     "start": 47.94,
+     "end": 48.44,
+     "score": 0.919,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 47.94,
+     "global_start": 47.94
+    },
+    {
+     "w": "this",
+     "start": 48.64,
+     "end": 49.34,
+     "score": 0.752,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 48.64,
+     "global_start": 48.64
+    },
+    {
+     "w": "cursed",
+     "start": 49.42,
+     "end": 50.86,
+     "score": 0.446,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 49.42,
+     "global_start": 49.42
+    },
+    {
+     "w": "space",
+     "start": 50.98,
+     "end": 52.42,
+     "score": 0.553,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 50.98,
+     "global_start": 50.98
+    }
+   ]
+  },
+  {
+   "i": 4,
+   "tag": "",
+   "text": "You whisper words I know are lies",
+   "start": 53.38,
+   "end": 57.24,
+   "hand_start": 53.38,
+   "dev": 0.0,
+   "confidence": 0.535,
+   "source": "hand",
+   "agree": 0.857,
+   "check": false,
+   "max_gap": 0.22,
+   "global_start": 54.2,
+   "words": [
+    {
+     "w": "You",
+     "start": 54.2,
+     "end": 54.34,
+     "score": 0.641,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 54.2,
+     "global_start": 54.2
+    },
+    {
+     "w": "whisper",
+     "start": 54.38,
+     "end": 54.76,
+     "score": 0.311,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 54.38,
+     "global_start": 54.38
+    },
+    {
+     "w": "words",
+     "start": 54.82,
+     "end": 55.26,
+     "score": 0.889,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 54.82,
+     "global_start": 54.82
+    },
+    {
+     "w": "I",
+     "start": 55.28,
+     "end": 55.32,
+     "score": 0.007,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 55.28,
+     "global_start": 55.28
+    },
+    {
+     "w": "know",
+     "start": 55.44,
+     "end": 55.76,
+     "score": 0.516,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 55.44,
+     "global_start": 55.44
+    },
+    {
+     "w": "are",
+     "start": 55.98,
+     "end": 56.28,
+     "score": 0.881,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 55.98,
+     "global_start": 55.98
+    },
+    {
+     "w": "lies",
+     "start": 56.28,
+     "end": 57.24,
+     "score": 0.498,
+     "agree": false,
+     "from": "context",
+     "context_start": 56.28,
+     "global_start": 56.28
+    }
+   ]
+  },
+  {
+   "i": 5,
+   "tag": "",
+   "text": "Reflected in your vacant eyes",
+   "start": 57.88,
+   "end": 62.66,
+   "hand_start": 57.75,
+   "dev": 0.13,
+   "confidence": 0.66,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.16,
+   "global_start": 57.88,
+   "words": [
+    {
+     "w": "Reflected",
+     "start": 57.88,
+     "end": 58.56,
+     "score": 0.994,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 57.88,
+     "global_start": 57.88
+    },
+    {
+     "w": "in",
+     "start": 58.62,
+     "end": 58.72,
+     "score": 0.966,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 58.62,
+     "global_start": 58.62
+    },
+    {
+     "w": "your",
+     "start": 58.76,
+     "end": 58.92,
+     "score": 0.728,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 58.76,
+     "global_start": 58.76
+    },
+    {
+     "w": "vacant",
+     "start": 58.94,
+     "end": 59.5,
+     "score": 0.47,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 58.94,
+     "global_start": 58.94
+    },
+    {
+     "w": "eyes",
+     "start": 59.66,
+     "end": 62.66,
+     "score": 0.142,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 59.66,
+     "global_start": 59.66
+    }
+   ]
+  },
+  {
+   "i": 6,
+   "tag": "",
+   "text": "We dance among the fading roses",
+   "start": 67.02,
+   "end": 70.54,
+   "hand_start": 66.96,
+   "dev": 0.06,
+   "confidence": 0.442,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.1,
+   "global_start": 67.02,
+   "words": [
+    {
+     "w": "We",
+     "start": 67.02,
+     "end": 67.12,
+     "score": 0.231,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 67.02,
+     "global_start": 67.02
+    },
+    {
+     "w": "dance",
+     "start": 67.18,
+     "end": 67.66,
+     "score": 0.23,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 67.18,
+     "global_start": 67.18
+    },
+    {
+     "w": "among",
+     "start": 67.7,
+     "end": 68.36,
+     "score": 0.802,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 67.7,
+     "global_start": 67.7
+    },
+    {
+     "w": "the",
+     "start": 68.44,
+     "end": 68.54,
+     "score": 0.201,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 68.44,
+     "global_start": 68.44
+    },
+    {
+     "w": "fading",
+     "start": 68.64,
+     "end": 69.36,
+     "score": 0.617,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 68.64,
+     "global_start": 68.64
+    },
+    {
+     "w": "roses",
+     "start": 69.46,
+     "end": 70.54,
+     "score": 0.573,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 69.46,
+     "global_start": 69.46
+    }
+   ]
+  },
+  {
+   "i": 7,
+   "tag": "",
+   "text": "In every flaw, my heart reposes",
+   "start": 71.0,
+   "end": 78.92,
+   "hand_start": 70.75,
+   "dev": 0.25,
+   "confidence": 0.337,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.46,
+   "global_start": 71.0,
+   "words": [
+    {
+     "w": "In",
+     "start": 71.0,
+     "end": 71.24,
+     "score": 0.567,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 71.0,
+     "global_start": 71.0
+    },
+    {
+     "w": "every",
+     "start": 71.46,
+     "end": 72.14,
+     "score": 0.208,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 71.46,
+     "global_start": 71.46
+    },
+    {
+     "w": "flaw,",
+     "start": 72.32,
+     "end": 73.76,
+     "score": 0.072,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 72.32,
+     "global_start": 72.32
+    },
+    {
+     "w": "my",
+     "start": 74.22,
+     "end": 74.52,
+     "score": 0.614,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 74.22,
+     "global_start": 74.22
+    },
+    {
+     "w": "heart",
+     "start": 74.62,
+     "end": 75.88,
+     "score": 0.374,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 74.62,
+     "global_start": 74.62
+    },
+    {
+     "w": "reposes",
+     "start": 75.92,
+     "end": 78.92,
+     "score": 0.188,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 75.92,
+     "global_start": 75.92
+    }
+   ]
+  },
+  {
+   "i": 8,
+   "tag": "",
+   "text": "Why don't we drink and dine?",
+   "start": 79.92,
+   "end": 82.37,
+   "hand_start": 79.92,
+   "dev": 0.0,
+   "confidence": 0.251,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.28,
+   "global_start": 79.92,
+   "words": [
+    {
+     "w": "Why",
+     "start": 79.92,
+     "end": 80.34,
+     "score": 0.034,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 79.92,
+     "global_start": 79.92
+    },
+    {
+     "w": "don't",
+     "start": 80.42,
+     "end": 80.88,
+     "score": 0.202,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 80.42,
+     "global_start": 80.42
+    },
+    {
+     "w": "we",
+     "start": 80.88,
+     "end": 80.96,
+     "score": 0.025,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 80.88,
+     "global_start": 80.88
+    },
+    {
+     "w": "drink",
+     "start": 81.16,
+     "end": 81.52,
+     "score": 0.733,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 81.16,
+     "global_start": 81.16
+    },
+    {
+     "w": "and",
+     "start": 81.58,
+     "end": 81.88,
+     "score": 0.466,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 81.58,
+     "global_start": 81.58
+    },
+    {
+     "w": "dine?",
+     "start": 82.16,
+     "end": 82.37,
+     "score": 0.044,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 81.84,
+     "global_start": 81.84
+    }
+   ]
+  },
+  {
+   "i": 9,
+   "tag": "",
+   "text": "My 6 fingered valentine",
+   "start": 82.44,
+   "end": 86.5,
+   "hand_start": 82.37,
+   "dev": 0.07,
+   "confidence": 0.122,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.24,
+   "global_start": 82.44,
+   "words": [
+    {
+     "w": "My",
+     "start": 82.44,
+     "end": 82.62,
+     "score": 0.198,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 82.44,
+     "global_start": 82.44
+    },
+    {
+     "w": "6",
+     "start": 82.86,
+     "end": 83.22,
+     "score": 0.134,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 82.86,
+     "global_start": 82.86
+    },
+    {
+     "w": "fingered",
+     "start": 83.46,
+     "end": 84.54,
+     "score": 0.082,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 83.46,
+     "global_start": 83.46
+    },
+    {
+     "w": "valentine",
+     "start": 84.56,
+     "end": 86.5,
+     "score": 0.074,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 84.56,
+     "global_start": 84.56
+    }
+   ]
+  },
+  {
+   "i": 10,
+   "tag": "",
+   "text": "Why won't you sip a cup of wine?",
+   "start": 86.56,
+   "end": 89.27,
+   "hand_start": 86.5,
+   "dev": 0.06,
+   "confidence": 0.23,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.28,
+   "global_start": 86.56,
+   "words": [
+    {
+     "w": "Why",
+     "start": 86.56,
+     "end": 86.9,
+     "score": 0.051,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 86.56,
+     "global_start": 86.56
+    },
+    {
+     "w": "won't",
+     "start": 86.98,
+     "end": 87.42,
+     "score": 0.311,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 86.98,
+     "global_start": 86.98
+    },
+    {
+     "w": "you",
+     "start": 87.46,
+     "end": 87.58,
+     "score": 0.212,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 87.46,
+     "global_start": 87.46
+    },
+    {
+     "w": "sip",
+     "start": 87.8,
+     "end": 88.06,
+     "score": 0.619,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 87.8,
+     "global_start": 87.8
+    },
+    {
+     "w": "a",
+     "start": 88.18,
+     "end": 88.22,
+     "score": 0.214,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 88.18,
+     "global_start": 88.18
+    },
+    {
+     "w": "cup",
+     "start": 88.34,
+     "end": 88.86,
+     "score": 0.228,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 88.34,
+     "global_start": 88.34
+    },
+    {
+     "w": "of",
+     "start": 89.14,
+     "end": 89.3,
+     "score": 0.163,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 89.14,
+     "global_start": 89.14
+    },
+    {
+     "w": "wine?",
+     "start": 89.3,
+     "end": 89.27,
+     "score": 0.044,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 89.3,
+     "global_start": 89.3
+    }
+   ]
+  },
+  {
+   "i": 11,
+   "tag": "",
+   "text": "My 6 fingered valentine",
+   "start": 89.02,
+   "end": 93.06,
+   "hand_start": 89.27,
+   "dev": -0.25,
+   "confidence": 0.067,
+   "source": "aligned",
+   "agree": 0.75,
+   "check": false,
+   "max_gap": 0.12,
+   "global_start": 89.74,
+   "words": [
+    {
+     "w": "My",
+     "start": 89.02,
+     "end": 89.62,
+     "score": 0.045,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 89.74,
+     "global_start": 89.74
+    },
+    {
+     "w": "6",
+     "start": 89.74,
+     "end": 90.14,
+     "score": 0.02,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 89.98,
+     "global_start": 89.98
+    },
+    {
+     "w": "fingered",
+     "start": 90.14,
+     "end": 91.14,
+     "score": 0.161,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 90.14,
+     "global_start": 90.14
+    },
+    {
+     "w": "valentine",
+     "start": 91.16,
+     "end": 93.06,
+     "score": 0.041,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 91.16,
+     "global_start": 91.16
+    }
+   ]
+  },
+  {
+   "i": 12,
+   "tag": "",
+   "text": "What dreams I had of you",
+   "start": 93.16,
+   "end": 95.26,
+   "hand_start": 93.06,
+   "dev": 0.1,
+   "confidence": 0.51,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.3,
+   "global_start": 93.16,
+   "words": [
+    {
+     "w": "What",
+     "start": 93.16,
+     "end": 93.42,
+     "score": 0.099,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 93.16,
+     "global_start": 93.16
+    },
+    {
+     "w": "dreams",
+     "start": 93.54,
+     "end": 94.06,
+     "score": 0.692,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 93.54,
+     "global_start": 93.54
+    },
+    {
+     "w": "I",
+     "start": 94.36,
+     "end": 94.4,
+     "score": 0.839,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 94.36,
+     "global_start": 94.36
+    },
+    {
+     "w": "had",
+     "start": 94.44,
+     "end": 94.72,
+     "score": 0.787,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 94.44,
+     "global_start": 94.44
+    },
+    {
+     "w": "of",
+     "start": 94.8,
+     "end": 95.04,
+     "score": 0.283,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 94.8,
+     "global_start": 94.8
+    },
+    {
+     "w": "you",
+     "start": 95.12,
+     "end": 95.26,
+     "score": 0.363,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 95.12,
+     "global_start": 95.12
+    }
+   ]
+  },
+  {
+   "i": 13,
+   "tag": "",
+   "text": "My 6 fingered valentine",
+   "start": 95.66,
+   "end": 99.45,
+   "hand_start": 95.54,
+   "dev": 0.12,
+   "confidence": 0.162,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.26,
+   "global_start": 95.66,
+   "words": [
+    {
+     "w": "My",
+     "start": 95.66,
+     "end": 95.82,
+     "score": 0.266,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 95.66,
+     "global_start": 95.66
+    },
+    {
+     "w": "6",
+     "start": 96.08,
+     "end": 96.44,
+     "score": 0.242,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 96.08,
+     "global_start": 96.08
+    },
+    {
+     "w": "fingered",
+     "start": 96.64,
+     "end": 97.72,
+     "score": 0.1,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 96.64,
+     "global_start": 96.64
+    },
+    {
+     "w": "valentine",
+     "start": 97.72,
+     "end": 99.45,
+     "score": 0.038,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 97.72,
+     "global_start": 97.72
+    }
+   ]
+  },
+  {
+   "i": 14,
+   "tag": "",
+   "text": "This alienation is by design",
+   "start": 98.96,
+   "end": 100.02,
+   "hand_start": 99.45,
+   "dev": -0.49,
+   "confidence": 0.015,
+   "source": "aligned",
+   "agree": 0.6,
+   "check": false,
+   "max_gap": 0.62,
+   "global_start": 98.96,
+   "words": [
+    {
+     "w": "This",
+     "start": 98.96,
+     "end": 99.08,
+     "score": 0.01,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 99.6,
+     "global_start": 98.96
+    },
+    {
+     "w": "alienation",
+     "start": 99.7,
+     "end": 99.78,
+     "score": 0.021,
+     "agree": false,
+     "from": "context",
+     "context_start": 99.7,
+     "global_start": 99.08
+    },
+    {
+     "w": "is",
+     "start": 99.78,
+     "end": 99.82,
+     "score": 0.014,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 99.9,
+     "global_start": 99.76
+    },
+    {
+     "w": "by",
+     "start": 99.82,
+     "end": 99.86,
+     "score": 0.009,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 99.94,
+     "global_start": 99.8
+    },
+    {
+     "w": "design",
+     "start": 99.86,
+     "end": 100.02,
+     "score": 0.02,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 99.98,
+     "global_start": 99.84
+    }
+   ]
+  },
+  {
+   "i": 15,
+   "tag": "",
+   "text": "My 6 fingered valentine",
+   "start": 102.26,
+   "end": 108.45,
+   "hand_start": 102.26,
+   "dev": 0.0,
+   "confidence": 0.01,
+   "source": "hand",
+   "agree": 0.5,
+   "check": true,
+   "max_gap": 0.0,
+   "global_start": 99.96,
+   "words": [
+    {
+     "w": "My",
+     "start": 107.3,
+     "end": 107.42,
+     "score": 0.005,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 99.96,
+     "global_start": 99.96
+    },
+    {
+     "w": "6",
+     "start": 107.42,
+     "end": 107.52,
+     "score": 0.004,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 100.06,
+     "global_start": 100.06
+    },
+    {
+     "w": "fingered",
+     "start": 107.52,
+     "end": 107.88,
+     "score": 0.007,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 107.42,
+     "global_start": 107.42
+    },
+    {
+     "w": "valentine",
+     "start": 107.88,
+     "end": 108.45,
+     "score": 0.023,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 107.68,
+     "global_start": 107.68
+    }
+   ]
+  },
+  {
+   "i": 16,
+   "tag": "",
+   "text": "Your porcelain skin is wearing thin",
+   "start": 108.45,
+   "end": 112.86,
+   "hand_start": 108.45,
+   "dev": 0.0,
+   "confidence": 0.429,
+   "source": "hand",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.26,
+   "global_start": 108.44,
+   "words": [
+    {
+     "w": "Your",
+     "start": 109.3,
+     "end": 109.7,
+     "score": 0.146,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 109.3,
+     "global_start": 108.44
+    },
+    {
+     "w": "porcelain",
+     "start": 109.7,
+     "end": 110.54,
+     "score": 0.285,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 109.7,
+     "global_start": 109.7
+    },
+    {
+     "w": "skin",
+     "start": 110.66,
+     "end": 111.12,
+     "score": 0.7,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 110.66,
+     "global_start": 110.66
+    },
+    {
+     "w": "is",
+     "start": 111.38,
+     "end": 111.52,
+     "score": 0.49,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 111.38,
+     "global_start": 111.38
+    },
+    {
+     "w": "wearing",
+     "start": 111.58,
+     "end": 112.36,
+     "score": 0.67,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 111.58,
+     "global_start": 111.58
+    },
+    {
+     "w": "thin",
+     "start": 112.4,
+     "end": 112.86,
+     "score": 0.283,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 112.4,
+     "global_start": 112.4
+    }
+   ]
+  },
+  {
+   "i": 17,
+   "tag": "",
+   "text": "A tragic secret, where do I begin?",
+   "start": 113.12,
+   "end": 121.24,
+   "hand_start": 112.86,
+   "dev": 0.26,
+   "confidence": 0.4,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.9,
+   "global_start": 113.12,
+   "words": [
+    {
+     "w": "A",
+     "start": 113.12,
+     "end": 113.16,
+     "score": 0.882,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 113.12,
+     "global_start": 113.12
+    },
+    {
+     "w": "tragic",
+     "start": 113.4,
+     "end": 114.02,
+     "score": 0.316,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 113.4,
+     "global_start": 113.4
+    },
+    {
+     "w": "secret,",
+     "start": 114.08,
+     "end": 114.98,
+     "score": 0.629,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 114.08,
+     "global_start": 114.08
+    },
+    {
+     "w": "where",
+     "start": 115.88,
+     "end": 116.92,
+     "score": 0.202,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 115.88,
+     "global_start": 115.88
+    },
+    {
+     "w": "do",
+     "start": 117.08,
+     "end": 117.26,
+     "score": 0.261,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 117.08,
+     "global_start": 117.08
+    },
+    {
+     "w": "I",
+     "start": 118.1,
+     "end": 118.14,
+     "score": 0.057,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 118.1,
+     "global_start": 118.1
+    },
+    {
+     "w": "begin?",
+     "start": 118.36,
+     "end": 121.24,
+     "score": 0.45,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 118.36,
+     "global_start": 118.36
+    }
+   ]
+  },
+  {
+   "i": 18,
+   "tag": "",
+   "text": "The world outside can never see",
+   "start": 121.8,
+   "end": 125.86,
+   "hand_start": 121.46,
+   "dev": 0.34,
+   "confidence": 0.514,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.2,
+   "global_start": 121.22,
+   "words": [
+    {
+     "w": "The",
+     "start": 121.8,
+     "end": 122.04,
+     "score": 0.054,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 121.82,
+     "global_start": 121.22
+    },
+    {
+     "w": "world",
+     "start": 122.04,
+     "end": 123.54,
+     "score": 0.048,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 122.04,
+     "global_start": 122.04
+    },
+    {
+     "w": "outside",
+     "start": 123.6,
+     "end": 124.44,
+     "score": 0.231,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 123.6,
+     "global_start": 123.6
+    },
+    {
+     "w": "can",
+     "start": 124.52,
+     "end": 124.82,
+     "score": 0.945,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 124.52,
+     "global_start": 124.52
+    },
+    {
+     "w": "never",
+     "start": 124.96,
+     "end": 125.36,
+     "score": 0.851,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 124.96,
+     "global_start": 124.96
+    },
+    {
+     "w": "see",
+     "start": 125.56,
+     "end": 125.86,
+     "score": 0.953,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 125.56,
+     "global_start": 125.56
+    }
+   ]
+  },
+  {
+   "i": 19,
+   "tag": "",
+   "text": "The perfect damage you inflict on me",
+   "start": 126.24,
+   "end": 132.14,
+   "hand_start": 126.29,
+   "dev": -0.05,
+   "confidence": 0.331,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.3,
+   "global_start": 126.24,
+   "words": [
+    {
+     "w": "The",
+     "start": 126.24,
+     "end": 126.36,
+     "score": 0.078,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 126.24,
+     "global_start": 126.24
+    },
+    {
+     "w": "perfect",
+     "start": 126.56,
+     "end": 127.28,
+     "score": 0.604,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 126.56,
+     "global_start": 126.56
+    },
+    {
+     "w": "damage",
+     "start": 127.32,
+     "end": 128.32,
+     "score": 0.386,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 127.32,
+     "global_start": 127.32
+    },
+    {
+     "w": "you",
+     "start": 128.38,
+     "end": 128.58,
+     "score": 0.498,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 128.38,
+     "global_start": 128.38
+    },
+    {
+     "w": "inflict",
+     "start": 128.8,
+     "end": 130.28,
+     "score": 0.393,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 128.8,
+     "global_start": 128.8
+    },
+    {
+     "w": "on",
+     "start": 130.48,
+     "end": 131.68,
+     "score": 0.135,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 130.48,
+     "global_start": 130.48
+    },
+    {
+     "w": "me",
+     "start": 131.98,
+     "end": 132.14,
+     "score": 0.221,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 131.98,
+     "global_start": 131.98
+    }
+   ]
+  },
+  {
+   "i": 20,
+   "tag": "",
+   "text": "You don't exist in the daylight sun",
+   "start": 135.81,
+   "end": 139.2,
+   "hand_start": 135.81,
+   "dev": 0.0,
+   "confidence": 0.763,
+   "source": "hand",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.08,
+   "global_start": 136.72,
+   "words": [
+    {
+     "w": "You",
+     "start": 136.72,
+     "end": 136.86,
+     "score": 0.794,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 136.72,
+     "global_start": 136.72
+    },
+    {
+     "w": "don't",
+     "start": 136.92,
+     "end": 137.2,
+     "score": 0.532,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 136.92,
+     "global_start": 136.92
+    },
+    {
+     "w": "exist",
+     "start": 137.22,
+     "end": 137.78,
+     "score": 0.945,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 137.22,
+     "global_start": 137.22
+    },
+    {
+     "w": "in",
+     "start": 137.86,
+     "end": 137.96,
+     "score": 0.9,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 137.86,
+     "global_start": 137.86
+    },
+    {
+     "w": "the",
+     "start": 137.98,
+     "end": 138.1,
+     "score": 0.75,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 137.98,
+     "global_start": 137.98
+    },
+    {
+     "w": "daylight",
+     "start": 138.18,
+     "end": 138.74,
+     "score": 0.808,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 138.18,
+     "global_start": 138.18
+    },
+    {
+     "w": "sun",
+     "start": 138.82,
+     "end": 139.2,
+     "score": 0.61,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 138.82,
+     "global_start": 138.82
+    }
+   ]
+  },
+  {
+   "i": 21,
+   "tag": "",
+   "text": "This melancholy has just begun",
+   "start": 140.02,
+   "end": 142.6,
+   "hand_start": 139.95,
+   "dev": 0.07,
+   "confidence": 0.64,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.06,
+   "global_start": 140.02,
+   "words": [
+    {
+     "w": "This",
+     "start": 140.02,
+     "end": 140.2,
+     "score": 0.711,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 140.02,
+     "global_start": 140.02
+    },
+    {
+     "w": "melancholy",
+     "start": 140.26,
+     "end": 141.0,
+     "score": 0.633,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 140.26,
+     "global_start": 140.26
+    },
+    {
+     "w": "has",
+     "start": 141.02,
+     "end": 141.24,
+     "score": 0.358,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 141.02,
+     "global_start": 141.02
+    },
+    {
+     "w": "just",
+     "start": 141.28,
+     "end": 141.66,
+     "score": 0.951,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 141.28,
+     "global_start": 141.28
+    },
+    {
+     "w": "begun",
+     "start": 141.72,
+     "end": 142.6,
+     "score": 0.547,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 141.72,
+     "global_start": 141.72
+    }
+   ]
+  },
+  {
+   "i": 22,
+   "tag": "",
+   "text": "I crave the flaw, the cold, hard sign",
+   "start": 149.62,
+   "end": 152.74,
+   "hand_start": 149.49,
+   "dev": 0.13,
+   "confidence": 0.412,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.12,
+   "global_start": 149.62,
+   "words": [
+    {
+     "w": "I",
+     "start": 149.62,
+     "end": 149.66,
+     "score": 0.724,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 149.62,
+     "global_start": 149.62
+    },
+    {
+     "w": "crave",
+     "start": 149.7,
+     "end": 150.16,
+     "score": 0.43,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 149.7,
+     "global_start": 149.7
+    },
+    {
+     "w": "the",
+     "start": 150.16,
+     "end": 150.26,
+     "score": 0.429,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 150.16,
+     "global_start": 150.16
+    },
+    {
+     "w": "flaw,",
+     "start": 150.32,
+     "end": 150.86,
+     "score": 0.142,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 150.32,
+     "global_start": 150.32
+    },
+    {
+     "w": "the",
+     "start": 150.98,
+     "end": 151.08,
+     "score": 0.12,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 150.98,
+     "global_start": 150.98
+    },
+    {
+     "w": "cold,",
+     "start": 151.14,
+     "end": 151.62,
+     "score": 0.466,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 151.14,
+     "global_start": 151.14
+    },
+    {
+     "w": "hard",
+     "start": 151.66,
+     "end": 151.92,
+     "score": 0.282,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 151.66,
+     "global_start": 151.66
+    },
+    {
+     "w": "sign",
+     "start": 152.02,
+     "end": 152.74,
+     "score": 0.705,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 152.02,
+     "global_start": 152.02
+    }
+   ]
+  },
+  {
+   "i": 23,
+   "tag": "",
+   "text": "That nothing perfect can ever be mine",
+   "start": 153.46,
+   "end": 161.42,
+   "hand_start": 153.07,
+   "dev": 0.39,
+   "confidence": 0.639,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.34,
+   "global_start": 153.46,
+   "words": [
+    {
+     "w": "That",
+     "start": 153.46,
+     "end": 153.7,
+     "score": 0.358,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 153.46,
+     "global_start": 153.46
+    },
+    {
+     "w": "nothing",
+     "start": 153.86,
+     "end": 154.88,
+     "score": 0.876,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 153.86,
+     "global_start": 153.86
+    },
+    {
+     "w": "perfect",
+     "start": 155.08,
+     "end": 156.4,
+     "score": 0.68,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 155.08,
+     "global_start": 155.08
+    },
+    {
+     "w": "can",
+     "start": 156.74,
+     "end": 157.18,
+     "score": 0.812,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 156.74,
+     "global_start": 156.74
+    },
+    {
+     "w": "ever",
+     "start": 157.26,
+     "end": 157.9,
+     "score": 0.701,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 157.26,
+     "global_start": 157.26
+    },
+    {
+     "w": "be",
+     "start": 158.02,
+     "end": 158.14,
+     "score": 0.95,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 158.02,
+     "global_start": 158.02
+    },
+    {
+     "w": "mine",
+     "start": 158.42,
+     "end": 161.42,
+     "score": 0.093,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 158.42,
+     "global_start": 158.42
+    }
+   ]
+  },
+  {
+   "i": 24,
+   "tag": "",
+   "text": "Why don't we drink and dine?",
+   "start": 162.5,
+   "end": 164.88,
+   "hand_start": 162.32,
+   "dev": 0.18,
+   "confidence": 0.645,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.18,
+   "global_start": 162.5,
+   "words": [
+    {
+     "w": "Why",
+     "start": 162.5,
+     "end": 162.86,
+     "score": 0.82,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 162.5,
+     "global_start": 162.5
+    },
+    {
+     "w": "don't",
+     "start": 162.94,
+     "end": 163.26,
+     "score": 0.502,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 162.94,
+     "global_start": 162.94
+    },
+    {
+     "w": "we",
+     "start": 163.36,
+     "end": 163.5,
+     "score": 0.944,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 163.36,
+     "global_start": 163.36
+    },
+    {
+     "w": "drink",
+     "start": 163.68,
+     "end": 164.04,
+     "score": 0.86,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 163.68,
+     "global_start": 163.68
+    },
+    {
+     "w": "and",
+     "start": 164.12,
+     "end": 164.34,
+     "score": 0.494,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 164.12,
+     "global_start": 164.12
+    },
+    {
+     "w": "dine?",
+     "start": 164.38,
+     "end": 164.88,
+     "score": 0.25,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 164.38,
+     "global_start": 164.38
+    }
+   ]
+  },
+  {
+   "i": 25,
+   "tag": "",
+   "text": "My 6 fingered valentine",
+   "start": 165.02,
+   "end": 168.88,
+   "hand_start": 164.88,
+   "dev": 0.14,
+   "confidence": 0.144,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.26,
+   "global_start": 165.02,
+   "words": [
+    {
+     "w": "My",
+     "start": 165.02,
+     "end": 165.24,
+     "score": 0.39,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 165.02,
+     "global_start": 165.02
+    },
+    {
+     "w": "6",
+     "start": 165.42,
+     "end": 165.78,
+     "score": 0.131,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 165.42,
+     "global_start": 165.42
+    },
+    {
+     "w": "fingered",
+     "start": 166.04,
+     "end": 167.06,
+     "score": 0.017,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 166.04,
+     "global_start": 166.04
+    },
+    {
+     "w": "valentine",
+     "start": 167.06,
+     "end": 168.88,
+     "score": 0.038,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 167.06,
+     "global_start": 167.06
+    }
+   ]
+  },
+  {
+   "i": 26,
+   "tag": "",
+   "text": "Why won't you sip a cup of wine?",
+   "start": 169.1,
+   "end": 171.66,
+   "hand_start": 168.88,
+   "dev": 0.22,
+   "confidence": 0.547,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.18,
+   "global_start": 169.1,
+   "words": [
+    {
+     "w": "Why",
+     "start": 169.1,
+     "end": 169.44,
+     "score": 0.489,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 169.1,
+     "global_start": 169.1
+    },
+    {
+     "w": "won't",
+     "start": 169.52,
+     "end": 169.98,
+     "score": 0.499,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 169.52,
+     "global_start": 169.52
+    },
+    {
+     "w": "you",
+     "start": 170.02,
+     "end": 170.18,
+     "score": 0.826,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 170.02,
+     "global_start": 170.02
+    },
+    {
+     "w": "sip",
+     "start": 170.32,
+     "end": 170.62,
+     "score": 0.928,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 170.32,
+     "global_start": 170.32
+    },
+    {
+     "w": "a",
+     "start": 170.68,
+     "end": 170.72,
+     "score": 0.778,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 170.68,
+     "global_start": 170.68
+    },
+    {
+     "w": "cup",
+     "start": 170.9,
+     "end": 171.4,
+     "score": 0.661,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 170.9,
+     "global_start": 170.9
+    },
+    {
+     "w": "of",
+     "start": 171.44,
+     "end": 171.54,
+     "score": 0.005,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 171.44,
+     "global_start": 171.44
+    },
+    {
+     "w": "wine?",
+     "start": 171.6,
+     "end": 171.66,
+     "score": 0.193,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 171.6,
+     "global_start": 171.6
+    }
+   ]
+  },
+  {
+   "i": 27,
+   "tag": "",
+   "text": "My 6 fingered valentine",
+   "start": 171.66,
+   "end": 175.52,
+   "hand_start": 171.66,
+   "dev": 0.0,
+   "confidence": 0.022,
+   "source": "hand",
+   "agree": 0.5,
+   "check": true,
+   "max_gap": 0.26,
+   "global_start": 171.92,
+   "words": [
+    {
+     "w": "My",
+     "start": 171.36,
+     "end": 171.64,
+     "score": 0.013,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 171.92,
+     "global_start": 171.92
+    },
+    {
+     "w": "6",
+     "start": 171.9,
+     "end": 171.96,
+     "score": 0.024,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 171.96,
+     "global_start": 171.96
+    },
+    {
+     "w": "fingered",
+     "start": 171.96,
+     "end": 172.68,
+     "score": 0.037,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 172.04,
+     "global_start": 172.04
+    },
+    {
+     "w": "valentine",
+     "start": 172.68,
+     "end": 175.52,
+     "score": 0.014,
+     "agree": false,
+     "from": "context",
+     "context_start": 172.68,
+     "global_start": 172.68
+    }
+   ]
+  },
+  {
+   "i": 28,
+   "tag": "",
+   "text": "What dreams I had of you",
+   "start": 175.72,
+   "end": 177.82,
+   "hand_start": 175.6,
+   "dev": 0.12,
+   "confidence": 0.727,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.28,
+   "global_start": 175.72,
+   "words": [
+    {
+     "w": "What",
+     "start": 175.72,
+     "end": 176.0,
+     "score": 0.71,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 175.72,
+     "global_start": 175.72
+    },
+    {
+     "w": "dreams",
+     "start": 176.08,
+     "end": 176.6,
+     "score": 0.926,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 176.08,
+     "global_start": 176.08
+    },
+    {
+     "w": "I",
+     "start": 176.88,
+     "end": 176.92,
+     "score": 0.937,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 176.88,
+     "global_start": 176.88
+    },
+    {
+     "w": "had",
+     "start": 176.98,
+     "end": 177.26,
+     "score": 0.734,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 176.98,
+     "global_start": 176.98
+    },
+    {
+     "w": "of",
+     "start": 177.32,
+     "end": 177.58,
+     "score": 0.459,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 177.32,
+     "global_start": 177.32
+    },
+    {
+     "w": "you",
+     "start": 177.64,
+     "end": 177.82,
+     "score": 0.595,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 177.64,
+     "global_start": 177.64
+    }
+   ]
+  },
+  {
+   "i": 29,
+   "tag": "",
+   "text": "My 6 fingered valentine",
+   "start": 178.22,
+   "end": 182.1,
+   "hand_start": 178.17,
+   "dev": 0.05,
+   "confidence": 0.056,
+   "source": "aligned",
+   "agree": 0.75,
+   "check": false,
+   "max_gap": 0.22,
+   "global_start": 178.22,
+   "words": [
+    {
+     "w": "My",
+     "start": 178.22,
+     "end": 178.48,
+     "score": 0.011,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 178.22,
+     "global_start": 178.22
+    },
+    {
+     "w": "6",
+     "start": 178.62,
+     "end": 179.0,
+     "score": 0.002,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 178.62,
+     "global_start": 178.62
+    },
+    {
+     "w": "fingered",
+     "start": 179.22,
+     "end": 180.4,
+     "score": 0.009,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 179.22,
+     "global_start": 179.22
+    },
+    {
+     "w": "valentine",
+     "start": 180.4,
+     "end": 182.1,
+     "score": 0.201,
+     "agree": false,
+     "from": "context",
+     "context_start": 180.4,
+     "global_start": 180.4
+    }
+   ]
+  },
+  {
+   "i": 30,
+   "tag": "",
+   "text": "This alienation is by design",
+   "start": 182.32,
+   "end": 184.84,
+   "hand_start": 182.23,
+   "dev": 0.09,
+   "confidence": 0.653,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.08,
+   "global_start": 182.32,
+   "words": [
+    {
+     "w": "This",
+     "start": 182.32,
+     "end": 182.74,
+     "score": 0.79,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 182.32,
+     "global_start": 182.32
+    },
+    {
+     "w": "alienation",
+     "start": 182.82,
+     "end": 184.18,
+     "score": 0.778,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 182.82,
+     "global_start": 182.82
+    },
+    {
+     "w": "is",
+     "start": 184.24,
+     "end": 184.34,
+     "score": 0.8,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 184.24,
+     "global_start": 184.24
+    },
+    {
+     "w": "by",
+     "start": 184.42,
+     "end": 184.78,
+     "score": 0.482,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 184.42,
+     "global_start": 184.42
+    },
+    {
+     "w": "design",
+     "start": 184.82,
+     "end": 184.84,
+     "score": 0.415,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 184.82,
+     "global_start": 184.82
+    }
+   ]
+  },
+  {
+   "i": 31,
+   "tag": "",
+   "text": "My 6 fingered valentine",
+   "start": 184.84,
+   "end": 188.8,
+   "hand_start": 184.84,
+   "dev": 0.0,
+   "confidence": 0.104,
+   "source": "hand",
+   "agree": 0.25,
+   "check": true,
+   "max_gap": 1.82,
+   "global_start": 185.86,
+   "words": [
+    {
+     "w": "My",
+     "start": 184.42,
+     "end": 184.78,
+     "score": 0.005,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 185.86,
+     "global_start": 185.86
+    },
+    {
+     "w": "6",
+     "start": 184.82,
+     "end": 185.04,
+     "score": 0.051,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 185.96,
+     "global_start": 185.96
+    },
+    {
+     "w": "fingered",
+     "start": 186.86,
+     "end": 188.62,
+     "score": 0.248,
+     "agree": false,
+     "from": "context",
+     "context_start": 186.86,
+     "global_start": 186.86
+    },
+    {
+     "w": "valentine",
+     "start": 188.76,
+     "end": 188.8,
+     "score": 0.114,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 188.6,
+     "global_start": 188.6
+    }
+   ]
+  },
+  {
+   "i": 32,
+   "tag": "",
+   "text": "That extra digit is a compass of fate",
+   "start": 188.72,
+   "end": 191.8,
+   "hand_start": 188.8,
+   "dev": -0.08,
+   "confidence": 0.581,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.08,
+   "global_start": 188.92,
+   "words": [
+    {
+     "w": "That",
+     "start": 188.72,
+     "end": 188.96,
+     "score": 0.472,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 188.92,
+     "global_start": 188.92
+    },
+    {
+     "w": "extra",
+     "start": 189.0,
+     "end": 189.28,
+     "score": 0.163,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 189.1,
+     "global_start": 189.1
+    },
+    {
+     "w": "digit",
+     "start": 189.36,
+     "end": 189.82,
+     "score": 0.513,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 189.36,
+     "global_start": 189.36
+    },
+    {
+     "w": "is",
+     "start": 189.86,
+     "end": 190.0,
+     "score": 0.861,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 189.86,
+     "global_start": 189.86
+    },
+    {
+     "w": "a",
+     "start": 190.04,
+     "end": 190.08,
+     "score": 0.866,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 190.04,
+     "global_start": 190.04
+    },
+    {
+     "w": "compass",
+     "start": 190.14,
+     "end": 190.76,
+     "score": 0.671,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 190.14,
+     "global_start": 190.14
+    },
+    {
+     "w": "of",
+     "start": 190.82,
+     "end": 190.9,
+     "score": 0.656,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 190.82,
+     "global_start": 190.82
+    },
+    {
+     "w": "fate",
+     "start": 190.96,
+     "end": 191.8,
+     "score": 0.448,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 190.96,
+     "global_start": 190.96
+    }
+   ]
+  },
+  {
+   "i": 33,
+   "tag": "",
+   "text": "Pointing only to the things I truly hate",
+   "start": 192.22,
+   "end": 195.42,
+   "hand_start": 191.8,
+   "dev": 0.42,
+   "confidence": 0.577,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.68,
+   "global_start": 192.22,
+   "words": [
+    {
+     "w": "Pointing",
+     "start": 192.22,
+     "end": 192.68,
+     "score": 0.463,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 192.22,
+     "global_start": 192.22
+    },
+    {
+     "w": "only",
+     "start": 192.76,
+     "end": 193.0,
+     "score": 0.723,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 192.76,
+     "global_start": 192.76
+    },
+    {
+     "w": "to",
+     "start": 193.06,
+     "end": 193.18,
+     "score": 0.748,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 193.06,
+     "global_start": 193.06
+    },
+    {
+     "w": "the",
+     "start": 193.3,
+     "end": 193.4,
+     "score": 0.681,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 193.3,
+     "global_start": 193.3
+    },
+    {
+     "w": "things",
+     "start": 193.48,
+     "end": 193.92,
+     "score": 0.663,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 193.48,
+     "global_start": 193.48
+    },
+    {
+     "w": "I",
+     "start": 194.02,
+     "end": 194.06,
+     "score": 0.215,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 194.02,
+     "global_start": 194.02
+    },
+    {
+     "w": "truly",
+     "start": 194.08,
+     "end": 194.66,
+     "score": 0.732,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 194.08,
+     "global_start": 194.08
+    },
+    {
+     "w": "hate",
+     "start": 195.34,
+     "end": 195.42,
+     "score": 0.393,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 195.34,
+     "global_start": 195.34
+    }
+   ]
+  },
+  {
+   "i": 34,
+   "tag": "",
+   "text": "A morbid promise, exquisitely frail",
+   "start": 195.36,
+   "end": 198.22,
+   "hand_start": 195.42,
+   "dev": -0.06,
+   "confidence": 0.678,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.12,
+   "global_start": 195.5,
+   "words": [
+    {
+     "w": "A",
+     "start": 195.36,
+     "end": 195.4,
+     "score": 0.604,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 195.5,
+     "global_start": 195.5
+    },
+    {
+     "w": "morbid",
+     "start": 195.52,
+     "end": 195.88,
+     "score": 0.606,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 195.52,
+     "global_start": 195.52
+    },
+    {
+     "w": "promise,",
+     "start": 195.92,
+     "end": 196.56,
+     "score": 0.634,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 195.92,
+     "global_start": 195.92
+    },
+    {
+     "w": "exquisitely",
+     "start": 196.62,
+     "end": 197.48,
+     "score": 0.853,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 196.62,
+     "global_start": 196.62
+    },
+    {
+     "w": "frail",
+     "start": 197.58,
+     "end": 198.22,
+     "score": 0.694,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 197.58,
+     "global_start": 197.58
+    }
+   ]
+  },
+  {
+   "i": 35,
+   "tag": "",
+   "text": "Another reason I am doomed to fail",
+   "start": 198.72,
+   "end": 201.84,
+   "hand_start": 198.5,
+   "dev": 0.22,
+   "confidence": 0.195,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.42,
+   "global_start": 198.72,
+   "words": [
+    {
+     "w": "Another",
+     "start": 198.72,
+     "end": 199.22,
+     "score": 0.146,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 198.72,
+     "global_start": 198.72
+    },
+    {
+     "w": "reason",
+     "start": 199.26,
+     "end": 199.64,
+     "score": 0.317,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 199.26,
+     "global_start": 199.26
+    },
+    {
+     "w": "I",
+     "start": 199.88,
+     "end": 199.92,
+     "score": 0.125,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 199.88,
+     "global_start": 199.88
+    },
+    {
+     "w": "am",
+     "start": 199.92,
+     "end": 200.02,
+     "score": 0.197,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 199.92,
+     "global_start": 199.92
+    },
+    {
+     "w": "doomed",
+     "start": 200.08,
+     "end": 200.66,
+     "score": 0.291,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 200.08,
+     "global_start": 200.08
+    },
+    {
+     "w": "to",
+     "start": 200.7,
+     "end": 200.86,
+     "score": 0.152,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 200.7,
+     "global_start": 200.7
+    },
+    {
+     "w": "fail",
+     "start": 201.28,
+     "end": 201.84,
+     "score": 0.136,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 201.28,
+     "global_start": 201.28
+    }
+   ]
+  },
+  {
+   "i": 36,
+   "tag": "",
+   "text": "You're not a lover, you're a curse I embrace",
+   "start": 201.94,
+   "end": 205.12,
+   "hand_start": 201.84,
+   "dev": 0.1,
+   "confidence": 0.345,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.12,
+   "global_start": 201.94,
+   "words": [
+    {
+     "w": "You're",
+     "start": 201.94,
+     "end": 202.14,
+     "score": 0.037,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 201.94,
+     "global_start": 201.94
+    },
+    {
+     "w": "not",
+     "start": 202.14,
+     "end": 202.4,
+     "score": 0.036,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 202.14,
+     "global_start": 202.14
+    },
+    {
+     "w": "a",
+     "start": 202.4,
+     "end": 202.44,
+     "score": 0.08,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 202.4,
+     "global_start": 202.4
+    },
+    {
+     "w": "lover,",
+     "start": 202.56,
+     "end": 202.92,
+     "score": 0.708,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 202.56,
+     "global_start": 202.56
+    },
+    {
+     "w": "you're",
+     "start": 203.0,
+     "end": 203.24,
+     "score": 0.406,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 203.0,
+     "global_start": 203.0
+    },
+    {
+     "w": "a",
+     "start": 203.24,
+     "end": 203.28,
+     "score": 0.503,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 203.24,
+     "global_start": 203.24
+    },
+    {
+     "w": "curse",
+     "start": 203.36,
+     "end": 203.84,
+     "score": 0.496,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 203.36,
+     "global_start": 203.36
+    },
+    {
+     "w": "I",
+     "start": 203.96,
+     "end": 204.0,
+     "score": 0.456,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 203.96,
+     "global_start": 203.96
+    },
+    {
+     "w": "embrace",
+     "start": 204.02,
+     "end": 205.12,
+     "score": 0.384,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 204.02,
+     "global_start": 204.02
+    }
+   ]
+  },
+  {
+   "i": 37,
+   "tag": "",
+   "text": "The single flaw that justifies my empty space",
+   "start": 205.24,
+   "end": 211.2,
+   "hand_start": 205.12,
+   "dev": 0.12,
+   "confidence": 0.606,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.3,
+   "global_start": 205.24,
+   "words": [
+    {
+     "w": "The",
+     "start": 205.24,
+     "end": 205.36,
+     "score": 0.503,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 205.24,
+     "global_start": 205.24
+    },
+    {
+     "w": "single",
+     "start": 205.44,
+     "end": 205.82,
+     "score": 0.67,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 205.44,
+     "global_start": 205.44
+    },
+    {
+     "w": "flaw",
+     "start": 205.82,
+     "end": 206.08,
+     "score": 0.642,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 205.82,
+     "global_start": 205.82
+    },
+    {
+     "w": "that",
+     "start": 206.1,
+     "end": 206.24,
+     "score": 0.726,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 206.1,
+     "global_start": 206.1
+    },
+    {
+     "w": "justifies",
+     "start": 206.26,
+     "end": 207.1,
+     "score": 0.78,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 206.26,
+     "global_start": 206.26
+    },
+    {
+     "w": "my",
+     "start": 207.16,
+     "end": 207.32,
+     "score": 0.831,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 207.16,
+     "global_start": 207.16
+    },
+    {
+     "w": "empty",
+     "start": 207.44,
+     "end": 207.9,
+     "score": 0.47,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 207.44,
+     "global_start": 207.44
+    },
+    {
+     "w": "space",
+     "start": 208.2,
+     "end": 211.2,
+     "score": 0.224,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 208.2,
+     "global_start": 208.2
+    }
+   ]
+  },
+  {
+   "i": 38,
+   "tag": "",
+   "text": "Why don't we drink and dine?",
+   "start": 241.72,
+   "end": 244.05,
+   "hand_start": 241.46,
+   "dev": 0.26,
+   "confidence": 0.505,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.16,
+   "global_start": 241.72,
+   "words": [
+    {
+     "w": "Why",
+     "start": 241.72,
+     "end": 242.1,
+     "score": 0.367,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 241.72,
+     "global_start": 241.72
+    },
+    {
+     "w": "don't",
+     "start": 242.18,
+     "end": 242.52,
+     "score": 0.498,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 242.18,
+     "global_start": 242.18
+    },
+    {
+     "w": "we",
+     "start": 242.62,
+     "end": 242.78,
+     "score": 0.866,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 242.62,
+     "global_start": 242.62
+    },
+    {
+     "w": "drink",
+     "start": 242.94,
+     "end": 243.28,
+     "score": 0.684,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 242.94,
+     "global_start": 242.94
+    },
+    {
+     "w": "and",
+     "start": 243.34,
+     "end": 243.62,
+     "score": 0.419,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 243.34,
+     "global_start": 243.34
+    },
+    {
+     "w": "dine?",
+     "start": 243.62,
+     "end": 244.05,
+     "score": 0.195,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 243.62,
+     "global_start": 243.62
+    }
+   ]
+  },
+  {
+   "i": 39,
+   "tag": "",
+   "text": "My 6 fingered valentine",
+   "start": 244.26,
+   "end": 248.16,
+   "hand_start": 244.05,
+   "dev": 0.21,
+   "confidence": 0.067,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.28,
+   "global_start": 244.26,
+   "words": [
+    {
+     "w": "My",
+     "start": 244.26,
+     "end": 244.52,
+     "score": 0.058,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 244.26,
+     "global_start": 244.26
+    },
+    {
+     "w": "6",
+     "start": 244.64,
+     "end": 245.0,
+     "score": 0.02,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 244.64,
+     "global_start": 244.64
+    },
+    {
+     "w": "fingered",
+     "start": 245.28,
+     "end": 246.3,
+     "score": 0.069,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 245.28,
+     "global_start": 245.28
+    },
+    {
+     "w": "valentine",
+     "start": 246.3,
+     "end": 248.16,
+     "score": 0.119,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 246.3,
+     "global_start": 246.3
+    }
+   ]
+  },
+  {
+   "i": 40,
+   "tag": "",
+   "text": "Why won't you sip a cup of wine?",
+   "start": 248.36,
+   "end": 250.83,
+   "hand_start": 248.16,
+   "dev": 0.2,
+   "confidence": 0.381,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.2,
+   "global_start": 248.36,
+   "words": [
+    {
+     "w": "Why",
+     "start": 248.36,
+     "end": 248.7,
+     "score": 0.305,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 248.36,
+     "global_start": 248.36
+    },
+    {
+     "w": "won't",
+     "start": 248.76,
+     "end": 249.2,
+     "score": 0.288,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 248.76,
+     "global_start": 248.76
+    },
+    {
+     "w": "you",
+     "start": 249.24,
+     "end": 249.38,
+     "score": 0.322,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 249.24,
+     "global_start": 249.24
+    },
+    {
+     "w": "sip",
+     "start": 249.56,
+     "end": 249.86,
+     "score": 0.729,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 249.56,
+     "global_start": 249.56
+    },
+    {
+     "w": "a",
+     "start": 249.92,
+     "end": 249.96,
+     "score": 0.707,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 249.92,
+     "global_start": 249.92
+    },
+    {
+     "w": "cup",
+     "start": 250.16,
+     "end": 250.62,
+     "score": 0.379,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 250.16,
+     "global_start": 250.16
+    },
+    {
+     "w": "of",
+     "start": 250.7,
+     "end": 250.84,
+     "score": 0.106,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 250.7,
+     "global_start": 250.7
+    },
+    {
+     "w": "wine?",
+     "start": 251.02,
+     "end": 250.83,
+     "score": 0.212,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 251.02,
+     "global_start": 251.02
+    }
+   ]
+  },
+  {
+   "i": 41,
+   "tag": "",
+   "text": "My 6 fingered valentine",
+   "start": 250.83,
+   "end": 254.8,
+   "hand_start": 250.83,
+   "dev": 0.0,
+   "confidence": 0.03,
+   "source": "hand",
+   "agree": 0.25,
+   "check": true,
+   "max_gap": 0.96,
+   "global_start": 251.4,
+   "words": [
+    {
+     "w": "My",
+     "start": 250.32,
+     "end": 250.4,
+     "score": 0.001,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 251.4,
+     "global_start": 251.4
+    },
+    {
+     "w": "6",
+     "start": 250.58,
+     "end": 251.06,
+     "score": 0.033,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 251.76,
+     "global_start": 251.76
+    },
+    {
+     "w": "fingered",
+     "start": 252.02,
+     "end": 252.94,
+     "score": 0.071,
+     "agree": false,
+     "from": "context",
+     "context_start": 252.02,
+     "global_start": 252.02
+    },
+    {
+     "w": "valentine",
+     "start": 253.0,
+     "end": 254.8,
+     "score": 0.015,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 253.0,
+     "global_start": 253.0
+    }
+   ]
+  },
+  {
+   "i": 42,
+   "tag": "",
+   "text": "What dreams I had of you",
+   "start": 254.96,
+   "end": 257.14,
+   "hand_start": 254.8,
+   "dev": 0.16,
+   "confidence": 0.385,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.26,
+   "global_start": 254.96,
+   "words": [
+    {
+     "w": "What",
+     "start": 254.96,
+     "end": 255.24,
+     "score": 0.437,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 254.96,
+     "global_start": 254.96
+    },
+    {
+     "w": "dreams",
+     "start": 255.3,
+     "end": 255.84,
+     "score": 0.571,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 255.3,
+     "global_start": 255.3
+    },
+    {
+     "w": "I",
+     "start": 256.1,
+     "end": 256.14,
+     "score": 0.394,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 256.1,
+     "global_start": 256.1
+    },
+    {
+     "w": "had",
+     "start": 256.2,
+     "end": 256.52,
+     "score": 0.828,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 256.2,
+     "global_start": 256.2
+    },
+    {
+     "w": "of",
+     "start": 256.56,
+     "end": 256.84,
+     "score": 0.008,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 256.56,
+     "global_start": 256.56
+    },
+    {
+     "w": "you",
+     "start": 256.92,
+     "end": 257.14,
+     "score": 0.069,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 256.92,
+     "global_start": 256.92
+    }
+   ]
+  },
+  {
+   "i": 43,
+   "tag": "",
+   "text": "My 6 fingered valentine",
+   "start": 257.44,
+   "end": 261.41,
+   "hand_start": 257.42,
+   "dev": 0.02,
+   "confidence": 0.136,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.26,
+   "global_start": 257.44,
+   "words": [
+    {
+     "w": "My",
+     "start": 257.44,
+     "end": 257.72,
+     "score": 0.234,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 257.44,
+     "global_start": 257.44
+    },
+    {
+     "w": "6",
+     "start": 257.86,
+     "end": 258.22,
+     "score": 0.067,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 257.86,
+     "global_start": 257.86
+    },
+    {
+     "w": "fingered",
+     "start": 258.48,
+     "end": 259.54,
+     "score": 0.046,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 258.48,
+     "global_start": 258.48
+    },
+    {
+     "w": "valentine",
+     "start": 259.6,
+     "end": 261.41,
+     "score": 0.196,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 259.6,
+     "global_start": 259.6
+    }
+   ]
+  },
+  {
+   "i": 44,
+   "tag": "",
+   "text": "This alienation is by design",
+   "start": 261.56,
+   "end": 264.1,
+   "hand_start": 261.41,
+   "dev": 0.15,
+   "confidence": 0.633,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.08,
+   "global_start": 261.56,
+   "words": [
+    {
+     "w": "This",
+     "start": 261.56,
+     "end": 262.0,
+     "score": 0.706,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 261.56,
+     "global_start": 261.56
+    },
+    {
+     "w": "alienation",
+     "start": 262.08,
+     "end": 263.42,
+     "score": 0.792,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 262.08,
+     "global_start": 262.08
+    },
+    {
+     "w": "is",
+     "start": 263.48,
+     "end": 263.6,
+     "score": 0.709,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 263.48,
+     "global_start": 263.48
+    },
+    {
+     "w": "by",
+     "start": 263.64,
+     "end": 263.98,
+     "score": 0.714,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 263.64,
+     "global_start": 263.64
+    },
+    {
+     "w": "design",
+     "start": 264.06,
+     "end": 264.1,
+     "score": 0.242,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 264.06,
+     "global_start": 264.06
+    }
+   ]
+  },
+  {
+   "i": 45,
+   "tag": "",
+   "text": "My 6 fingered valentine",
+   "start": 264.1,
+   "end": 268.1,
+   "hand_start": 264.1,
+   "dev": 0.0,
+   "confidence": 0.086,
+   "source": "hand",
+   "agree": 0.25,
+   "check": true,
+   "max_gap": 0.4,
+   "global_start": 264.56,
+   "words": [
+    {
+     "w": "My",
+     "start": 263.64,
+     "end": 263.98,
+     "score": 0.274,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 264.56,
+     "global_start": 264.56
+    },
+    {
+     "w": "6",
+     "start": 264.06,
+     "end": 264.3,
+     "score": 0.03,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 264.6,
+     "global_start": 264.6
+    },
+    {
+     "w": "fingered",
+     "start": 264.7,
+     "end": 264.9,
+     "score": 0.038,
+     "agree": false,
+     "from": "context",
+     "context_start": 264.7,
+     "global_start": 264.7
+    },
+    {
+     "w": "valentine",
+     "start": 265.1,
+     "end": 268.1,
+     "score": 0.002,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 264.88,
+     "global_start": 264.88
+    }
+   ]
+  },
+  {
+   "i": 46,
+   "tag": "",
+   "text": "What dreams I had of you",
+   "start": 270.62,
+   "end": 273.84,
+   "hand_start": 270.57,
+   "dev": 0.05,
+   "confidence": 0.886,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.42,
+   "global_start": 270.62,
+   "words": [
+    {
+     "w": "What",
+     "start": 270.62,
+     "end": 270.92,
+     "score": 0.923,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 270.62,
+     "global_start": 270.62
+    },
+    {
+     "w": "dreams",
+     "start": 271.0,
+     "end": 271.74,
+     "score": 0.958,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 271.0,
+     "global_start": 271.0
+    },
+    {
+     "w": "I",
+     "start": 272.16,
+     "end": 272.2,
+     "score": 0.925,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 272.16,
+     "global_start": 272.16
+    },
+    {
+     "w": "had",
+     "start": 272.32,
+     "end": 272.98,
+     "score": 0.936,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 272.32,
+     "global_start": 272.32
+    },
+    {
+     "w": "of",
+     "start": 273.08,
+     "end": 273.56,
+     "score": 0.774,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 273.08,
+     "global_start": 273.08
+    },
+    {
+     "w": "you",
+     "start": 273.6,
+     "end": 273.84,
+     "score": 0.799,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 273.6,
+     "global_start": 273.6
+    }
+   ]
+  },
+  {
+   "i": 47,
+   "tag": "",
+   "text": "My 6 fingered valentine",
+   "start": 277.26,
+   "end": 282.4,
+   "hand_start": 277.21,
+   "dev": 0.05,
+   "confidence": 0.231,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.24,
+   "global_start": 277.26,
+   "words": [
+    {
+     "w": "My",
+     "start": 277.26,
+     "end": 277.52,
+     "score": 0.421,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 277.26,
+     "global_start": 277.26
+    },
+    {
+     "w": "6",
+     "start": 277.66,
+     "end": 278.02,
+     "score": 0.284,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 277.66,
+     "global_start": 277.66
+    },
+    {
+     "w": "fingered",
+     "start": 278.26,
+     "end": 279.36,
+     "score": 0.083,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 278.26,
+     "global_start": 278.26
+    },
+    {
+     "w": "valentine",
+     "start": 279.4,
+     "end": 282.4,
+     "score": 0.137,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 279.4,
+     "global_start": 279.4
+    }
+   ]
+  },
+  {
+   "i": 48,
+   "tag": "",
+   "text": "Just another flaw I learned to love",
+   "start": 283.4,
+   "end": 290.1,
+   "hand_start": 283.45,
+   "dev": -0.05,
+   "confidence": 0.528,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.62,
+   "global_start": 283.4,
+   "words": [
+    {
+     "w": "Just",
+     "start": 283.4,
+     "end": 283.7,
+     "score": 0.559,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 283.4,
+     "global_start": 283.4
+    },
+    {
+     "w": "another",
+     "start": 283.74,
+     "end": 284.2,
+     "score": 0.36,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 283.74,
+     "global_start": 283.74
+    },
+    {
+     "w": "flaw",
+     "start": 284.24,
+     "end": 284.88,
+     "score": 0.702,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 284.24,
+     "global_start": 284.24
+    },
+    {
+     "w": "I",
+     "start": 285.38,
+     "end": 285.42,
+     "score": 0.793,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 285.38,
+     "global_start": 285.38
+    },
+    {
+     "w": "learned",
+     "start": 285.54,
+     "end": 286.28,
+     "score": 0.313,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 285.54,
+     "global_start": 285.54
+    },
+    {
+     "w": "to",
+     "start": 286.28,
+     "end": 286.48,
+     "score": 0.756,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 286.28,
+     "global_start": 286.28
+    },
+    {
+     "w": "love",
+     "start": 287.1,
+     "end": 290.1,
+     "score": 0.211,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 287.1,
+     "global_start": 287.1
+    }
+   ]
+  },
+  {
+   "i": 49,
+   "tag": "",
+   "text": "My 6 fingered valentine",
+   "start": 290.46,
+   "end": 294.48,
+   "hand_start": 290.42,
+   "dev": 0.04,
+   "confidence": 0.624,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.26,
+   "global_start": 290.46,
+   "words": [
+    {
+     "w": "My",
+     "start": 290.46,
+     "end": 290.74,
+     "score": 0.73,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 290.46,
+     "global_start": 290.46
+    },
+    {
+     "w": "6",
+     "start": 290.86,
+     "end": 291.24,
+     "score": 0.81,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 290.86,
+     "global_start": 290.86
+    },
+    {
+     "w": "fingered",
+     "start": 291.5,
+     "end": 292.48,
+     "score": 0.641,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 291.5,
+     "global_start": 291.5
+    },
+    {
+     "w": "valentine",
+     "start": 292.54,
+     "end": 294.48,
+     "score": 0.313,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 292.54,
+     "global_start": 292.54
+    }
+   ]
+  }
+ ]
+}

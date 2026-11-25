@@ -1,0 +1,2075 @@
+{
+ "title": "Sign of the Heathen Cult",
+ "audio": "02 - Sign_of_the_Heathen Cult.flac",
+ "source_lrc": "02 - Sign_of_the_Heathen Cult.lrc",
+ "method": "htdemucs vocal stem -> torchaudio MMS_FA forced alignment, each line inside its hand-stamped window, checked by a pass with each line's neighbours in a wider window",
+ "generated": "2026-11-20",
+ "units": "seconds",
+ "notes": "start/end: aligned onset/offset (line start falls back to hand_start when its words do not agree between the two passes). hand_start: the hand-stamped LRC time. dev = start - hand_start. score/confidence: mean CTC posterior (0..1); sung vowels score low even when placed right. agree: the anchored and the context pass put the word start within 0.35 s; rating comes from the share of agreeing words.",
+ "confidence": 0.251,
+ "rating": "high",
+ "summary": {
+  "lines": 32,
+  "words": 150,
+  "mean_word_score": 0.247,
+  "word_agreement": 0.833,
+  "line_agreement": 0.656,
+  "line_median_offset": 0.19,
+  "check_lines": [
+   1,
+   2,
+   5,
+   18,
+   23,
+   26
+  ],
+  "ok_words": 0.853,
+  "confidence": "high"
+ },
+ "lines": [
+  {
+   "i": 0,
+   "tag": "",
+   "text": "Sword in hand",
+   "start": 25.06,
+   "end": 26.24,
+   "hand_start": 25.06,
+   "dev": 0.0,
+   "confidence": 0.332,
+   "source": "hand",
+   "agree": 0.333,
+   "check": true,
+   "max_gap": 0.12,
+   "global_start": 1.36,
+   "words": [
+    {
+     "w": "Sword",
+     "start": 25.08,
+     "end": 25.4,
+     "score": 0.255,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 25.08,
+     "global_start": 1.36
+    },
+    {
+     "w": "in",
+     "start": 25.4,
+     "end": 25.54,
+     "score": 0.494,
+     "agree": false,
+     "from": "context",
+     "context_start": 25.4,
+     "global_start": 8.16
+    },
+    {
+     "w": "hand",
+     "start": 25.66,
+     "end": 26.24,
+     "score": 0.246,
+     "agree": false,
+     "from": "context",
+     "context_start": 25.66,
+     "global_start": 17.12
+    }
+   ]
+  },
+  {
+   "i": 1,
+   "tag": "",
+   "text": "Storming through the land",
+   "start": 26.57,
+   "end": 27.7,
+   "hand_start": 26.57,
+   "dev": 0.0,
+   "confidence": 0.154,
+   "source": "hand",
+   "agree": 0.5,
+   "check": true,
+   "max_gap": 0.0,
+   "global_start": 19.28,
+   "words": [
+    {
+     "w": "Storming",
+     "start": 26.62,
+     "end": 26.98,
+     "score": 0.146,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 26.62,
+     "global_start": 19.28
+    },
+    {
+     "w": "through",
+     "start": 26.98,
+     "end": 27.16,
+     "score": 0.048,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 26.98,
+     "global_start": 26.62
+    },
+    {
+     "w": "the",
+     "start": 27.16,
+     "end": 27.24,
+     "score": 0.209,
+     "agree": false,
+     "from": "context",
+     "context_start": 27.16,
+     "global_start": 26.98
+    },
+    {
+     "w": "land",
+     "start": 27.24,
+     "end": 27.7,
+     "score": 0.213,
+     "agree": false,
+     "from": "context",
+     "context_start": 27.24,
+     "global_start": 27.16
+    }
+   ]
+  },
+  {
+   "i": 2,
+   "tag": "",
+   "text": "We give no quarter no flight",
+   "start": 28.0,
+   "end": 31.04,
+   "hand_start": 28.0,
+   "dev": 0.0,
+   "confidence": 0.22,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.2,
+   "global_start": 28.0,
+   "words": [
+    {
+     "w": "We",
+     "start": 28.0,
+     "end": 28.12,
+     "score": 0.315,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 28.0,
+     "global_start": 28.0
+    },
+    {
+     "w": "give",
+     "start": 28.16,
+     "end": 28.54,
+     "score": 0.328,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 28.16,
+     "global_start": 28.16
+    },
+    {
+     "w": "no",
+     "start": 28.68,
+     "end": 28.8,
+     "score": 0.016,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 28.68,
+     "global_start": 28.68
+    },
+    {
+     "w": "quarter",
+     "start": 28.86,
+     "end": 29.24,
+     "score": 0.194,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 28.86,
+     "global_start": 28.86
+    },
+    {
+     "w": "no",
+     "start": 29.44,
+     "end": 29.54,
+     "score": 0.046,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 29.44,
+     "global_start": 29.44
+    },
+    {
+     "w": "flight",
+     "start": 29.6,
+     "end": 31.04,
+     "score": 0.418,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 29.6,
+     "global_start": 29.6
+    }
+   ]
+  },
+  {
+   "i": 3,
+   "tag": "",
+   "text": "Churches in flames",
+   "start": 31.16,
+   "end": 32.63,
+   "hand_start": 31.04,
+   "dev": 0.12,
+   "confidence": 0.292,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.08,
+   "global_start": 31.16,
+   "words": [
+    {
+     "w": "Churches",
+     "start": 31.16,
+     "end": 31.56,
+     "score": 0.51,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 31.16,
+     "global_start": 31.16
+    },
+    {
+     "w": "in",
+     "start": 31.6,
+     "end": 31.66,
+     "score": 0.025,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 31.6,
+     "global_start": 31.6
+    },
+    {
+     "w": "flames",
+     "start": 31.74,
+     "end": 32.63,
+     "score": 0.341,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 31.74,
+     "global_start": 31.74
+    }
+   ]
+  },
+  {
+   "i": 4,
+   "tag": "",
+   "text": "Temples ablaze",
+   "start": 32.63,
+   "end": 33.84,
+   "hand_start": 32.63,
+   "dev": 0.0,
+   "confidence": 0.312,
+   "source": "hand",
+   "agree": 0.0,
+   "check": true,
+   "max_gap": 0.06,
+   "global_start": 32.7,
+   "words": [
+    {
+     "w": "Temples",
+     "start": 32.7,
+     "end": 33.12,
+     "score": 0.382,
+     "agree": false,
+     "from": "context",
+     "context_start": 32.7,
+     "global_start": 32.7
+    },
+    {
+     "w": "ablaze",
+     "start": 33.18,
+     "end": 33.84,
+     "score": 0.243,
+     "agree": false,
+     "from": "context",
+     "context_start": 33.18,
+     "global_start": 33.18
+    }
+   ]
+  },
+  {
+   "i": 5,
+   "tag": "",
+   "text": "Their ashes to the sky",
+   "start": 33.9,
+   "end": 36.14,
+   "hand_start": 34.07,
+   "dev": -0.17,
+   "confidence": 0.283,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.32,
+   "global_start": 33.9,
+   "words": [
+    {
+     "w": "Their",
+     "start": 33.9,
+     "end": 34.1,
+     "score": 0.267,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 33.9,
+     "global_start": 33.9
+    },
+    {
+     "w": "ashes",
+     "start": 34.36,
+     "end": 34.78,
+     "score": 0.44,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 34.36,
+     "global_start": 34.36
+    },
+    {
+     "w": "to",
+     "start": 35.1,
+     "end": 35.22,
+     "score": 0.214,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 35.1,
+     "global_start": 35.1
+    },
+    {
+     "w": "the",
+     "start": 35.3,
+     "end": 35.4,
+     "score": 0.095,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 35.3,
+     "global_start": 35.3
+    },
+    {
+     "w": "sky",
+     "start": 35.48,
+     "end": 36.14,
+     "score": 0.401,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 35.48,
+     "global_start": 35.48
+    }
+   ]
+  },
+  {
+   "i": 6,
+   "tag": "",
+   "text": "Hordes on march",
+   "start": 37.36,
+   "end": 38.85,
+   "hand_start": 37.3,
+   "dev": 0.06,
+   "confidence": 0.295,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.04,
+   "global_start": 37.36,
+   "words": [
+    {
+     "w": "Hordes",
+     "start": 37.36,
+     "end": 37.76,
+     "score": 0.422,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 37.36,
+     "global_start": 37.36
+    },
+    {
+     "w": "on",
+     "start": 37.8,
+     "end": 37.9,
+     "score": 0.069,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 37.8,
+     "global_start": 37.8
+    },
+    {
+     "w": "march",
+     "start": 37.94,
+     "end": 38.85,
+     "score": 0.393,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 37.94,
+     "global_start": 37.94
+    }
+   ]
+  },
+  {
+   "i": 7,
+   "tag": "",
+   "text": "Banners up high",
+   "start": 38.9,
+   "end": 40.32,
+   "hand_start": 38.85,
+   "dev": 0.05,
+   "confidence": 0.266,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.02,
+   "global_start": 38.9,
+   "words": [
+    {
+     "w": "Banners",
+     "start": 38.9,
+     "end": 39.36,
+     "score": 0.208,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 38.9,
+     "global_start": 38.9
+    },
+    {
+     "w": "up",
+     "start": 39.38,
+     "end": 39.5,
+     "score": 0.247,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 39.38,
+     "global_start": 39.38
+    },
+    {
+     "w": "high",
+     "start": 39.5,
+     "end": 40.32,
+     "score": 0.343,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 39.5,
+     "global_start": 39.5
+    }
+   ]
+  },
+  {
+   "i": 8,
+   "tag": "",
+   "text": "A hymn through the land",
+   "start": 40.36,
+   "end": 43.48,
+   "hand_start": 40.32,
+   "dev": 0.04,
+   "confidence": 0.195,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.44,
+   "global_start": 40.36,
+   "words": [
+    {
+     "w": "A",
+     "start": 40.36,
+     "end": 40.4,
+     "score": 0.232,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 40.36,
+     "global_start": 40.36
+    },
+    {
+     "w": "hymn",
+     "start": 40.48,
+     "end": 40.8,
+     "score": 0.199,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 40.48,
+     "global_start": 40.48
+    },
+    {
+     "w": "through",
+     "start": 41.24,
+     "end": 43.54,
+     "score": 0.089,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 41.24,
+     "global_start": 41.24
+    },
+    {
+     "w": "the",
+     "start": 43.54,
+     "end": 43.68,
+     "score": 0.088,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 43.54,
+     "global_start": 43.54
+    },
+    {
+     "w": "land",
+     "start": 43.78,
+     "end": 43.48,
+     "score": 0.369,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 43.78,
+     "global_start": 43.7
+    }
+   ]
+  },
+  {
+   "i": 9,
+   "tag": "",
+   "text": "Driving the stake of heathendom",
+   "start": 43.54,
+   "end": 46.31,
+   "hand_start": 43.48,
+   "dev": 0.06,
+   "confidence": 0.172,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.18,
+   "global_start": 43.82,
+   "words": [
+    {
+     "w": "Driving",
+     "start": 43.54,
+     "end": 44.04,
+     "score": 0.185,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 43.82,
+     "global_start": 43.82
+    },
+    {
+     "w": "the",
+     "start": 44.06,
+     "end": 44.16,
+     "score": 0.187,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 44.06,
+     "global_start": 44.06
+    },
+    {
+     "w": "stake",
+     "start": 44.26,
+     "end": 44.78,
+     "score": 0.387,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 44.26,
+     "global_start": 44.26
+    },
+    {
+     "w": "of",
+     "start": 44.86,
+     "end": 44.92,
+     "score": 0.009,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 44.86,
+     "global_start": 44.86
+    },
+    {
+     "w": "heathendom",
+     "start": 45.1,
+     "end": 46.31,
+     "score": 0.09,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 44.9,
+     "global_start": 44.9
+    }
+   ]
+  },
+  {
+   "i": 10,
+   "tag": "",
+   "text": "Into the hearts of man",
+   "start": 46.4,
+   "end": 48.62,
+   "hand_start": 46.31,
+   "dev": 0.09,
+   "confidence": 0.237,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.14,
+   "global_start": 46.4,
+   "words": [
+    {
+     "w": "Into",
+     "start": 46.4,
+     "end": 46.72,
+     "score": 0.101,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 46.4,
+     "global_start": 46.4
+    },
+    {
+     "w": "the",
+     "start": 46.86,
+     "end": 47.34,
+     "score": 0.222,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 46.86,
+     "global_start": 46.86
+    },
+    {
+     "w": "hearts",
+     "start": 47.38,
+     "end": 47.64,
+     "score": 0.268,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 47.38,
+     "global_start": 47.38
+    },
+    {
+     "w": "of",
+     "start": 47.68,
+     "end": 47.84,
+     "score": 0.184,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 47.68,
+     "global_start": 47.68
+    },
+    {
+     "w": "man",
+     "start": 47.96,
+     "end": 48.62,
+     "score": 0.41,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 47.96,
+     "global_start": 47.96
+    }
+   ]
+  },
+  {
+   "i": 11,
+   "tag": "",
+   "text": "When the star of the heathens shine",
+   "start": 53.1,
+   "end": 59.32,
+   "hand_start": 52.69,
+   "dev": 0.41,
+   "confidence": 0.196,
+   "source": "aligned",
+   "agree": 0.714,
+   "check": false,
+   "max_gap": 1.58,
+   "global_start": 53.1,
+   "words": [
+    {
+     "w": "When",
+     "start": 53.1,
+     "end": 53.34,
+     "score": 0.392,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 53.1,
+     "global_start": 53.1
+    },
+    {
+     "w": "the",
+     "start": 53.34,
+     "end": 53.5,
+     "score": 0.005,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 53.34,
+     "global_start": 53.34
+    },
+    {
+     "w": "star",
+     "start": 53.52,
+     "end": 53.84,
+     "score": 0.35,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 53.52,
+     "global_start": 53.52
+    },
+    {
+     "w": "of",
+     "start": 53.98,
+     "end": 54.14,
+     "score": 0.132,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 53.98,
+     "global_start": 53.98
+    },
+    {
+     "w": "the",
+     "start": 54.5,
+     "end": 54.62,
+     "score": 0.13,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 54.24,
+     "global_start": 54.24
+    },
+    {
+     "w": "heathens",
+     "start": 54.9,
+     "end": 57.9,
+     "score": 0.143,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 54.3,
+     "global_start": 54.3
+    },
+    {
+     "w": "shine",
+     "start": 59.48,
+     "end": 59.32,
+     "score": 0.221,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 54.84,
+     "global_start": 54.84
+    }
+   ]
+  },
+  {
+   "i": 12,
+   "tag": "",
+   "text": "Its the sign for the hordes to ride",
+   "start": 59.34,
+   "end": 61.75,
+   "hand_start": 59.32,
+   "dev": 0.02,
+   "confidence": 0.229,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.1,
+   "global_start": 59.34,
+   "words": [
+    {
+     "w": "Its",
+     "start": 59.34,
+     "end": 59.5,
+     "score": 0.273,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 59.34,
+     "global_start": 59.34
+    },
+    {
+     "w": "the",
+     "start": 59.5,
+     "end": 59.6,
+     "score": 0.117,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 59.5,
+     "global_start": 59.5
+    },
+    {
+     "w": "sign",
+     "start": 59.68,
+     "end": 60.04,
+     "score": 0.215,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 59.68,
+     "global_start": 59.68
+    },
+    {
+     "w": "for",
+     "start": 60.04,
+     "end": 60.22,
+     "score": 0.331,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 60.04,
+     "global_start": 60.04
+    },
+    {
+     "w": "the",
+     "start": 60.22,
+     "end": 60.32,
+     "score": 0.063,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 60.22,
+     "global_start": 60.22
+    },
+    {
+     "w": "hordes",
+     "start": 60.42,
+     "end": 60.88,
+     "score": 0.347,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 60.42,
+     "global_start": 60.42
+    },
+    {
+     "w": "to",
+     "start": 60.88,
+     "end": 61.0,
+     "score": 0.11,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 60.88,
+     "global_start": 60.88
+    },
+    {
+     "w": "ride",
+     "start": 61.08,
+     "end": 61.75,
+     "score": 0.378,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 61.08,
+     "global_start": 61.08
+    }
+   ]
+  },
+  {
+   "i": 13,
+   "tag": "",
+   "text": "Ride",
+   "start": 61.96,
+   "end": 64.96,
+   "hand_start": 61.75,
+   "dev": 0.21,
+   "confidence": 0.133,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.0,
+   "global_start": 61.96,
+   "words": [
+    {
+     "w": "Ride",
+     "start": 61.96,
+     "end": 64.96,
+     "score": 0.133,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 61.96,
+     "global_start": 61.96
+    }
+   ]
+  },
+  {
+   "i": 14,
+   "tag": "",
+   "text": "As the fake gods wither and die",
+   "start": 65.48,
+   "end": 68.32,
+   "hand_start": 65.49,
+   "dev": -0.01,
+   "confidence": 0.297,
+   "source": "aligned",
+   "agree": 0.857,
+   "check": false,
+   "max_gap": 0.08,
+   "global_start": 65.48,
+   "words": [
+    {
+     "w": "As",
+     "start": 65.48,
+     "end": 65.62,
+     "score": 0.68,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 65.48,
+     "global_start": 65.48
+    },
+    {
+     "w": "the",
+     "start": 65.62,
+     "end": 65.72,
+     "score": 0.009,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 65.62,
+     "global_start": 65.62
+    },
+    {
+     "w": "fake",
+     "start": 65.8,
+     "end": 66.12,
+     "score": 0.267,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 65.8,
+     "global_start": 65.8
+    },
+    {
+     "w": "gods",
+     "start": 66.12,
+     "end": 66.58,
+     "score": 0.224,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 66.12,
+     "global_start": 66.12
+    },
+    {
+     "w": "wither",
+     "start": 66.66,
+     "end": 66.98,
+     "score": 0.226,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 66.66,
+     "global_start": 66.66
+    },
+    {
+     "w": "and",
+     "start": 67.04,
+     "end": 67.2,
+     "score": 0.52,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 67.04,
+     "global_start": 67.04
+    },
+    {
+     "w": "die",
+     "start": 67.2,
+     "end": 68.32,
+     "score": 0.156,
+     "agree": false,
+     "from": "context",
+     "context_start": 67.2,
+     "global_start": 67.2
+    }
+   ]
+  },
+  {
+   "i": 15,
+   "tag": "",
+   "text": "The Elder Gods shall rise tonight",
+   "start": 71.48,
+   "end": 74.24,
+   "hand_start": 71.66,
+   "dev": -0.18,
+   "confidence": 0.195,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.1,
+   "global_start": 71.48,
+   "words": [
+    {
+     "w": "The",
+     "start": 71.48,
+     "end": 71.6,
+     "score": 0.302,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 71.48,
+     "global_start": 71.48
+    },
+    {
+     "w": "Elder",
+     "start": 71.66,
+     "end": 71.92,
+     "score": 0.139,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 71.66,
+     "global_start": 71.66
+    },
+    {
+     "w": "Gods",
+     "start": 71.96,
+     "end": 72.16,
+     "score": 0.273,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 71.96,
+     "global_start": 71.96
+    },
+    {
+     "w": "shall",
+     "start": 72.2,
+     "end": 72.78,
+     "score": 0.187,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 72.2,
+     "global_start": 72.2
+    },
+    {
+     "w": "rise",
+     "start": 72.88,
+     "end": 73.28,
+     "score": 0.235,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 72.88,
+     "global_start": 72.88
+    },
+    {
+     "w": "tonight",
+     "start": 73.34,
+     "end": 74.24,
+     "score": 0.036,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 73.18,
+     "global_start": 73.18
+    }
+   ]
+  },
+  {
+   "i": 16,
+   "tag": "",
+   "text": "Enemies slain",
+   "start": 74.44,
+   "end": 75.71,
+   "hand_start": 74.24,
+   "dev": 0.2,
+   "confidence": 0.254,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.02,
+   "global_start": 74.44,
+   "words": [
+    {
+     "w": "Enemies",
+     "start": 74.44,
+     "end": 74.84,
+     "score": 0.146,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 74.44,
+     "global_start": 74.44
+    },
+    {
+     "w": "slain",
+     "start": 74.86,
+     "end": 75.71,
+     "score": 0.362,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 74.86,
+     "global_start": 74.86
+    }
+   ]
+  },
+  {
+   "i": 17,
+   "tag": "",
+   "text": "The clergy in pain",
+   "start": 75.71,
+   "end": 76.88,
+   "hand_start": 75.71,
+   "dev": 0.0,
+   "confidence": 0.204,
+   "source": "hand",
+   "agree": 0.25,
+   "check": true,
+   "max_gap": 0.5,
+   "global_start": 75.48,
+   "words": [
+    {
+     "w": "The",
+     "start": 75.48,
+     "end": 75.56,
+     "score": 0.02,
+     "agree": false,
+     "from": "context",
+     "context_start": 75.48,
+     "global_start": 75.48
+    },
+    {
+     "w": "clergy",
+     "start": 76.06,
+     "end": 76.2,
+     "score": 0.303,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 75.88,
+     "global_start": 75.88
+    },
+    {
+     "w": "in",
+     "start": 76.2,
+     "end": 76.3,
+     "score": 0.297,
+     "agree": false,
+     "from": "context",
+     "context_start": 76.2,
+     "global_start": 76.2
+    },
+    {
+     "w": "pain",
+     "start": 76.44,
+     "end": 76.88,
+     "score": 0.197,
+     "agree": false,
+     "from": "context",
+     "context_start": 76.44,
+     "global_start": 76.44
+    }
+   ]
+  },
+  {
+   "i": 18,
+   "tag": "",
+   "text": "Our march has no remorse",
+   "start": 77.16,
+   "end": 80.32,
+   "hand_start": 77.19,
+   "dev": -0.03,
+   "confidence": 0.294,
+   "source": "aligned",
+   "agree": 0.8,
+   "check": false,
+   "max_gap": 0.32,
+   "global_start": 77.16,
+   "words": [
+    {
+     "w": "Our",
+     "start": 77.16,
+     "end": 77.3,
+     "score": 0.031,
+     "agree": false,
+     "from": "context",
+     "context_start": 77.16,
+     "global_start": 77.16
+    },
+    {
+     "w": "march",
+     "start": 77.38,
+     "end": 77.84,
+     "score": 0.434,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 77.38,
+     "global_start": 77.38
+    },
+    {
+     "w": "has",
+     "start": 78.16,
+     "end": 78.38,
+     "score": 0.482,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 78.16,
+     "global_start": 78.16
+    },
+    {
+     "w": "no",
+     "start": 78.42,
+     "end": 78.54,
+     "score": 0.175,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 78.42,
+     "global_start": 78.42
+    },
+    {
+     "w": "remorse",
+     "start": 78.7,
+     "end": 80.32,
+     "score": 0.349,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 78.7,
+     "global_start": 78.7
+    }
+   ]
+  },
+  {
+   "i": 19,
+   "tag": "",
+   "text": "The fake god on the cross",
+   "start": 80.5,
+   "end": 81.99,
+   "hand_start": 80.32,
+   "dev": 0.18,
+   "confidence": 0.162,
+   "source": "aligned",
+   "agree": 0.833,
+   "check": false,
+   "max_gap": 0.3,
+   "global_start": 80.5,
+   "words": [
+    {
+     "w": "The",
+     "start": 80.5,
+     "end": 80.6,
+     "score": 0.094,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 80.5,
+     "global_start": 80.5
+    },
+    {
+     "w": "fake",
+     "start": 80.62,
+     "end": 80.8,
+     "score": 0.19,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 80.62,
+     "global_start": 80.62
+    },
+    {
+     "w": "god",
+     "start": 80.86,
+     "end": 80.92,
+     "score": 0.016,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 80.86,
+     "global_start": 80.86
+    },
+    {
+     "w": "on",
+     "start": 80.92,
+     "end": 81.02,
+     "score": 0.327,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 80.92,
+     "global_start": 80.92
+    },
+    {
+     "w": "the",
+     "start": 81.12,
+     "end": 81.3,
+     "score": 0.088,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 81.02,
+     "global_start": 81.02
+    },
+    {
+     "w": "cross",
+     "start": 81.6,
+     "end": 81.99,
+     "score": 0.256,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 81.12,
+     "global_start": 81.12
+    }
+   ]
+  },
+  {
+   "i": 20,
+   "tag": "",
+   "text": "Prophets of old",
+   "start": 82.04,
+   "end": 83.33,
+   "hand_start": 81.99,
+   "dev": 0.05,
+   "confidence": 0.142,
+   "source": "aligned",
+   "agree": 0.667,
+   "check": false,
+   "max_gap": 0.28,
+   "global_start": 82.04,
+   "words": [
+    {
+     "w": "Prophets",
+     "start": 82.04,
+     "end": 82.44,
+     "score": 0.113,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 82.04,
+     "global_start": 82.04
+    },
+    {
+     "w": "of",
+     "start": 82.72,
+     "end": 83.06,
+     "score": 0.203,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 82.46,
+     "global_start": 82.46
+    },
+    {
+     "w": "old",
+     "start": 83.28,
+     "end": 83.33,
+     "score": 0.11,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 82.72,
+     "global_start": 82.72
+    }
+   ]
+  },
+  {
+   "i": 21,
+   "tag": "",
+   "text": "Taken down one by one",
+   "start": 83.2,
+   "end": 86.33,
+   "hand_start": 83.33,
+   "dev": -0.13,
+   "confidence": 0.276,
+   "source": "aligned",
+   "agree": 0.8,
+   "check": false,
+   "max_gap": 1.42,
+   "global_start": 83.2,
+   "words": [
+    {
+     "w": "Taken",
+     "start": 83.2,
+     "end": 83.54,
+     "score": 0.184,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 83.2,
+     "global_start": 83.2
+    },
+    {
+     "w": "down",
+     "start": 83.6,
+     "end": 84.04,
+     "score": 0.507,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 83.6,
+     "global_start": 83.6
+    },
+    {
+     "w": "one",
+     "start": 84.42,
+     "end": 84.68,
+     "score": 0.342,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 84.42,
+     "global_start": 84.42
+    },
+    {
+     "w": "by",
+     "start": 84.9,
+     "end": 85.28,
+     "score": 0.249,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 84.58,
+     "global_start": 84.58
+    },
+    {
+     "w": "one",
+     "start": 86.7,
+     "end": 86.33,
+     "score": 0.097,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 84.64,
+     "global_start": 84.64
+    }
+   ]
+  },
+  {
+   "i": 22,
+   "tag": "",
+   "text": "Vengeance for the gods",
+   "start": 86.33,
+   "end": 87.7,
+   "hand_start": 86.33,
+   "dev": 0.0,
+   "confidence": 0.189,
+   "source": "hand",
+   "agree": 0.5,
+   "check": true,
+   "max_gap": 0.0,
+   "global_start": 84.9,
+   "words": [
+    {
+     "w": "Vengeance",
+     "start": 86.64,
+     "end": 87.0,
+     "score": 0.08,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 84.9,
+     "global_start": 84.9
+    },
+    {
+     "w": "for",
+     "start": 87.0,
+     "end": 87.14,
+     "score": 0.3,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 87.0,
+     "global_start": 87.0
+    },
+    {
+     "w": "the",
+     "start": 87.14,
+     "end": 87.26,
+     "score": 0.241,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 87.14,
+     "global_start": 87.14
+    },
+    {
+     "w": "gods",
+     "start": 87.26,
+     "end": 87.7,
+     "score": 0.133,
+     "agree": false,
+     "from": "context",
+     "context_start": 87.26,
+     "global_start": 87.26
+    }
+   ]
+  },
+  {
+   "i": 23,
+   "tag": "",
+   "text": "Will be paid in steel",
+   "start": 87.78,
+   "end": 89.5,
+   "hand_start": 87.92,
+   "dev": -0.14,
+   "confidence": 0.193,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.08,
+   "global_start": 87.78,
+   "words": [
+    {
+     "w": "Will",
+     "start": 87.78,
+     "end": 87.98,
+     "score": 0.173,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 87.78,
+     "global_start": 87.78
+    },
+    {
+     "w": "be",
+     "start": 87.98,
+     "end": 88.08,
+     "score": 0.126,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 87.98,
+     "global_start": 90.3
+    },
+    {
+     "w": "paid",
+     "start": 88.16,
+     "end": 88.46,
+     "score": 0.109,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 88.16,
+     "global_start": 90.44
+    },
+    {
+     "w": "in",
+     "start": 88.46,
+     "end": 88.58,
+     "score": 0.081,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 88.46,
+     "global_start": 90.9
+    },
+    {
+     "w": "steel",
+     "start": 88.6,
+     "end": 89.5,
+     "score": 0.474,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 88.6,
+     "global_start": 91.42
+    }
+   ]
+  },
+  {
+   "i": 24,
+   "tag": "",
+   "text": "Until there’s no witness left",
+   "start": 89.6,
+   "end": 91.46,
+   "hand_start": 89.5,
+   "dev": 0.1,
+   "confidence": 0.127,
+   "source": "aligned",
+   "agree": 0.6,
+   "check": false,
+   "max_gap": 0.1,
+   "global_start": 93.42,
+   "words": [
+    {
+     "w": "Until",
+     "start": 89.6,
+     "end": 90.06,
+     "score": 0.131,
+     "agree": false,
+     "from": "context",
+     "context_start": 89.6,
+     "global_start": 93.42
+    },
+    {
+     "w": "there’s",
+     "start": 90.06,
+     "end": 90.48,
+     "score": 0.068,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 90.06,
+     "global_start": 95.76
+    },
+    {
+     "w": "no",
+     "start": 90.5,
+     "end": 90.58,
+     "score": 0.045,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 90.5,
+     "global_start": 98.9
+    },
+    {
+     "w": "witness",
+     "start": 90.68,
+     "end": 91.06,
+     "score": 0.316,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 90.68,
+     "global_start": 102.32
+    },
+    {
+     "w": "left",
+     "start": 91.06,
+     "end": 91.46,
+     "score": 0.075,
+     "agree": false,
+     "from": "context",
+     "context_start": 91.06,
+     "global_start": 105.02
+    }
+   ]
+  },
+  {
+   "i": 25,
+   "tag": "",
+   "text": "The gleaming justice of heathendom",
+   "start": 92.64,
+   "end": 95.06,
+   "hand_start": 92.64,
+   "dev": 0.0,
+   "confidence": 0.176,
+   "source": "hand",
+   "agree": 0.4,
+   "check": true,
+   "max_gap": 0.2,
+   "global_start": 110.04,
+   "words": [
+    {
+     "w": "The",
+     "start": 92.66,
+     "end": 92.76,
+     "score": 0.087,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 91.46,
+     "global_start": 110.04
+    },
+    {
+     "w": "gleaming",
+     "start": 92.8,
+     "end": 93.18,
+     "score": 0.069,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 92.8,
+     "global_start": 114.9
+    },
+    {
+     "w": "justice",
+     "start": 93.3,
+     "end": 93.9,
+     "score": 0.506,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 93.3,
+     "global_start": 117.3
+    },
+    {
+     "w": "of",
+     "start": 93.9,
+     "end": 94.06,
+     "score": 0.066,
+     "agree": false,
+     "from": "context",
+     "context_start": 93.9,
+     "global_start": 121.7
+    },
+    {
+     "w": "heathendom",
+     "start": 94.26,
+     "end": 95.06,
+     "score": 0.152,
+     "agree": false,
+     "from": "context",
+     "context_start": 94.26,
+     "global_start": 121.82
+    }
+   ]
+  },
+  {
+   "i": 26,
+   "tag": "",
+   "text": "Will be driven through their neck",
+   "start": 95.44,
+   "end": 98.94,
+   "hand_start": 95.3,
+   "dev": 0.14,
+   "confidence": 0.147,
+   "source": "aligned",
+   "agree": 0.667,
+   "check": false,
+   "max_gap": 0.3,
+   "global_start": 141.2,
+   "words": [
+    {
+     "w": "Will",
+     "start": 95.44,
+     "end": 95.6,
+     "score": 0.065,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 95.44,
+     "global_start": 141.2
+    },
+    {
+     "w": "be",
+     "start": 95.6,
+     "end": 95.7,
+     "score": 0.158,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 95.6,
+     "global_start": 148.1
+    },
+    {
+     "w": "driven",
+     "start": 95.76,
+     "end": 96.32,
+     "score": 0.182,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 95.76,
+     "global_start": 148.28
+    },
+    {
+     "w": "through",
+     "start": 96.62,
+     "end": 96.78,
+     "score": 0.099,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 96.62,
+     "global_start": 149.3
+    },
+    {
+     "w": "their",
+     "start": 96.78,
+     "end": 97.06,
+     "score": 0.104,
+     "agree": false,
+     "from": "context",
+     "context_start": 96.78,
+     "global_start": 152.08
+    },
+    {
+     "w": "neck",
+     "start": 97.16,
+     "end": 98.94,
+     "score": 0.275,
+     "agree": false,
+     "from": "context",
+     "context_start": 97.16,
+     "global_start": 153.52
+    }
+   ]
+  },
+  {
+   "i": 27,
+   "tag": "",
+   "text": "When Cross and the Crescent burn",
+   "start": 102.32,
+   "end": 107.12,
+   "hand_start": 102.39,
+   "dev": -0.07,
+   "confidence": 0.324,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.14,
+   "global_start": 154.08,
+   "words": [
+    {
+     "w": "When",
+     "start": 102.32,
+     "end": 102.54,
+     "score": 0.487,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 102.32,
+     "global_start": 154.08
+    },
+    {
+     "w": "Cross",
+     "start": 102.68,
+     "end": 103.04,
+     "score": 0.362,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 102.68,
+     "global_start": 154.72
+    },
+    {
+     "w": "and",
+     "start": 103.12,
+     "end": 103.38,
+     "score": 0.618,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 103.12,
+     "global_start": 155.28
+    },
+    {
+     "w": "the",
+     "start": 103.48,
+     "end": 103.56,
+     "score": 0.2,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 103.48,
+     "global_start": 155.78
+    },
+    {
+     "w": "Crescent",
+     "start": 103.56,
+     "end": 104.04,
+     "score": 0.232,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 103.56,
+     "global_start": 155.92
+    },
+    {
+     "w": "burn",
+     "start": 104.12,
+     "end": 107.12,
+     "score": 0.042,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 104.12,
+     "global_start": 158.18
+    }
+   ]
+  },
+  {
+   "i": 28,
+   "tag": "",
+   "text": "It’s a sign for the cult to rise",
+   "start": 108.56,
+   "end": 111.12,
+   "hand_start": 108.4,
+   "dev": 0.16,
+   "confidence": 0.341,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.1,
+   "global_start": 158.62,
+   "words": [
+    {
+     "w": "It’s",
+     "start": 108.56,
+     "end": 108.72,
+     "score": 0.279,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 108.56,
+     "global_start": 158.62
+    },
+    {
+     "w": "a",
+     "start": 108.74,
+     "end": 108.78,
+     "score": 0.107,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 108.74,
+     "global_start": 159.9
+    },
+    {
+     "w": "sign",
+     "start": 108.88,
+     "end": 109.28,
+     "score": 0.397,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 108.88,
+     "global_start": 160.18
+    },
+    {
+     "w": "for",
+     "start": 109.28,
+     "end": 109.46,
+     "score": 0.527,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 109.28,
+     "global_start": 161.32
+    },
+    {
+     "w": "the",
+     "start": 109.48,
+     "end": 109.58,
+     "score": 0.231,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 109.48,
+     "global_start": 162.06
+    },
+    {
+     "w": "cult",
+     "start": 109.66,
+     "end": 110.02,
+     "score": 0.159,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 109.66,
+     "global_start": 162.36
+    },
+    {
+     "w": "to",
+     "start": 110.04,
+     "end": 110.18,
+     "score": 0.48,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 110.04,
+     "global_start": 164.84
+    },
+    {
+     "w": "rise",
+     "start": 110.28,
+     "end": 111.12,
+     "score": 0.545,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 110.28,
+     "global_start": 165.06
+    }
+   ]
+  },
+  {
+   "i": 29,
+   "tag": "",
+   "text": "Rise",
+   "start": 111.22,
+   "end": 114.22,
+   "hand_start": 111.12,
+   "dev": 0.1,
+   "confidence": 0.597,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.0,
+   "global_start": 167.42,
+   "words": [
+    {
+     "w": "Rise",
+     "start": 111.22,
+     "end": 114.22,
+     "score": 0.597,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 111.22,
+     "global_start": 167.42
+    }
+   ]
+  },
+  {
+   "i": 30,
+   "tag": "",
+   "text": "Victory shall be ours tonight",
+   "start": 114.68,
+   "end": 119.26,
+   "hand_start": 114.79,
+   "dev": -0.11,
+   "confidence": 0.321,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.18,
+   "global_start": 170.22,
+   "words": [
+    {
+     "w": "Victory",
+     "start": 114.68,
+     "end": 115.14,
+     "score": 0.174,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 114.68,
+     "global_start": 170.22
+    },
+    {
+     "w": "shall",
+     "start": 115.24,
+     "end": 115.62,
+     "score": 0.575,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 115.24,
+     "global_start": 174.04
+    },
+    {
+     "w": "be",
+     "start": 115.66,
+     "end": 115.78,
+     "score": 0.312,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 115.66,
+     "global_start": 175.96
+    },
+    {
+     "w": "ours",
+     "start": 115.96,
+     "end": 116.26,
+     "score": 0.235,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 115.96,
+     "global_start": 176.44
+    },
+    {
+     "w": "tonight",
+     "start": 116.26,
+     "end": 119.26,
+     "score": 0.307,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 116.26,
+     "global_start": 178.14
+    }
+   ]
+  },
+  {
+   "i": 31,
+   "tag": "",
+   "text": "It’s the sign of the Heathen Cult",
+   "start": 120.86,
+   "end": 123.26,
+   "hand_start": 121.08,
+   "dev": -0.22,
+   "confidence": 0.481,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.12,
+   "global_start": 180.66,
+   "words": [
+    {
+     "w": "It’s",
+     "start": 120.86,
+     "end": 120.98,
+     "score": 0.335,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 120.86,
+     "global_start": 180.66
+    },
+    {
+     "w": "the",
+     "start": 121.0,
+     "end": 121.1,
+     "score": 0.616,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 121.0,
+     "global_start": 181.78
+    },
+    {
+     "w": "sign",
+     "start": 121.2,
+     "end": 121.62,
+     "score": 0.266,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 121.2,
+     "global_start": 182.14
+    },
+    {
+     "w": "of",
+     "start": 121.7,
+     "end": 121.8,
+     "score": 0.837,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 121.7,
+     "global_start": 183.34
+    },
+    {
+     "w": "the",
+     "start": 121.8,
+     "end": 121.9,
+     "score": 0.739,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 121.8,
+     "global_start": 184.02
+    },
+    {
+     "w": "Heathen",
+     "start": 121.98,
+     "end": 122.44,
+     "score": 0.376,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 121.98,
+     "global_start": 184.48
+    },
+    {
+     "w": "Cult",
+     "start": 122.56,
+     "end": 123.26,
+     "score": 0.198,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 122.56,
+     "global_start": 186.94
+    }
+   ]
+  }
+ ]
+}

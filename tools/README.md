@@ -68,3 +68,18 @@ Chosen on 2026-11-24 from the most-cited Claude video skill repos. Sources and c
   - zach-d-films test still rendered fine (`GL=swiftshader node render.mjs stills 1.5 stills`).
 - **rsdabid/claude-video-editing-skills:** reel-editor (Remotion, word-by-word captions, person cut-out) and fullscreen-talking-head-edit.
 - **Catalogue of about 180 more repos:** `references/awesome-claude-video-skills/README.md`.
+
+## spotify-lyric-reel (music-player lyric reel with glow)
+
+How to use it: `.claude/skills/spotify-lyric-reel/SKILL.md`. Quick version:
+`python3 tools/spotify-lyric-reel/make_props.py --audio <song> --lyrics <lines.txt> --title ... --cover ...`, then
+`npx remotion render src/index.ts SpotifyLyric out/reel.mp4 --props=public/props.json` from that folder.
+The demo is `exports/2026-11-25_spotify-lyric-demo_v1.mp4`.
+
+Music and effect repos added on 2026-11-25 (sources in `tools/external/SOURCES.md`):
+- remotion-dev/template-music-visualization (spectrum, waveform, bass overlay)
+- JonnyBurger/remotion-wrapped (Spotify Wrapped scenes)
+- c0ze/Lyrics-Video-Generator (LRC lyric videos)
+- Joker-chichi/claude-mv-skill (`painted-animation` skill)
+- SyanChen7/dancing-notes (`dancing-notes` skill)
+- myceldigital/remotion-claude-skill (`remotion-motion-designer` skill)
