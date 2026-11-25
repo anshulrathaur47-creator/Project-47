@@ -24,3 +24,18 @@
 - Every other shot is copied untouched from the source.
 - Smoother: enhancer blend 45 (was 65), mask blur 0.5, and light temporal smoothing (`hqdn3d=0:0:5:5`) on the swapped shots only.
 - Re-join with `python3 assemble.py v2`.
+
+## v3 (user: "driver ka face bhi stable nahi hai")
+- The shimmer came from the face changing slightly every frame (brightness, brow shape), and the enhancer added to it.
+- Re-swapped the main shots without the face enhancer, then ran `tools/face_stabilize.py --strength 0.8` on each one.
+  - It smooths the swap's residual (swapped minus original) over time, warped by optical flow from the original footage.
+  - The film's real motion and grain stay exact; only the new face's wobble is averaged.
+- Measured extra flicker in the face area:
+
+  | Shot | v2 | v3 |
+  |---|---|---|
+  | Driving close-up | 1.94 | 0.94 |
+  | Last shot | 4.34 | 1.60 |
+  | Interview | 3.34 | 2.62 |
+
+- Re-join with `python3 assemble.py v3 stn`.

@@ -1,7 +1,7 @@
 """Re-join the shots: face-swapped main-character shots + untouched shots, original audio.
 
 Swapped shots get a light temporal smoothing (hqdn3d, temporal only) so the face doesn't shimmer frame to frame.
-Usage: python3 assemble.py [vN]
+Usage: python3 assemble.py [vN] [prefix]
 """
 import os
 import subprocess
@@ -12,10 +12,11 @@ W = os.path.join(HERE, "work")
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 SRC = os.path.join(ROOT, "raw-videos", "2026-11-25-taxi", "taxi_source.mp4")
 ver = sys.argv[1] if len(sys.argv) > 1 else "v2"
+prefix = sys.argv[2] if len(sys.argv) > 2 else "out"   # out = enhanced swap, stn = no enhancer + face_stabilize
 segs = [l.split() for l in open(os.path.join(W, "segs.txt")).read().split("\n") if l]
 inputs, chains = [], []
 for k, (i, a, b, m) in enumerate(segs):
-    path = os.path.join(W, f"out{int(i):02d}.mp4") if m == "1" else os.path.join(W, f"seg{int(i):02d}.mkv")
+    path = os.path.join(W, f"{prefix}{int(i):02d}.mp4") if m == "1" else os.path.join(W, f"seg{int(i):02d}.mkv")
     inputs += ["-i", path]
     f = f"[{k}:v]setpts=PTS-STARTPTS,format=yuv420p"
     if m == "1":
