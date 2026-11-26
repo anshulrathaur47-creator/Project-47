@@ -5,6 +5,8 @@ Newest first. Working copies used in a reel also live in `assets/`, `references/
 
 | Date | File | Type | Size |
 |---|---|---|---|
+| 2026-11-26 | [ReelAudio-38695.mp3](2026-11-26/ReelAudio-38695.mp3) | audio | 1.8 MB |
+| 2026-11-26 | [ReelAudio-38695_hin.txt](2026-11-26/ReelAudio-38695_hin.txt) | text | 0.0 MB |
 | 2026-11-25 | [4_5779401061143940266.mp4](2026-11-25/4_5779401061143940266.mp4) | video | 1.8 MB |
 | 2026-11-25 | [4_5781496403888966709.mp4](2026-11-25/4_5781496403888966709.mp4) | video | 5.8 MB |
 | 2026-11-25 | [ElevenLabs_2026-11-25T07_20_06_Rohit_-_Calm_Hindi_Storyteller_pvc_s50_sim75_v4.mp3](2026-11-25/ElevenLabs_2026-11-25T07_20_06_Rohit_-_Calm_Hindi_Storyteller_pvc_s50_sim75_v4.mp3) | audio | 0.5 MB |
