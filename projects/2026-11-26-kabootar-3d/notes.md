@@ -22,3 +22,18 @@
 | 55–60 | He runs a few steps, stops; empty hands, a light pink heart above him |
 | 60–65 | Villagers clap at the sky; he stands far off, alone, unseen |
 | 65–80 | Dusk: he walks home, his daughter runs into his arms ("पीछे का वो हाथ"); crane up over the village; fade |
+
+## "Story tagdi banana": the stronger cut
+- **Rewind:** at "लेकिन सच ये है" the opening plays backwards for 0.7 s (VHS bars, RGB split, "◀◀ REWIND").
+  - Then the truth: the night before, by lantern light, he loosens a peg.
+- **Last year:** a moneylender points at his ledger, and his daughter sits with an empty steel plate (beside the ₹ signs).
+- **This year:** a day/night flicker montage while he hoes, then cracked soil, an empty bucket and a storm. Rain, the gold field, tears of joy.
+- **Before spreading the net:** he looks at his daughter waving at the hut door.
+- **The real "why" (night):** he hammers hard, stops, and sees a mother pigeon feeding two chicks in a nest. He pulls the peg loose and smiles.
+- **The fruit of his work:** grain in his hand by lantern light. He walks home with the lantern, glancing back.
+- **Morning:** from behind a tree he whispers "उठो… उठो…" and pumps a fist when the pegs pop.
+- **"हाथ खाली थे, पर दिल हल्का":** a white feather from the king drifts into his empty hands, and he keeps it.
+- **Flash-forward for "पीछे का वो हाथ":**
+  - His grown daughter holds a trophy on a stage while the hall claps.
+  - He stands at the back, old, white moustache, clapping alone, in tears, the feather in his hand.
+- **End:** back at the hut at sunset, the white king pigeon flies in and lands on his roof.
