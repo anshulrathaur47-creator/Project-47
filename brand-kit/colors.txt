@@ -1,0 +1,6 @@
+# The Media Times .live
+red      #C8101E   (logo red, straps, tag, ticker label)
+deep red #8C0A0E   (backgrounds, sting and end card)
+dark     #160A0C   (ticker strip, date tag)
+gold     #FFD66E   (headline highlight)
+white    #FFFFFF

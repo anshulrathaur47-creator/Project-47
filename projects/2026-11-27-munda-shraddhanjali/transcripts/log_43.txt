@@ -1,0 +1,3 @@
+language=hi (1.00), 1 segments
+[00:00:05,760 -> 00:00:08,560] ੰुༀ ་་་་་་ༀ
+wrote projects/2026-11-27-munda-shraddhanjali/transcripts/VID-20261127-WA0043.srt / .vtt / .txt / .words.json

@@ -9,6 +9,14 @@ Newest first. Working copies used in a reel also live in `assets/`, `references/
 | 2026-11-27 | [ReelAudio-2110_hin.txt](2026-11-27/ReelAudio-2110_hin.txt) | text | 0.0 MB |
 | 2026-11-27 | [ReelAudio-36643.mp3](2026-11-27/ReelAudio-36643.mp3) | audio | 0.7 MB |
 | 2026-11-27 | [ReelAudio-36643_hin.txt](2026-11-27/ReelAudio-36643_hin.txt) | text | 0.0 MB |
+| 2026-11-27 | [VID-20261127-WA0039.mp4](2026-11-27/VID-20261127-WA0039.mp4) | video | 17.3 MB |
+| 2026-11-27 | [VID-20261127-WA0040.mp4](2026-11-27/VID-20261127-WA0040.mp4) | video | 27.4 MB |
+| 2026-11-27 | [VID-20261127-WA0041.mp4](2026-11-27/VID-20261127-WA0041.mp4) | video | 6.6 MB |
+| 2026-11-27 | [VID-20261127-WA0042.mp4](2026-11-27/VID-20261127-WA0042.mp4) | video | 26.1 MB |
+| 2026-11-27 | [VID-20261127-WA0043.mp4](2026-11-27/VID-20261127-WA0043.mp4) | video | 4.5 MB |
+| 2026-11-27 | [VID-20261127-WA0044.mp4](2026-11-27/VID-20261127-WA0044.mp4) | video | 13.7 MB |
+| 2026-11-27 | [image.jpg](2026-11-27/image.jpg) | image | 0.1 MB |
+| 2026-11-27 | [image_2.jpg](2026-11-27/image_2.jpg) | image | 0.2 MB |
 | 2026-11-26 | [ReelAudio-16334.mp3](2026-11-26/ReelAudio-16334.mp3) | audio | 0.6 MB |
 | 2026-11-26 | [ReelAudio-16334_hin.txt](2026-11-26/ReelAudio-16334_hin.txt) | text | 0.0 MB |
 | 2026-11-26 | [ReelAudio-38695.mp3](2026-11-26/ReelAudio-38695.mp3) | audio | 1.8 MB |

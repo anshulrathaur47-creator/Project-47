@@ -1,0 +1,23 @@
+{
+ "language": "hi",
+ "duration": 20.032,
+ "segments": [
+  {
+   "start": 5.76,
+   "end": 8.56,
+   "text": "ੰुༀ ་་་་་་ༀ",
+   "words": [
+    {
+     "start": 5.76,
+     "end": 7.16,
+     "word": "ੰुༀ"
+    },
+    {
+     "start": 7.16,
+     "end": 8.56,
+     "word": "་་་་་་ༀ"
+    }
+   ]
+  }
+ ]
+}
