@@ -1,0 +1,522 @@
+{
+ "theme": "cream",
+ "handle": "@yourhandle",
+ "duration": 29.14,
+ "vo": "reel/ui-explainer-demo.wav",
+ "music": 0.07,
+ "phrases": [
+  {
+   "zone": "top",
+   "words": [
+    {
+     "t": "3D",
+     "s": 0.25,
+     "e": 0.497,
+     "k": true
+    },
+    {
+     "t": "animated",
+     "s": 0.497,
+     "e": 1.167
+    },
+    {
+     "t": "kahani",
+     "s": 1.167,
+     "e": 1.697
+    }
+   ]
+  },
+  {
+   "zone": "bottom",
+   "words": [
+    {
+     "t": "wali",
+     "s": 1.697,
+     "e": 2.085
+    },
+    {
+     "t": "reels",
+     "s": 2.085,
+     "e": 2.543
+    },
+    {
+     "t": "dekhi",
+     "s": 2.543,
+     "e": 3.002
+    },
+    {
+     "t": "hain?",
+     "s": 3.002,
+     "e": 3.39
+    }
+   ]
+  },
+  {
+   "zone": "top",
+   "words": [
+    {
+     "t": "Inhe",
+     "s": 3.69,
+     "e": 4.016
+    },
+    {
+     "t": "banane",
+     "s": 4.016,
+     "e": 4.461
+    },
+    {
+     "t": "ke",
+     "s": 4.461,
+     "e": 4.668
+    },
+    {
+     "t": "liye",
+     "s": 4.668,
+     "e": 4.994
+    },
+    {
+     "t": "ab",
+     "s": 4.994,
+     "e": 5.202
+    }
+   ]
+  },
+  {
+   "zone": "bottom",
+   "words": [
+    {
+     "t": "Blender",
+     "s": 5.202,
+     "e": 5.706,
+     "k": true
+    },
+    {
+     "t": "seekhne",
+     "s": 5.706,
+     "e": 6.21
+    },
+    {
+     "t": "ki",
+     "s": 6.21,
+     "e": 6.418
+    },
+    {
+     "t": "zaroorat",
+     "s": 6.418,
+     "e": 6.981
+    },
+    {
+     "t": "nahi",
+     "s": 6.981,
+     "e": 7.307
+    }
+   ]
+  },
+  {
+   "zone": "top",
+   "words": [
+    {
+     "t": "Na",
+     "s": 7.448,
+     "e": 7.7
+    },
+    {
+     "t": "koi",
+     "s": 7.7,
+     "e": 8.024
+    },
+    {
+     "t": "mehenga",
+     "s": 8.024,
+     "e": 8.636,
+     "k": true
+    },
+    {
+     "t": "software,",
+     "s": 8.636,
+     "e": 9.32,
+     "k": true
+    }
+   ]
+  },
+  {
+   "zone": "bottom",
+   "words": [
+    {
+     "t": "na",
+     "s": 9.32,
+     "e": 9.572
+    },
+    {
+     "t": "koi",
+     "s": 9.572,
+     "e": 9.896
+    },
+    {
+     "t": "credit",
+     "s": 9.896,
+     "e": 10.436
+    }
+   ]
+  },
+  {
+   "zone": "top",
+   "words": [
+    {
+     "t": "Step",
+     "s": 10.576,
+     "e": 10.949,
+     "k": true
+    },
+    {
+     "t": "1:",
+     "s": 10.949,
+     "e": 11.187,
+     "k": true
+    },
+    {
+     "t": "kahani",
+     "s": 11.187,
+     "e": 11.696
+    },
+    {
+     "t": "ka",
+     "s": 11.696,
+     "e": 11.934
+    },
+    {
+     "t": "audio",
+     "s": 11.934,
+     "e": 12.375,
+     "k": true
+    }
+   ]
+  },
+  {
+   "zone": "bottom",
+   "words": [
+    {
+     "t": "aur",
+     "s": 12.375,
+     "e": 12.681
+    },
+    {
+     "t": "text",
+     "s": 12.681,
+     "e": 13.054
+    },
+    {
+     "t": "Claude",
+     "s": 13.054,
+     "e": 13.563
+    },
+    {
+     "t": "ko",
+     "s": 13.563,
+     "e": 13.801
+    },
+    {
+     "t": "bhejo",
+     "s": 13.801,
+     "e": 14.242
+    }
+   ]
+  },
+  {
+   "zone": "top",
+   "words": [
+    {
+     "t": "Step",
+     "s": 14.382,
+     "e": 14.745,
+     "k": true
+    },
+    {
+     "t": "2:",
+     "s": 14.745,
+     "e": 14.977,
+     "k": true
+    },
+    {
+     "t": "likho",
+     "s": 14.977,
+     "e": 15.406
+    },
+    {
+     "t": "scenes",
+     "s": 15.406,
+     "e": 15.902
+    },
+    {
+     "t": "realistic",
+     "s": 15.902,
+     "e": 16.595,
+     "k": true
+    },
+    {
+     "t": "rakhna",
+     "s": 16.595,
+     "e": 17.091
+    }
+   ]
+  },
+  {
+   "zone": "top",
+   "words": [
+    {
+     "t": "Claude",
+     "s": 17.231,
+     "e": 17.74
+    },
+    {
+     "t": "khud",
+     "s": 17.74,
+     "e": 18.113
+    },
+    {
+     "t": "characters,",
+     "s": 18.113,
+     "e": 18.894,
+     "k": true
+    },
+    {
+     "t": "camera",
+     "s": 18.894,
+     "e": 19.403,
+     "k": true
+    },
+    {
+     "t": "angles",
+     "s": 19.403,
+     "e": 19.912,
+     "k": true
+    }
+   ]
+  },
+  {
+   "zone": "bottom",
+   "words": [
+    {
+     "t": "aur",
+     "s": 19.912,
+     "e": 20.217
+    },
+    {
+     "t": "subtitles",
+     "s": 20.217,
+     "e": 20.93
+    },
+    {
+     "t": "set",
+     "s": 20.93,
+     "e": 21.235
+    },
+    {
+     "t": "karta",
+     "s": 21.235,
+     "e": 21.677
+    },
+    {
+     "t": "hai",
+     "s": 21.677,
+     "e": 21.982
+    }
+   ]
+  },
+  {
+   "zone": "top",
+   "words": [
+    {
+     "t": "Aur",
+     "s": 22.122,
+     "e": 22.455
+    },
+    {
+     "t": "render",
+     "s": 22.455,
+     "e": 23.009
+    },
+    {
+     "t": "hote",
+     "s": 23.009,
+     "e": 23.415
+    },
+    {
+     "t": "hi",
+     "s": 23.415,
+     "e": 23.674
+    },
+    {
+     "t": "MP4",
+     "s": 23.674,
+     "e": 24.007,
+     "k": true
+    },
+    {
+     "t": "taiyaar",
+     "s": 24.007,
+     "e": 24.635
+    }
+   ]
+  },
+  {
+   "zone": "top",
+   "words": [
+    {
+     "t": "Poora",
+     "s": 24.775,
+     "e": 25.176
+    },
+    {
+     "t": "prompt",
+     "s": 25.176,
+     "e": 25.638,
+     "k": true
+    },
+    {
+     "t": "chahiye?",
+     "s": 25.638,
+     "e": 26.162
+    }
+   ]
+  },
+  {
+   "zone": "bottom",
+   "words": [
+    {
+     "t": "Comment",
+     "s": 26.162,
+     "e": 26.686
+    },
+    {
+     "t": "mein",
+     "s": 26.686,
+     "e": 27.025
+    },
+    {
+     "t": "3D",
+     "s": 27.025,
+     "e": 27.241,
+     "k": true
+    },
+    {
+     "t": "likho!",
+     "s": 27.241,
+     "e": 27.642
+    }
+   ]
+  }
+ ],
+ "scenes": [
+  {
+   "start": 0.0,
+   "card": {
+    "type": "hero",
+    "window": "studio — kahani-3d",
+    "title": "Story Reel Studio",
+    "subtitle": "3D kahani engine",
+    "badge": "9:16 · 30 FPS",
+    "phone": {
+     "tag": "LIVE PREVIEW",
+     "title": "3D STORY",
+     "sub": "Hindi subtitles"
+    },
+    "stat": {
+     "value": "125 sec",
+     "label": "ek kahani, ek reel"
+    },
+    "checks": [
+     "Naye characters",
+     "Realistic lighting",
+     "Audio sync"
+    ]
+   }
+  },
+  {
+   "start": 3.64,
+   "card": {
+    "type": "compare",
+    "title": "Purana tareeka vs Claude",
+    "bad": [
+     {
+      "t": "Blender / Maya seekhna",
+      "s": "mahino ki practice"
+     },
+     {
+      "t": "Paid AI video tools",
+      "s": "har video pe credits"
+     }
+    ],
+    "good": {
+     "t": "Claude + free 3D kit",
+     "s": "1 prompt → poori reel",
+     "chip": "READY ✓"
+    },
+    "stamp": "ZERO SOFTWARE"
+   }
+  },
+  {
+   "start": 10.526,
+   "card": {
+    "type": "chat",
+    "title": "claude — new chat",
+    "files": [
+     {
+      "name": "kahani.mp3",
+      "size": "45 sec · 1.1 MB",
+      "kind": "MP3"
+     },
+     {
+      "name": "kahani.txt",
+      "size": "13 lines",
+      "kind": "TXT"
+     }
+    ],
+    "prompt": "Scenes realistic rakhna, 3D mein",
+    "reply": "Bana raha hun",
+    "typeAt": 4.406
+   },
+   "tag": "STEP 01 · AUDIO BHEJO"
+  },
+  {
+   "start": 17.181,
+   "card": {
+    "type": "checklist",
+    "title": "Claude khud karta hai",
+    "icon": "spark",
+    "items": [
+     "Naye characters, har reel",
+     "Camera angles + cuts",
+     "Realistic lighting",
+     "Hindi subtitles",
+     "Audio ke saath sync"
+    ],
+    "footer": "Sab automatic ✓"
+   }
+  },
+  {
+   "start": 22.072,
+   "card": {
+    "type": "download",
+    "file": "bhediya-3d.mp4",
+    "size": "1080×1920 · 125 sec",
+    "button": "Render"
+   }
+  },
+  {
+   "start": 24.725,
+   "card": {
+    "type": "cta",
+    "keyword": "3D",
+    "handle": "@yourhandle",
+    "reply": {
+     "title": "Ye raha poora prompt + steps",
+     "files": [
+      "3d-reel-prompt.pdf",
+      "setup-guide.pdf"
+     ]
+    }
+   }
+  }
+ ]
+}

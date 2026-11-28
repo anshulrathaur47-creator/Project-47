@@ -85,3 +85,4 @@ Talking-head reel in → premium, After-Effects-feeling edit out. Remotion (Reac
 - `opacity < 1` flattens `preserve-3d`, and CSS `filter` on a parent breaks 3D too. Keep both on leaf elements.
 - A 43s reel at 60fps takes about 13 minutes to render. Run it in the background and give him time estimates when asked.
 - Keep replies short. He's direct and gives feedback in batches, so fix everything in one pass.
+- For faceless tech/AI explainer reels (VO over UI cards), use `style-ui-explainer` (`.claude/skills/style-ui-explainer/`) instead.

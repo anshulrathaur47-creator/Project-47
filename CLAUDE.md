@@ -90,7 +90,7 @@ Learned from past feedback. Follow these unless the user says otherwise.
 
 ## Learned styles
 
-(none yet: each `watch` run adds a line here)
+- `style-ui-explainer` (`.claude/skills/style-ui-explainer/`): faceless tech/AI explainer reels — VO over animated UI cards, word-by-word Hinglish captions with boxed italic-serif key words, dashed-arrow camera moves, cream or black-green theme, "Comment WORD" CTA. Engine: `tools/ui-explainer-reel/`. Use for "is type ki reel" with a tool / offer / how-to VO.
 
 ## Workflow
 

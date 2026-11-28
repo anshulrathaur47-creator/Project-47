@@ -1,0 +1,28 @@
+{
+  "name": "ui-explainer-demo",
+  "theme": "cream",
+  "handle": "@yourhandle",
+  "voice": "hm_omega",
+  "speed": 1.08,
+  "music": 0.07,
+  "lines": [
+    { "hi": "थ्री डी एनिमेटेड कहानी वाली रील्स देखी हैं?", "roman": "*3D* animated kahani wali reels dekhi hain?",
+      "scene": { "type": "hero", "window": "studio — kahani-3d", "title": "Story Reel Studio", "subtitle": "3D kahani engine", "badge": "9:16 · 30 FPS",
+                 "phone": { "tag": "LIVE PREVIEW", "title": "3D STORY", "sub": "Hindi subtitles" }, "stat": { "value": "125 sec", "label": "ek kahani, ek reel" },
+                 "checks": ["Naye characters", "Realistic lighting", "Audio sync"] } },
+    { "hi": "इन्हें बनाने के लिए अब ब्लेंडर सीखने की ज़रूरत नहीं।", "roman": "Inhe banane ke liye ab *Blender* seekhne ki zaroorat nahi",
+      "scene": { "type": "compare", "title": "Purana tareeka vs Claude", "bad": [ { "t": "Blender / Maya seekhna", "s": "mahino ki practice" }, { "t": "Paid AI video tools", "s": "har video pe credits" } ],
+                 "good": { "t": "Claude + free 3D kit", "s": "1 prompt → poori reel", "chip": "READY ✓" }, "stamp": "ZERO SOFTWARE" } },
+    { "hi": "ना कोई महंगा सॉफ़्टवेयर, ना कोई क्रेडिट।", "roman": "Na koi *mehenga software*, na koi credit" },
+    { "hi": "स्टेप वन: कहानी का ऑडियो और टेक्स्ट क्लौड को भेजो।", "roman": "*Step 1:* kahani ka *audio* aur text Claude ko bhejo", "tag": "STEP 01 · AUDIO BHEJO",
+      "scene": { "type": "chat", "title": "claude — new chat", "files": [ { "name": "kahani.mp3", "size": "45 sec · 1.1 MB", "kind": "MP3" }, { "name": "kahani.txt", "size": "13 lines", "kind": "TXT" } ],
+                 "prompt": "Scenes realistic rakhna, 3D mein", "reply": "Bana raha hun" } },
+    { "hi": "स्टेप टू: लिखो, सीन्स रियलिस्टिक रखना।", "roman": "*Step 2:* likho — scenes *realistic* rakhna", "mark": "typeAt" },
+    { "hi": "क्लौड खुद कैरेक्टर्स, कैमरा एंगल्स और सबटाइटल्स सेट करता है।", "roman": "Claude khud *characters*, *camera* *angles* aur subtitles set karta hai",
+      "scene": { "type": "checklist", "title": "Claude khud karta hai", "icon": "spark", "items": ["Naye characters, har reel", "Camera angles + cuts", "Realistic lighting", "Hindi subtitles", "Audio ke saath sync"], "footer": "Sab automatic ✓" } },
+    { "hi": "और रेंडर होते ही एमपी फोर तैयार।", "roman": "Aur render hote hi *MP4* taiyaar",
+      "scene": { "type": "download", "file": "bhediya-3d.mp4", "size": "1080×1920 · 125 sec", "button": "Render" } },
+    { "hi": "पूरा प्रॉम्प्ट चाहिए? कमेंट में थ्री डी लिखो!", "roman": "Poora *prompt* chahiye? Comment mein *3D* likho!",
+      "scene": { "type": "cta", "keyword": "3D", "handle": "@yourhandle", "reply": { "title": "Ye raha poora prompt + steps", "files": ["3d-reel-prompt.pdf", "setup-guide.pdf"] } } }
+  ]
+}
