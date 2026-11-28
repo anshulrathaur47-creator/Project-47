@@ -1,0 +1,5 @@
+/* Pod Frame — Podcast edit: auto camera switching by who is talking, name cards, quote pulls and a live audio bar. */
+.pf-logo .anim { font-size: 30px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; background: var(--c-accent); color: #fff; padding: 10px 18px; border-radius: 8px; }
+.pf-cap .cap-line { font-weight: 800; }
+.pf-quote .anim { font-family: 'DM Serif Display', serif; font-size: 84px; line-height: 1.1; color: #fff; background: rgba(0,0,0,.72); padding: 50px 70px; border-left: 14px solid var(--c-accent); text-align: left; }
+.el-equalizer .eq i { background: var(--c-accent); }

@@ -1,0 +1,67 @@
+{
+  "name": "loop-ambient",
+  "format": "1:1",
+  "defaultDuration": 12,
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap",
+  "vars": {
+    "--font-display": "'Space Grotesk',sans-serif",
+    "--c-bg": "#0E0B1A",
+    "--c-accent": "#8B5CF6",
+    "--c-accent2": "#06B6D4",
+    "--cap-size": "50px",
+    "--cap-weight": "700"
+  },
+  "speaker": {
+    "mode": "full"
+  },
+  "matte": false,
+  "auto": {
+    "static": [
+      {
+        "type": "background",
+        "kind": "mesh"
+      },
+      {
+        "type": "shape",
+        "kind": "blob",
+        "layer": "behind",
+        "x": "=W/2",
+        "y": "=H*0.45",
+        "w": "=W*0.55",
+        "h": "=W*0.55",
+        "speed": 1.0472,
+        "in": "none"
+      },
+      {
+        "type": "equalizer",
+        "x": "=W/2",
+        "y": "=H*0.84",
+        "w": "=W*0.7",
+        "h": 110,
+        "count": 28,
+        "in": "none"
+      },
+      {
+        "type": "text",
+        "text": "{title}",
+        "className": "la-title",
+        "wrap": true,
+        "x": "=W/2",
+        "y": "=H*0.45",
+        "w": "=W*0.78",
+        "in": "none"
+      }
+    ],
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 5,
+      "y": "=H*0.7",
+      "className": "cap-soft"
+    }
+  },
+  "finish": {
+    "grade": "none"
+  },
+  "fps": 30
+}

@@ -1,0 +1,11 @@
+/* Essay Mode — Video-essay explainer: paper textures, highlighter marks, serif headings, a chart or card every 8-10 s. */
+.essay-cap .cap-line { font-family: var(--font-body); }
+.essay-card .anim { font-family: var(--font-display); font-size: 64px; background: var(--c-card); color: var(--c-card-fg); padding: 34px 44px; border-radius: 4px; box-shadow: 8px 12px 0 rgba(0,0,0,.25);
+  background-image: linear-gradient(transparent 62%, rgba(245,197,24,.75) 62%, rgba(245,197,24,.75) 90%, transparent 90%); background-size: 100% 100%; }
+.essay-counter .anim { background: var(--c-card); padding: 30px 50px; border-radius: 4px; box-shadow: 8px 12px 0 rgba(0,0,0,.25); }
+.essay-counter .counter-num { color: var(--c-accent2); text-shadow: none; font-family: var(--font-display); font-size: 150px; }
+.essay-counter .counter-label { color: #1b1b1b; text-shadow: none; }
+.paper-title .anim { background: #F6F1E7; color: #1b1b1b; background-image: radial-gradient(rgba(0,0,0,.06) 1px, transparent 1px); background-size: 6px 6px; }
+.paper-title .tc-kicker { color: var(--c-accent2); } .paper-title .tc-title { font-size: 110px; max-width: 80%; }
+.el-card .card-title { font-family: var(--font-display); }
+.el-card .anim { box-shadow: 8px 12px 0 rgba(0,0,0,.25); }

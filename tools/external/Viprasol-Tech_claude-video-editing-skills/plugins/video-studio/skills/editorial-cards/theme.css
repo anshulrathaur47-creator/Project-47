@@ -1,0 +1,38 @@
+/* Editorial Cards - Editorial explainer on a warm paper page: your footage sits in a tilted rounded card that moves to a new spot every sentence, big black words land as you say them, and key words get hand-drawn circles and underlines. */
+.ed-bg { background-color: #F4EFE6; }
+.ed-cap .cap-line { font-size: 92px; font-family: 'Inter Tight','Mukta',sans-serif; font-weight: 800; color: #111; text-shadow: none; letter-spacing: -.025em; line-height: 1.3; justify-content: flex-start; text-align: left; }
+.ed-cap .cap-word { color: #111; }
+.ed-cap .cap-word.is-key { font-family: 'Instrument Serif','Tiro Devanagari Hindi',serif; font-style: italic; font-weight: 400; color: #E4572E; letter-spacing: 0; }
+.ed-key .anim { font-family: 'Instrument Serif','Tiro Devanagari Hindi',serif; font-style: italic; font-size: 96px; color: #E4572E; line-height: 1.25; }
+
+/* ---------- explainer recipe (sequence.py --recipe explainer) ---------- */
+.ed-kick .anim { font: 600 36px 'Inter Tight','Mukta',sans-serif; color: #7E776B; letter-spacing: .16em; text-align: left; white-space: nowrap; }
+/* white print frame + soft shadow under each footage card (bg layer) */
+.ed-frame .anim { background: #FFFDF8; border-radius: 48px; box-shadow: 0 28px 60px rgba(70,50,20,.22), 0 4px 12px rgba(70,50,20,.12); }
+/* headline: captions mode "fill" - the base word is invisible and keeps its place, its .cap-fill writes it on left to
+   right while it is spoken. Never put an em font-size on .cap-fill (it would compound). */
+.ed-h .cap-line { font-family: 'Inter Tight','Mukta',sans-serif; font-weight: 800; line-height: 1.3; letter-spacing: -.02em; color: #111;
+  text-shadow: none; -webkit-text-stroke: 0; justify-content: flex-start; text-align: left; gap: 0 .24em; }
+.ed-h .cap-word, .ed-h .cap-word.is-active, .ed-h .cap-word.is-key { color: transparent; }
+.ed-h .cap-fill { color: #111; }
+.ed-h .cap-word.is-key { font-family: 'Instrument Serif','Tiro Devanagari Hindi',serif; font-style: italic; font-weight: 400; letter-spacing: 0; font-size: 1.12em; }
+.ed-h .cap-word.is-key .cap-fill { color: #E4572E; }
+.ed-h .cap-word.is-key .cap-fill::after { content: ""; position: absolute; pointer-events: none; background-repeat: no-repeat; background-size: 100% 100%; }
+/* card-low: hand-drawn coral underline under the key word (inside the fill box, so it draws on with the word) */
+.ed-ul .cap-word.is-key, .ed-ul .cap-word.is-key .cap-fill { padding: 0 .06em .16em; }
+.ed-ul .cap-word.is-key .cap-fill::after { left: 0; right: 0; bottom: 0; height: .2em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 100' preserveAspectRatio='none'%3E%3Cpath d='M 12 70 C 260 30 620 52 988 28' fill='none' stroke='%23E4572E' stroke-width='9' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E"); }
+/* type scene: hand-drawn coral circle round the key word */
+.ed-circ .cap-word.is-key, .ed-circ .cap-word.is-key .cap-fill { padding: .08em .34em; }
+.ed-circ .cap-word.is-key .cap-fill::after { left: 0; right: 0; top: -8%; bottom: -8%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 600' preserveAspectRatio='none'%3E%3Cpath d='M 520 70 C 770 62 975 170 955 320 C 935 470 650 540 430 525 C 190 510 25 430 45 285 C 65 150 300 55 575 78' fill='none' stroke='%23E4572E' stroke-width='9' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E"); }
+/* card-blank: the phrase waits in light grey and darkens as it is read; the key word is a "_ _ _" blank that is
+   written in coral on its line when it is said (no paper patch over the dashes: front-layer paper renders a shade off) */
+.ed-blank .cap-word, .ed-blank .cap-word.is-active { color: #CDC5B6; }
+.ed-blank .cap-word.is-key { color: transparent; }
+.ed-blank .cap-word.is-key::before { content: ""; position: absolute; left: .1em; right: .1em; bottom: .14em; height: .08em;
+  background: repeating-linear-gradient(90deg, #111 0 .42em, transparent .42em .62em); }
+/* card-high: yellow highlighter swipes the key word as it is said */
+.ed-hl .cap-word.is-key, .ed-hl .cap-word.is-key .cap-fill { padding: 0 .12em; }
+.ed-hl .cap-word.is-key .cap-fill { color: #111; border-radius: .1em;
+  background: linear-gradient(177deg, rgba(255,225,77,0) 36%, #FFE14D 36%, #FFD93F 88%, rgba(255,225,77,0) 88%); }

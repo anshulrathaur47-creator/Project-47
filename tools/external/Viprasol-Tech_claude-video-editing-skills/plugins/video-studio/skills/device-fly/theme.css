@@ -1,0 +1,4 @@
+/* Device Fly — Your screen recording on a 3D phone (or laptop) that flies in over a moving gradient, with kinetic titles. */
+.df-title .anim { font-size: 78px; line-height: 1.05; font-weight: 900; color: #fff; }
+.df-cta .anim { font-size: 72px; font-weight: 900; padding: 30px 56px; border-radius: 999px; background: #fff; color: var(--c-bg); box-shadow: 0 0 80px var(--c-accent2); }
+.el-chip .anim { background: rgba(255,255,255,.12); color: #fff; border: 2px solid rgba(255,255,255,.35); backdrop-filter: blur(10px); font-family: var(--font-body); }

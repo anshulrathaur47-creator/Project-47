@@ -1,0 +1,94 @@
+{
+  "name": "kinetic-launch",
+  "format": "9:16",
+  "defaultDuration": 8,
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@800;900&display=swap",
+  "vars": {
+    "--font-display": "'Archivo Black','Arial Black',sans-serif",
+    "--c-bg": "#0A0A0A",
+    "--c-accent": "#FF2BD6",
+    "--c-accent2": "#F2F2F2"
+  },
+  "speaker": {
+    "mode": "none"
+  },
+  "matte": false,
+  "background": "#0A0A0A",
+  "auto": {
+    "static": [
+      {
+        "type": "background",
+        "kind": "solid"
+      },
+      {
+        "type": "text",
+        "onlyIf": "noWords",
+        "text": "{title}",
+        "className": "kl-a",
+        "split": "chars",
+        "stagger": 0.035,
+        "unitIn": "drop",
+        "unitDur": 0.35,
+        "in": "none",
+        "out": "wipe",
+        "fit": true,
+        "w": "=W*0.9",
+        "x": "=W/2",
+        "y": "=H/2",
+        "start": 0.2,
+        "end": "=DUR-2"
+      }
+    ],
+    "headlines": {
+      "maxWords": 2,
+      "full": false,
+      "uppercase": true,
+      "element": [
+        {
+          "type": "headline",
+          "layer": "front",
+          "text": "{text}",
+          "className": "kl-a",
+          "wrap": true,
+          "split": "words",
+          "stagger": 0.07,
+          "unitIn": "stamp",
+          "in": "none",
+          "out": "none",
+          "w": "=W*0.9",
+          "y": "=H/2"
+        },
+        {
+          "type": "headline",
+          "layer": "front",
+          "text": "{text}",
+          "className": "kl-b",
+          "wrap": true,
+          "split": "words",
+          "stagger": 0.07,
+          "unitIn": "rise",
+          "in": "none",
+          "out": "none",
+          "w": "=W*0.9",
+          "y": "=H/2"
+        }
+      ]
+    },
+    "endcard": {
+      "dur": 2,
+      "element": {
+        "type": "text",
+        "text": "{cta}",
+        "className": "kl-cta",
+        "y": "=H/2",
+        "in": "wipe",
+        "inDur": 0.4
+      }
+    }
+  },
+  "finish": {
+    "grade": "none",
+    "grain": 4
+  },
+  "fps": 30
+}

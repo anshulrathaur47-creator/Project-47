@@ -1,0 +1,23 @@
+{
+ "language": "hi",
+ "duration": 80.832,
+ "segments": [
+  {
+   "start": 75.85,
+   "end": 77.53,
+   "text": "अज़े भान",
+   "words": [
+    {
+     "start": 75.85,
+     "end": 77.25,
+     "word": "अज़े"
+    },
+    {
+     "start": 77.25,
+     "end": 77.53,
+     "word": "भान"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,4 @@
+/* Quote Card Reel — Calm pull-quote reel: the speaker darkened behind, each sentence set as large serif typography. */
+.qc-quote .anim { font-family: var(--font-display); font-size: 74px; line-height: 1.14; font-weight: 400; color: #fff; }
+.qc-mark .anim { font-family: var(--font-display); font-size: 300px; color: var(--c-accent); line-height: 1; }
+.qc-name .anim { font-family: 'Inter', sans-serif; font-size: 32px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.8); }

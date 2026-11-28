@@ -1,0 +1,75 @@
+{
+  "name": "comic-panel",
+  "format": "9:16",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap",
+  "vars": {
+    "--font-display": "'Bangers',cursive",
+    "--font-cap": "'Bangers',cursive",
+    "--c-accent": "#FFE400",
+    "--c-accent2": "#E8202A",
+    "--cap-size": "76px",
+    "--cap-weight": "400"
+  },
+  "speaker": {
+    "mode": "full",
+    "focusY": 0.36
+  },
+  "matte": false,
+  "auto": {
+    "static": [
+      {
+        "type": "shape",
+        "kind": "halftone",
+        "layer": "front",
+        "x": "=W*0.1",
+        "y": "=H*0.1",
+        "w": "=W*0.5",
+        "h": "=W*0.5",
+        "color": "#000",
+        "className": "cm-ht"
+      },
+      {
+        "type": "shape",
+        "kind": "halftone",
+        "layer": "front",
+        "x": "=W*0.92",
+        "y": "=H*0.9",
+        "w": "=W*0.5",
+        "h": "=W*0.5",
+        "color": "#000",
+        "className": "cm-ht"
+      }
+    ],
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 4,
+      "y": "=H*0.72",
+      "uppercase": true,
+      "className": "cm-cap"
+    },
+    "keywords": {
+      "every": 3.2,
+      "hold": 1.2,
+      "sfx": "boom",
+      "sfxGain": 0.35,
+      "uppercase": true,
+      "zoom": 1.12,
+      "snap": true,
+      "zoomHold": 0.6,
+      "element": {
+        "type": "text",
+        "text": "{text}!",
+        "className": "cm-pow",
+        "x": "=W*0.5",
+        "y": "=H*0.2",
+        "rotate": -8,
+        "in": "stamp"
+      }
+    }
+  },
+  "finish": {
+    "grade": "punchy"
+  },
+  "fps": 30
+}

@@ -1,0 +1,47 @@
+{
+  "name": "doc-real",
+  "format": "9:16",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@500&display=swap",
+  "vars": {
+    "--font-display": "'IBM Plex Sans',sans-serif",
+    "--cap-size": "42px",
+    "--cap-weight": "500"
+  },
+  "speaker": {
+    "mode": "full",
+    "push": 0.04,
+    "focusY": 0.35
+  },
+  "matte": false,
+  "auto": {
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 7,
+      "y": "=H*0.8",
+      "maxChars": 40,
+      "lowercase": true,
+      "className": "cap-soft dr-cap"
+    },
+    "hook": {
+      "dur": 3.5,
+      "element": {
+        "type": "text",
+        "text": "{title}",
+        "className": "dr-tag",
+        "x": 80,
+        "y": "=H*0.16",
+        "anchor": "left",
+        "in": "fade",
+        "inDur": 0.8
+      }
+    }
+  },
+  "finish": {
+    "grade": "film",
+    "grain": 8,
+    "letterbox": 0.1,
+    "vignette": true
+  },
+  "fps": 30
+}

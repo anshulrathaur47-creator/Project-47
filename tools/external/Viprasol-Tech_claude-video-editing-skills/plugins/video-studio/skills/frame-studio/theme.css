@@ -1,0 +1,6 @@
+/* Frame Studio — Magazine layout: the speaker framed in a rounded panel on a cream page with an editorial headline and serif captions. */
+.fs-head .anim { font-family: var(--font-display); font-size: 96px; font-weight: 800; color: #111; line-height: 1; letter-spacing: -0.02em; }
+.fs-cap .cap-line { font-family: var(--font-display); font-style: italic; color: rgba(17,17,17,.4); text-shadow: none; }
+.fs-cap .cap-word.is-active, .fs-cap .cap-word.is-spoken { color: #111; }
+.fs-chip .anim { background: #111; color: #F3EDE2; font-family: 'Inter',sans-serif; font-weight: 800; font-size: 36px; letter-spacing: .08em; }
+.fs-kicker .anim { font-family: 'Inter',sans-serif; font-size: 28px; letter-spacing: .3em; color: var(--c-accent2); font-weight: 800; }

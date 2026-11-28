@@ -1,0 +1,11 @@
+/* Neon Marquee - your real shot cut wide / tight per phrase; a giant glowing electric-blue marquee scrolls at the top; compact black caption chips with the key word in a blue italic-serif box; a lime label bar slides in with the key phrase. Devanagari falls back to Baloo 2 / Mukta / Rozha One. */
+.nm-marq .anim { font-family: 'Archivo Black','Baloo 2',var(--font-deva),sans-serif; font-weight: 800; font-size: 200px; line-height: 1.1; white-space: nowrap; color: #7E9BFF; -webkit-text-stroke: 3px #D6E0FF; letter-spacing: -.01em; text-shadow: 0 0 16px rgba(61,107,255,.95), 0 0 50px rgba(40,80,255,.85), 0 0 110px rgba(20,50,255,.6); }
+/* compact caption chip: white words in a small black box, unspoken words dimmed */
+.nm-cap .cap-line { font-family: 'Inter','Mukta',var(--font-deva),sans-serif; font-weight: 800; font-size: 50px; background: rgba(6,6,10,.88); border-radius: 16px; padding: .2em .5em; width: fit-content; margin: 0 auto; text-shadow: none; box-shadow: 0 10px 30px rgba(0,0,0,.45); }
+.nm-cap .cap-word, .nm-cap .cap-word.is-active { color: #fff; opacity: .62; }
+.nm-cap .cap-word.is-active, .nm-cap .cap-word.is-spoken { opacity: 1; }
+.nm-cap .cap-word.is-key { font-family: 'Instrument Serif','Rozha One',var(--font-deva),serif; font-style: italic; font-weight: 400; font-size: 1.18em; color: #fff; opacity: 1; background: #2E5BFF; padding: 0 .28em; border-radius: 10px; box-shadow: 0 0 24px rgba(46,91,255,.7); }
+/* lime highlight label bar */
+.nm-label .anim { font-family: 'Archivo Black','Baloo 2',var(--font-deva),sans-serif; font-weight: 800; font-size: 56px; line-height: 1.15; white-space: nowrap; color: #0B0B0B; background: #D4FF3A; padding: 10px 26px 6px; border-radius: 6px; letter-spacing: .01em; box-shadow: 0 12px 34px rgba(0,0,0,.45); }
+/* dark moody shade (eclipse recipe): dark top band so the neon glows, darker foot for the chips, soft edge vignette */
+.el-background.nm-shade { background: linear-gradient(180deg, rgba(3,5,20,.66) 0%, rgba(3,5,20,.3) 15%, rgba(3,5,20,0) 27%, rgba(3,5,20,0) 66%, rgba(3,5,20,.5) 100%), radial-gradient(ellipse 125% 80% at 50% 46%, rgba(3,5,20,0) 55%, rgba(3,5,20,.55) 100%); }

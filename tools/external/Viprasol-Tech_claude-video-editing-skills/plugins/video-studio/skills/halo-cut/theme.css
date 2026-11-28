@@ -1,0 +1,4 @@
+/* Halo Cut — Clean premium reel: tight jump cuts, word-by-word captions, zoom punches on key words. */
+.halo-cap .cap-line { letter-spacing: -0.01em; text-shadow: 0 4px 0 rgba(0,0,0,.85), 0 10px 30px rgba(0,0,0,.6); }
+.halo-hook .anim { font-size: 62px; font-weight: 900; line-height: 1.12; background: #fff; color: #0b0b0b; padding: 22px 34px; border-radius: 22px; box-shadow: 0 18px 50px rgba(0,0,0,.35); }
+.halo-progress { height: 10px !important; }

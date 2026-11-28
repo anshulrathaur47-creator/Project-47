@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Video Studio Review</title>
+<style>
+:root {
+  --bg: #0e1014; --panel: #161920; --panel2: #1d212a; --line: #2a2f3a; --fg: #e9ebf1; --dim: #98a1b1;
+  --accent: #8d7dff; --accent-fg: #0e1014; --ok: #3ecf8e; --bad: #ff6b6b; --warn: #f5b84b; --on: #2a2550;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 14px/1.45 system-ui, "Segoe UI", "Nirmala UI", sans-serif; }
+button, input, select { font: inherit; color: inherit; }
+header { display: flex; align-items: center; gap: 12px; padding: 10px 16px; background: var(--panel); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 2; }
+header b { font-size: 15px; letter-spacing: .2px; }
+header .grow { flex: 1; }
+.pill { padding: 3px 10px; border-radius: 999px; background: var(--panel2); border: 1px solid var(--line); color: var(--dim); font-size: 12px; white-space: nowrap; }
+.pill.run { color: var(--warn); border-color: #5a4720; }
+.layout { display: grid; grid-template-columns: 230px 1fr; min-height: calc(100vh - 47px); }
+aside { border-right: 1px solid var(--line); padding: 12px; background: var(--panel); }
+aside h3, .card h3 { margin: 0 0 8px; font-size: 12px; text-transform: uppercase; letter-spacing: .8px; color: var(--dim); font-weight: 600; }
+.work { display: flex; align-items: center; justify-content: space-between; width: 100%; text-align: left; background: none; border: 1px solid transparent; border-radius: 8px; padding: 7px 9px; cursor: pointer; }
+.work:hover { background: var(--panel2); }
+.work.on { background: var(--on); border-color: #3d3570; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); flex: none; }
+.dot.busy { background: var(--warn); }
+main { padding: 16px; min-width: 0; }
+.top { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+.player { flex: 0 1 auto; }
+video { display: block; max-height: 72vh; max-width: 100%; background: #000; border-radius: 10px; }
+.empty { width: 300px; height: 420px; display: grid; place-items: center; text-align: center; color: var(--dim); background: var(--panel); border: 1px dashed var(--line); border-radius: 10px; padding: 20px; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin-bottom: 8px; }
+.seg button { background: var(--panel); border: 0; padding: 5px 12px; cursor: pointer; color: var(--dim); }
+.seg button.on { background: var(--accent); color: var(--accent-fg); }
+.meta { color: var(--dim); font-size: 12px; margin-top: 6px; }
+.side { flex: 1 1 340px; display: flex; flex-direction: column; gap: 12px; min-width: 300px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+.row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+select, input[type=text], input[type=number] { background: var(--panel2); border: 1px solid var(--line); border-radius: 7px; padding: 6px 8px; }
+select { min-width: 200px; }
+.btn { background: var(--panel2); border: 1px solid var(--line); border-radius: 8px; padding: 7px 14px; cursor: pointer; }
+.btn:hover { border-color: var(--accent); }
+.btn.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); font-weight: 600; }
+.btn:disabled { opacity: .45; cursor: default; }
+.hint { color: var(--dim); font-size: 12px; margin-top: 6px; }
+.jobs { display: flex; flex-direction: column; gap: 4px; margin-bottom: 8px; }
+.job { display: flex; justify-content: space-between; gap: 8px; background: none; border: 1px solid transparent; border-radius: 6px; padding: 3px 6px; cursor: pointer; font-size: 12px; text-align: left; }
+.job.on { border-color: var(--line); background: var(--panel2); }
+.st-done { color: var(--ok); } .st-failed { color: var(--bad); } .st-running { color: var(--warn); } .st-queued { color: var(--dim); }
+pre#log { margin: 0; height: 220px; overflow: auto; background: #0a0c0f; border: 1px solid var(--line); border-radius: 8px; padding: 8px; font: 12px/1.4 ui-monospace, Consolas, monospace; white-space: pre-wrap; word-break: break-all; color: #c9cfdb; }
+section { margin-top: 18px; }
+section > h2 { font-size: 14px; margin: 0 0 10px; }
+.stills { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start; }
+.stills figure { margin: 0; cursor: pointer; }
+.stills img { display: block; height: 180px; border-radius: 6px; border: 1px solid var(--line); background: #000; }
+.stills img.sheet { height: auto; max-height: 260px; max-width: 100%; }
+.stills figcaption { font-size: 11px; color: var(--dim); text-align: center; margin-top: 3px; }
+.captbar { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; flex-wrap: wrap; }
+#capstate { color: var(--dim); font-size: 12px; }
+#capstate.bad { color: var(--bad); }
+.tablewrap { max-height: 60vh; overflow: auto; border: 1px solid var(--line); border-radius: 10px; }
+table { border-collapse: collapse; width: 100%; }
+th, td { padding: 4px 8px; border-bottom: 1px solid var(--line); text-align: left; }
+th { position: sticky; top: 0; background: var(--panel); font-size: 12px; color: var(--dim); font-weight: 600; z-index: 1; }
+td.n { color: var(--dim); width: 36px; font-variant-numeric: tabular-nums; }
+tr.on td { background: var(--on); }
+tr.bad td { background: #3a1e22; }
+td input.w { width: 100%; min-width: 140px; font-size: 16px; font-family: "Nirmala UI", "Mukta", system-ui, sans-serif; }
+td input[type=number] { width: 86px; font-variant-numeric: tabular-nums; }
+.time { display: inline-flex; gap: 4px; align-items: center; }
+.icon { background: none; border: 1px solid var(--line); border-radius: 6px; width: 28px; height: 28px; cursor: pointer; color: var(--dim); }
+.icon:hover { color: var(--fg); border-color: var(--accent); }
+#toast { position: fixed; right: 16px; bottom: 16px; max-width: 420px; background: var(--panel2); border: 1px solid var(--line); border-left: 4px solid var(--ok); border-radius: 8px; padding: 10px 14px; display: none; z-index: 5; }
+#toast.bad { border-left-color: var(--bad); }
+@media (max-width: 860px) { .layout { grid-template-columns: 1fr; } aside { border-right: 0; border-bottom: 1px solid var(--line); } }
+</style>
+</head>
+<body>
+<header>
+  <b>Video Studio · Review</b><span id="title" class="pill">no edit open</span><span class="grow"></span>
+  <span id="status" class="pill">idle</span>
+</header>
+<div class="layout">
+  <aside><h3>Edits</h3><div id="works"></div></aside>
+  <main id="main" hidden>
+    <div class="top">
+      <div class="player">
+        <div id="vtabs" class="seg"></div>
+        <video id="vid" controls preload="metadata" playsinline hidden></video>
+        <div id="novid" class="empty" hidden>No video yet.<br>Click <b>Render</b> to make final.mp4.</div>
+        <div id="meta" class="meta"></div>
+      </div>
+      <div class="side">
+        <div class="card">
+          <h3>Style</h3>
+          <div class="row"><select id="style"></select><button class="btn" id="b-replan">Re-plan</button></div>
+          <div id="stylehint" class="hint"></div>
+        </div>
+        <div class="card">
+          <h3>Check and render</h3>
+          <div class="row">
+            <input id="times" type="text" placeholder="still times, e.g. 1, 3.5, 7 (empty = 6 auto)" style="flex:1;min-width:180px">
+            <button class="btn" id="b-stills">Stills</button>
+            <button class="btn primary" id="b-render">Render</button>
+          </div>
+          <div class="hint">Render = render.py then finish.py --platform reels. One job runs at a time; others wait in the queue.</div>
+        </div>
+        <div class="card">
+          <h3>Jobs</h3>
+          <div id="jobs" class="jobs"><span class="hint">No jobs yet.</span></div>
+          <pre id="log"></pre>
+        </div>
+      </div>
+    </div>
+    <section>
+      <h2>Stills <span class="hint">(click a still to jump the video there)</span></h2>
+      <div id="stills" class="stills"></div>
+    </section>
+    <section>
+      <h2>Captions</h2>
+      <div class="captbar">
+        <button class="btn primary" id="b-save" disabled>Save captions</button>
+        <button class="btn" id="b-revert" disabled>Undo changes</button>
+        <span id="capstate">Edit a word, or its start / end time. Ctrl+S saves.</span>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>#</th><th>Word</th><th>Start (s)</th><th>End (s)</th><th></th></tr></thead>
+          <tbody id="words"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</div>
+<div id="toast"></div>
+<script>
+const T = new URLSearchParams(location.search).get('t') || '';
+const $ = (s) => document.querySelector(s);
+const enc = encodeURIComponent;
+const vid = $('#vid');
+let works = [], styles = [], cur = null, words = [], dirty = false, vidFile = null, stopAt = null;
+let watch = null, logNext = 0, states = {};
+
+function h(tag, props = {}, ...kids) {
+  const el = document.createElement(tag);
+  for (const [k, v] of Object.entries(props)) {
+    if (k.startsWith('on')) el.addEventListener(k.slice(2), v);
+    else if (k === 'class') el.className = v;
+    else if (k === 'value') el.value = v;
+    else if (v !== false && v != null) el.setAttribute(k, v === true ? '' : v);
+  }
+  for (const c of kids.flat()) if (c != null) el.append(c);
+  return el;
+}
+
+async function api(path, method = 'GET', body) {
+  const r = await fetch(`/api${path}${path.includes('?') ? '&' : '?'}t=${enc(T)}`, {
+    method, headers: body ? {'Content-Type': 'application/json'} : {}, body: body ? JSON.stringify(body) : undefined});
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(typeof j.detail === 'string' ? j.detail : JSON.stringify(j.detail || r.statusText));
+  return j;
+}
+
+let toastTimer;
+function toast(msg, bad = false) {
+  const t = $('#toast'); t.textContent = msg; t.className = bad ? 'bad' : ''; t.style.display = 'block';
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => t.style.display = 'none', bad ? 8000 : 4000);
+}
+const fileUrl = (m) => `/api/works/${enc(cur.name)}/file/${enc(m.file)}?t=${enc(T)}&v=${m.v}`;
+
+// ---------- edits list ----------
+async function loadWorks() {
+  works = await api('/works');
+  $('#works').replaceChildren(...works.map(w => h('button', {class: 'work' + (cur && cur.name === w.name ? ' on' : ''),
+    title: w.name, onclick: () => openWork(w.name)}, h('span', {}, w.name),
+    w.busy ? h('i', {class: 'dot busy', title: 'job ' + w.busy}) : w.final ? h('i', {class: 'dot', title: 'has final.mp4'}) : null)));
+  if (!works.length) $('#works').append(h('p', {class: 'hint'}, 'No folders with plan.json in --root.'));
+}
+
+async function openWork(name, keepWords = false) {
+  if (dirty && cur && cur.name !== name && !confirm('Discard unsaved caption changes?')) return;
+  try { cur = await api(`/works/${enc(name)}`); } catch (e) { return toast(e.message, true); }
+  history.replaceState(null, '', `#${enc(name)}`);
+  $('#main').hidden = false; $('#title').textContent = name;
+  if (!keepWords) { words = structuredClone(cur.plan.words || []); setDirty(false); renderWords(); }
+  renderPlayer(); renderStills(); renderStyle(); loadWorks();
+}
+
+// ---------- player ----------
+function renderPlayer() {
+  const vids = cur.videos;
+  vid.hidden = !vids.length; $('#novid').hidden = !!vids.length;
+  const pick = vids.find(v => v.file === vidFile) || vids[0];
+  $('#vtabs').replaceChildren(...vids.map(v => h('button', {class: v === pick ? 'on' : '',
+    onclick: () => { vidFile = v.file; renderPlayer(); }}, v.file)));
+  $('#vtabs').hidden = vids.length < 2;
+  if (pick) {
+    const url = fileUrl(pick);
+    if (vid.getAttribute('src') !== url) { const t = vid.currentTime || 0; vid.src = url; vid.currentTime = t; }
+    vidFile = pick.file;
+  } else { vid.removeAttribute('src'); vid.load(); }
+  const o = cur.plan.output || {};
+  $('#meta').textContent = [`style ${cur.plan.style || '?'}`, cur.plan.genre && `genre ${cur.plan.genre}`,
+    `${o.width}x${o.height}`, `${o.duration} s`, `${(cur.plan.words || []).length} words`].filter(Boolean).join(' · ');
+}
+function seek(t, play = false) { if (vid.hidden) return; vid.currentTime = t; if (play) vid.play(); }
+vid.addEventListener('timeupdate', () => {
+  if (stopAt != null && vid.currentTime >= stopAt) { vid.pause(); stopAt = null; }
+  const t = vid.currentTime;
+  document.querySelectorAll('#words tr').forEach((tr, i) => tr.classList.toggle('on', !!words[i] && words[i].start <= t && t < words[i].end));
+});
+
+// ---------- stills ----------
+function renderStills() {
+  const box = $('#stills'), kids = [];
+  if (cur.sheet) kids.push(h('figure', {onclick: () => window.open(fileUrl(cur.sheet), '_blank')},
+    h('img', {class: 'sheet', src: fileUrl(cur.sheet), alt: 'contact sheet'}), h('figcaption', {}, 'contact sheet')));
+  for (const s of cur.stills) kids.push(h('figure', {onclick: () => seek(s.t)},
+    h('img', {src: fileUrl(s), loading: 'lazy', alt: `still at ${s.t} s`}), h('figcaption', {}, `${s.t.toFixed(2)} s`)));
+  box.replaceChildren(...(kids.length ? kids : [h('span', {class: 'hint'}, 'No stills yet. Click Stills.')]));
+}
+
+// ---------- style + jobs ----------
+function renderStyle() {
+  const sel = $('#style'), want = sel.dataset.work === cur.name ? sel.value : cur.plan.style;
+  sel.replaceChildren(...styles.map(s => h('option', {value: s.name}, s.name + (s.sequence ? `  (+ ${s.sequence} sequence)` : ''))));
+  if (styles.some(s => s.name === want)) sel.value = want;
+  sel.dataset.work = cur.name; styleHint();
+}
+function styleHint() {
+  const s = styles.find(s => s.name === $('#style').value);
+  $('#stylehint').textContent = !s ? '' : `Re-plan runs make_plan.py --style ${s.name}` + (s.sequence ? ` then sequence.py --recipe ${s.sequence}` : '')
+    + '. It rebuilds plan.json from words.json (old plan kept as plan.json.bak).';
+}
+$('#style').addEventListener('change', styleHint);
+
+function parseTimes(txt) {
+  if (!txt.trim()) return null;
+  const ts = txt.split(/[\s,]+/).filter(Boolean).map(Number);
+  if (ts.some(isNaN)) throw new Error('Still times must be numbers in seconds, like 1, 3.5, 7');
+  return ts;
+}
+async function startJob(kind) {
+  if (!cur) return;
+  try {
+    const body = {kind};
+    if (kind === 'replan') {
+      body.style = $('#style').value;
+      if (!confirm(`Re-plan "${cur.name}" with style ${body.style}?\n\nplan.json is rebuilt from words.json, so hand edits in plan.json are replaced. The old plan is kept as plan.json.bak.`)) return;
+    }
+    if (kind === 'stills') { const f = parseTimes($('#times').value); if (f) body.frames = f; }
+    if (dirty) await save();
+    const j = await api(`/works/${enc(cur.name)}/jobs`, 'POST', body);
+    watchJob(j.id); toast(`${kind} queued (job #${j.id})`); poll(false);
+  } catch (e) { toast(e.message, true); }
+}
+$('#b-replan').onclick = () => startJob('replan');
+$('#b-stills').onclick = () => startJob('stills');
+$('#b-render').onclick = () => startJob('render');
+
+function watchJob(id) { watch = id; logNext = 0; $('#log').textContent = ''; }
+function renderJobs(list) {
+  const shown = list.slice(-8).reverse();
+  $('#jobs').replaceChildren(...(shown.length ? shown.map(j => h('button', {class: 'job' + (j.id === watch ? ' on' : ''), onclick: () => watchJob(j.id)},
+    h('span', {}, `#${j.id} ${j.kind} · ${j.work}`), h('span', {class: 'st-' + j.state}, j.state))) : [h('span', {class: 'hint'}, 'No jobs yet.')]));
+  const run = list.find(j => j.state === 'running'), q = list.filter(j => j.state === 'queued').length;
+  $('#status').textContent = run ? `running: ${run.kind} (${run.work})` + (q ? ` · ${q} queued` : '') : 'idle';
+  $('#status').className = 'pill' + (run ? ' run' : '');
+}
+async function poll(again = true) {
+  try {
+    const list = await api('/jobs');
+    const run = list.find(j => j.state === 'running');
+    const watched = list.find(j => j.id === watch);
+    if (run && (!watched || watched.state === 'done' || watched.state === 'failed') && run.id !== watch) watchJob(run.id);
+    if (watch == null && list.length) watchJob(list[list.length - 1].id);
+    renderJobs(list);
+    if (watch != null) {
+      const j = await api(`/jobs/${watch}?since=${logNext}`), log = $('#log');
+      if (j.log.length) {
+        const atEnd = log.scrollTop + log.clientHeight >= log.scrollHeight - 8;
+        log.append(j.log.join('\n') + '\n'); if (atEnd) log.scrollTop = log.scrollHeight;
+      }
+      logNext = j.next;
+    }
+    for (const j of list) {
+      const was = states[j.id];
+      if (was && was !== j.state && (j.state === 'done' || j.state === 'failed')) {
+        toast(`${j.kind} ${j.state === 'done' ? 'finished' : 'FAILED, see the log'} (${j.work})`, j.state === 'failed');
+        if (cur && j.work === cur.name) openWork(cur.name, dirty); else loadWorks();
+      }
+      states[j.id] = j.state;
+    }
+  } catch (e) { $('#status').textContent = 'server not reachable'; }
+  if (again) setTimeout(poll, 1000);
+}
+
+// ---------- captions ----------
+function setDirty(d) {
+  dirty = d; $('#b-revert').disabled = !d;
+  const problem = d ? validate() : null;
+  $('#b-save').disabled = !d || !!problem;
+  $('#capstate').textContent = problem || (d ? 'Unsaved changes.' : 'Edit a word, or its start / end time. Ctrl+S saves.');
+  $('#capstate').className = problem ? 'bad' : '';
+}
+function validate() {
+  let first = null;
+  const dur = (cur.plan.output || {}).duration || Infinity;
+  document.querySelectorAll('#words tr').forEach((tr, i) => {
+    const w = words[i], prev = words[i - 1];
+    const p = !w.w.trim() ? 'is empty' : !(w.start >= 0 && w.end >= w.start) ? 'needs start <= end'
+      : w.end > dur + 0.25 ? `ends after the video (${dur} s)` : prev && w.start < prev.start ? 'starts before the word above' : null;
+    tr.classList.toggle('bad', !!p);
+    if (p && !first) first = `Word ${i + 1} ${p}.`;
+  });
+  return first;
+}
+function timeCell(i, key) {
+  return h('span', {class: 'time'},
+    h('input', {type: 'number', step: '0.01', min: '0', value: words[i][key],
+      oninput: (e) => { words[i][key] = e.target.value === '' ? NaN : Number(e.target.value); setDirty(true); }}),
+    h('button', {class: 'icon', title: `Set ${key} to the video's current time`, onclick: (e) => {
+      words[i][key] = Math.round(vid.currentTime * 1000) / 1000;
+      e.target.previousSibling.value = words[i][key]; setDirty(true); }}, '⌖'));
+}
+function renderWords() {
+  $('#words').replaceChildren(...words.map((w, i) => h('tr', {},
+    h('td', {class: 'n'}, String(i + 1)),
+    h('td', {}, h('input', {class: 'w', type: 'text', lang: 'hi', value: w.w, oninput: (e) => { words[i].w = e.target.value; setDirty(true); }})),
+    h('td', {}, timeCell(i, 'start')), h('td', {}, timeCell(i, 'end')),
+    h('td', {}, h('span', {class: 'time'},
+      h('button', {class: 'icon', title: 'Play this word', onclick: () => { stopAt = words[i].end + 0.15; seek(words[i].start, true); }}, '▶'),
+      h('button', {class: 'icon', title: 'Delete this word', onclick: () => { words.splice(i, 1); renderWords(); setDirty(true); }}, '✕'))))));
+  if (dirty) setDirty(true);
+}
+async function save() {
+  const problem = validate();
+  if (problem) throw new Error(problem);
+  const r = await api(`/works/${enc(cur.name)}/words`, 'PUT', {words});
+  cur.plan.words = structuredClone(words); setDirty(false);
+  toast(`Saved ${r.saved} words to words.json and plan.json. Click Render (or Stills) to see them.`);
+}
+$('#b-save').onclick = () => save().catch(e => toast(e.message, true));
+$('#b-revert').onclick = () => { words = structuredClone(cur.plan.words || []); renderWords(); setDirty(false); };
+document.addEventListener('keydown', (e) => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); if (dirty) save().catch(err => toast(err.message, true)); }
+});
+window.addEventListener('beforeunload', (e) => { if (dirty) e.preventDefault(); });
+
+// ---------- start ----------
+(async () => {
+  if (!T) { document.body.replaceChildren(h('p', {style: 'padding:24px'}, 'Open the full URL that server.py printed (it ends with ?t=...).')); return; }
+  try {
+    [styles] = await Promise.all([api('/styles'), loadWorks()]);
+  } catch (e) { return toast(e.message, true); }
+  const want = decodeURIComponent(location.hash.slice(1));
+  const first = works.find(w => w.name === want) || works[0];
+  if (first) await openWork(first.name);
+  poll();
+})();
+</script>
+</body>
+</html>

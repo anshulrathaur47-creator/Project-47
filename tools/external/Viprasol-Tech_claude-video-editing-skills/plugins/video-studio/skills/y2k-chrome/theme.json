@@ -1,0 +1,56 @@
+{
+  "name": "y2k-chrome",
+  "format": "9:16",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Nunito:wght@800;900&display=swap",
+  "vars": {
+    "--font-display": "'Rubik Mono One',sans-serif",
+    "--c-accent": "#FF7AD9",
+    "--c-accent2": "#7AE7FF",
+    "--cap-size": "58px"
+  },
+  "speaker": {
+    "mode": "full",
+    "focusY": 0.3
+  },
+  "matte": true,
+  "auto": {
+    "static": [
+      {
+        "type": "shape",
+        "kind": "sparkles",
+        "layer": "front",
+        "x": "=W/2",
+        "y": "=H*0.4",
+        "w": "=W",
+        "h": "=H*0.7",
+        "count": 16,
+        "color": "#ffffff"
+      }
+    ],
+    "headlines": {
+      "maxWords": 1,
+      "uppercase": true,
+      "element": {
+        "type": "headline",
+        "layer": "behind",
+        "text": "{text}",
+        "className": "y2k-head",
+        "y": "=H*0.29",
+        "w": "=W*0.96",
+        "in": "scale",
+        "out": "fade"
+      }
+    },
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 4,
+      "y": "=H*0.78",
+      "className": "y2k-cap"
+    }
+  },
+  "finish": {
+    "grade": "pastel"
+  },
+  "fps": 30
+}

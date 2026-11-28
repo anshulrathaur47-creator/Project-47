@@ -1,0 +1,16 @@
+name: ✨ Feature request
+description: A capability a video editor should have
+labels: [enhancement]
+body:
+  - type: textarea
+    id: want
+    attributes:
+      label: What do you want to make?
+      description: Describe the video you are trying to make and what is missing.
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Reference
+      description: A link to a video or product that does it well (optional).

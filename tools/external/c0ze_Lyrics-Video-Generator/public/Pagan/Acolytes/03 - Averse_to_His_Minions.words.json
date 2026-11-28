@@ -1,0 +1,2271 @@
+{
+ "title": "Averse to His Minions",
+ "audio": "03 - Averse_to_His_Minions.flac",
+ "source_lrc": "03 - Averse_to_His_Minions.lrc",
+ "method": "htdemucs vocal stem -> torchaudio MMS_FA forced alignment, each line inside its hand-stamped window, checked by a pass with each line's neighbours in a wider window",
+ "generated": "2026-11-20",
+ "units": "seconds",
+ "notes": "start/end: aligned onset/offset (line start falls back to hand_start when its words do not agree between the two passes). hand_start: the hand-stamped LRC time. dev = start - hand_start. score/confidence: mean CTC posterior (0..1); sung vowels score low even when placed right. agree: the anchored and the context pass put the word start within 0.35 s; rating comes from the share of agreeing words.",
+ "confidence": 0.294,
+ "rating": "high",
+ "summary": {
+  "lines": 43,
+  "words": 151,
+  "mean_word_score": 0.285,
+  "word_agreement": 0.927,
+  "line_agreement": 0.814,
+  "line_median_offset": 0.12,
+  "check_lines": [
+   12,
+   24,
+   38,
+   39,
+   40
+  ],
+  "ok_words": 0.868,
+  "confidence": "high"
+ },
+ "lines": [
+  {
+   "i": 0,
+   "tag": "",
+   "text": "A solemn whisper",
+   "start": 69.12,
+   "end": 70.64,
+   "hand_start": 69.29,
+   "dev": -0.17,
+   "confidence": 0.294,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.14,
+   "global_start": 17.72,
+   "words": [
+    {
+     "w": "A",
+     "start": 69.12,
+     "end": 69.16,
+     "score": 0.358,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 69.12,
+     "global_start": 17.72
+    },
+    {
+     "w": "solemn",
+     "start": 69.3,
+     "end": 69.86,
+     "score": 0.217,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 69.3,
+     "global_start": 20.58
+    },
+    {
+     "w": "whisper",
+     "start": 69.9,
+     "end": 70.64,
+     "score": 0.307,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 69.9,
+     "global_start": 69.9
+    }
+   ]
+  },
+  {
+   "i": 1,
+   "tag": "",
+   "text": "A dying breath",
+   "start": 71.46,
+   "end": 72.62,
+   "hand_start": 71.42,
+   "dev": 0.04,
+   "confidence": 0.469,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.1,
+   "global_start": 71.46,
+   "words": [
+    {
+     "w": "A",
+     "start": 71.46,
+     "end": 71.5,
+     "score": 0.726,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 71.46,
+     "global_start": 71.46
+    },
+    {
+     "w": "dying",
+     "start": 71.6,
+     "end": 72.04,
+     "score": 0.151,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 71.6,
+     "global_start": 71.6
+    },
+    {
+     "w": "breath",
+     "start": 72.04,
+     "end": 72.62,
+     "score": 0.53,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 72.04,
+     "global_start": 72.04
+    }
+   ]
+  },
+  {
+   "i": 2,
+   "tag": "",
+   "text": "His name sealed",
+   "start": 73.6,
+   "end": 78.0,
+   "hand_start": 73.88,
+   "dev": -0.28,
+   "confidence": 0.375,
+   "source": "aligned",
+   "agree": 0.667,
+   "check": false,
+   "max_gap": 0.56,
+   "global_start": 72.6,
+   "words": [
+    {
+     "w": "His",
+     "start": 73.6,
+     "end": 73.86,
+     "score": 0.41,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 72.6,
+     "global_start": 72.6
+    },
+    {
+     "w": "name",
+     "start": 73.88,
+     "end": 74.44,
+     "score": 0.376,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 73.88,
+     "global_start": 73.88
+    },
+    {
+     "w": "sealed",
+     "start": 75.0,
+     "end": 78.0,
+     "score": 0.339,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 75.0,
+     "global_start": 75.0
+    }
+   ]
+  },
+  {
+   "i": 3,
+   "tag": "",
+   "text": "Figures drawn",
+   "start": 78.48,
+   "end": 80.68,
+   "hand_start": 78.49,
+   "dev": -0.01,
+   "confidence": 0.178,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.0,
+   "global_start": 78.48,
+   "words": [
+    {
+     "w": "Figures",
+     "start": 78.48,
+     "end": 81.04,
+     "score": 0.258,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 78.48,
+     "global_start": 78.48
+    },
+    {
+     "w": "drawn",
+     "start": 81.04,
+     "end": 80.68,
+     "score": 0.098,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 81.04,
+     "global_start": 79.12
+    }
+   ]
+  },
+  {
+   "i": 4,
+   "tag": "",
+   "text": "Arcane wisdom",
+   "start": 80.92,
+   "end": 83.18,
+   "hand_start": 80.68,
+   "dev": 0.24,
+   "confidence": 0.427,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.02,
+   "global_start": 80.92,
+   "words": [
+    {
+     "w": "Arcane",
+     "start": 80.92,
+     "end": 81.4,
+     "score": 0.374,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 80.92,
+     "global_start": 80.92
+    },
+    {
+     "w": "wisdom",
+     "start": 81.42,
+     "end": 83.18,
+     "score": 0.48,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 81.42,
+     "global_start": 81.42
+    }
+   ]
+  },
+  {
+   "i": 5,
+   "tag": "",
+   "text": "Forgotten aeons",
+   "start": 83.18,
+   "end": 85.12,
+   "hand_start": 83.18,
+   "dev": 0.0,
+   "confidence": 0.279,
+   "source": "hand",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.0,
+   "global_start": 82.06,
+   "words": [
+    {
+     "w": "Forgotten",
+     "start": 83.9,
+     "end": 84.3,
+     "score": 0.272,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 83.9,
+     "global_start": 82.06
+    },
+    {
+     "w": "aeons",
+     "start": 84.3,
+     "end": 85.12,
+     "score": 0.286,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 84.3,
+     "global_start": 84.3
+    }
+   ]
+  },
+  {
+   "i": 6,
+   "tag": "",
+   "text": "A hand whimpers",
+   "start": 87.58,
+   "end": 89.08,
+   "hand_start": 87.64,
+   "dev": -0.06,
+   "confidence": 0.513,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.24,
+   "global_start": 87.58,
+   "words": [
+    {
+     "w": "A",
+     "start": 87.58,
+     "end": 87.62,
+     "score": 0.558,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 87.58,
+     "global_start": 87.58
+    },
+    {
+     "w": "hand",
+     "start": 87.74,
+     "end": 88.1,
+     "score": 0.631,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 87.74,
+     "global_start": 87.74
+    },
+    {
+     "w": "whimpers",
+     "start": 88.34,
+     "end": 89.08,
+     "score": 0.349,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 88.34,
+     "global_start": 88.34
+    }
+   ]
+  },
+  {
+   "i": 7,
+   "tag": "",
+   "text": "Deathly pale",
+   "start": 90.04,
+   "end": 92.3,
+   "hand_start": 90.0,
+   "dev": 0.04,
+   "confidence": 0.398,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.06,
+   "global_start": 90.04,
+   "words": [
+    {
+     "w": "Deathly",
+     "start": 90.04,
+     "end": 90.38,
+     "score": 0.263,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 90.04,
+     "global_start": 90.04
+    },
+    {
+     "w": "pale",
+     "start": 90.44,
+     "end": 92.3,
+     "score": 0.533,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 90.44,
+     "global_start": 90.44
+    }
+   ]
+  },
+  {
+   "i": 8,
+   "tag": "",
+   "text": "Rigid and foul",
+   "start": 92.36,
+   "end": 94.14,
+   "hand_start": 92.3,
+   "dev": 0.06,
+   "confidence": 0.403,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.48,
+   "global_start": 92.36,
+   "words": [
+    {
+     "w": "Rigid",
+     "start": 92.36,
+     "end": 92.9,
+     "score": 0.49,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 92.36,
+     "global_start": 92.36
+    },
+    {
+     "w": "and",
+     "start": 93.38,
+     "end": 93.54,
+     "score": 0.279,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 93.38,
+     "global_start": 93.38
+    },
+    {
+     "w": "foul",
+     "start": 93.56,
+     "end": 94.14,
+     "score": 0.439,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 93.56,
+     "global_start": 93.56
+    }
+   ]
+  },
+  {
+   "i": 9,
+   "tag": "",
+   "text": "A wind gathers",
+   "start": 96.88,
+   "end": 98.4,
+   "hand_start": 96.86,
+   "dev": 0.02,
+   "confidence": 0.385,
+   "source": "aligned",
+   "agree": 0.667,
+   "check": false,
+   "max_gap": 0.08,
+   "global_start": 96.88,
+   "words": [
+    {
+     "w": "A",
+     "start": 96.88,
+     "end": 96.92,
+     "score": 0.6,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 96.88,
+     "global_start": 96.88
+    },
+    {
+     "w": "wind",
+     "start": 97.0,
+     "end": 97.54,
+     "score": 0.374,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 97.0,
+     "global_start": 97.0
+    },
+    {
+     "w": "gathers",
+     "start": 97.54,
+     "end": 98.4,
+     "score": 0.18,
+     "agree": false,
+     "from": "context",
+     "context_start": 97.54,
+     "global_start": 97.54
+    }
+   ]
+  },
+  {
+   "i": 10,
+   "tag": "",
+   "text": "Into a gale",
+   "start": 99.26,
+   "end": 101.7,
+   "hand_start": 99.26,
+   "dev": 0.0,
+   "confidence": 0.231,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.06,
+   "global_start": 99.26,
+   "words": [
+    {
+     "w": "Into",
+     "start": 99.26,
+     "end": 99.62,
+     "score": 0.32,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 99.26,
+     "global_start": 99.26
+    },
+    {
+     "w": "a",
+     "start": 99.66,
+     "end": 99.7,
+     "score": 0.009,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 99.66,
+     "global_start": 99.66
+    },
+    {
+     "w": "gale",
+     "start": 99.76,
+     "end": 101.7,
+     "score": 0.364,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 99.76,
+     "global_start": 99.76
+    }
+   ]
+  },
+  {
+   "i": 11,
+   "tag": "",
+   "text": "That petrifies the soul",
+   "start": 101.79,
+   "end": 133.66,
+   "hand_start": 101.79,
+   "dev": 0.0,
+   "confidence": 0.17,
+   "source": "hand",
+   "agree": 1.0,
+   "check": true,
+   "max_gap": 24.58,
+   "global_start": 101.98,
+   "words": [
+    {
+     "w": "That",
+     "start": 101.98,
+     "end": 102.82,
+     "score": 0.28,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 101.98,
+     "global_start": 101.98
+    },
+    {
+     "w": "petrifies",
+     "start": 102.86,
+     "end": 105.86,
+     "score": 0.214,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 102.86,
+     "global_start": 102.86
+    },
+    {
+     "w": "the",
+     "start": 130.44,
+     "end": 130.56,
+     "score": 0.06,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 130.44,
+     "global_start": 130.44
+    },
+    {
+     "w": "soul",
+     "start": 130.66,
+     "end": 133.66,
+     "score": 0.127,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 130.66,
+     "global_start": 130.66
+    }
+   ]
+  },
+  {
+   "i": 12,
+   "tag": "",
+   "text": "The pace quickens",
+   "start": 143.02,
+   "end": 145.44,
+   "hand_start": 143.2,
+   "dev": -0.18,
+   "confidence": 0.219,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.14,
+   "global_start": 143.02,
+   "words": [
+    {
+     "w": "The",
+     "start": 143.02,
+     "end": 143.12,
+     "score": 0.222,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 143.02,
+     "global_start": 143.02
+    },
+    {
+     "w": "pace",
+     "start": 143.18,
+     "end": 143.86,
+     "score": 0.303,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 143.18,
+     "global_start": 143.18
+    },
+    {
+     "w": "quickens",
+     "start": 144.0,
+     "end": 145.44,
+     "score": 0.133,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 143.76,
+     "global_start": 143.76
+    }
+   ]
+  },
+  {
+   "i": 13,
+   "tag": "",
+   "text": "A deadly march",
+   "start": 145.32,
+   "end": 146.46,
+   "hand_start": 145.44,
+   "dev": -0.12,
+   "confidence": 0.448,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.08,
+   "global_start": 145.32,
+   "words": [
+    {
+     "w": "A",
+     "start": 145.32,
+     "end": 145.36,
+     "score": 0.767,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 145.32,
+     "global_start": 145.32
+    },
+    {
+     "w": "deadly",
+     "start": 145.44,
+     "end": 145.74,
+     "score": 0.213,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 145.44,
+     "global_start": 145.44
+    },
+    {
+     "w": "march",
+     "start": 145.78,
+     "end": 146.46,
+     "score": 0.364,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 145.78,
+     "global_start": 145.78
+    }
+   ]
+  },
+  {
+   "i": 14,
+   "tag": "",
+   "text": "On the frozen tundra",
+   "start": 147.8,
+   "end": 152.4,
+   "hand_start": 147.83,
+   "dev": -0.03,
+   "confidence": 0.335,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.54,
+   "global_start": 147.8,
+   "words": [
+    {
+     "w": "On",
+     "start": 147.8,
+     "end": 148.22,
+     "score": 0.349,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 147.8,
+     "global_start": 147.8
+    },
+    {
+     "w": "the",
+     "start": 148.66,
+     "end": 148.76,
+     "score": 0.25,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 148.66,
+     "global_start": 148.66
+    },
+    {
+     "w": "frozen",
+     "start": 148.8,
+     "end": 149.48,
+     "score": 0.305,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 148.8,
+     "global_start": 148.8
+    },
+    {
+     "w": "tundra",
+     "start": 150.02,
+     "end": 152.4,
+     "score": 0.438,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 150.02,
+     "global_start": 150.02
+    }
+   ]
+  },
+  {
+   "i": 15,
+   "tag": "",
+   "text": "To reach the summit",
+   "start": 152.18,
+   "end": 154.63,
+   "hand_start": 152.4,
+   "dev": -0.22,
+   "confidence": 0.165,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.08,
+   "global_start": 152.18,
+   "words": [
+    {
+     "w": "To",
+     "start": 152.18,
+     "end": 152.28,
+     "score": 0.039,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 152.18,
+     "global_start": 152.18
+    },
+    {
+     "w": "reach",
+     "start": 152.34,
+     "end": 152.66,
+     "score": 0.341,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 152.34,
+     "global_start": 152.34
+    },
+    {
+     "w": "the",
+     "start": 152.74,
+     "end": 152.82,
+     "score": 0.176,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 152.74,
+     "global_start": 152.74
+    },
+    {
+     "w": "summit",
+     "start": 152.9,
+     "end": 154.63,
+     "score": 0.105,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 152.9,
+     "global_start": 152.9
+    }
+   ]
+  },
+  {
+   "i": 16,
+   "tag": "",
+   "text": "To raise the flag",
+   "start": 154.48,
+   "end": 157.02,
+   "hand_start": 154.63,
+   "dev": -0.15,
+   "confidence": 0.291,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.04,
+   "global_start": 154.48,
+   "words": [
+    {
+     "w": "To",
+     "start": 154.48,
+     "end": 154.58,
+     "score": 0.042,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 154.48,
+     "global_start": 154.48
+    },
+    {
+     "w": "raise",
+     "start": 154.62,
+     "end": 154.84,
+     "score": 0.294,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 154.62,
+     "global_start": 154.62
+    },
+    {
+     "w": "the",
+     "start": 154.84,
+     "end": 154.94,
+     "score": 0.155,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 154.84,
+     "global_start": 154.84
+    },
+    {
+     "w": "flag",
+     "start": 154.96,
+     "end": 157.02,
+     "score": 0.674,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 154.96,
+     "global_start": 154.96
+    }
+   ]
+  },
+  {
+   "i": 17,
+   "tag": "",
+   "text": "To mark the triumph",
+   "start": 156.74,
+   "end": 161.08,
+   "hand_start": 157.02,
+   "dev": -0.28,
+   "confidence": 0.258,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.44,
+   "global_start": 156.74,
+   "words": [
+    {
+     "w": "To",
+     "start": 156.74,
+     "end": 156.84,
+     "score": 0.052,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 156.74,
+     "global_start": 156.74
+    },
+    {
+     "w": "mark",
+     "start": 156.92,
+     "end": 157.48,
+     "score": 0.388,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 156.92,
+     "global_start": 156.92
+    },
+    {
+     "w": "the",
+     "start": 157.92,
+     "end": 158.02,
+     "score": 0.256,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 157.92,
+     "global_start": 157.92
+    },
+    {
+     "w": "triumph",
+     "start": 158.08,
+     "end": 161.08,
+     "score": 0.335,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 158.08,
+     "global_start": 158.08
+    }
+   ]
+  },
+  {
+   "i": 18,
+   "tag": "",
+   "text": "A deep crevice",
+   "start": 161.42,
+   "end": 164.0,
+   "hand_start": 161.55,
+   "dev": -0.13,
+   "confidence": 0.417,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.24,
+   "global_start": 161.42,
+   "words": [
+    {
+     "w": "A",
+     "start": 161.42,
+     "end": 161.46,
+     "score": 0.743,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 161.42,
+     "global_start": 161.42
+    },
+    {
+     "w": "deep",
+     "start": 161.54,
+     "end": 161.86,
+     "score": 0.197,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 161.54,
+     "global_start": 161.54
+    },
+    {
+     "w": "crevice",
+     "start": 162.1,
+     "end": 164.0,
+     "score": 0.311,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 162.1,
+     "global_start": 162.1
+    }
+   ]
+  },
+  {
+   "i": 19,
+   "tag": "",
+   "text": "Dimly lit",
+   "start": 163.94,
+   "end": 166.27,
+   "hand_start": 164.0,
+   "dev": -0.06,
+   "confidence": 0.381,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.1,
+   "global_start": 163.94,
+   "words": [
+    {
+     "w": "Dimly",
+     "start": 163.94,
+     "end": 164.3,
+     "score": 0.174,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 163.94,
+     "global_start": 163.94
+    },
+    {
+     "w": "lit",
+     "start": 164.4,
+     "end": 166.27,
+     "score": 0.589,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 164.4,
+     "global_start": 164.4
+    }
+   ]
+  },
+  {
+   "i": 20,
+   "tag": "",
+   "text": "The hoard of the god unborn",
+   "start": 165.94,
+   "end": 170.75,
+   "hand_start": 166.27,
+   "dev": -0.33,
+   "confidence": 0.396,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.76,
+   "global_start": 165.94,
+   "words": [
+    {
+     "w": "The",
+     "start": 165.94,
+     "end": 166.06,
+     "score": 0.181,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 165.94,
+     "global_start": 165.94
+    },
+    {
+     "w": "hoard",
+     "start": 166.14,
+     "end": 166.6,
+     "score": 0.311,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 166.14,
+     "global_start": 166.14
+    },
+    {
+     "w": "of",
+     "start": 167.08,
+     "end": 167.2,
+     "score": 0.663,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 167.08,
+     "global_start": 167.08
+    },
+    {
+     "w": "the",
+     "start": 167.22,
+     "end": 167.3,
+     "score": 0.169,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 167.22,
+     "global_start": 167.22
+    },
+    {
+     "w": "god",
+     "start": 167.36,
+     "end": 167.86,
+     "score": 0.833,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 167.36,
+     "global_start": 167.36
+    },
+    {
+     "w": "unborn",
+     "start": 168.62,
+     "end": 170.75,
+     "score": 0.218,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 168.62,
+     "global_start": 168.62
+    }
+   ]
+  },
+  {
+   "i": 21,
+   "tag": "",
+   "text": "A hoarse silence",
+   "start": 170.7,
+   "end": 173.15,
+   "hand_start": 170.75,
+   "dev": -0.05,
+   "confidence": 0.462,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.2,
+   "global_start": 170.7,
+   "words": [
+    {
+     "w": "A",
+     "start": 170.7,
+     "end": 170.74,
+     "score": 0.54,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 170.7,
+     "global_start": 170.7
+    },
+    {
+     "w": "hoarse",
+     "start": 170.82,
+     "end": 171.24,
+     "score": 0.399,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 170.82,
+     "global_start": 170.82
+    },
+    {
+     "w": "silence",
+     "start": 171.44,
+     "end": 173.15,
+     "score": 0.448,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 171.44,
+     "global_start": 171.44
+    }
+   ]
+  },
+  {
+   "i": 22,
+   "tag": "",
+   "text": "Signifies the coming",
+   "start": 173.15,
+   "end": 178.38,
+   "hand_start": 173.15,
+   "dev": 0.0,
+   "confidence": 0.36,
+   "source": "hand",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.08,
+   "global_start": 173.16,
+   "words": [
+    {
+     "w": "Signifies",
+     "start": 174.8,
+     "end": 175.2,
+     "score": 0.394,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 174.8,
+     "global_start": 173.16
+    },
+    {
+     "w": "the",
+     "start": 175.2,
+     "end": 175.3,
+     "score": 0.19,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 175.2,
+     "global_start": 175.2
+    },
+    {
+     "w": "coming",
+     "start": 175.38,
+     "end": 178.38,
+     "score": 0.496,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 175.38,
+     "global_start": 175.38
+    }
+   ]
+  },
+  {
+   "i": 23,
+   "tag": "",
+   "text": "Crescent ! Arise !",
+   "start": 183.64,
+   "end": 185.96,
+   "hand_start": 183.64,
+   "dev": 0.0,
+   "confidence": 0.328,
+   "source": "hand",
+   "agree": 0.5,
+   "check": true,
+   "max_gap": 0.0,
+   "global_start": 183.52,
+   "words": [
+    {
+     "w": "Crescent !",
+     "start": 183.52,
+     "end": 184.88,
+     "score": 0.396,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 183.52,
+     "global_start": 183.52
+    },
+    {
+     "w": "Arise !",
+     "start": 184.88,
+     "end": 185.96,
+     "score": 0.259,
+     "agree": false,
+     "from": "context",
+     "context_start": 184.88,
+     "global_start": 184.88
+    }
+   ]
+  },
+  {
+   "i": 24,
+   "tag": "",
+   "text": "Witness the crimson bleeding sky",
+   "start": 186.52,
+   "end": 189.26,
+   "hand_start": 186.64,
+   "dev": -0.12,
+   "confidence": 0.384,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.08,
+   "global_start": 186.52,
+   "words": [
+    {
+     "w": "Witness",
+     "start": 186.52,
+     "end": 187.08,
+     "score": 0.37,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 186.52,
+     "global_start": 186.52
+    },
+    {
+     "w": "the",
+     "start": 187.08,
+     "end": 187.18,
+     "score": 0.313,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 187.08,
+     "global_start": 187.08
+    },
+    {
+     "w": "crimson",
+     "start": 187.24,
+     "end": 187.92,
+     "score": 0.236,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 187.24,
+     "global_start": 187.24
+    },
+    {
+     "w": "bleeding",
+     "start": 188.0,
+     "end": 188.66,
+     "score": 0.262,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 188.0,
+     "global_start": 188.0
+    },
+    {
+     "w": "sky",
+     "start": 188.7,
+     "end": 189.26,
+     "score": 0.741,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 188.7,
+     "global_start": 188.7
+    }
+   ]
+  },
+  {
+   "i": 25,
+   "tag": "",
+   "text": "Banners up high",
+   "start": 189.66,
+   "end": 192.59,
+   "hand_start": 189.43,
+   "dev": 0.23,
+   "confidence": 0.217,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.54,
+   "global_start": 189.66,
+   "words": [
+    {
+     "w": "Banners",
+     "start": 189.66,
+     "end": 190.46,
+     "score": 0.309,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 189.66,
+     "global_start": 189.66
+    },
+    {
+     "w": "up",
+     "start": 191.0,
+     "end": 191.16,
+     "score": 0.186,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 191.0,
+     "global_start": 191.0
+    },
+    {
+     "w": "high",
+     "start": 191.16,
+     "end": 192.59,
+     "score": 0.156,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 191.16,
+     "global_start": 191.16
+    }
+   ]
+  },
+  {
+   "i": 26,
+   "tag": "",
+   "text": "Lord of whispers testify",
+   "start": 192.68,
+   "end": 195.26,
+   "hand_start": 192.59,
+   "dev": 0.09,
+   "confidence": 0.359,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.16,
+   "global_start": 192.68,
+   "words": [
+    {
+     "w": "Lord",
+     "start": 192.68,
+     "end": 193.1,
+     "score": 0.332,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 192.68,
+     "global_start": 192.68
+    },
+    {
+     "w": "of",
+     "start": 193.14,
+     "end": 193.3,
+     "score": 0.26,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 193.14,
+     "global_start": 193.14
+    },
+    {
+     "w": "whispers",
+     "start": 193.46,
+     "end": 194.14,
+     "score": 0.285,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 193.46,
+     "global_start": 193.46
+    },
+    {
+     "w": "testify",
+     "start": 194.22,
+     "end": 195.26,
+     "score": 0.557,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 194.22,
+     "global_start": 194.22
+    }
+   ]
+  },
+  {
+   "i": 27,
+   "tag": "",
+   "text": "Crescent ! Arise !",
+   "start": 195.78,
+   "end": 198.79,
+   "hand_start": 195.73,
+   "dev": 0.05,
+   "confidence": 0.281,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.6,
+   "global_start": 195.78,
+   "words": [
+    {
+     "w": "Crescent !",
+     "start": 195.78,
+     "end": 196.62,
+     "score": 0.145,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 195.78,
+     "global_start": 195.78
+    },
+    {
+     "w": "Arise !",
+     "start": 197.22,
+     "end": 198.79,
+     "score": 0.417,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 197.22,
+     "global_start": 197.22
+    }
+   ]
+  },
+  {
+   "i": 28,
+   "tag": "",
+   "text": "Yours will be done tonight",
+   "start": 198.94,
+   "end": 201.93,
+   "hand_start": 198.79,
+   "dev": 0.15,
+   "confidence": 0.217,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.26,
+   "global_start": 198.94,
+   "words": [
+    {
+     "w": "Yours",
+     "start": 198.94,
+     "end": 199.44,
+     "score": 0.304,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 198.94,
+     "global_start": 198.94
+    },
+    {
+     "w": "will",
+     "start": 199.7,
+     "end": 199.98,
+     "score": 0.202,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 199.7,
+     "global_start": 199.7
+    },
+    {
+     "w": "be",
+     "start": 200.08,
+     "end": 200.2,
+     "score": 0.351,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 200.08,
+     "global_start": 200.08
+    },
+    {
+     "w": "done",
+     "start": 200.46,
+     "end": 200.84,
+     "score": 0.072,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 200.46,
+     "global_start": 200.46
+    },
+    {
+     "w": "tonight",
+     "start": 200.84,
+     "end": 201.93,
+     "score": 0.157,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 200.84,
+     "global_start": 200.84
+    }
+   ]
+  },
+  {
+   "i": 29,
+   "tag": "",
+   "text": "Banners up high",
+   "start": 202.06,
+   "end": 204.81,
+   "hand_start": 201.93,
+   "dev": 0.13,
+   "confidence": 0.181,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.5,
+   "global_start": 202.06,
+   "words": [
+    {
+     "w": "Banners",
+     "start": 202.06,
+     "end": 202.76,
+     "score": 0.236,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 202.06,
+     "global_start": 202.06
+    },
+    {
+     "w": "up",
+     "start": 203.26,
+     "end": 203.44,
+     "score": 0.085,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 203.26,
+     "global_start": 203.26
+    },
+    {
+     "w": "high",
+     "start": 203.46,
+     "end": 204.81,
+     "score": 0.223,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 203.46,
+     "global_start": 203.46
+    }
+   ]
+  },
+  {
+   "i": 30,
+   "tag": "",
+   "text": "Time of sword and axe is nigh",
+   "start": 204.98,
+   "end": 210.28,
+   "hand_start": 204.81,
+   "dev": 0.17,
+   "confidence": 0.235,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.24,
+   "global_start": 204.98,
+   "words": [
+    {
+     "w": "Time",
+     "start": 204.98,
+     "end": 205.42,
+     "score": 0.05,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 204.98,
+     "global_start": 204.98
+    },
+    {
+     "w": "of",
+     "start": 205.44,
+     "end": 205.6,
+     "score": 0.071,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 205.44,
+     "global_start": 205.44
+    },
+    {
+     "w": "sword",
+     "start": 205.74,
+     "end": 206.18,
+     "score": 0.324,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 205.74,
+     "global_start": 205.74
+    },
+    {
+     "w": "and",
+     "start": 206.24,
+     "end": 206.38,
+     "score": 0.229,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 206.24,
+     "global_start": 206.24
+    },
+    {
+     "w": "axe",
+     "start": 206.62,
+     "end": 206.86,
+     "score": 0.242,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 206.62,
+     "global_start": 206.62
+    },
+    {
+     "w": "is",
+     "start": 206.98,
+     "end": 207.18,
+     "score": 0.447,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 206.98,
+     "global_start": 206.98
+    },
+    {
+     "w": "nigh",
+     "start": 207.28,
+     "end": 210.28,
+     "score": 0.285,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 207.28,
+     "global_start": 207.28
+    }
+   ]
+  },
+  {
+   "i": 31,
+   "tag": "",
+   "text": "Crescent ! Arise !",
+   "start": 232.74,
+   "end": 235.89,
+   "hand_start": 232.93,
+   "dev": -0.19,
+   "confidence": 0.379,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.02,
+   "global_start": 232.74,
+   "words": [
+    {
+     "w": "Crescent !",
+     "start": 232.74,
+     "end": 234.14,
+     "score": 0.217,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 232.74,
+     "global_start": 232.74
+    },
+    {
+     "w": "Arise !",
+     "start": 234.16,
+     "end": 235.89,
+     "score": 0.541,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 234.16,
+     "global_start": 234.16
+    }
+   ]
+  },
+  {
+   "i": 32,
+   "tag": "",
+   "text": "Witness the crimson bleeding sky",
+   "start": 235.88,
+   "end": 238.66,
+   "hand_start": 235.89,
+   "dev": -0.01,
+   "confidence": 0.243,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.12,
+   "global_start": 235.88,
+   "words": [
+    {
+     "w": "Witness",
+     "start": 235.88,
+     "end": 236.44,
+     "score": 0.348,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 235.88,
+     "global_start": 235.88
+    },
+    {
+     "w": "the",
+     "start": 236.44,
+     "end": 236.54,
+     "score": 0.182,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 236.44,
+     "global_start": 236.44
+    },
+    {
+     "w": "crimson",
+     "start": 236.62,
+     "end": 237.22,
+     "score": 0.133,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 236.62,
+     "global_start": 236.62
+    },
+    {
+     "w": "bleeding",
+     "start": 237.34,
+     "end": 237.96,
+     "score": 0.061,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 237.34,
+     "global_start": 237.34
+    },
+    {
+     "w": "sky",
+     "start": 238.06,
+     "end": 238.66,
+     "score": 0.493,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 238.06,
+     "global_start": 238.06
+    }
+   ]
+  },
+  {
+   "i": 33,
+   "tag": "",
+   "text": "Banners up high",
+   "start": 239.0,
+   "end": 241.91,
+   "hand_start": 239.0,
+   "dev": 0.0,
+   "confidence": 0.117,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.44,
+   "global_start": 239.0,
+   "words": [
+    {
+     "w": "Banners",
+     "start": 239.0,
+     "end": 239.8,
+     "score": 0.244,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 239.0,
+     "global_start": 239.0
+    },
+    {
+     "w": "up",
+     "start": 240.24,
+     "end": 240.52,
+     "score": 0.027,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 240.24,
+     "global_start": 240.24
+    },
+    {
+     "w": "high",
+     "start": 240.52,
+     "end": 241.91,
+     "score": 0.08,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 240.52,
+     "global_start": 240.52
+    }
+   ]
+  },
+  {
+   "i": 34,
+   "tag": "",
+   "text": "Lord of whispers testify",
+   "start": 241.96,
+   "end": 244.58,
+   "hand_start": 241.91,
+   "dev": 0.05,
+   "confidence": 0.274,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.1,
+   "global_start": 241.96,
+   "words": [
+    {
+     "w": "Lord",
+     "start": 241.96,
+     "end": 242.38,
+     "score": 0.298,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 241.96,
+     "global_start": 241.96
+    },
+    {
+     "w": "of",
+     "start": 242.4,
+     "end": 242.58,
+     "score": 0.012,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 242.4,
+     "global_start": 242.4
+    },
+    {
+     "w": "whispers",
+     "start": 242.68,
+     "end": 243.34,
+     "score": 0.328,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 242.68,
+     "global_start": 242.68
+    },
+    {
+     "w": "testify",
+     "start": 243.42,
+     "end": 244.58,
+     "score": 0.457,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 243.42,
+     "global_start": 243.42
+    }
+   ]
+  },
+  {
+   "i": 35,
+   "tag": "",
+   "text": "Crescent ! Arise !",
+   "start": 245.0,
+   "end": 248.09,
+   "hand_start": 245.02,
+   "dev": -0.02,
+   "confidence": 0.252,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.58,
+   "global_start": 245.0,
+   "words": [
+    {
+     "w": "Crescent !",
+     "start": 245.0,
+     "end": 245.84,
+     "score": 0.099,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 245.0,
+     "global_start": 245.0
+    },
+    {
+     "w": "Arise !",
+     "start": 246.42,
+     "end": 248.09,
+     "score": 0.405,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 246.42,
+     "global_start": 246.42
+    }
+   ]
+  },
+  {
+   "i": 36,
+   "tag": "",
+   "text": "Yours will be done tonight",
+   "start": 248.16,
+   "end": 251.22,
+   "hand_start": 248.09,
+   "dev": 0.07,
+   "confidence": 0.184,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.48,
+   "global_start": 248.16,
+   "words": [
+    {
+     "w": "Yours",
+     "start": 248.16,
+     "end": 248.58,
+     "score": 0.207,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 248.16,
+     "global_start": 248.16
+    },
+    {
+     "w": "will",
+     "start": 248.64,
+     "end": 248.88,
+     "score": 0.094,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 248.64,
+     "global_start": 248.64
+    },
+    {
+     "w": "be",
+     "start": 249.36,
+     "end": 249.48,
+     "score": 0.269,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 249.36,
+     "global_start": 249.36
+    },
+    {
+     "w": "done",
+     "start": 249.7,
+     "end": 250.08,
+     "score": 0.101,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 249.7,
+     "global_start": 249.7
+    },
+    {
+     "w": "tonight",
+     "start": 250.1,
+     "end": 251.22,
+     "score": 0.251,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 250.1,
+     "global_start": 250.1
+    }
+   ]
+  },
+  {
+   "i": 37,
+   "tag": "",
+   "text": "Banners up high",
+   "start": 251.22,
+   "end": 254.26,
+   "hand_start": 251.22,
+   "dev": 0.0,
+   "confidence": 0.102,
+   "source": "hand",
+   "agree": 0.0,
+   "check": true,
+   "max_gap": 0.36,
+   "global_start": 254.82,
+   "words": [
+    {
+     "w": "Banners",
+     "start": 251.26,
+     "end": 252.1,
+     "score": 0.221,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 283.82,
+     "global_start": 254.82
+    },
+    {
+     "w": "up",
+     "start": 252.46,
+     "end": 252.74,
+     "score": 0.037,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 284.22,
+     "global_start": 260.6
+    },
+    {
+     "w": "high",
+     "start": 252.74,
+     "end": 254.26,
+     "score": 0.047,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 288.24,
+     "global_start": 261.84
+    }
+   ]
+  },
+  {
+   "i": 38,
+   "tag": "",
+   "text": "Time of sword and axe is nigh",
+   "start": 254.26,
+   "end": 300.6,
+   "hand_start": 254.26,
+   "dev": 0.0,
+   "confidence": 0.233,
+   "source": "hand",
+   "agree": 0.857,
+   "check": true,
+   "max_gap": 13.06,
+   "global_start": 262.42,
+   "words": [
+    {
+     "w": "Time",
+     "start": 262.42,
+     "end": 262.92,
+     "score": 0.3,
+     "agree": false,
+     "from": "context",
+     "context_start": 262.42,
+     "global_start": 262.42
+    },
+    {
+     "w": "of",
+     "start": 263.44,
+     "end": 266.44,
+     "score": 0.144,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 263.44,
+     "global_start": 263.28
+    },
+    {
+     "w": "sword",
+     "start": 266.66,
+     "end": 269.66,
+     "score": 0.124,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 266.66,
+     "global_start": 263.76
+    },
+    {
+     "w": "and",
+     "start": 282.72,
+     "end": 283.82,
+     "score": 0.165,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 282.72,
+     "global_start": 267.9
+    },
+    {
+     "w": "axe",
+     "start": 294.38,
+     "end": 294.68,
+     "score": 0.341,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 294.38,
+     "global_start": 273.08
+    },
+    {
+     "w": "is",
+     "start": 296.76,
+     "end": 297.48,
+     "score": 0.375,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 296.76,
+     "global_start": 282.02
+    },
+    {
+     "w": "nigh",
+     "start": 297.6,
+     "end": 300.6,
+     "score": 0.181,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 297.6,
+     "global_start": 282.84
+    }
+   ]
+  },
+  {
+   "i": 39,
+   "tag": "",
+   "text": "Glorify the horned one",
+   "start": 347.72,
+   "end": 353.42,
+   "hand_start": 347.72,
+   "dev": 0.0,
+   "confidence": 0.155,
+   "source": "hand",
+   "agree": 0.0,
+   "check": true,
+   "max_gap": 3.04,
+   "global_start": 283.78,
+   "words": [
+    {
+     "w": "Glorify",
+     "start": 347.38,
+     "end": 348.74,
+     "score": 0.11,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 305.5,
+     "global_start": 283.78
+    },
+    {
+     "w": "the",
+     "start": 348.92,
+     "end": 349.58,
+     "score": 0.119,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 305.9,
+     "global_start": 287.08
+    },
+    {
+     "w": "horned",
+     "start": 349.66,
+     "end": 350.12,
+     "score": 0.299,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 306.3,
+     "global_start": 290.78
+    },
+    {
+     "w": "one",
+     "start": 353.16,
+     "end": 353.42,
+     "score": 0.093,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 325.82,
+     "global_start": 297.32
+    }
+   ]
+  },
+  {
+   "i": 40,
+   "tag": "",
+   "text": "Our sacred testimony will reveal",
+   "start": 353.16,
+   "end": 358.8,
+   "hand_start": 353.42,
+   "dev": -0.26,
+   "confidence": 0.149,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.66,
+   "global_start": 298.1,
+   "words": [
+    {
+     "w": "Our",
+     "start": 353.16,
+     "end": 353.38,
+     "score": 0.038,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 353.16,
+     "global_start": 298.1
+    },
+    {
+     "w": "sacred",
+     "start": 353.46,
+     "end": 354.16,
+     "score": 0.176,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 353.46,
+     "global_start": 301.08
+    },
+    {
+     "w": "testimony",
+     "start": 354.22,
+     "end": 355.2,
+     "score": 0.158,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 354.22,
+     "global_start": 303.04
+    },
+    {
+     "w": "will",
+     "start": 355.86,
+     "end": 357.42,
+     "score": 0.262,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 355.86,
+     "global_start": 320.5
+    },
+    {
+     "w": "reveal",
+     "start": 357.42,
+     "end": 358.8,
+     "score": 0.113,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 357.42,
+     "global_start": 328.82
+    }
+   ]
+  },
+  {
+   "i": 41,
+   "tag": "",
+   "text": "His presence as God",
+   "start": 358.72,
+   "end": 363.14,
+   "hand_start": 358.8,
+   "dev": -0.08,
+   "confidence": 0.286,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 1.92,
+   "global_start": 349.66,
+   "words": [
+    {
+     "w": "His",
+     "start": 358.72,
+     "end": 358.9,
+     "score": 0.365,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 358.72,
+     "global_start": 349.66
+    },
+    {
+     "w": "presence",
+     "start": 358.9,
+     "end": 360.02,
+     "score": 0.089,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 358.9,
+     "global_start": 353.82
+    },
+    {
+     "w": "as",
+     "start": 361.94,
+     "end": 362.08,
+     "score": 0.514,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 361.94,
+     "global_start": 361.94
+    },
+    {
+     "w": "God",
+     "start": 362.12,
+     "end": 363.14,
+     "score": 0.177,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 362.12,
+     "global_start": 362.12
+    }
+   ]
+  },
+  {
+   "i": 42,
+   "tag": "",
+   "text": "For aeons to come",
+   "start": 365.02,
+   "end": 369.18,
+   "hand_start": 365.08,
+   "dev": -0.06,
+   "confidence": 0.215,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.42,
+   "global_start": 365.02,
+   "words": [
+    {
+     "w": "For",
+     "start": 365.02,
+     "end": 365.72,
+     "score": 0.249,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 365.02,
+     "global_start": 365.02
+    },
+    {
+     "w": "aeons",
+     "start": 365.72,
+     "end": 367.58,
+     "score": 0.19,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 365.72,
+     "global_start": 365.72
+    },
+    {
+     "w": "to",
+     "start": 368.0,
+     "end": 368.1,
+     "score": 0.183,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 368.0,
+     "global_start": 368.0
+    },
+    {
+     "w": "come",
+     "start": 368.16,
+     "end": 369.18,
+     "score": 0.24,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 368.16,
+     "global_start": 368.16
+    }
+   ]
+  }
+ ]
+}

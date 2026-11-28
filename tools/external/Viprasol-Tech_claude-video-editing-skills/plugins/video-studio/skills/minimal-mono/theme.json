@@ -1,0 +1,33 @@
+{
+  "name": "minimal-mono",
+  "format": "9:16",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap",
+  "vars": {
+    "--font-display": "'Inter',sans-serif",
+    "--c-accent": "#FFFFFF",
+    "--cap-size": "50px",
+    "--cap-weight": "500"
+  },
+  "speaker": {
+    "mode": "full",
+    "push": 0.03,
+    "focusY": 0.35
+  },
+  "matte": false,
+  "auto": {
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 6,
+      "y": "=H*0.78",
+      "maxChars": 32,
+      "lowercase": true,
+      "className": "cap-soft cap-dim mm-cap"
+    }
+  },
+  "finish": {
+    "grade": "faded",
+    "grain": 4
+  },
+  "fps": 30
+}

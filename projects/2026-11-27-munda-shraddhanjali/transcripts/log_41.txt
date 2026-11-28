@@ -1,0 +1,2 @@
+language=hi (1.00), 0 segments
+wrote projects/2026-11-27-munda-shraddhanjali/transcripts/VID-20261127-WA0041.srt / .vtt / .txt / .words.json

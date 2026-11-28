@@ -1,0 +1,4 @@
+/* Logo Sting — A 3-6 second logo reveal with light rays, a ring burst and the brand name typing in underneath. */
+.ls-logo .clip-media { object-fit: contain; filter: drop-shadow(0 0 40px rgba(212,175,55,.6)); }
+.ls-ring.shape-ring, .ls-ring .shape-ring { border-width: 8px; }
+.ls-name .anim { font-size: 70px; font-weight: 800; letter-spacing: .25em; color: var(--c-accent2); text-transform: uppercase; }

@@ -1,0 +1,106 @@
+{
+  "name": "split-proof",
+  "format": "9:16",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&display=swap",
+  "vars": {
+    "--font-display": "'Inter',Arial,sans-serif",
+    "--c-accent": "#3DFF8F",
+    "--c-accent2": "#FFD43D",
+    "--c-bg": "#0d0f12",
+    "--cap-size": "62px"
+  },
+  "speaker": {
+    "mode": "panel",
+    "rectFrac": [
+      0,
+      0.5,
+      1,
+      0.5
+    ],
+    "radius": 0,
+    "focusY": 0.3
+  },
+  "matte": false,
+  "auto": {
+    "static": [
+      {
+        "type": "background",
+        "kind": "dots"
+      },
+      {
+        "type": "shape",
+        "kind": "bar",
+        "layer": "front",
+        "x": "=W/2",
+        "y": "=H*0.5",
+        "w": "=W",
+        "h": 6,
+        "in": "none",
+        "color": "var(--c-accent)"
+      }
+    ],
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 4,
+      "y": "=H*0.5",
+      "className": "cap-pill sp-cap"
+    },
+    "keywords": {
+      "every": 3.2,
+      "hold": 2.8,
+      "element": {
+        "type": "tile",
+        "text": "{text}",
+        "className": "sp-tile",
+        "x": "=W/2",
+        "y": "=H*0.25",
+        "w": "=W*0.84",
+        "in": "pop"
+      },
+      "uppercase": true,
+      "sfx": "click",
+      "sfxGain": 0.4
+    },
+    "numbers": {
+      "element": {
+        "type": "counter",
+        "label": "{label}",
+        "x": "=W/2",
+        "y": "=H*0.25",
+        "in": "pop",
+        "z": 5
+      },
+      "sfx": "ding"
+    },
+    "lists": {
+      "title": "The proof",
+      "element": {
+        "type": "card",
+        "title": "{title}",
+        "x": "=W/2",
+        "y": "=H*0.25",
+        "w": "=W*0.88",
+        "in": "rise",
+        "z": 6
+      }
+    },
+    "hook": {
+      "dur": 2.5,
+      "element": {
+        "type": "text",
+        "text": "{text}",
+        "className": "sp-hook",
+        "x": "=W/2",
+        "y": "=H*0.25",
+        "w": "=W*0.86",
+        "in": "pop",
+        "z": 7
+      }
+    }
+  },
+  "finish": {
+    "grade": "punchy"
+  },
+  "fps": 30
+}

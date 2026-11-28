@@ -1,0 +1,110 @@
+{
+  "name": "grid-stage",
+  "format": "9:16",
+  "fps": 30,
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@500;700;800&family=Instrument+Serif:ital@0;1&family=Teko:wght@500;600&family=Mukta:wght@500;700;800&family=Rozha+One&display=swap",
+  "vars": {
+    "--font-display": "'Anton','Teko',sans-serif",
+    "--font-body": "'Inter','Mukta',sans-serif",
+    "--c-bg": "#0B0B0C",
+    "--c-accent": "#D4FF3A",
+    "--c-accent2": "#9AA0A6",
+    "--cap-size": "40px",
+    "--cap-weight": "800"
+  },
+  "speaker": {
+    "mode": "full",
+    "focusX": 0.5,
+    "focusY": 0.3,
+    "backdrop": "hide",
+    "person": true,
+    "personDrop": 0.14
+  },
+  "matte": true,
+  "background": "#0B0B0C",
+  "auto": {
+    "static": [
+      {
+        "type": "background",
+        "kind": "grid",
+        "className": "gs-bg"
+      },
+      {
+        "type": "shape",
+        "kind": "ring",
+        "layer": "behind",
+        "className": "gs-disc",
+        "x": "=W/2",
+        "y": "=H*0.3",
+        "w": "=W*1.05",
+        "h": "=W*1.05",
+        "speed": 0.4,
+        "keys": {
+          "r": [
+            [
+              0,
+              0
+            ],
+            [
+              120,
+              360,
+              "linear"
+            ]
+          ]
+        }
+      }
+    ],
+    "headlines": {
+      "maxWords": 1,
+      "uppercase": true,
+      "element": [
+        {
+          "type": "headline",
+          "layer": "behind",
+          "text": "{text}",
+          "className": "gs-head",
+          "y": "=H*0.14",
+          "w": "=W*0.98",
+          "in": "blur",
+          "inDur": 0.35
+        },
+        {
+          "type": "headline",
+          "layer": "behind",
+          "text": "{text}",
+          "className": "gs-head alt",
+          "y": "=H*0.14",
+          "w": "=W*0.98",
+          "in": "rise",
+          "inDur": 0.3
+        }
+      ]
+    },
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 4,
+      "uppercase": true,
+      "y": "=H*0.66",
+      "className": "gs-cap"
+    },
+    "keywords": {
+      "every": 3.5,
+      "hold": 1.6,
+      "element": {
+        "type": "chip",
+        "text": "{text}",
+        "className": "gs-pill",
+        "x": "=W*0.5",
+        "y": "=H*0.74",
+        "in": "springPop"
+      }
+    }
+  },
+  "finish": {
+    "grade": "film",
+    "grain": 6,
+    "vignette": true
+  },
+  "sequence": "layercut"
+}

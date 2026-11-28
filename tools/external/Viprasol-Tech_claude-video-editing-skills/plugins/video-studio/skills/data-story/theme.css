@@ -1,0 +1,7 @@
+/* Data Story — Analyst look: every number becomes an animated counter or bar chart beside the speaker on a dark grid. */
+.ds-counter .counter-num { font-family: var(--font-body); font-size: 170px; }
+.ds-counter .counter-label { font-family: var(--font-body); color: #9fb3c8; text-transform: uppercase; letter-spacing: .08em; font-size: 34px; }
+.ds-tile .anim { font-family: var(--font-body); font-size: 58px; border: 2px solid var(--c-accent); color: var(--c-accent); }
+.ds-hook .anim { font-size: 72px; font-weight: 900; line-height: 1.05; color: #fff; text-align: left; }
+.el-bars .anim { border: 1px solid rgba(43,255,136,.3); }
+.ds-cap .cap-line { font-family: var(--font-body); }

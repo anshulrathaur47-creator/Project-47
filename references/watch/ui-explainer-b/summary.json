@@ -1,0 +1,32 @@
+{
+  "source": "inspirations/VID_20261128_093959_892.mp4",
+  "title": null,
+  "folder": "references/watch/ui-explainer-b",
+  "video": {
+    "duration": 61.647574,
+    "width": 720,
+    "height": 1280,
+    "fps": 30.0,
+    "has_audio": true
+  },
+  "studied_range_seconds": [
+    0.0,
+    61.65
+  ],
+  "orientation": "vertical",
+  "cut_stats": {
+    "shots": 1,
+    "avg_shot_seconds": 61.65,
+    "median_shot_seconds": 61.648,
+    "shortest_shot_seconds": 61.648,
+    "longest_shot_seconds": 61.648,
+    "cuts_per_minute": 0.0
+  },
+  "frames_sampled": 122,
+  "pairs_made": 61,
+  "words_transcribed": 173,
+  "words_per_second": 2.82,
+  "transcription_note": "language=hi (faster-whisper small)",
+  "probable_sfx_hits": 14,
+  "silence_total_seconds": 0
+}

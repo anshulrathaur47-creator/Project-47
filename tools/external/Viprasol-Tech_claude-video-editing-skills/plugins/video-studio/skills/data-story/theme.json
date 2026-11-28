@@ -1,0 +1,98 @@
+{
+  "name": "data-story",
+  "format": "16:9",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;700&family=Inter:wght@500;700;900&display=swap",
+  "vars": {
+    "--font-display": "'Inter',sans-serif",
+    "--font-body": "'IBM Plex Mono',monospace",
+    "--c-bg": "#0A0F14",
+    "--c-accent": "#2BFF88",
+    "--c-accent2": "#FFB020",
+    "--c-card": "rgba(16,24,32,.92)",
+    "--cap-size": "38px",
+    "--cap-weight": "700"
+  },
+  "speaker": {
+    "mode": "panel",
+    "rectFrac": [
+      0.52,
+      0.07,
+      0.44,
+      0.78
+    ],
+    "radius": 36,
+    "focusX": 0.5
+  },
+  "matte": false,
+  "auto": {
+    "static": [
+      {
+        "type": "background",
+        "kind": "grid"
+      }
+    ],
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 6,
+      "maxChars": 40,
+      "x": "=W*0.74",
+      "y": "=H*0.93",
+      "w": "=W*0.44",
+      "className": "cap-soft ds-cap"
+    },
+    "numbers": {
+      "element": {
+        "type": "counter",
+        "label": "{label}",
+        "className": "ds-counter",
+        "x": "=W*0.26",
+        "y": "=H*0.45",
+        "in": "rise"
+      },
+      "hold": 3.2,
+      "sfx": "click"
+    },
+    "keywords": {
+      "every": 6,
+      "hold": 3,
+      "minScore": 3,
+      "element": {
+        "type": "tile",
+        "text": "{text}",
+        "className": "ds-tile",
+        "x": "=W*0.26",
+        "y": "=H*0.45",
+        "in": "rise"
+      },
+      "uppercase": true
+    },
+    "lists": {
+      "title": "Takeaways",
+      "element": {
+        "type": "card",
+        "title": "{title}",
+        "x": "=W*0.26",
+        "y": "=H*0.48",
+        "w": "=W*0.42",
+        "in": "rise"
+      }
+    },
+    "hook": {
+      "dur": 3,
+      "element": {
+        "type": "text",
+        "text": "{text}",
+        "className": "ds-hook",
+        "x": "=W*0.26",
+        "y": "=H*0.45",
+        "w": "=W*0.42",
+        "in": "rise"
+      }
+    }
+  },
+  "finish": {
+    "grade": "cool"
+  },
+  "fps": 30
+}

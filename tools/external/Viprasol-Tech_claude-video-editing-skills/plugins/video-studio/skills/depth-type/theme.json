@@ -1,0 +1,69 @@
+{
+  "name": "depth-type",
+  "format": "9:16",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@500;600;800&display=swap",
+  "vars": {
+    "--font-display": "'Anton','Impact',sans-serif",
+    "--font-body": "'Inter',Arial,sans-serif",
+    "--c-accent": "#FFB800",
+    "--c-accent2": "#FF5A36",
+    "--cap-size": "58px",
+    "--cap-weight": "800"
+  },
+  "speaker": {
+    "mode": "full",
+    "focusX": 0.5,
+    "focusY": 0.3
+  },
+  "matte": true,
+  "auto": {
+    "headlines": {
+      "maxWords": 1,
+      "uppercase": true,
+      "element": [
+        {
+          "type": "headline",
+          "layer": "behind",
+          "text": "{text}",
+          "className": "depth-head",
+          "y": "=H*0.30",
+          "w": "=W*0.98",
+          "in": "blur",
+          "inDur": 0.35,
+          "outDur": 0.12,
+          "drift": 0.02
+        },
+        {
+          "type": "headline",
+          "layer": "behind",
+          "text": "{text}",
+          "className": "depth-head alt",
+          "y": "=H*0.30",
+          "w": "=W*0.98",
+          "in": "rise",
+          "inDur": 0.3,
+          "outDur": 0.12,
+          "drift": 0.02
+        }
+      ]
+    },
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 4,
+      "y": "=H*0.80",
+      "className": "depth-cap cap-soft"
+    },
+    "keywords": {
+      "every": 3.0,
+      "zoom": 1.08,
+      "zoomHold": 1.4
+    }
+  },
+  "finish": {
+    "grade": "film",
+    "grain": 7,
+    "vignette": true
+  },
+  "fps": 30
+}

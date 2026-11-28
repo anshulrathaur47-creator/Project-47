@@ -1,0 +1,72 @@
+{
+  "name": "sticker-pop",
+  "format": "9:16",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&display=swap",
+  "vars": {
+    "--font-display": "'Fredoka',sans-serif",
+    "--c-accent": "#FF6B6B",
+    "--c-accent2": "#4D96FF",
+    "--cap-size": "72px",
+    "--cap-weight": "700"
+  },
+  "speaker": {
+    "mode": "full",
+    "focusY": 0.36
+  },
+  "matte": false,
+  "auto": {
+    "captions": {
+      "type": "captions",
+      "mode": "reveal",
+      "maxWords": 3,
+      "y": "=H*0.72",
+      "wordIn": "pop",
+      "className": "sp2-cap"
+    },
+    "keywords": {
+      "every": 2.4,
+      "hold": 1.6,
+      "sfx": "pop",
+      "sfxGain": 0.5,
+      "uppercase": true,
+      "element": [
+        {
+          "type": "sticker",
+          "text": "{text}",
+          "className": "sp2 c1",
+          "x": "=W*0.27",
+          "y": "=H*0.17",
+          "rotate": -9,
+          "in": "stamp"
+        },
+        {
+          "type": "burst",
+          "chars": "✨⭐",
+          "x": "=W*0.7",
+          "y": "=H*0.2",
+          "count": 8
+        },
+        {
+          "type": "sticker",
+          "text": "{text}",
+          "className": "sp2 c2",
+          "x": "=W*0.72",
+          "y": "=H*0.2",
+          "rotate": 8,
+          "in": "stamp"
+        },
+        {
+          "type": "burst",
+          "chars": "🎉💖",
+          "x": "=W*0.3",
+          "y": "=H*0.2",
+          "count": 8
+        }
+      ]
+    }
+  },
+  "finish": {
+    "grade": "punchy"
+  },
+  "fps": 30
+}

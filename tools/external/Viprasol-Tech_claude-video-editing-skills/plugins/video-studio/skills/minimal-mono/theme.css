@@ -1,0 +1,4 @@
+/* Minimal Mono — Quiet and premium: small lowercase captions, slow push-in, faded film tone. Nothing else. */
+.mm-cap .cap-line { letter-spacing: -0.01em; text-shadow: 0 2px 12px rgba(0,0,0,.45); }
+.mm-cap .cap-word.is-active { color: #fff; }
+.mm-label .anim { font-size: 30px; font-weight: 500; letter-spacing: .2em; color: rgba(255,255,255,.75); }

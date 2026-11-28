@@ -1,0 +1,55 @@
+{
+  "name": "chaos-stack",
+  "format": "9:16",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Lilita+One&display=swap",
+  "vars": {
+    "--font-display": "'Lilita One','Arial Black',sans-serif",
+    "--c-accent": "#B6FF00",
+    "--c-accent2": "#FF3DCB",
+    "--cap-size": "130px",
+    "--cap-weight": "400"
+  },
+  "speaker": {
+    "mode": "full",
+    "focusY": 0.35
+  },
+  "matte": false,
+  "auto": {
+    "captions": {
+      "type": "captions",
+      "mode": "single",
+      "maxWords": 3,
+      "y": "=H*0.55",
+      "wordIn": "bounce",
+      "uppercase": true,
+      "className": "cap-outline chaos-cap"
+    },
+    "keywords": {
+      "every": 1.2,
+      "zoom": 1.25,
+      "snap": true,
+      "zoomHold": 0.7,
+      "sfx": "boom",
+      "sfxGain": 0.35,
+      "minScore": 1.5,
+      "element": {
+        "type": "burst",
+        "chars": "🔥💀😭⚡",
+        "x": "=W/2",
+        "y": "=H*0.42",
+        "count": 9,
+        "radius": 340
+      }
+    },
+    "cuts": {
+      "sfx": "swish",
+      "gain": 0.3,
+      "minGap": 1.0,
+      "flash": true
+    }
+  },
+  "finish": {
+    "grade": "punchy"
+  },
+  "fps": 30
+}

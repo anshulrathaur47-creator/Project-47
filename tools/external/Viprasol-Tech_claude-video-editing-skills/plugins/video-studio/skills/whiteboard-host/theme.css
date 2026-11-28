@@ -1,0 +1,7 @@
+/* Whiteboard Host — Teacher layout: speaker in a panel on the left, notes appear in marker handwriting on a paper board on the right. */
+.wb-note .anim { font-family: var(--font-display); font-size: 84px; color: var(--c-accent); font-weight: 700; text-align: left; }
+.wb-note.b .anim { color: #222; }
+.wb-title .anim { font-family: var(--font-display); font-size: 74px; color: var(--c-accent2); font-weight: 700; text-decoration: underline; text-decoration-thickness: 5px; }
+.wb-num .counter-num { font-family: var(--font-display); color: var(--c-accent2); text-shadow: none; font-size: 140px; }
+.wb-num .counter-label { color: #222; text-shadow: none; font-family: var(--font-display); }
+.wb-cap .cap-line { font-family: 'Inter', sans-serif; }

@@ -1,0 +1,10 @@
+# Core runtime for video-studio-core (FFmpeg full build must also be on PATH).
+numpy
+pillow
+opencv-contrib-python-headless   # cv2.ximgproc guided filter for the matte; use opencv-contrib-python on desktops
+mediapipe                        # face tracking and person matte
+faster-whisper                   # transcription + Silero VAD
+playwright                       # motion-graphics renderer (then: python -m playwright install chromium)
+fonttools                        # QC glyph coverage
+fastapi                          # local review app
+uvicorn

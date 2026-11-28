@@ -1,0 +1,70 @@
+{
+  "name": "highlighter-study",
+  "format": "9:16",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Lexend:wght@500;700;800&family=Kalam:wght@700&display=swap",
+  "vars": {
+    "--font-display": "'Lexend',sans-serif",
+    "--c-accent": "#111",
+    "--c-accent2": "#111",
+    "--c-card": "#FFFDF4",
+    "--c-card-fg": "#1b1b1b",
+    "--cap-size": "54px",
+    "--cap-weight": "700"
+  },
+  "speaker": {
+    "mode": "full",
+    "focusY": 0.35
+  },
+  "matte": false,
+  "auto": {
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 4,
+      "y": "=H*0.74",
+      "className": "hs-cap"
+    },
+    "keywords": {
+      "every": 2.6,
+      "zoom": 1.06
+    },
+    "lists": {
+      "title": "Remember",
+      "element": {
+        "type": "card",
+        "title": "{title}",
+        "className": "hs-note",
+        "x": "=W/2",
+        "y": "=H*0.3",
+        "w": "=W*0.84",
+        "numbered": true,
+        "in": "rise"
+      }
+    },
+    "numbers": {
+      "element": {
+        "type": "counter",
+        "label": "{label}",
+        "className": "hs-num",
+        "x": "=W/2",
+        "y": "=H*0.22",
+        "in": "pop"
+      }
+    },
+    "hook": {
+      "dur": 2.6,
+      "element": {
+        "type": "text",
+        "text": "{text}",
+        "className": "hs-hook",
+        "y": "=H*0.16",
+        "w": "=W*0.84",
+        "in": "rise"
+      }
+    }
+  },
+  "finish": {
+    "grade": "none"
+  },
+  "fps": 30
+}

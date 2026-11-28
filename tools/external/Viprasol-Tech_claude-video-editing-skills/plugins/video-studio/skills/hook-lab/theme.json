@@ -1,0 +1,100 @@
+{
+  "name": "hook-lab",
+  "format": "9:16",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Inter:wght@800;900&display=swap",
+  "vars": {
+    "--font-display": "'Inter',sans-serif",
+    "--c-accent": "#FFE14D",
+    "--c-mark": "#FF2D2D",
+    "--cap-size": "76px"
+  },
+  "speaker": {
+    "mode": "full",
+    "focusY": 0.35,
+    "zooms": [
+      {
+        "start": 0.0,
+        "end": 0.7,
+        "scale": 1.3,
+        "snap": true
+      }
+    ]
+  },
+  "matte": false,
+  "auto": {
+    "static": [
+      {
+        "type": "flash",
+        "times": [
+          0.0
+        ],
+        "color": "#ffffff",
+        "opacity": 0.9,
+        "dur": 0.25
+      },
+      {
+        "type": "scribble",
+        "kind": "circle",
+        "x": "=W/2",
+        "y": "=H*0.36",
+        "w": "=W*0.62",
+        "h": "=W*0.5",
+        "start": 0.4,
+        "end": 2.6,
+        "color": "#FF2D2D",
+        "strokeWidth": 16
+      },
+      {
+        "type": "chip",
+        "text": "WAIT FOR IT",
+        "className": "hl-wait",
+        "x": "=W/2",
+        "y": "=H*0.6",
+        "start": 0.7,
+        "end": 2.8,
+        "in": "stamp"
+      }
+    ],
+    "captions": {
+      "type": "captions",
+      "mode": "reveal",
+      "maxWords": 3,
+      "y": "=H*0.72",
+      "wordIn": "pop",
+      "uppercase": true,
+      "className": "cap-outline"
+    },
+    "keywords": {
+      "every": 2.6,
+      "zoom": 1.12,
+      "after": 3.0
+    },
+    "hook": {
+      "dur": 2.8,
+      "element": {
+        "type": "text",
+        "text": "{text}",
+        "className": "hl-hook",
+        "y": "=H*0.14",
+        "w": "=W*0.86",
+        "in": "stamp"
+      }
+    }
+  },
+  "sfx": [
+    {
+      "t": 0.0,
+      "kind": "boom",
+      "gain": 0.6
+    },
+    {
+      "t": 0.7,
+      "kind": "pop",
+      "gain": 0.5
+    }
+  ],
+  "finish": {
+    "grade": "punchy"
+  },
+  "fps": 30
+}

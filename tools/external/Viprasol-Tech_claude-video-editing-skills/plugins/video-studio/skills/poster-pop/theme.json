@@ -1,0 +1,148 @@
+{
+  "name": "poster-pop",
+  "format": "9:16",
+  "fps": 30,
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Oswald:wght@500;700&family=Playfair+Display:ital,wght@1,700&family=Rozha+One&family=Tiro+Devanagari+Hindi:ital@0;1&family=Mukta:wght@600;700&display=swap",
+  "vars": {
+    "--font-display": "'Alfa Slab One','Rozha One',serif",
+    "--font-body": "'Oswald','Mukta',sans-serif",
+    "--c-accent": "#F2A93B",
+    "--c-accent2": "#D9412B",
+    "--cap-size": "48px",
+    "--cap-weight": "700"
+  },
+  "speaker": {
+    "mode": "full",
+    "focusX": 0.5,
+    "focusY": 0.3,
+    "backdrop": "hide",
+    "person": true,
+    "personDrop": 0.12
+  },
+  "matte": true,
+  "auto": {
+    "headlines": {
+      "maxWords": 2,
+      "uppercase": true,
+      "element": [
+        [
+          {
+            "type": "background",
+            "layer": "behind",
+            "className": "pp-bg pp-stripes"
+          },
+          {
+            "type": "headline",
+            "layer": "behind",
+            "text": "{text}",
+            "className": "pp-head",
+            "y": "=H*0.1",
+            "w": "=W*0.94",
+            "in": "stamp",
+            "inDur": 0.3
+          }
+        ],
+        [
+          {
+            "type": "background",
+            "layer": "behind",
+            "className": "pp-bg pp-checker"
+          },
+          {
+            "type": "headline",
+            "layer": "behind",
+            "text": "{text}",
+            "className": "pp-head alt",
+            "y": "=H*0.1",
+            "w": "=W*0.94",
+            "in": "drop",
+            "inDur": 0.3
+          }
+        ],
+        [
+          {
+            "type": "background",
+            "layer": "behind",
+            "className": "pp-bg pp-blue"
+          },
+          {
+            "type": "headline",
+            "layer": "behind",
+            "text": "{text}",
+            "className": "pp-head",
+            "y": "=H*0.1",
+            "w": "=W*0.94",
+            "in": "stamp",
+            "inDur": 0.3
+          }
+        ],
+        [
+          {
+            "type": "background",
+            "layer": "behind",
+            "className": "pp-bg pp-sun"
+          },
+          {
+            "type": "headline",
+            "layer": "behind",
+            "text": "{text}",
+            "className": "pp-head dark",
+            "y": "=H*0.1",
+            "w": "=W*0.94",
+            "in": "drop",
+            "inDur": 0.3
+          }
+        ],
+        [
+          {
+            "type": "background",
+            "layer": "behind",
+            "className": "pp-bg pp-grid"
+          },
+          {
+            "type": "headline",
+            "layer": "behind",
+            "text": "{text}",
+            "className": "pp-head alt",
+            "y": "=H*0.1",
+            "w": "=W*0.94",
+            "in": "stamp",
+            "inDur": 0.3
+          }
+        ],
+        [
+          {
+            "type": "background",
+            "layer": "behind",
+            "className": "pp-bg pp-red"
+          },
+          {
+            "type": "headline",
+            "layer": "behind",
+            "text": "{text}",
+            "className": "pp-head",
+            "y": "=H*0.1",
+            "w": "=W*0.94",
+            "in": "drop",
+            "inDur": 0.3
+          }
+        ]
+      ]
+    },
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 4,
+      "uppercase": true,
+      "y": "=H*0.8",
+      "className": "pp-cap"
+    }
+  },
+  "sfx": [],
+  "finish": {
+    "grade": "kodachrome",
+    "grain": 16,
+    "vignette": true
+  },
+  "sequence": "retro"
+}

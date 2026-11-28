@@ -1,0 +1,106 @@
+{
+  "name": "neon-marquee",
+  "format": "9:16",
+  "fps": 30,
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo+Black&family=Inter:wght@600;800&family=Baloo+2:wght@700;800&family=Mukta:wght@600;800&family=Rozha+One&display=swap",
+  "vars": {
+    "--font-display": "'Archivo Black','Baloo 2',var(--font-deva),sans-serif",
+    "--font-body": "'Inter','Mukta',var(--font-deva),sans-serif",
+    "--c-accent": "#3D6BFF",
+    "--c-accent2": "#D4FF3A",
+    "--cap-size": "54px",
+    "--cap-weight": "800",
+    "--font-cap": "'Inter','Mukta',var(--font-deva),sans-serif"
+  },
+  "speaker": {
+    "mode": "full",
+    "focusX": 0.5,
+    "focusY": 0.3,
+    "push": 0.04
+  },
+  "matte": true,
+  "auto": {
+    "headlines": {
+      "maxWords": 2,
+      "uppercase": true,
+      "element": [
+        {
+          "type": "headline",
+          "layer": "behind",
+          "text": "{text} · {text} · {text}",
+          "className": "nm-marq",
+          "x": "=W/2",
+          "y": "=H*0.13",
+          "w": 4200,
+          "fit": false,
+          "in": "fade",
+          "inDur": 0.25,
+          "keys": {
+            "tx": [
+              [
+                0,
+                700
+              ],
+              [
+                6,
+                -700,
+                "linear"
+              ]
+            ]
+          }
+        },
+        {
+          "type": "headline",
+          "layer": "behind",
+          "text": "{text} · {text} · {text}",
+          "className": "nm-marq",
+          "x": "=W/2",
+          "y": "=H*0.13",
+          "w": 4200,
+          "fit": false,
+          "in": "fade",
+          "inDur": 0.25,
+          "keys": {
+            "tx": [
+              [
+                0,
+                -700
+              ],
+              [
+                6,
+                700,
+                "linear"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 3,
+      "y": "=H*0.68",
+      "className": "nm-cap"
+    },
+    "keywords": {
+      "every": 3.0,
+      "hold": 1.2,
+      "uppercase": true,
+      "element": {
+        "type": "chip",
+        "text": "{text}",
+        "className": "nm-label",
+        "x": "=W/2",
+        "y": "=H*0.6",
+        "in": "wipe"
+      }
+    }
+  },
+  "finish": {
+    "grade": "moody",
+    "grain": 4,
+    "vignette": true
+  },
+  "sequence": "eclipse"
+}

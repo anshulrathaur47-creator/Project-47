@@ -1,0 +1,8479 @@
+{
+ "_about": "Genre presets for Video Studio (editor brain). Numbers are working conventions from research_notes (Murch, Cutting ASL data, MrBeast memo - leaked/unofficial, platform specs) - heuristics, tune per project. Used by autocut.py --genre, make_plan.py --genre, editor.py review --genre, story.py --genre.",
+ "_fields": {
+  "autocut": "max_gap s (pauses longer are cut), breath s kept before words, pad s after words, fillers remove|keep-natural|off, retakes, smart_cuts (quiet-point snapping), xfade_ms, jcut_frames; enabled=false means keep everything",
+  "asl_s": "target average shot length range (s)",
+  "interrupt_s": "max seconds without a visual change",
+  "captions.cps": "max characters per second",
+  "music.bed_db": "music level under dialogue (dB)",
+  "structure": "ordered beats with % of duration",
+  "loudness": "integrated LUFS / true peak dBTP"
+ },
+ "genres": {
+  "reel-talking-head": {
+   "family": "short-form",
+   "aspect": "9:16",
+   "alt_aspects": [
+    "4:5",
+    "1:1"
+   ],
+   "duration_s": [
+    15,
+    60
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.3,
+    "breath": 0.1,
+    "pad": 0.06,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 0,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    1.5,
+    3.0
+   ],
+   "interrupt_s": 2.5,
+   "captions": {
+    "style": "word-pop, 1-3 words, centre-low, key words in accent",
+    "mode": "reveal",
+    "max_words": 3,
+    "cps": 17,
+    "uppercase": true
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -24,
+    "duck": true,
+    "duck_db": -8
+   },
+   "sfx": {
+    "density": "medium",
+    "per_min": 12
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "flash"
+    ]
+   },
+   "hook": {
+    "within_s": 1.5,
+    "max_words": 7,
+    "rules": [
+     "visual or spoken hook lands by 1.5 s",
+     "no greeting, no 'in this video'",
+     "hook text on screen for muted viewers",
+     "open a loop the payoff closes"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "hook",
+     "pct": 8
+    },
+    {
+     "beat": "setup",
+     "pct": 12
+    },
+    {
+     "beat": "value",
+     "pct": 60
+    },
+    {
+     "beat": "payoff",
+     "pct": 12
+    },
+    {
+     "beat": "cta",
+     "pct": 8
+    }
+   ],
+   "loudness": {
+    "platform": "TikTok / Reels / Shorts",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.85,
+    "right": 0.88
+   },
+   "max_overlays": 2,
+   "deliverables": [
+    "9:16 1080x1920 H.264 master",
+    "4:5 1080x1350 feed version",
+    "captions burned-in",
+    "clean (no captions) version",
+    "cover frame / thumbnail still"
+   ],
+   "qc": [
+    "hook by 1.5 s",
+    "no dead air at start (<0.3 s)",
+    "captions inside safe zone",
+    "<=2 overlays at once",
+    "-14 LUFS, -1 dBTP",
+    "loops cleanly or ends on CTA"
+   ],
+   "client_judges": [
+    "3-second hold rate",
+    "watch-through %",
+    "shares and saves",
+    "does it look native to the platform"
+   ],
+   "styles": [
+    "halo-cut",
+    "hook-lab",
+    "bold-bounce",
+    "depth-type",
+    "sticker-pop"
+   ],
+   "label": "Instagram Reel / TikTok / Short, one person talking to camera"
+  },
+  "youtube-longform": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    480,
+    1200
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.45,
+    "breath": 0.12,
+    "pad": 0.08,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 20,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    3.0,
+    6.0
+   ],
+   "interrupt_s": 5.0,
+   "captions": {
+    "style": "two-line subtitle, sentence case, lower third",
+    "mode": "karaoke",
+    "max_words": 7,
+    "cps": 20,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -26,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 4
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "j-cut",
+     "l-cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "dissolve (scene change only)"
+    ]
+   },
+   "hook": {
+    "within_s": 15,
+    "max_words": 10,
+    "rules": [
+     "pay off the title/thumbnail promise in the first 60 s",
+     "cold open on the best moment",
+     "no long intro or channel bumper before the hook"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "cold-open hook",
+     "pct": 5
+    },
+    {
+     "beat": "promise / context",
+     "pct": 7
+    },
+    {
+     "beat": "act 1",
+     "pct": 23
+    },
+    {
+     "beat": "re-engagement",
+     "pct": 3
+    },
+    {
+     "beat": "act 2",
+     "pct": 25
+    },
+    {
+     "beat": "re-engagement",
+     "pct": 3
+    },
+    {
+     "beat": "act 3 / escalation",
+     "pct": 19
+    },
+    {
+     "beat": "payoff",
+     "pct": 12
+    },
+    {
+     "beat": "outro + end screen",
+     "pct": 3
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "16:9 1920x1080 or 3840x2160 master",
+    "3 thumbnail stills",
+    "chapters list",
+    "SRT captions",
+    "2-5 Shorts cutdowns"
+   ],
+   "qc": [
+    "promise delivered before 1:00",
+    "re-engagement beat every ~3 min",
+    "no end signal before the payoff",
+    "-14 LUFS, -1 dBTP",
+    "end screen last 5-20 s"
+   ],
+   "client_judges": [
+    "average view duration / % viewed",
+    "retention graph dips",
+    "CTR (with thumbnail)",
+    "personality comes through"
+   ],
+   "styles": [
+    "chapter-pro",
+    "essay-mode",
+    "news-desk"
+   ],
+   "label": "YouTube long-form talking / challenge / story video (retention-edited)"
+  },
+  "youtube-tutorial": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    300,
+    900
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.45,
+    "breath": 0.12,
+    "pad": 0.08,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 20,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    4.0,
+    8.0
+   ],
+   "interrupt_s": 6.0,
+   "captions": {
+    "style": "two-line subtitle, sentence case, lower third",
+    "mode": "karaoke",
+    "max_words": 7,
+    "cps": 20,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -26,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 4
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "j-cut",
+     "l-cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "dissolve (scene change only)"
+    ]
+   },
+   "hook": {
+    "within_s": 10,
+    "max_words": 8,
+    "rules": [
+     "show the finished result first",
+     "state who it is for and what they will be able to do"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "result preview",
+     "pct": 5
+    },
+    {
+     "beat": "promise + prerequisites",
+     "pct": 8
+    },
+    {
+     "beat": "steps",
+     "pct": 72
+    },
+    {
+     "beat": "recap",
+     "pct": 10
+    },
+    {
+     "beat": "next video / CTA",
+     "pct": 5
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "16:9 1920x1080 or 3840x2160 master",
+    "3 thumbnail stills",
+    "chapters list",
+    "SRT captions",
+    "2-5 Shorts cutdowns"
+   ],
+   "qc": [
+    "every step visible without pausing",
+    "cursor zoom on small UI",
+    "waiting / typing cut out",
+    "keyboard shortcuts shown on screen",
+    "-14 LUFS"
+   ],
+   "client_judges": [
+    "can a viewer follow every step",
+    "no dead time",
+    "readable UI text"
+   ],
+   "styles": [
+    "tutorial-steps",
+    "terminal-tech",
+    "highlighter-study"
+   ],
+   "label": "YouTube tutorial / how-to with screen capture and face cam"
+  },
+  "video-essay": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    600,
+    2400
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.6,
+    "breath": 0.15,
+    "pad": 0.08,
+    "fillers": "keep-natural",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 30,
+    "jcut_frames": 4
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    4.0,
+    8.0
+   ],
+   "interrupt_s": 6.0,
+   "captions": {
+    "style": "two-line subtitle, sentence case, lower third",
+    "mode": "karaoke",
+    "max_words": 7,
+    "cps": 20,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -28,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 4
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "j-cut",
+     "l-cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "dissolve (scene change only)"
+    ]
+   },
+   "hook": {
+    "within_s": 15,
+    "max_words": 10,
+    "rules": [
+     "pay off the title/thumbnail promise in the first 60 s",
+     "cold open on the best moment",
+     "no long intro or channel bumper before the hook"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "cold open / question",
+     "pct": 6
+    },
+    {
+     "beat": "thesis",
+     "pct": 6
+    },
+    {
+     "beat": "chapter 1",
+     "pct": 22
+    },
+    {
+     "beat": "chapter 2",
+     "pct": 22
+    },
+    {
+     "beat": "chapter 3",
+     "pct": 22
+    },
+    {
+     "beat": "synthesis",
+     "pct": 16
+    },
+    {
+     "beat": "outro",
+     "pct": 6
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "film",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "16:9 1920x1080 or 3840x2160 master",
+    "3 thumbnail stills",
+    "chapters list",
+    "SRT captions",
+    "2-5 Shorts cutdowns"
+   ],
+   "qc": [
+    "chapters in description",
+    "every claim has a source on screen",
+    "fair-use clips short and commented on",
+    "-14 LUFS"
+   ],
+   "client_judges": [
+    "argument clarity",
+    "research visuals",
+    "voice and music sit well together"
+   ],
+   "styles": [
+    "essay-mode",
+    "doc-real",
+    "paper-cut"
+   ],
+   "label": "Video essay / documentary-style YouTube, script first, VO led"
+  },
+  "vlog": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    480,
+    1200
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.4,
+    "breath": 0.12,
+    "pad": 0.08,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 20,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    2.5,
+    5.0
+   ],
+   "interrupt_s": 4.0,
+   "captions": {
+    "style": "two-line subtitle, sentence case, lower third",
+    "mode": "karaoke",
+    "max_words": 7,
+    "cps": 20,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -26,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "medium",
+    "per_min": 6
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "jump",
+     "j-cut",
+     "l-cut",
+     "speed-ramp",
+     "whip",
+     "match-cut"
+    ]
+   },
+   "hook": {
+    "within_s": 15,
+    "max_words": 10,
+    "rules": [
+     "pay off the title/thumbnail promise in the first 60 s",
+     "cold open on the best moment",
+     "no long intro or channel bumper before the hook"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "cold open on best moment",
+     "pct": 6
+    },
+    {
+     "beat": "title / setup",
+     "pct": 6
+    },
+    {
+     "beat": "beat 1",
+     "pct": 25
+    },
+    {
+     "beat": "beat 2",
+     "pct": 25
+    },
+    {
+     "beat": "beat 3",
+     "pct": 25
+    },
+    {
+     "beat": "reflection",
+     "pct": 8
+    },
+    {
+     "beat": "outro + end screen",
+     "pct": 5
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "warm",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "16:9 1920x1080 or 3840x2160 master",
+    "3 thumbnail stills",
+    "chapters list",
+    "SRT captions",
+    "2-5 Shorts cutdowns"
+   ],
+   "qc": [
+    "promise delivered before 1:00",
+    "re-engagement beat every ~3 min",
+    "no end signal before the payoff",
+    "-14 LUFS, -1 dBTP",
+    "end screen last 5-20 s"
+   ],
+   "client_judges": [
+    "authentic personality",
+    "no dead air",
+    "retention graph"
+   ],
+   "styles": [
+    "cinematic-phone",
+    "vhs-tape",
+    "chapter-pro"
+   ],
+   "label": "YouTube vlog (handheld A-roll + B-roll, chronological)"
+  },
+  "podcast-full": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    1800,
+    7200
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.9,
+    "breath": 0.15,
+    "pad": 0.08,
+    "fillers": "keep-natural",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 30,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    4.0,
+    12.0
+   ],
+   "interrupt_s": 12.0,
+   "captions": {
+    "style": "optional lower subtitles",
+    "mode": "karaoke",
+    "max_words": 8,
+    "cps": 20,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "intro/outro only",
+    "bed_db": -30,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "none",
+    "per_min": 0
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "j-cut",
+     "l-cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "dissolve (scene change only)"
+    ]
+   },
+   "hook": {
+    "within_s": 30,
+    "max_words": 10,
+    "rules": [
+     "30-60 s cold-open teaser of the best moment",
+     "then intro"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "cold-open teaser",
+     "pct": 2
+    },
+    {
+     "beat": "intro",
+     "pct": 2
+    },
+    {
+     "beat": "conversation",
+     "pct": 92
+    },
+    {
+     "beat": "outro + CTA",
+     "pct": 4
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube -14 / audio feeds -16",
+    "lufs": -16,
+    "true_peak": -1
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "16:9 full episode",
+    "audio-only MP3/WAV",
+    "5-15 vertical clips",
+    "chapters",
+    "show notes",
+    "thumbnail"
+   ],
+   "qc": [
+    "cut on the active speaker, wide reset every 30-60 s",
+    "light filler removal only",
+    "no crosstalk cut mid-word",
+    "-16 LUFS audio feed"
+   ],
+   "client_judges": [
+    "audio quality",
+    "guest looks good",
+    "clip quality"
+   ],
+   "styles": [
+    "pod-frame",
+    "dual-subs",
+    "minimal-mono"
+   ],
+   "label": "Full video podcast episode (multicam, active speaker)"
+  },
+  "podcast-clip": {
+   "family": "short-form",
+   "aspect": "9:16",
+   "alt_aspects": [
+    "4:5",
+    "1:1"
+   ],
+   "duration_s": [
+    30,
+    90
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.35,
+    "breath": 0.1,
+    "pad": 0.06,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 0,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    2.0,
+    4.0
+   ],
+   "interrupt_s": 3.0,
+   "captions": {
+    "style": "word-pop, 1-3 words, centre-low, key words in accent",
+    "mode": "reveal",
+    "max_words": 3,
+    "cps": 17,
+    "uppercase": true
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -24,
+    "duck": true,
+    "duck_db": -8
+   },
+   "sfx": {
+    "density": "medium",
+    "per_min": 12
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "flash"
+    ]
+   },
+   "hook": {
+    "within_s": 1.5,
+    "max_words": 7,
+    "rules": [
+     "visual or spoken hook lands by 1.5 s",
+     "no greeting, no 'in this video'",
+     "hook text on screen for muted viewers",
+     "open a loop the payoff closes"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "hook line (cold open)",
+     "pct": 10
+    },
+    {
+     "beat": "context",
+     "pct": 15
+    },
+    {
+     "beat": "story / argument",
+     "pct": 55
+    },
+    {
+     "beat": "punchline / payoff",
+     "pct": 15
+    },
+    {
+     "beat": "CTA to full episode",
+     "pct": 5
+    }
+   ],
+   "loudness": {
+    "platform": "TikTok / Reels / Shorts",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.85,
+    "right": 0.88
+   },
+   "max_overlays": 2,
+   "deliverables": [
+    "9:16 1080x1920 H.264 master",
+    "4:5 1080x1350 feed version",
+    "captions burned-in",
+    "clean (no captions) version",
+    "cover frame / thumbnail still"
+   ],
+   "qc": [
+    "hook by 1.5 s",
+    "no dead air at start (<0.3 s)",
+    "captions inside safe zone",
+    "<=2 overlays at once",
+    "-14 LUFS, -1 dBTP",
+    "loops cleanly or ends on CTA"
+   ],
+   "client_judges": [
+    "clip stands alone without context",
+    "hook in the first line",
+    "captions accurate"
+   ],
+   "styles": [
+    "pod-frame",
+    "clip-miner",
+    "halo-cut"
+   ],
+   "label": "Vertical clip cut from a podcast / interview"
+  },
+  "documentary-interview": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    600,
+    5400
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.9,
+    "breath": 0.15,
+    "pad": 0.1,
+    "fillers": "keep-natural",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 30,
+    "jcut_frames": 4
+   },
+   "cut_point": "thought-end / breath",
+   "asl_s": [
+    5.0,
+    15.0
+   ],
+   "interrupt_s": 10.0,
+   "captions": {
+    "style": "subtitle, sentence case",
+    "mode": "karaoke",
+    "max_words": 8,
+    "cps": 17,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -28,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "none",
+    "per_min": 0
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "j-cut",
+     "l-cut",
+     "dissolve",
+     "dip-to-black"
+    ]
+   },
+   "hook": {
+    "within_s": 30,
+    "max_words": 10,
+    "rules": [
+     "open on a question or the most human moment",
+     "no Frankenbites in the hook"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "cold open",
+     "pct": 5
+    },
+    {
+     "beat": "world / character",
+     "pct": 15
+    },
+    {
+     "beat": "inciting question",
+     "pct": 10
+    },
+    {
+     "beat": "development",
+     "pct": 40
+    },
+    {
+     "beat": "climax",
+     "pct": 15
+    },
+    {
+     "beat": "resolution",
+     "pct": 15
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "film",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "master",
+    "textless version",
+    "M&E / stems",
+    "captions",
+    "music cue sheet",
+    "clearances log"
+   ],
+   "qc": [
+    "every interview jump cut covered (B-roll / second angle / >=1.2x punch-in)",
+    "room tone under every audio edit",
+    "no constructed quotes",
+    "names and titles correct"
+   ],
+   "client_judges": [
+    "story",
+    "truthfulness",
+    "emotional arc"
+   ],
+   "styles": [
+    "doc-real",
+    "essay-mode"
+   ],
+   "label": "Documentary / interview-led film (paper edit, radio edit, B-roll cover)"
+  },
+  "corporate-brand": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    90,
+    180
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.5,
+    "breath": 0.12,
+    "pad": 0.08,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 25,
+    "jcut_frames": 3
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    3.0,
+    6.0
+   ],
+   "interrupt_s": 5.0,
+   "captions": {
+    "style": "brand font subtitles",
+    "mode": "karaoke",
+    "max_words": 7,
+    "cps": 17,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "licensed bed",
+    "bed_db": -22,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 4
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "j-cut",
+     "l-cut",
+     "dissolve",
+     "match-cut"
+    ]
+   },
+   "hook": {
+    "within_s": 5,
+    "max_words": 8,
+    "rules": [
+     "lead with the human / customer, not the logo"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "hook",
+     "pct": 8
+    },
+    {
+     "beat": "problem / world",
+     "pct": 17
+    },
+    {
+     "beat": "mission / solution",
+     "pct": 35
+    },
+    {
+     "beat": "proof / people",
+     "pct": 25
+    },
+    {
+     "beat": "vision + logo",
+     "pct": 15
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "warm",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "2-3 min hero",
+    "60 s and 30 s cutdowns",
+    "social verticals",
+    "captions (accessibility)"
+   ],
+   "qc": [
+    "brand fonts, colours, logo lockups per guideline",
+    "licensed music on file",
+    "cameras colour matched",
+    "executives look good"
+   ],
+   "client_judges": [
+    "brand compliance",
+    "executives look good",
+    "message clarity"
+   ],
+   "styles": [
+    "kinetic-launch",
+    "logo-sting",
+    "frame-studio"
+   ],
+   "label": "Corporate / brand film (mission arc, brand guidelines)"
+  },
+  "testimonial": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    60,
+    150
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.5,
+    "breath": 0.12,
+    "pad": 0.08,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 25,
+    "jcut_frames": 3
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    3.0,
+    6.0
+   ],
+   "interrupt_s": 5.0,
+   "captions": {
+    "style": "two-line subtitle, sentence case, lower third",
+    "mode": "karaoke",
+    "max_words": 6,
+    "cps": 17,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -24,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 4
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "j-cut",
+     "l-cut",
+     "dissolve"
+    ]
+   },
+   "hook": {
+    "within_s": 3,
+    "max_words": 8,
+    "rules": [
+     "open on the result in the customer's own words"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "result hook",
+     "pct": 10
+    },
+    {
+     "beat": "problem before",
+     "pct": 25
+    },
+    {
+     "beat": "solution",
+     "pct": 30
+    },
+    {
+     "beat": "result / numbers",
+     "pct": 25
+    },
+    {
+     "beat": "recommendation + CTA",
+     "pct": 10
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "16:9 1920x1080 or 3840x2160 master",
+    "3 thumbnail stills",
+    "chapters list",
+    "SRT captions",
+    "2-5 Shorts cutdowns"
+   ],
+   "qc": [
+    "quotes are the customer's real words in their real order (no Frankenbites)",
+    "customer approved the cut",
+    "lower third name + role correct"
+   ],
+   "client_judges": [
+    "credibility",
+    "customer sounds natural",
+    "result is concrete"
+   ],
+   "styles": [
+    "testimonial-card",
+    "quote-card-reel",
+    "split-proof"
+   ],
+   "label": "Customer testimonial (problem -> solution -> result -> recommendation)"
+  },
+  "ad-30": {
+   "family": "ad",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "1:1",
+    "4:5",
+    "9:16"
+   ],
+   "duration_s": [
+    30,
+    30
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.25,
+    "breath": 0.08,
+    "pad": 0.05,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 15,
+    "jcut_frames": 2
+   },
+   "cut_point": "action",
+   "asl_s": [
+    1.0,
+    2.5
+   ],
+   "interrupt_s": 2.0,
+   "captions": {
+    "style": "short supers, brand font, title-safe",
+    "mode": "reveal",
+    "max_words": 4,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "lead",
+    "bed_db": -18,
+    "duck": true,
+    "duck_db": -8
+   },
+   "sfx": {
+    "density": "medium",
+    "per_min": 15
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "match-cut",
+     "smash-cut",
+     "whip",
+     "zoom-punch"
+    ]
+   },
+   "hook": {
+    "within_s": 2.0,
+    "max_words": 6,
+    "rules": [
+     "brand or product on screen by 3 s",
+     "one message only",
+     "sound-off readable"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "hook",
+     "pct": 10
+    },
+    {
+     "beat": "problem",
+     "pct": 20
+    },
+    {
+     "beat": "solution / demo",
+     "pct": 40
+    },
+    {
+     "beat": "proof",
+     "pct": 15
+    },
+    {
+     "beat": "offer + CTA + logo",
+     "pct": 15
+    }
+   ],
+   "loudness": {
+    "platform": "broadcast ATSC A/85 (web: -14 LUFS)",
+    "lufs": -24,
+    "true_peak": -2
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.9,
+    "right": 0.9
+   },
+   "max_overlays": 2,
+   "deliverables": [
+    "broadcast master ProRes 422 HQ with slate",
+    "web master H.264",
+    "textless version",
+    "16:9 / 1:1 / 4:5 / 9:16",
+    "captioned + clean",
+    "stems: dialogue, music, effects, VO"
+   ],
+   "qc": [
+    "frame-accurate duration",
+    "legal super on screen long enough to read",
+    "title-safe text",
+    "-24 LKFS / -2 dBTP broadcast"
+   ],
+   "client_judges": [
+    "brand visibility",
+    "single clear message",
+    "CPA / ROAS",
+    "legal sign-off"
+   ],
+   "styles": [
+    "product-spotlight",
+    "kinetic-launch"
+   ],
+   "label": "30-second commercial (story master)"
+  },
+  "ad-15": {
+   "family": "ad",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "1:1",
+    "4:5",
+    "9:16"
+   ],
+   "duration_s": [
+    15,
+    15
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.25,
+    "breath": 0.08,
+    "pad": 0.05,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 15,
+    "jcut_frames": 2
+   },
+   "cut_point": "action",
+   "asl_s": [
+    0.8,
+    2.0
+   ],
+   "interrupt_s": 1.5,
+   "captions": {
+    "style": "short supers, brand font, title-safe",
+    "mode": "reveal",
+    "max_words": 4,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "lead",
+    "bed_db": -18,
+    "duck": true,
+    "duck_db": -8
+   },
+   "sfx": {
+    "density": "medium",
+    "per_min": 15
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "match-cut",
+     "smash-cut",
+     "whip",
+     "zoom-punch"
+    ]
+   },
+   "hook": {
+    "within_s": 2.0,
+    "max_words": 6,
+    "rules": [
+     "brand or product on screen by 3 s",
+     "one message only",
+     "sound-off readable"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "hook",
+     "pct": 15
+    },
+    {
+     "beat": "product / demo",
+     "pct": 50
+    },
+    {
+     "beat": "proof",
+     "pct": 15
+    },
+    {
+     "beat": "CTA + logo",
+     "pct": 20
+    }
+   ],
+   "loudness": {
+    "platform": "broadcast ATSC A/85 (web: -14 LUFS)",
+    "lufs": -24,
+    "true_peak": -2
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.9,
+    "right": 0.9
+   },
+   "max_overlays": 2,
+   "deliverables": [
+    "broadcast master ProRes 422 HQ with slate",
+    "web master H.264",
+    "textless version",
+    "16:9 / 1:1 / 4:5 / 9:16",
+    "captioned + clean",
+    "stems: dialogue, music, effects, VO"
+   ],
+   "qc": [
+    "frame-accurate duration",
+    "legal super on screen long enough to read",
+    "title-safe text",
+    "-24 LKFS / -2 dBTP broadcast"
+   ],
+   "client_judges": [
+    "brand visibility",
+    "single clear message",
+    "CPA / ROAS",
+    "legal sign-off"
+   ],
+   "styles": [
+    "product-spotlight",
+    "ugc-ad-kit"
+   ],
+   "label": "15-second commercial (rebuilt, not trimmed)"
+  },
+  "ad-6-bumper": {
+   "family": "ad",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "1:1",
+    "4:5",
+    "9:16"
+   ],
+   "duration_s": [
+    6,
+    6
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.25,
+    "breath": 0.08,
+    "pad": 0.05,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 15,
+    "jcut_frames": 2
+   },
+   "cut_point": "action",
+   "asl_s": [
+    1.0,
+    3.0
+   ],
+   "interrupt_s": 1.5,
+   "captions": {
+    "style": "short supers, brand font, title-safe",
+    "mode": "reveal",
+    "max_words": 3,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "lead",
+    "bed_db": -18,
+    "duck": true,
+    "duck_db": -8
+   },
+   "sfx": {
+    "density": "medium",
+    "per_min": 15
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "match-cut",
+     "smash-cut",
+     "whip",
+     "zoom-punch"
+    ]
+   },
+   "hook": {
+    "within_s": 0.5,
+    "max_words": 4,
+    "rules": [
+     "one idea",
+     "logo visible throughout or at end"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "visual hook",
+     "pct": 35
+    },
+    {
+     "beat": "takeaway",
+     "pct": 40
+    },
+    {
+     "beat": "logo",
+     "pct": 25
+    }
+   ],
+   "loudness": {
+    "platform": "broadcast ATSC A/85 (web: -14 LUFS)",
+    "lufs": -24,
+    "true_peak": -2
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.9,
+    "right": 0.9
+   },
+   "max_overlays": 2,
+   "deliverables": [
+    "broadcast master ProRes 422 HQ with slate",
+    "web master H.264",
+    "textless version",
+    "16:9 / 1:1 / 4:5 / 9:16",
+    "captioned + clean",
+    "stems: dialogue, music, effects, VO"
+   ],
+   "qc": [
+    "frame-accurate duration",
+    "legal super on screen long enough to read",
+    "title-safe text",
+    "-24 LKFS / -2 dBTP broadcast"
+   ],
+   "client_judges": [
+    "brand visibility",
+    "single clear message",
+    "CPA / ROAS",
+    "legal sign-off"
+   ],
+   "styles": [
+    "logo-sting",
+    "product-spotlight"
+   ],
+   "label": "6-second YouTube bumper: one visual, one takeaway"
+  },
+  "trailer": {
+   "family": "montage",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16"
+   ],
+   "duration_s": [
+    90,
+    150
+   ],
+   "autocut": {
+    "enabled": false,
+    "max_gap": 1.5,
+    "breath": 0.15,
+    "pad": 0.1,
+    "fillers": "off",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 40,
+    "jcut_frames": 0
+   },
+   "cut_point": "beat",
+   "asl_s": [
+    1.0,
+    3.0
+   ],
+   "interrupt_s": 4.0,
+   "captions": {
+    "style": "none (titles only)",
+    "mode": "none",
+    "max_words": 0,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "lead with risers, hits, silence before the drop",
+    "bed_db": -6,
+    "duck": true,
+    "duck_db": -6
+   },
+   "sfx": {
+    "density": "high",
+    "per_min": 25
+   },
+   "transitions": {
+    "default": "cut on beat",
+    "allowed": [
+     "cut",
+     "smash-cut",
+     "dip-to-black",
+     "flash",
+     "title card"
+    ]
+   },
+   "hook": {
+    "within_s": 3.0,
+    "max_words": 5,
+    "rules": [
+     "strongest image first",
+     "first cut on the first downbeat"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "cold open / world",
+     "pct": 15
+    },
+    {
+     "beat": "act 1 setup",
+     "pct": 20
+    },
+    {
+     "beat": "act 2 conflict",
+     "pct": 30
+    },
+    {
+     "beat": "act 3 montage peak",
+     "pct": 20
+    },
+    {
+     "beat": "title card",
+     "pct": 7
+    },
+    {
+     "beat": "button",
+     "pct": 5
+    },
+    {
+     "beat": "billing / date",
+     "pct": 3
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube / Vimeo",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "teal-orange",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 1,
+   "deliverables": [
+    "16:9 master",
+    "9:16 teaser"
+   ],
+   "qc": [
+    "cards readable (>=1.5 s)",
+    "dialogue lines audible over music",
+    "button after the title",
+    "no spoilers of the ending"
+   ],
+   "client_judges": [
+    "what it hides",
+    "goosebump moment",
+    "title lands"
+   ],
+   "styles": [
+    "kinetic-launch",
+    "event-promo"
+   ],
+   "label": "Film / series trailer (three acts, cards, button)"
+  },
+  "teaser": {
+   "family": "montage",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16"
+   ],
+   "duration_s": [
+    30,
+    60
+   ],
+   "autocut": {
+    "enabled": false,
+    "max_gap": 1.5,
+    "breath": 0.15,
+    "pad": 0.1,
+    "fillers": "off",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 40,
+    "jcut_frames": 0
+   },
+   "cut_point": "beat",
+   "asl_s": [
+    1.5,
+    4.0
+   ],
+   "interrupt_s": 4.0,
+   "captions": {
+    "style": "none (titles only)",
+    "mode": "none",
+    "max_words": 0,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "lead",
+    "bed_db": 0,
+    "duck": false,
+    "duck_db": 0
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 4
+   },
+   "transitions": {
+    "default": "cut on beat",
+    "allowed": [
+     "cut",
+     "match-cut",
+     "whip",
+     "speed-ramp",
+     "dissolve",
+     "dip-to-black"
+    ]
+   },
+   "hook": {
+    "within_s": 3.0,
+    "max_words": 5,
+    "rules": [
+     "strongest image first",
+     "first cut on the first downbeat"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "mood",
+     "pct": 30
+    },
+    {
+     "beat": "hook moment",
+     "pct": 40
+    },
+    {
+     "beat": "title / date",
+     "pct": 30
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube / Vimeo",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "film",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 1,
+   "deliverables": [
+    "16:9 master",
+    "9:16 teaser"
+   ],
+   "qc": [
+    "cuts land on beats (+-1 frame)",
+    "music ends on a resolved bar, not a fade-out mid-phrase"
+   ],
+   "client_judges": [
+    "does it feel",
+    "rhythm matches the music"
+   ],
+   "styles": [
+    "event-promo",
+    "logo-sting"
+   ],
+   "label": "Teaser: mood + one hook, 30-60 s"
+  },
+  "music-video": {
+   "family": "montage",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16"
+   ],
+   "duration_s": [
+    150,
+    300
+   ],
+   "autocut": {
+    "enabled": false,
+    "max_gap": 1.5,
+    "breath": 0.15,
+    "pad": 0.1,
+    "fillers": "off",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 40,
+    "jcut_frames": 0
+   },
+   "cut_point": "beat / downbeat / phrase change",
+   "asl_s": [
+    1.0,
+    3.0
+   ],
+   "interrupt_s": 4.0,
+   "captions": {
+    "style": "none (titles only)",
+    "mode": "none",
+    "max_words": 0,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "lead",
+    "bed_db": 0,
+    "duck": false,
+    "duck_db": 0
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 4
+   },
+   "transitions": {
+    "default": "cut on beat",
+    "allowed": [
+     "cut",
+     "match-cut",
+     "whip",
+     "speed-ramp",
+     "dissolve",
+     "dip-to-black"
+    ]
+   },
+   "hook": {
+    "within_s": 3.0,
+    "max_words": 5,
+    "rules": [
+     "strongest image first",
+     "first cut on the first downbeat"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "intro",
+     "pct": 10
+    },
+    {
+     "beat": "verse 1",
+     "pct": 20
+    },
+    {
+     "beat": "chorus",
+     "pct": 15
+    },
+    {
+     "beat": "verse 2",
+     "pct": 20
+    },
+    {
+     "beat": "chorus",
+     "pct": 15
+    },
+    {
+     "beat": "bridge",
+     "pct": 10
+    },
+    {
+     "beat": "final chorus / outro",
+     "pct": 10
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube (keep the master's loudness)",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "neon",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 1,
+   "deliverables": [
+    "16:9 master",
+    "9:16 hook clips",
+    "clean + explicit versions"
+   ],
+   "qc": [
+    "lip sync within 1 frame",
+    "cuts on beats / phrase changes"
+   ],
+   "client_judges": [
+    "lip sync",
+    "cut rhythm matches the song",
+    "artist looks great"
+   ],
+   "styles": [
+    "neon-orbit",
+    "y2k-chrome",
+    "chaos-stack"
+   ],
+   "label": "Music video (performance multicam + narrative, cut on beats)"
+  },
+  "wedding-highlight": {
+   "family": "montage",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16"
+   ],
+   "duration_s": [
+    180,
+    300
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.8,
+    "breath": 0.15,
+    "pad": 0.1,
+    "fillers": "keep-natural",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 40,
+    "jcut_frames": 0
+   },
+   "cut_point": "beat + emotional peaks",
+   "asl_s": [
+    2.0,
+    4.0
+   ],
+   "interrupt_s": 4.0,
+   "captions": {
+    "style": "none or vow subtitles",
+    "mode": "none",
+    "max_words": 0,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "licensed song lead, dip under vows/speeches",
+    "bed_db": -6,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 4
+   },
+   "transitions": {
+    "default": "cut on beat",
+    "allowed": [
+     "cut",
+     "match-cut",
+     "whip",
+     "speed-ramp",
+     "dissolve",
+     "dip-to-black"
+    ]
+   },
+   "hook": {
+    "within_s": 3.0,
+    "max_words": 5,
+    "rules": [
+     "strongest image first",
+     "first cut on the first downbeat"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "prep / anticipation",
+     "pct": 15
+    },
+    {
+     "beat": "first look / arrival",
+     "pct": 15
+    },
+    {
+     "beat": "vows / ceremony",
+     "pct": 25
+    },
+    {
+     "beat": "speeches",
+     "pct": 15
+    },
+    {
+     "beat": "celebration peak",
+     "pct": 20
+    },
+    {
+     "beat": "send-off",
+     "pct": 10
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube / Vimeo",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "warm",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 1,
+   "deliverables": [
+    "3-5 min highlight 16:9",
+    "60 s 9:16 teaser",
+    "full ceremony multicam",
+    "full film 30-45 min (optional)"
+   ],
+   "qc": [
+    "no key family member missed",
+    "colour consistent across cameras",
+    "vow audio clean",
+    "music licensed"
+   ],
+   "client_judges": [
+    "emotion",
+    "everyone important is in it",
+    "delivered on time"
+   ],
+   "styles": [
+    "cinematic-phone",
+    "soft-gradient"
+   ],
+   "label": "Wedding highlight film on a licensed song (vows + speeches as story)"
+  },
+  "wedding-teaser": {
+   "family": "montage",
+   "aspect": "9:16",
+   "alt_aspects": [
+    "4:5"
+   ],
+   "duration_s": [
+    30,
+    60
+   ],
+   "autocut": {
+    "enabled": false,
+    "max_gap": 1.5,
+    "breath": 0.15,
+    "pad": 0.1,
+    "fillers": "off",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 40,
+    "jcut_frames": 0
+   },
+   "cut_point": "beat",
+   "asl_s": [
+    1.0,
+    2.5
+   ],
+   "interrupt_s": 4.0,
+   "captions": {
+    "style": "none (titles only)",
+    "mode": "none",
+    "max_words": 0,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "lead",
+    "bed_db": 0,
+    "duck": false,
+    "duck_db": 0
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 4
+   },
+   "transitions": {
+    "default": "cut on beat",
+    "allowed": [
+     "cut",
+     "match-cut",
+     "whip",
+     "speed-ramp",
+     "dissolve",
+     "dip-to-black"
+    ]
+   },
+   "hook": {
+    "within_s": 3.0,
+    "max_words": 5,
+    "rules": [
+     "strongest image first",
+     "first cut on the first downbeat"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "best moment",
+     "pct": 20
+    },
+    {
+     "beat": "montage build",
+     "pct": 50
+    },
+    {
+     "beat": "couple names + date",
+     "pct": 30
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube / Vimeo",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "warm",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.85,
+    "right": 0.88
+   },
+   "max_overlays": 1,
+   "deliverables": [
+    "9:16 1080x1920",
+    "4:5 feed version"
+   ],
+   "qc": [
+    "cuts land on beats (+-1 frame)",
+    "music ends on a resolved bar, not a fade-out mid-phrase"
+   ],
+   "client_judges": [
+    "shareable in 48 h",
+    "couple looks amazing"
+   ],
+   "styles": [
+    "soft-gradient",
+    "cinematic-phone"
+   ],
+   "label": "Wedding teaser for social (vertical, within days)"
+  },
+  "wedding-ceremony": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    1200,
+    5400
+   ],
+   "autocut": {
+    "enabled": false,
+    "max_gap": 3.0,
+    "breath": 0.12,
+    "pad": 0.08,
+    "fillers": "off",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 40,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    6.0,
+    20.0
+   ],
+   "interrupt_s": 20.0,
+   "captions": {
+    "style": "none",
+    "mode": "none",
+    "max_words": 0,
+    "cps": 20,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "venue audio only, prelude music bed",
+    "bed_db": -30,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "none",
+    "per_min": 0
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "dissolve"
+    ]
+   },
+   "hook": {
+    "within_s": 60,
+    "max_words": 8,
+    "rules": [
+     "start at the processional, not the setup"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "processional",
+     "pct": 10
+    },
+    {
+     "beat": "welcome",
+     "pct": 10
+    },
+    {
+     "beat": "readings / rituals",
+     "pct": 35
+    },
+    {
+     "beat": "vows + rings",
+     "pct": 30
+    },
+    {
+     "beat": "kiss + recessional",
+     "pct": 15
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "warm",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "16:9 1920x1080 or 3840x2160 master",
+    "3 thumbnail stills",
+    "chapters list",
+    "SRT captions",
+    "2-5 Shorts cutdowns"
+   ],
+   "qc": [
+    "switch to whoever is speaking",
+    "no missed vows",
+    "audio levels even between officiant and couple"
+   ],
+   "client_judges": [
+    "nothing missing",
+    "clean vow audio"
+   ],
+   "styles": [
+    "minimal-mono"
+   ],
+   "label": "Full ceremony edit (multicam, clean audio, lightly edited)"
+  },
+  "indian-wedding": {
+   "family": "montage",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16"
+   ],
+   "duration_s": [
+    180,
+    420
+   ],
+   "autocut": {
+    "enabled": false,
+    "max_gap": 1.5,
+    "breath": 0.15,
+    "pad": 0.1,
+    "fillers": "off",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 40,
+    "jcut_frames": 0
+   },
+   "cut_point": "beat",
+   "asl_s": [
+    1.5,
+    3.5
+   ],
+   "interrupt_s": 4.0,
+   "captions": {
+    "style": "none (titles only)",
+    "mode": "none",
+    "max_words": 0,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "song lead, dip for vows / pheras chants",
+    "bed_db": -6,
+    "duck": true,
+    "duck_db": 0
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 4
+   },
+   "transitions": {
+    "default": "cut on beat",
+    "allowed": [
+     "cut",
+     "match-cut",
+     "whip",
+     "speed-ramp",
+     "dissolve",
+     "dip-to-black"
+    ]
+   },
+   "hook": {
+    "within_s": 3.0,
+    "max_words": 5,
+    "rules": [
+     "strongest image first",
+     "first cut on the first downbeat"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "haldi",
+     "pct": 12
+    },
+    {
+     "beat": "mehndi",
+     "pct": 12
+    },
+    {
+     "beat": "sangeet",
+     "pct": 18
+    },
+    {
+     "beat": "baraat / arrival",
+     "pct": 12
+    },
+    {
+     "beat": "pheras / nikah",
+     "pct": 26
+    },
+    {
+     "beat": "vidaai / reception",
+     "pct": 20
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube / Vimeo",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "warm",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 1,
+   "deliverables": [
+    "3-5 min cinematic highlight",
+    "per-event reels (9:16)",
+    "traditional full film (1-3 h)",
+    "teaser within days"
+   ],
+   "qc": [
+    "sort and cut by event",
+    "pace repetitive rituals (pheras) with music + B-roll",
+    "every elder and key relative appears",
+    "names spelled right in titles"
+   ],
+   "client_judges": [
+    "family members all present",
+    "ritual respect",
+    "colour and emotion"
+   ],
+   "styles": [
+    "soft-gradient",
+    "cinematic-phone",
+    "frame-studio"
+   ],
+   "label": "Indian wedding (Haldi, Mehndi, Sangeet, pheras/Nikah, reception) cinematic + traditional"
+  },
+  "real-estate-tour": {
+   "family": "montage",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16"
+   ],
+   "duration_s": [
+    60,
+    120
+   ],
+   "autocut": {
+    "enabled": false,
+    "max_gap": 1.5,
+    "breath": 0.15,
+    "pad": 0.1,
+    "fillers": "off",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 40,
+    "jcut_frames": 0
+   },
+   "cut_point": "beat",
+   "asl_s": [
+    2.5,
+    5.0
+   ],
+   "interrupt_s": 4.0,
+   "captions": {
+    "style": "price / beds / baths cards",
+    "mode": "none",
+    "max_words": 0,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "upbeat bed",
+    "bed_db": -18,
+    "duck": false,
+    "duck_db": 0
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 4
+   },
+   "transitions": {
+    "default": "cut, no jump cuts",
+    "allowed": [
+     "cut",
+     "match-cut",
+     "speed-ramp",
+     "dissolve"
+    ]
+   },
+   "hook": {
+    "within_s": 3.0,
+    "max_words": 5,
+    "rules": [
+     "strongest image first",
+     "first cut on the first downbeat"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "exterior / drone",
+     "pct": 15
+    },
+    {
+     "beat": "entry",
+     "pct": 10
+    },
+    {
+     "beat": "living",
+     "pct": 20
+    },
+    {
+     "beat": "kitchen",
+     "pct": 15
+    },
+    {
+     "beat": "bedrooms",
+     "pct": 20
+    },
+    {
+     "beat": "amenities",
+     "pct": 10
+    },
+    {
+     "beat": "outro + contact",
+     "pct": 10
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube / Vimeo",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "none",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 1,
+   "deliverables": [
+    "16:9 branded tour",
+    "16:9 unbranded MLS version",
+    "9:16 reel 20-30 s"
+   ],
+   "qc": [
+    "verticals straight",
+    "bright and wide",
+    "no portrait video on YouTube",
+    "unbranded MLS export"
+   ],
+   "client_judges": [
+    "space looks big and bright",
+    "flow through the house"
+   ],
+   "styles": [
+    "frame-studio",
+    "minimal-mono"
+   ],
+   "label": "Real-estate / property tour (gimbal + drone, room order)"
+  },
+  "travel-cinematic": {
+   "family": "montage",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16"
+   ],
+   "duration_s": [
+    60,
+    240
+   ],
+   "autocut": {
+    "enabled": false,
+    "max_gap": 1.5,
+    "breath": 0.15,
+    "pad": 0.1,
+    "fillers": "off",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 40,
+    "jcut_frames": 0
+   },
+   "cut_point": "beat",
+   "asl_s": [
+    1.0,
+    3.0
+   ],
+   "interrupt_s": 4.0,
+   "captions": {
+    "style": "none (titles only)",
+    "mode": "none",
+    "max_words": 0,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "lead + ambience layered under",
+    "bed_db": -3,
+    "duck": false,
+    "duck_db": 0
+   },
+   "sfx": {
+    "density": "medium",
+    "per_min": 10
+   },
+   "transitions": {
+    "default": "cut on beat",
+    "allowed": [
+     "cut",
+     "match-cut",
+     "whip",
+     "speed-ramp",
+     "dissolve",
+     "dip-to-black"
+    ]
+   },
+   "hook": {
+    "within_s": 3.0,
+    "max_words": 5,
+    "rules": [
+     "strongest image first",
+     "first cut on the first downbeat"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "arrival / establishing",
+     "pct": 15
+    },
+    {
+     "beat": "discovery",
+     "pct": 35
+    },
+    {
+     "beat": "peak moment",
+     "pct": 30
+    },
+    {
+     "beat": "reflection / sunset",
+     "pct": 20
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube / Vimeo",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "teal-orange",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 1,
+   "deliverables": [
+    "16:9 master",
+    "9:16 teaser"
+   ],
+   "qc": [
+    "match cuts on shape / motion",
+    "ambient sound makes places feel real",
+    "LUT applied consistently"
+   ],
+   "client_judges": [
+    "visual flow",
+    "sense of place"
+   ],
+   "styles": [
+    "cinematic-phone",
+    "loop-ambient"
+   ],
+   "label": "Travel / cinematic montage (match cuts, whips, ramps, ambient bed)"
+  },
+  "sports-highlights": {
+   "family": "montage",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16"
+   ],
+   "duration_s": [
+    60,
+    300
+   ],
+   "autocut": {
+    "enabled": false,
+    "max_gap": 1.5,
+    "breath": 0.15,
+    "pad": 0.1,
+    "fillers": "off",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 40,
+    "jcut_frames": 0
+   },
+   "cut_point": "beat",
+   "asl_s": [
+    2.0,
+    5.0
+   ],
+   "interrupt_s": 4.0,
+   "captions": {
+    "style": "none (titles only)",
+    "mode": "none",
+    "max_words": 0,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "high-energy bed",
+    "bed_db": -10,
+    "duck": false,
+    "duck_db": 0
+   },
+   "sfx": {
+    "density": "medium",
+    "per_min": 10
+   },
+   "transitions": {
+    "default": "cut on beat",
+    "allowed": [
+     "cut",
+     "match-cut",
+     "whip",
+     "speed-ramp",
+     "dissolve",
+     "dip-to-black"
+    ]
+   },
+   "hook": {
+    "within_s": 2,
+    "max_words": 5,
+    "rules": [
+     "best play first",
+     "spotlight / freeze-frame on the athlete"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "best play",
+     "pct": 10
+    },
+    {
+     "beat": "highlights",
+     "pct": 75
+    },
+    {
+     "beat": "stats / contact card",
+     "pct": 15
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube / Vimeo",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 1,
+   "deliverables": [
+    "16:9 reel",
+    "9:16 clips",
+    "player ID card with stats"
+   ],
+   "qc": [
+    "player always identifiable",
+    "scoreboard graphics accurate"
+   ],
+   "client_judges": [
+    "clear player identification",
+    "best plays first"
+   ],
+   "styles": [
+    "data-story",
+    "chaos-stack"
+   ],
+   "label": "Sports highlights / recruiting reel"
+  },
+  "gaming-highlights": {
+   "family": "short-form",
+   "aspect": "9:16",
+   "alt_aspects": [
+    "4:5",
+    "1:1"
+   ],
+   "duration_s": [
+    30,
+    600
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.4,
+    "breath": 0.1,
+    "pad": 0.06,
+    "fillers": "keep-natural",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 0,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    1.0,
+    3.0
+   ],
+   "interrupt_s": 2.0,
+   "captions": {
+    "style": "word-pop, 1-3 words, centre-low, key words in accent",
+    "mode": "reveal",
+    "max_words": 3,
+    "cps": 17,
+    "uppercase": true
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -22,
+    "duck": true,
+    "duck_db": -8
+   },
+   "sfx": {
+    "density": "high",
+    "per_min": 20
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "flash"
+    ]
+   },
+   "hook": {
+    "within_s": 1.5,
+    "max_words": 7,
+    "rules": [
+     "visual or spoken hook lands by 1.5 s",
+     "no greeting, no 'in this video'",
+     "hook text on screen for muted viewers",
+     "open a loop the payoff closes"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "peak moment",
+     "pct": 10
+    },
+    {
+     "beat": "setup",
+     "pct": 20
+    },
+    {
+     "beat": "the play",
+     "pct": 50
+    },
+    {
+     "beat": "reaction",
+     "pct": 15
+    },
+    {
+     "beat": "CTA",
+     "pct": 5
+    }
+   ],
+   "loudness": {
+    "platform": "TikTok / Reels / Shorts",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.85,
+    "right": 0.88
+   },
+   "max_overlays": 2,
+   "deliverables": [
+    "9:16 1080x1920 H.264 master",
+    "4:5 1080x1350 feed version",
+    "captions burned-in",
+    "clean (no captions) version",
+    "cover frame / thumbnail still"
+   ],
+   "qc": [
+    "split layout facecam top / gameplay bottom for 9:16",
+    "peaks from audio spikes + chat velocity",
+    "game audio not clipping"
+   ],
+   "client_judges": [
+    "comedic timing",
+    "reaction lands"
+   ],
+   "styles": [
+    "chaos-stack",
+    "y2k-chrome",
+    "bold-bounce"
+   ],
+   "label": "Gaming / stream highlights (facecam + gameplay, meme timing)"
+  },
+  "news-explainer": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16"
+   ],
+   "duration_s": [
+    60,
+    480
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.4,
+    "breath": 0.12,
+    "pad": 0.08,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 20,
+    "jcut_frames": 2
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    3.0,
+    6.0
+   ],
+   "interrupt_s": 5.0,
+   "captions": {
+    "style": "two-line subtitle, sentence case, lower third",
+    "mode": "karaoke",
+    "max_words": 7,
+    "cps": 20,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "neutral bed",
+    "bed_db": -28,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 3
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "j-cut",
+     "l-cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "dissolve (scene change only)"
+    ]
+   },
+   "hook": {
+    "within_s": 5,
+    "max_words": 8,
+    "rules": [
+     "key fact first",
+     "source on screen"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "key fact",
+     "pct": 10
+    },
+    {
+     "beat": "why it matters",
+     "pct": 15
+    },
+    {
+     "beat": "context",
+     "pct": 35
+    },
+    {
+     "beat": "data / evidence",
+     "pct": 25
+    },
+    {
+     "beat": "what next",
+     "pct": 15
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "none",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "16:9 1920x1080 or 3840x2160 master",
+    "3 thumbnail stills",
+    "chapters list",
+    "SRT captions",
+    "2-5 Shorts cutdowns"
+   ],
+   "qc": [
+    "every number attributed on screen",
+    "maps and charts correct",
+    "no constructed quotes",
+    "neutral music"
+   ],
+   "client_judges": [
+    "accuracy",
+    "attribution",
+    "speed to publish"
+   ],
+   "styles": [
+    "news-desk",
+    "data-story",
+    "swiss-poster"
+   ],
+   "label": "News / explainer (inverted pyramid, data graphics, attribution)"
+  },
+  "e-learning": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    180,
+    600
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.5,
+    "breath": 0.12,
+    "pad": 0.08,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 20,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    4.0,
+    10.0
+   ],
+   "interrupt_s": 8.0,
+   "captions": {
+    "style": "accessible subtitles, sentence case",
+    "mode": "karaoke",
+    "max_words": 8,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "none under teaching",
+    "bed_db": -32,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "none",
+    "per_min": 0
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "j-cut",
+     "l-cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "dissolve (scene change only)"
+    ]
+   },
+   "hook": {
+    "within_s": 15,
+    "max_words": 10,
+    "rules": [
+     "state the learning objective"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "objective",
+     "pct": 8
+    },
+    {
+     "beat": "why it matters",
+     "pct": 10
+    },
+    {
+     "beat": "teach",
+     "pct": 55
+    },
+    {
+     "beat": "example / practice",
+     "pct": 17
+    },
+    {
+     "beat": "recap + next lesson",
+     "pct": 10
+    }
+   ],
+   "loudness": {
+    "platform": "LMS / web",
+    "lufs": -16,
+    "true_peak": -1
+   },
+   "grade": "none",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "16:9 lesson",
+    "SRT/VTT captions",
+    "transcript",
+    "SCORM package (if LMS)"
+   ],
+   "qc": [
+    "WCAG captions",
+    "consistent template across modules",
+    "text on screen >= 2 s per line"
+   ],
+   "client_judges": [
+    "clarity",
+    "consistency",
+    "accessibility"
+   ],
+   "styles": [
+    "whiteboard-host",
+    "highlighter-study",
+    "tutorial-steps"
+   ],
+   "label": "E-learning / course lesson (one objective, 3-10 min)"
+  },
+  "product-launch": {
+   "family": "ad",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "1:1",
+    "4:5",
+    "9:16"
+   ],
+   "duration_s": [
+    60,
+    90
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.25,
+    "breath": 0.08,
+    "pad": 0.05,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 15,
+    "jcut_frames": 2
+   },
+   "cut_point": "action",
+   "asl_s": [
+    1.5,
+    3.0
+   ],
+   "interrupt_s": 2.5,
+   "captions": {
+    "style": "short supers, brand font, title-safe",
+    "mode": "reveal",
+    "max_words": 4,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "lead",
+    "bed_db": -18,
+    "duck": true,
+    "duck_db": -8
+   },
+   "sfx": {
+    "density": "medium",
+    "per_min": 15
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "match-cut",
+     "smash-cut",
+     "whip",
+     "zoom-punch"
+    ]
+   },
+   "hook": {
+    "within_s": 2.0,
+    "max_words": 6,
+    "rules": [
+     "brand or product on screen by 3 s",
+     "one message only",
+     "sound-off readable"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "problem",
+     "pct": 15
+    },
+    {
+     "beat": "reveal",
+     "pct": 15
+    },
+    {
+     "beat": "feature 1",
+     "pct": 15
+    },
+    {
+     "beat": "feature 2",
+     "pct": 15
+    },
+    {
+     "beat": "feature 3",
+     "pct": 15
+    },
+    {
+     "beat": "proof",
+     "pct": 10
+    },
+    {
+     "beat": "CTA + logo",
+     "pct": 15
+    }
+   ],
+   "loudness": {
+    "platform": "web / YouTube",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.9,
+    "right": 0.9
+   },
+   "max_overlays": 2,
+   "deliverables": [
+    "16:9 hero",
+    "15 s social",
+    "9:16 captioned",
+    "GIF loops for the site"
+   ],
+   "qc": [
+    "frame-accurate duration",
+    "legal super on screen long enough to read",
+    "title-safe text",
+    "-24 LKFS / -2 dBTP broadcast"
+   ],
+   "client_judges": [
+    "the 'aha' lands fast",
+    "product looks premium"
+   ],
+   "styles": [
+    "kinetic-launch",
+    "device-fly",
+    "product-spotlight"
+   ],
+   "label": "Product launch film (problem, reveal, 3 features, CTA)"
+  },
+  "saas-demo": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    60,
+    180
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.4,
+    "breath": 0.12,
+    "pad": 0.08,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 20,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    3.0,
+    6.0
+   ],
+   "interrupt_s": 4.0,
+   "captions": {
+    "style": "two-line subtitle, sentence case, lower third",
+    "mode": "karaoke",
+    "max_words": 7,
+    "cps": 20,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -26,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 4
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "j-cut",
+     "l-cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "dissolve (scene change only)"
+    ]
+   },
+   "hook": {
+    "within_s": 5,
+    "max_words": 8,
+    "rules": [
+     "show the outcome screen first"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "outcome",
+     "pct": 10
+    },
+    {
+     "beat": "problem",
+     "pct": 10
+    },
+    {
+     "beat": "walkthrough",
+     "pct": 60
+    },
+    {
+     "beat": "result",
+     "pct": 10
+    },
+    {
+     "beat": "CTA",
+     "pct": 10
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "none",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "16:9 1920x1080 or 3840x2160 master",
+    "3 thumbnail stills",
+    "chapters list",
+    "SRT captions",
+    "2-5 Shorts cutdowns"
+   ],
+   "qc": [
+    "UI text readable at 1080p (zoom-follow)",
+    "PII blurred",
+    "cursor smoothed",
+    "no loading spinners left in"
+   ],
+   "client_judges": [
+    "UI readability",
+    "time to 'aha'"
+   ],
+   "styles": [
+    "device-fly",
+    "terminal-tech",
+    "tutorial-steps"
+   ],
+   "label": "SaaS product demo (screen capture, cursor zoom, blurred PII)"
+  },
+  "recipe": {
+   "family": "short-form",
+   "aspect": "9:16",
+   "alt_aspects": [
+    "4:5",
+    "1:1"
+   ],
+   "duration_s": [
+    30,
+    60
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.3,
+    "breath": 0.1,
+    "pad": 0.06,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 0,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    1.0,
+    2.5
+   ],
+   "interrupt_s": 2.0,
+   "captions": {
+    "style": "word-pop, 1-3 words, centre-low, key words in accent",
+    "mode": "reveal",
+    "max_words": 3,
+    "cps": 17,
+    "uppercase": true
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -20,
+    "duck": true,
+    "duck_db": -8
+   },
+   "sfx": {
+    "density": "medium",
+    "per_min": 10
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "flash"
+    ]
+   },
+   "hook": {
+    "within_s": 1.5,
+    "max_words": 6,
+    "rules": [
+     "finished dish (money shot) first"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "money shot",
+     "pct": 10
+    },
+    {
+     "beat": "ingredients",
+     "pct": 15
+    },
+    {
+     "beat": "steps",
+     "pct": 55
+    },
+    {
+     "beat": "final reveal / taste",
+     "pct": 15
+    },
+    {
+     "beat": "CTA",
+     "pct": 5
+    }
+   ],
+   "loudness": {
+    "platform": "TikTok / Reels / Shorts",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "warm",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.85,
+    "right": 0.88
+   },
+   "max_overlays": 2,
+   "deliverables": [
+    "9:16 1080x1920 H.264 master",
+    "4:5 1080x1350 feed version",
+    "captions burned-in",
+    "clean (no captions) version",
+    "cover frame / thumbnail still"
+   ],
+   "qc": [
+    "quantities readable",
+    "sizzle sound up",
+    "warm grade, steam visible"
+   ],
+   "client_judges": [
+    "appetite appeal",
+    "readable quantities"
+   ],
+   "styles": [
+    "tutorial-steps",
+    "sticker-pop",
+    "countdown-list"
+   ],
+   "label": "Recipe / food (overhead steps, money shot)"
+  },
+  "fitness": {
+   "family": "short-form",
+   "aspect": "9:16",
+   "alt_aspects": [
+    "4:5",
+    "1:1"
+   ],
+   "duration_s": [
+    30,
+    90
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.3,
+    "breath": 0.1,
+    "pad": 0.06,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 0,
+    "jcut_frames": 0
+   },
+   "cut_point": "beat / rep",
+   "asl_s": [
+    1.5,
+    3.0
+   ],
+   "interrupt_s": 2.5,
+   "captions": {
+    "style": "word-pop, 1-3 words, centre-low, key words in accent",
+    "mode": "reveal",
+    "max_words": 3,
+    "cps": 17,
+    "uppercase": true
+   },
+   "music": {
+    "policy": "BPM-matched bed",
+    "bed_db": -16,
+    "duck": true,
+    "duck_db": -8
+   },
+   "sfx": {
+    "density": "medium",
+    "per_min": 12
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "flash"
+    ]
+   },
+   "hook": {
+    "within_s": 1.5,
+    "max_words": 7,
+    "rules": [
+     "visual or spoken hook lands by 1.5 s",
+     "no greeting, no 'in this video'",
+     "hook text on screen for muted viewers",
+     "open a loop the payoff closes"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "result / hook",
+     "pct": 10
+    },
+    {
+     "beat": "exercise 1",
+     "pct": 25
+    },
+    {
+     "beat": "exercise 2",
+     "pct": 25
+    },
+    {
+     "beat": "exercise 3",
+     "pct": 25
+    },
+    {
+     "beat": "finisher + CTA",
+     "pct": 15
+    }
+   ],
+   "loudness": {
+    "platform": "TikTok / Reels / Shorts",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.85,
+    "right": 0.88
+   },
+   "max_overlays": 2,
+   "deliverables": [
+    "9:16 1080x1920 H.264 master",
+    "4:5 1080x1350 feed version",
+    "captions burned-in",
+    "clean (no captions) version",
+    "cover frame / thumbnail still"
+   ],
+   "qc": [
+    "form clearly visible",
+    "timers / rep counts correct",
+    "right vs wrong form split screen"
+   ],
+   "client_judges": [
+    "clear form",
+    "timer accuracy",
+    "energy"
+   ],
+   "styles": [
+    "countdown-list",
+    "bold-bounce",
+    "data-story"
+   ],
+   "label": "Fitness / workout (rep counters, timers, form callouts)"
+  },
+  "fashion": {
+   "family": "montage",
+   "aspect": "9:16",
+   "alt_aspects": [
+    "4:5",
+    "16:9"
+   ],
+   "duration_s": [
+    15,
+    60
+   ],
+   "autocut": {
+    "enabled": false,
+    "max_gap": 1.5,
+    "breath": 0.15,
+    "pad": 0.1,
+    "fillers": "off",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 40,
+    "jcut_frames": 0
+   },
+   "cut_point": "beat",
+   "asl_s": [
+    0.8,
+    2.0
+   ],
+   "interrupt_s": 4.0,
+   "captions": {
+    "style": "none (titles only)",
+    "mode": "none",
+    "max_words": 0,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "lead",
+    "bed_db": 0,
+    "duck": false,
+    "duck_db": 0
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 4
+   },
+   "transitions": {
+    "default": "cut on beat",
+    "allowed": [
+     "cut",
+     "match-cut",
+     "whip",
+     "speed-ramp",
+     "dissolve",
+     "dip-to-black"
+    ]
+   },
+   "hook": {
+    "within_s": 3.0,
+    "max_words": 5,
+    "rules": [
+     "strongest image first",
+     "first cut on the first downbeat"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "look 1",
+     "pct": 25
+    },
+    {
+     "beat": "look 2",
+     "pct": 25
+    },
+    {
+     "beat": "look 3",
+     "pct": 25
+    },
+    {
+     "beat": "hero look + tag",
+     "pct": 25
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube / Vimeo",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "pastel",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.85,
+    "right": 0.88
+   },
+   "max_overlays": 1,
+   "deliverables": [
+    "16:9 master",
+    "9:16 teaser"
+   ],
+   "qc": [
+    "true garment colour (returns)",
+    "skin tones natural",
+    "product tags readable"
+   ],
+   "client_judges": [
+    "garment colour accuracy",
+    "rhythm"
+   ],
+   "styles": [
+    "y2k-chrome",
+    "swiss-poster",
+    "soft-gradient"
+   ],
+   "label": "Fashion / lookbook (beat cuts, outfit-change transitions)"
+  },
+  "event-recap": {
+   "family": "montage",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16"
+   ],
+   "duration_s": [
+    60,
+    180
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.5,
+    "breath": 0.15,
+    "pad": 0.1,
+    "fillers": "remove",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 40,
+    "jcut_frames": 0
+   },
+   "cut_point": "beat",
+   "asl_s": [
+    1.0,
+    3.0
+   ],
+   "interrupt_s": 4.0,
+   "captions": {
+    "style": "none (titles only)",
+    "mode": "none",
+    "max_words": 0,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "lead",
+    "bed_db": -12,
+    "duck": true,
+    "duck_db": -8
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 4
+   },
+   "transitions": {
+    "default": "cut on beat",
+    "allowed": [
+     "cut",
+     "match-cut",
+     "whip",
+     "speed-ramp",
+     "dissolve",
+     "dip-to-black"
+    ]
+   },
+   "hook": {
+    "within_s": 3.0,
+    "max_words": 5,
+    "rules": [
+     "strongest image first",
+     "first cut on the first downbeat"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "energy open",
+     "pct": 15
+    },
+    {
+     "beat": "arrival / venue",
+     "pct": 15
+    },
+    {
+     "beat": "speakers + soundbites",
+     "pct": 35
+    },
+    {
+     "beat": "crowd / moments",
+     "pct": 20
+    },
+    {
+     "beat": "logo + next date",
+     "pct": 15
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube / Vimeo",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 1,
+   "deliverables": [
+    "16:9 recap",
+    "9:16 recap",
+    "speaker clips"
+   ],
+   "qc": [
+    "sponsors / logos per contract",
+    "speaker names spelled right"
+   ],
+   "client_judges": [
+    "energy",
+    "sponsors visible",
+    "it looks well attended"
+   ],
+   "styles": [
+    "event-promo",
+    "chaos-stack"
+   ],
+   "label": "Event / conference recap (energy, speakers, crowd)"
+  },
+  "memorial-tribute": {
+   "family": "montage",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16"
+   ],
+   "duration_s": [
+    180,
+    600
+   ],
+   "autocut": {
+    "enabled": false,
+    "max_gap": 1.5,
+    "breath": 0.15,
+    "pad": 0.1,
+    "fillers": "off",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 40,
+    "jcut_frames": 0
+   },
+   "cut_point": "beat",
+   "asl_s": [
+    4.0,
+    7.0
+   ],
+   "interrupt_s": 7.0,
+   "captions": {
+    "style": "none (titles only)",
+    "mode": "none",
+    "max_words": 0,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "gentle lead",
+    "bed_db": -6,
+    "duck": true,
+    "duck_db": 0
+   },
+   "sfx": {
+    "density": "none",
+    "per_min": 0
+   },
+   "transitions": {
+    "default": "dissolve",
+    "allowed": [
+     "dissolve",
+     "dip-to-black",
+     "cut"
+    ]
+   },
+   "hook": {
+    "within_s": 3.0,
+    "max_words": 5,
+    "rules": [
+     "strongest image first",
+     "first cut on the first downbeat"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "opening portrait + name",
+     "pct": 8
+    },
+    {
+     "beat": "childhood",
+     "pct": 20
+    },
+    {
+     "beat": "young adult",
+     "pct": 20
+    },
+    {
+     "beat": "family",
+     "pct": 25
+    },
+    {
+     "beat": "later years",
+     "pct": 17
+    },
+    {
+     "beat": "closing portrait + dates",
+     "pct": 10
+    }
+   ],
+   "loudness": {
+    "platform": "venue playback",
+    "lufs": -16,
+    "true_peak": -1
+   },
+   "grade": "vintage",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 1,
+   "deliverables": [
+    "16:9 master",
+    "9:16 teaser"
+   ],
+   "qc": [
+    "names and dates triple-checked",
+    "family-approved order",
+    "no glitches (one chance)",
+    "slow Ken Burns, never on faces' edges"
+   ],
+   "client_judges": [
+    "dignity",
+    "accuracy",
+    "everyone included"
+   ],
+   "styles": [
+    "paper-cut",
+    "soft-gradient",
+    "minimal-mono"
+   ],
+   "label": "Memorial / tribute (photo-led, chronological life arc)"
+  },
+  "kids": {
+   "family": "short-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16"
+   ],
+   "duration_s": [
+    120,
+    600
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.3,
+    "breath": 0.1,
+    "pad": 0.06,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 0,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    2.0,
+    4.0
+   ],
+   "interrupt_s": 3.0,
+   "captions": {
+    "style": "big sing-along words",
+    "mode": "reveal",
+    "max_words": 4,
+    "cps": 12,
+    "uppercase": true
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -24,
+    "duck": true,
+    "duck_db": -8
+   },
+   "sfx": {
+    "density": "high",
+    "per_min": 15
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "flash"
+    ]
+   },
+   "hook": {
+    "within_s": 1.5,
+    "max_words": 7,
+    "rules": [
+     "visual or spoken hook lands by 1.5 s",
+     "no greeting, no 'in this video'",
+     "hook text on screen for muted viewers",
+     "open a loop the payoff closes"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "hello song / hook",
+     "pct": 8
+    },
+    {
+     "beat": "lesson / story",
+     "pct": 70
+    },
+    {
+     "beat": "repeat / sing-along",
+     "pct": 15
+    },
+    {
+     "beat": "goodbye",
+     "pct": 7
+    }
+   ],
+   "loudness": {
+    "platform": "TikTok / Reels / Shorts",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "pastel",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.85,
+    "right": 0.88
+   },
+   "max_overlays": 2,
+   "deliverables": [
+    "9:16 1080x1920 H.264 master",
+    "4:5 1080x1350 feed version",
+    "captions burned-in",
+    "clean (no captions) version",
+    "cover frame / thumbnail still"
+   ],
+   "qc": [
+    "COPPA 'made for kids' set",
+    "no scary flashes",
+    "safe, age-appropriate",
+    "simple cuts"
+   ],
+   "client_judges": [
+    "safety",
+    "age-appropriateness",
+    "kids stay watching"
+   ],
+   "styles": [
+    "sticker-pop",
+    "bold-bounce",
+    "comic-panel"
+   ],
+   "label": "Kids content (bright, simple, repetitive, sing-along)"
+  },
+  "asmr": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    600,
+    3600
+   ],
+   "autocut": {
+    "enabled": false,
+    "max_gap": 5.0,
+    "breath": 0.12,
+    "pad": 0.08,
+    "fillers": "off",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 60,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    15.0,
+    60.0
+   ],
+   "interrupt_s": 60.0,
+   "captions": {
+    "style": "none",
+    "mode": "none",
+    "max_words": 0,
+    "cps": 20,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "none",
+    "bed_db": -60,
+    "duck": false,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "none",
+    "per_min": 0
+   },
+   "transitions": {
+    "default": "slow dissolve",
+    "allowed": [
+     "cut",
+     "dissolve"
+    ]
+   },
+   "hook": {
+    "within_s": 20,
+    "max_words": 6,
+    "rules": [
+     "first trigger within 20 s",
+     "no loud intro"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "settle in",
+     "pct": 10
+    },
+    {
+     "beat": "triggers",
+     "pct": 80
+    },
+    {
+     "beat": "wind down",
+     "pct": 10
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube (quiet master)",
+    "lufs": -20,
+    "true_peak": -3
+   },
+   "grade": "faded",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "16:9 1920x1080 or 3840x2160 master",
+    "3 thumbnail stills",
+    "chapters list",
+    "SRT captions",
+    "2-5 Shorts cutdowns"
+   ],
+   "qc": [
+    "no music",
+    "no heavy noise reduction (kills triggers)",
+    "stereo/binaural intact",
+    "no hard cuts in audio"
+   ],
+   "client_judges": [
+    "audio fidelity",
+    "calm pace"
+   ],
+   "styles": [
+    "loop-ambient",
+    "minimal-mono"
+   ],
+   "label": "ASMR (long takes, no music, pristine audio)"
+  },
+  "ugc-ad": {
+   "family": "short-form",
+   "aspect": "9:16",
+   "alt_aspects": [
+    "4:5",
+    "1:1"
+   ],
+   "duration_s": [
+    15,
+    45
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.25,
+    "breath": 0.08,
+    "pad": 0.06,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 0,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    1.0,
+    2.5
+   ],
+   "interrupt_s": 2.0,
+   "captions": {
+    "style": "word-pop, 1-3 words, centre-low, key words in accent",
+    "mode": "reveal",
+    "max_words": 3,
+    "cps": 17,
+    "uppercase": true
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -22,
+    "duck": true,
+    "duck_db": -8
+   },
+   "sfx": {
+    "density": "medium",
+    "per_min": 12
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "flash"
+    ]
+   },
+   "hook": {
+    "within_s": 1.0,
+    "max_words": 6,
+    "rules": [
+     "3-5 alternative hooks per body",
+     "native selfie framing",
+     "problem in the first line"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "hook",
+     "pct": 10
+    },
+    {
+     "beat": "problem",
+     "pct": 15
+    },
+    {
+     "beat": "product demo",
+     "pct": 40
+    },
+    {
+     "beat": "social proof",
+     "pct": 20
+    },
+    {
+     "beat": "offer + CTA",
+     "pct": 15
+    }
+   ],
+   "loudness": {
+    "platform": "TikTok / Reels / Shorts",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.85,
+    "right": 0.88
+   },
+   "max_overlays": 2,
+   "deliverables": [
+    "hooks x bodies x CTAs matrix",
+    "9:16 / 4:5 / 1:1",
+    "captioned + clean",
+    "raw version for Spark / Partnership ads"
+   ],
+   "qc": [
+    "real customer / creator words (no fake testimonials)",
+    "disclosure where required",
+    "offer text inside safe zone"
+   ],
+   "client_judges": [
+    "CPA",
+    "thumb-stop rate",
+    "looks native, not like an ad"
+   ],
+   "styles": [
+    "ugc-ad-kit",
+    "split-proof",
+    "before-after"
+   ],
+   "label": "UGC ad (hook variants x body x CTA, native look)"
+  },
+  "faceless-explainer": {
+   "family": "short-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16"
+   ],
+   "duration_s": [
+    60,
+    900
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.35,
+    "breath": 0.1,
+    "pad": 0.06,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 0,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    2.0,
+    4.0
+   ],
+   "interrupt_s": 3.0,
+   "captions": {
+    "style": "heavy word captions",
+    "mode": "reveal",
+    "max_words": 4,
+    "cps": 17,
+    "uppercase": true
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -24,
+    "duck": true,
+    "duck_db": -8
+   },
+   "sfx": {
+    "density": "medium",
+    "per_min": 12
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "flash"
+    ]
+   },
+   "hook": {
+    "within_s": 1.5,
+    "max_words": 7,
+    "rules": [
+     "visual or spoken hook lands by 1.5 s",
+     "no greeting, no 'in this video'",
+     "hook text on screen for muted viewers",
+     "open a loop the payoff closes"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "hook",
+     "pct": 8
+    },
+    {
+     "beat": "setup",
+     "pct": 12
+    },
+    {
+     "beat": "point 1",
+     "pct": 22
+    },
+    {
+     "beat": "point 2",
+     "pct": 22
+    },
+    {
+     "beat": "point 3",
+     "pct": 22
+    },
+    {
+     "beat": "payoff + CTA",
+     "pct": 14
+    }
+   ],
+   "loudness": {
+    "platform": "TikTok / Reels / Shorts",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.85,
+    "right": 0.88
+   },
+   "max_overlays": 2,
+   "deliverables": [
+    "9:16 1080x1920 H.264 master",
+    "4:5 1080x1350 feed version",
+    "captions burned-in",
+    "clean (no captions) version",
+    "cover frame / thumbnail still"
+   ],
+   "qc": [
+    "B-roll changes every sentence",
+    "voice not robotic",
+    "original commentary (platform 'inauthentic content' rules)"
+   ],
+   "client_judges": [
+    "cut density",
+    "voice quality",
+    "originality"
+   ],
+   "styles": [
+    "data-story",
+    "swiss-poster",
+    "countdown-list"
+   ],
+   "label": "Faceless explainer (VO/TTS + B-roll per sentence, heavy captions)"
+  },
+  "retention-reel": {
+   "family": "short-form",
+   "aspect": "9:16",
+   "alt_aspects": [
+    "4:5",
+    "1:1"
+   ],
+   "duration_s": [
+    15,
+    60
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.3,
+    "breath": 0.1,
+    "pad": 0.06,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 0,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    1.5,
+    3.0
+   ],
+   "interrupt_s": 2.5,
+   "captions": {
+    "style": "word-pop, 1-3 words, centre-low, key words in accent",
+    "mode": "reveal",
+    "max_words": 3,
+    "cps": 17,
+    "uppercase": true
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -24,
+    "duck": true,
+    "duck_db": -8
+   },
+   "sfx": {
+    "density": "medium",
+    "per_min": 12
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "flash"
+    ]
+   },
+   "hook": {
+    "within_s": 1.5,
+    "max_words": 7,
+    "rules": [
+     "visual or spoken hook lands by 1.5 s",
+     "no greeting, no 'in this video'",
+     "hook text on screen for muted viewers",
+     "open a loop the payoff closes",
+     "last line or frame loops back into the first"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "hook",
+     "pct": 6
+    },
+    {
+     "beat": "open loop / setup",
+     "pct": 12
+    },
+    {
+     "beat": "value beats",
+     "pct": 58
+    },
+    {
+     "beat": "payoff",
+     "pct": 16
+    },
+    {
+     "beat": "loop-back / cta",
+     "pct": 8
+    }
+   ],
+   "loudness": {
+    "platform": "TikTok / Reels / Shorts",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.85,
+    "right": 0.88
+   },
+   "max_overlays": 2,
+   "deliverables": [
+    "9:16 1080x1920 burned-in captions",
+    "9:16 clean (no captions) version",
+    "captions.srt",
+    "4:5 feed version",
+    "cover frame"
+   ],
+   "qc": [
+    "hook by 1.5 s",
+    "no dead air at start (<0.3 s)",
+    "captions inside safe zone",
+    "<=2 overlays at once",
+    "-14 LUFS, -1 dBTP",
+    "loops cleanly or ends on CTA"
+   ],
+   "client_judges": [
+    "3-second hold rate",
+    "watch-through %",
+    "shares and saves",
+    "does it look native to the platform"
+   ],
+   "styles": [
+    "halo-cut",
+    "hook-lab",
+    "bold-bounce",
+    "depth-type",
+    "sticker-pop"
+   ],
+   "label": "Retention reel: hook <=1.5 s, open loop, payoff, loop-back ending (talking head 15-60 s)"
+  },
+  "clip-miner-pro": {
+   "family": "short-form",
+   "aspect": "9:16",
+   "alt_aspects": [
+    "4:5",
+    "1:1"
+   ],
+   "duration_s": [
+    30,
+    90
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.35,
+    "breath": 0.1,
+    "pad": 0.06,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 0,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    2.0,
+    4.0
+   ],
+   "interrupt_s": 3.0,
+   "captions": {
+    "style": "word-pop, 1-3 words, centre-low, key words in accent",
+    "mode": "reveal",
+    "max_words": 3,
+    "cps": 17,
+    "uppercase": true
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -24,
+    "duck": true,
+    "duck_db": -8
+   },
+   "sfx": {
+    "density": "medium",
+    "per_min": 12
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "flash"
+    ]
+   },
+   "hook": {
+    "within_s": 1.5,
+    "max_words": 7,
+    "rules": [
+     "clip starts on a hook sentence, never mid-thought",
+     "clip must stand alone without the episode",
+     "CTA back to the full episode"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "hook line (cold open)",
+     "pct": 10
+    },
+    {
+     "beat": "context",
+     "pct": 15
+    },
+    {
+     "beat": "story / argument",
+     "pct": 55
+    },
+    {
+     "beat": "punchline / payoff",
+     "pct": 15
+    },
+    {
+     "beat": "CTA to full episode",
+     "pct": 5
+    }
+   ],
+   "loudness": {
+    "platform": "TikTok / Reels / Shorts",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.85,
+    "right": 0.88
+   },
+   "max_overlays": 2,
+   "deliverables": [
+    "5-15 clips 9:16 1080x1920 with captions",
+    "clean versions",
+    "captions.srt per clip",
+    "hook title per clip",
+    "CTA to full episode"
+   ],
+   "qc": [
+    "hook by 1.5 s",
+    "no dead air at start (<0.3 s)",
+    "captions inside safe zone",
+    "<=2 overlays at once",
+    "-14 LUFS, -1 dBTP",
+    "loops cleanly or ends on CTA"
+   ],
+   "client_judges": [
+    "clip stands alone without context",
+    "hook in the first line",
+    "captions accurate"
+   ],
+   "styles": [
+    "pod-frame",
+    "clip-miner",
+    "halo-cut"
+   ],
+   "label": "Clip mining v2: best stand-alone moments from a long recording, reframed 9:16"
+  },
+  "ugc-ad-matrix": {
+   "family": "short-form",
+   "aspect": "9:16",
+   "alt_aspects": [
+    "4:5",
+    "1:1"
+   ],
+   "duration_s": [
+    15,
+    45
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.25,
+    "breath": 0.08,
+    "pad": 0.06,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 0,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    1.0,
+    2.5
+   ],
+   "interrupt_s": 2.0,
+   "captions": {
+    "style": "word-pop, 1-3 words, centre-low, key words in accent",
+    "mode": "reveal",
+    "max_words": 3,
+    "cps": 17,
+    "uppercase": true
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -22,
+    "duck": true,
+    "duck_db": -8
+   },
+   "sfx": {
+    "density": "medium",
+    "per_min": 12
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "flash"
+    ]
+   },
+   "hook": {
+    "within_s": 1.0,
+    "max_words": 6,
+    "rules": [
+     "3-5 alternative hooks per body",
+     "native selfie framing",
+     "problem in the first line"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "hook",
+     "pct": 10
+    },
+    {
+     "beat": "problem",
+     "pct": 15
+    },
+    {
+     "beat": "product demo",
+     "pct": 40
+    },
+    {
+     "beat": "social proof",
+     "pct": 20
+    },
+    {
+     "beat": "offer + CTA",
+     "pct": 15
+    }
+   ],
+   "loudness": {
+    "platform": "TikTok / Reels / Shorts",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.85,
+    "right": 0.88
+   },
+   "max_overlays": 2,
+   "deliverables": [
+    "hook variants (3-5) x body x CTA, 9:16",
+    "4:5 and 1:1 versions",
+    "captioned + clean",
+    "raw clean version for Spark / Partnership ads",
+    "disclosure where paid"
+   ],
+   "qc": [
+    "real customer / creator words (no fake testimonials)",
+    "disclosure where required",
+    "offer text inside safe zone"
+   ],
+   "client_judges": [
+    "CPA",
+    "thumb-stop rate",
+    "looks native, not like an ad"
+   ],
+   "styles": [
+    "ugc-ad-kit",
+    "split-proof",
+    "before-after"
+   ],
+   "label": "UGC ad matrix: 3-5 hook variants x one body x CTA, native selfie look"
+  },
+  "reaction-duet": {
+   "family": "short-form",
+   "aspect": "9:16",
+   "alt_aspects": [
+    "4:5",
+    "1:1"
+   ],
+   "duration_s": [
+    15,
+    60
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.35,
+    "breath": 0.1,
+    "pad": 0.06,
+    "fillers": "keep-natural",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 0,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    2.0,
+    4.0
+   ],
+   "interrupt_s": 3.0,
+   "captions": {
+    "style": "word-pop, 1-3 words, centre-low, key words in accent",
+    "mode": "reveal",
+    "max_words": 3,
+    "cps": 17,
+    "uppercase": true
+   },
+   "music": {
+    "policy": "none (source audio ducked under the reactor)",
+    "bed_db": -30,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "medium",
+    "per_min": 12
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "jump",
+     "zoom-punch",
+     "freeze"
+    ]
+   },
+   "hook": {
+    "within_s": 1.5,
+    "max_words": 7,
+    "rules": [
+     "visual or spoken hook lands by 1.5 s",
+     "no greeting, no 'in this video'",
+     "hook text on screen for muted viewers",
+     "open a loop the payoff closes"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "hook: the moment + first reaction",
+     "pct": 10
+    },
+    {
+     "beat": "context of the source",
+     "pct": 10
+    },
+    {
+     "beat": "source + reactions",
+     "pct": 60
+    },
+    {
+     "beat": "verdict / take",
+     "pct": 15
+    },
+    {
+     "beat": "cta",
+     "pct": 5
+    }
+   ],
+   "loudness": {
+    "platform": "TikTok / Reels / Shorts",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.85,
+    "right": 0.88
+   },
+   "max_overlays": 2,
+   "deliverables": [
+    "9:16 1080x1920 (PiP or split)",
+    "captions burned-in",
+    "credit / link to the original on screen"
+   ],
+   "qc": [
+    "source credited on screen",
+    "commentary adds something (fair use)",
+    "source audio ducked under the reactor",
+    "reaction timed to the real moment (no fake reactions)",
+    "-14 LUFS, -1 dBTP"
+   ],
+   "client_judges": [
+    "is the reaction genuine",
+    "does the take add value",
+    "hold rate"
+   ],
+   "styles": [
+    "split-proof",
+    "bold-bounce",
+    "halo-cut"
+   ],
+   "label": "Reaction / duet / stitch: source clip + facecam (PiP, split, stitch), source ducked"
+  },
+  "tutorial-screen": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    300,
+    900
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.45,
+    "breath": 0.12,
+    "pad": 0.08,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 20,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    4.0,
+    8.0
+   ],
+   "interrupt_s": 6.0,
+   "captions": {
+    "style": "two-line subtitle, sentence case, lower third",
+    "mode": "karaoke",
+    "max_words": 7,
+    "cps": 20,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -26,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 4
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "j-cut",
+     "l-cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "dissolve (scene change only)"
+    ]
+   },
+   "hook": {
+    "within_s": 10,
+    "max_words": 8,
+    "rules": [
+     "show the finished result first",
+     "state who it is for and what they will be able to do"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "result preview",
+     "pct": 5
+    },
+    {
+     "beat": "promise + prerequisites",
+     "pct": 8
+    },
+    {
+     "beat": "steps",
+     "pct": 72
+    },
+    {
+     "beat": "recap",
+     "pct": 10
+    },
+    {
+     "beat": "next video / CTA",
+     "pct": 5
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "16:9 1920x1080 or 3840x2160 master",
+    "3 thumbnail stills",
+    "chapters list",
+    "SRT captions",
+    "2-5 Shorts cutdowns"
+   ],
+   "qc": [
+    "every step visible without pausing",
+    "cursor zoom on small UI",
+    "waiting / typing cut out",
+    "keyboard shortcuts shown on screen",
+    "-14 LUFS"
+   ],
+   "client_judges": [
+    "can a viewer follow every step",
+    "no dead time",
+    "readable UI text"
+   ],
+   "styles": [
+    "tutorial-steps",
+    "terminal-tech",
+    "highlighter-study"
+   ],
+   "label": "Screen tutorial: promise, prerequisites, numbered steps, recap; cut the waiting, zoom to the cursor"
+  },
+  "product-review": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    240,
+    900
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.45,
+    "breath": 0.12,
+    "pad": 0.08,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 20,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    3.0,
+    6.0
+   ],
+   "interrupt_s": 5.0,
+   "captions": {
+    "style": "two-line subtitle, sentence case, lower third",
+    "mode": "karaoke",
+    "max_words": 7,
+    "cps": 20,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -26,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 4
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "j-cut",
+     "l-cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "dissolve (scene change only)"
+    ]
+   },
+   "hook": {
+    "within_s": 10,
+    "max_words": 10,
+    "rules": [
+     "tease the verdict in the first 10 s",
+     "sponsorship / free-sample disclosure before the review starts",
+     "no fake scores"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "verdict tease",
+     "pct": 5
+    },
+    {
+     "beat": "what it is / price",
+     "pct": 8
+    },
+    {
+     "beat": "specs",
+     "pct": 12
+    },
+    {
+     "beat": "hands-on + macro B-roll",
+     "pct": 35
+    },
+    {
+     "beat": "pros",
+     "pct": 12
+    },
+    {
+     "beat": "cons",
+     "pct": 12
+    },
+    {
+     "beat": "verdict + score",
+     "pct": 12
+    },
+    {
+     "beat": "end screen",
+     "pct": 4
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "16:9 master",
+    "9:16 verdict cutdown",
+    "chapters",
+    "thumbnail stills",
+    "disclosure card"
+   ],
+   "qc": [
+    "disclosure visible (FTC / ASCI) when sponsored or gifted",
+    "specs and prices correct and dated",
+    "B-roll matches the product spoken about",
+    "-14 LUFS, -1 dBTP"
+   ],
+   "client_judges": [
+    "trust",
+    "clear verdict",
+    "clean product B-roll",
+    "readable spec graphics"
+   ],
+   "styles": [
+    "product-spotlight",
+    "data-story",
+    "split-proof"
+   ],
+   "label": "Product review: verdict tease, specs, macro B-roll, pros/cons, score, disclosure"
+  },
+  "longform-retention": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    480,
+    1200
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.45,
+    "breath": 0.12,
+    "pad": 0.08,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 20,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    3.0,
+    6.0
+   ],
+   "interrupt_s": 5.0,
+   "captions": {
+    "style": "two-line subtitle, sentence case, lower third",
+    "mode": "karaoke",
+    "max_words": 7,
+    "cps": 20,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -26,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 4
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "j-cut",
+     "l-cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "dissolve (scene change only)"
+    ]
+   },
+   "hook": {
+    "within_s": 15,
+    "max_words": 10,
+    "rules": [
+     "pay off the title/thumbnail promise in the first 60 s",
+     "cold open on the best moment",
+     "no long intro or channel bumper before the hook"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "cold-open hook",
+     "pct": 5
+    },
+    {
+     "beat": "promise / context",
+     "pct": 7
+    },
+    {
+     "beat": "act 1",
+     "pct": 23
+    },
+    {
+     "beat": "re-engagement",
+     "pct": 3
+    },
+    {
+     "beat": "act 2",
+     "pct": 25
+    },
+    {
+     "beat": "re-engagement",
+     "pct": 3
+    },
+    {
+     "beat": "act 3 / escalation",
+     "pct": 19
+    },
+    {
+     "beat": "payoff",
+     "pct": 12
+    },
+    {
+     "beat": "outro + end screen",
+     "pct": 3
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "16:9 1920x1080 or 3840x2160 master",
+    "3 thumbnail stills",
+    "chapters list",
+    "SRT captions",
+    "2-5 Shorts cutdowns"
+   ],
+   "qc": [
+    "promise delivered before 1:00",
+    "re-engagement beat every ~3 min",
+    "no end signal before the payoff",
+    "-14 LUFS, -1 dBTP",
+    "end screen last 5-20 s"
+   ],
+   "client_judges": [
+    "average view duration / % viewed",
+    "retention graph dips",
+    "CTR (with thumbnail)",
+    "personality comes through"
+   ],
+   "styles": [
+    "chapter-pro",
+    "essay-mode",
+    "news-desk"
+   ],
+   "label": "Long-form retention edit (MrBeast-memo structure: minute-1 promise, 3/6-min re-engagements, abrupt end after payoff)"
+  },
+  "podcast-episode": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    1800,
+    7200
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.9,
+    "breath": 0.15,
+    "pad": 0.08,
+    "fillers": "keep-natural",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 30,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    4.0,
+    12.0
+   ],
+   "interrupt_s": 12.0,
+   "captions": {
+    "style": "optional lower subtitles",
+    "mode": "karaoke",
+    "max_words": 8,
+    "cps": 20,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "intro/outro only",
+    "bed_db": -30,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "none",
+    "per_min": 0
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "j-cut",
+     "l-cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "dissolve (scene change only)"
+    ]
+   },
+   "hook": {
+    "within_s": 30,
+    "max_words": 10,
+    "rules": [
+     "30-60 s cold-open teaser of the best moment",
+     "then intro"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "cold-open teaser",
+     "pct": 2
+    },
+    {
+     "beat": "intro",
+     "pct": 2
+    },
+    {
+     "beat": "conversation",
+     "pct": 92
+    },
+    {
+     "beat": "outro + CTA",
+     "pct": 4
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube -14 / audio feeds -16",
+    "lufs": -16,
+    "true_peak": -1
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "16:9 full episode",
+    "audio-only MP3/WAV",
+    "5-15 vertical clips",
+    "chapters",
+    "show notes",
+    "thumbnail"
+   ],
+   "qc": [
+    "cut on the active speaker, wide reset every 30-60 s",
+    "light filler removal only",
+    "no crosstalk cut mid-word",
+    "-16 LUFS audio feed"
+   ],
+   "client_judges": [
+    "audio quality",
+    "guest looks good",
+    "clip quality"
+   ],
+   "styles": [
+    "pod-frame",
+    "dual-subs",
+    "minimal-mono"
+   ],
+   "label": "Podcast episode: active-speaker multicam, wide resets, light filler removal, -16 LUFS audio"
+  },
+  "scene-editor": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    60,
+    1800
+   ],
+   "autocut": {
+    "enabled": false,
+    "max_gap": 1.5,
+    "breath": 0.15,
+    "pad": 0.1,
+    "fillers": "off",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 30,
+    "jcut_frames": 6
+   },
+   "cut_point": "thought-end / blink / on action",
+   "asl_s": [
+    3.0,
+    8.0
+   ],
+   "interrupt_s": 10.0,
+   "captions": {
+    "style": "none (subtitles only for foreign dialogue / deliverable SRT)",
+    "mode": "none",
+    "max_words": 0,
+    "cps": 17,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "score under scenes",
+    "bed_db": -24,
+    "duck": true,
+    "duck_db": -8
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 3
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "j-cut",
+     "l-cut",
+     "match cut",
+     "dissolve (time passing)",
+     "dip-to-black (act break)"
+    ]
+   },
+   "hook": {
+    "within_s": 30,
+    "max_words": 0,
+    "rules": [
+     "enter the scene late, leave early",
+     "best performance over cleanest take"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "establish",
+     "pct": 10
+    },
+    {
+     "beat": "scene build",
+     "pct": 60
+    },
+    {
+     "beat": "turn / climax",
+     "pct": 20
+    },
+    {
+     "beat": "button / exit",
+     "pct": 10
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "kodak-2383",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 1,
+   "deliverables": [
+    "cut (picture lock)",
+    "EDL / FCPXML / OTIO turnover",
+    "reference export"
+   ],
+   "qc": [
+    "180-degree line kept",
+    ">=30 degrees or >=1.2x between shots of the same subject",
+    "eyelines match",
+    "reactions are story choices",
+    "no unintended jump cuts"
+   ],
+   "client_judges": [
+    "performance choices",
+    "invisible cutting",
+    "rhythm of the scene"
+   ],
+   "styles": [
+    "minimal-mono",
+    "doc-real",
+    "cinematic-phone"
+   ],
+   "label": "Narrative scene editing from coverage (line strings, L-cut reactions, 180/30-degree checks)"
+  },
+  "short-film-finisher": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    120,
+    2400
+   ],
+   "autocut": {
+    "enabled": false,
+    "max_gap": 1.5,
+    "breath": 0.15,
+    "pad": 0.1,
+    "fillers": "off",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 30,
+    "jcut_frames": 6
+   },
+   "cut_point": "thought-end / blink / on action",
+   "asl_s": [
+    3.0,
+    8.0
+   ],
+   "interrupt_s": 10.0,
+   "captions": {
+    "style": "none (subtitles only for foreign dialogue / deliverable SRT)",
+    "mode": "none",
+    "max_words": 0,
+    "cps": 17,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "score under scenes",
+    "bed_db": -24,
+    "duck": true,
+    "duck_db": -8
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 3
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "j-cut",
+     "l-cut",
+     "match cut",
+     "dissolve (time passing)",
+     "dip-to-black (act break)"
+    ]
+   },
+   "hook": {
+    "within_s": 30,
+    "max_words": 0,
+    "rules": [
+     "enter the scene late, leave early",
+     "best performance over cleanest take"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "opening titles / cold open",
+     "pct": 5
+    },
+    {
+     "beat": "act 1",
+     "pct": 25
+    },
+    {
+     "beat": "act 2",
+     "pct": 45
+    },
+    {
+     "beat": "act 3",
+     "pct": 20
+    },
+    {
+     "beat": "end credits",
+     "pct": 5
+    }
+   ],
+   "loudness": {
+    "platform": "festival / web master (cinema proxy -27, web -14)",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "kodak-2383",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 1,
+   "deliverables": [
+    "ProRes 422 HQ master",
+    "H.264 web master",
+    "dialogue / music / effects stems",
+    "M&E",
+    "textless master",
+    "subtitles SRT",
+    "EDL / FCPXML / OTIO"
+   ],
+   "qc": [
+    "picture locked before colour and mix",
+    "per-shot colour match",
+    "no clipped audio, room tone under every edit",
+    "credits spelled correctly",
+    "legal levels"
+   ],
+   "client_judges": [
+    "looks and sounds finished",
+    "festival spec met",
+    "stems complete"
+   ],
+   "styles": [
+    "minimal-mono",
+    "doc-real",
+    "cinematic-phone"
+   ],
+   "label": "Short-film finishing after lock: per-shot colour, DX/MX/FX mix, stems, masters, textless"
+  },
+  "trailer-teaser": {
+   "family": "montage",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16"
+   ],
+   "duration_s": [
+    90,
+    150
+   ],
+   "autocut": {
+    "enabled": false,
+    "max_gap": 1.5,
+    "breath": 0.15,
+    "pad": 0.1,
+    "fillers": "off",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 40,
+    "jcut_frames": 0
+   },
+   "cut_point": "beat",
+   "asl_s": [
+    1.0,
+    3.0
+   ],
+   "interrupt_s": 4.0,
+   "captions": {
+    "style": "none (titles only)",
+    "mode": "none",
+    "max_words": 0,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "lead with risers, hits, silence before the drop",
+    "bed_db": -6,
+    "duck": true,
+    "duck_db": -6
+   },
+   "sfx": {
+    "density": "high",
+    "per_min": 25
+   },
+   "transitions": {
+    "default": "cut on beat",
+    "allowed": [
+     "cut",
+     "smash-cut",
+     "dip-to-black",
+     "flash",
+     "title card"
+    ]
+   },
+   "hook": {
+    "within_s": 3.0,
+    "max_words": 5,
+    "rules": [
+     "strongest image first",
+     "first cut on the first downbeat"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "cold open / world",
+     "pct": 15
+    },
+    {
+     "beat": "act 1 setup",
+     "pct": 20
+    },
+    {
+     "beat": "act 2 conflict",
+     "pct": 30
+    },
+    {
+     "beat": "act 3 montage peak",
+     "pct": 20
+    },
+    {
+     "beat": "title card",
+     "pct": 7
+    },
+    {
+     "beat": "button",
+     "pct": 5
+    },
+    {
+     "beat": "billing / date",
+     "pct": 3
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube / Vimeo",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "teal-orange",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 1,
+   "deliverables": [
+    "teaser 30-60 s 16:9",
+    "trailer 90-150 s 16:9",
+    "9:16 teaser",
+    "textless version",
+    "stems"
+   ],
+   "qc": [
+    "cards readable (>=1.5 s)",
+    "dialogue lines audible over music",
+    "button after the title",
+    "no spoilers of the ending"
+   ],
+   "client_judges": [
+    "what it hides",
+    "goosebump moment",
+    "title lands"
+   ],
+   "styles": [
+    "kinetic-launch",
+    "event-promo"
+   ],
+   "label": "Trailer / teaser: three acts, copy cards, risers to hits, silence before the drop, button after the title"
+  },
+  "lyric-video": {
+   "family": "montage",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16"
+   ],
+   "duration_s": [
+    150,
+    300
+   ],
+   "autocut": {
+    "enabled": false,
+    "max_gap": 1.5,
+    "breath": 0.15,
+    "pad": 0.1,
+    "fillers": "off",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 40,
+    "jcut_frames": 0
+   },
+   "cut_point": "beat / downbeat / phrase change",
+   "asl_s": [
+    1.0,
+    3.0
+   ],
+   "interrupt_s": 4.0,
+   "captions": {
+    "style": "line-timed lyrics, karaoke fill, next line dimmed",
+    "mode": "karaoke",
+    "max_words": 6,
+    "cps": 20,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "lead",
+    "bed_db": 0,
+    "duck": false,
+    "duck_db": 0
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 4
+   },
+   "transitions": {
+    "default": "cut on beat",
+    "allowed": [
+     "cut",
+     "match-cut",
+     "whip",
+     "speed-ramp",
+     "dissolve",
+     "dip-to-black"
+    ]
+   },
+   "hook": {
+    "within_s": 3,
+    "max_words": 6,
+    "rules": [
+     "first lyric on screen as it is sung",
+     "lyrics spelled as the artist writes them"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "intro / title",
+     "pct": 6
+    },
+    {
+     "beat": "verse 1",
+     "pct": 20
+    },
+    {
+     "beat": "chorus",
+     "pct": 16
+    },
+    {
+     "beat": "verse 2",
+     "pct": 20
+    },
+    {
+     "beat": "chorus",
+     "pct": 16
+    },
+    {
+     "beat": "bridge",
+     "pct": 10
+    },
+    {
+     "beat": "final chorus + outro",
+     "pct": 12
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube (keep the master's loudness)",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "neon",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 2,
+   "deliverables": [
+    "16:9 lyric video",
+    "9:16 chorus hook clip",
+    "lyrics .srt / .lrc"
+   ],
+   "qc": [
+    "every line on screen while sung (+-0.1 s)",
+    "lyrics approved by the artist",
+    "readable over the background",
+    "licensed audio"
+   ],
+   "client_judges": [
+    "sync",
+    "readability",
+    "matches the artist's look"
+   ],
+   "styles": [
+    "neon-orbit",
+    "paper-cut",
+    "swiss-poster"
+   ],
+   "label": "Lyric video: line-timed lyrics with karaoke fill on a music track"
+  },
+  "micro-drama": {
+   "family": "short-form",
+   "aspect": "9:16",
+   "alt_aspects": [
+    "4:5",
+    "1:1"
+   ],
+   "duration_s": [
+    60,
+    120
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.6,
+    "breath": 0.1,
+    "pad": 0.06,
+    "fillers": "off",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 0,
+    "jcut_frames": 6
+   },
+   "cut_point": "thought-end / reaction",
+   "asl_s": [
+    1.5,
+    3.5
+   ],
+   "interrupt_s": 3.0,
+   "captions": {
+    "style": "clean sentence-case dialogue subtitles",
+    "mode": "karaoke",
+    "max_words": 6,
+    "cps": 17,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "tension score",
+    "bed_db": -22,
+    "duck": true,
+    "duck_db": -8
+   },
+   "sfx": {
+    "density": "medium",
+    "per_min": 8
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "j-cut",
+     "l-cut",
+     "smash cut",
+     "flash"
+    ]
+   },
+   "hook": {
+    "within_s": 3,
+    "max_words": 7,
+    "rules": [
+     "recap or conflict in the first 3 s",
+     "cliffhanger in the last 3 s",
+     "one turn per episode"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "recap / cold conflict",
+     "pct": 10
+    },
+    {
+     "beat": "escalation",
+     "pct": 45
+    },
+    {
+     "beat": "turn",
+     "pct": 30
+    },
+    {
+     "beat": "cliffhanger",
+     "pct": 15
+    }
+   ],
+   "loudness": {
+    "platform": "TikTok / Reels / Shorts",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "fuji-eterna",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.85,
+    "right": 0.88
+   },
+   "max_overlays": 2,
+   "deliverables": [
+    "9:16 episode set (numbered)",
+    "episode titles card",
+    "captions.srt per episode",
+    "trailer cut"
+   ],
+   "qc": [
+    "cliffhanger lands in the last 3 s",
+    "continuity across episodes (costume, props, time of day)",
+    "episode numbering correct",
+    "-14 LUFS"
+   ],
+   "client_judges": [
+    "binge-ability",
+    "cliffhanger strength",
+    "acting holds up vertically"
+   ],
+   "styles": [
+    "cinematic-phone",
+    "minimal-mono",
+    "doc-real"
+   ],
+   "label": "Vertical micro-drama episodes (60-120 s, recap open, cliffhanger close)"
+  },
+  "interview-doc": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    600,
+    5400
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.9,
+    "breath": 0.15,
+    "pad": 0.1,
+    "fillers": "keep-natural",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 30,
+    "jcut_frames": 4
+   },
+   "cut_point": "thought-end / breath",
+   "asl_s": [
+    5.0,
+    15.0
+   ],
+   "interrupt_s": 10.0,
+   "captions": {
+    "style": "subtitle, sentence case",
+    "mode": "karaoke",
+    "max_words": 8,
+    "cps": 17,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -28,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "none",
+    "per_min": 0
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "j-cut",
+     "l-cut",
+     "dissolve",
+     "dip-to-black"
+    ]
+   },
+   "hook": {
+    "within_s": 30,
+    "max_words": 10,
+    "rules": [
+     "open on a question or the most human moment",
+     "no Frankenbites in the hook"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "cold open",
+     "pct": 5
+    },
+    {
+     "beat": "world / character",
+     "pct": 15
+    },
+    {
+     "beat": "inciting question",
+     "pct": 10
+    },
+    {
+     "beat": "development",
+     "pct": 40
+    },
+    {
+     "beat": "climax",
+     "pct": 15
+    },
+    {
+     "beat": "resolution",
+     "pct": 15
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "film",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "master",
+    "textless version",
+    "M&E / stems",
+    "captions",
+    "music cue sheet",
+    "clearances log"
+   ],
+   "qc": [
+    "every interview jump cut covered (B-roll / second angle / >=1.2x punch-in)",
+    "room tone under every audio edit",
+    "no constructed quotes",
+    "names and titles correct"
+   ],
+   "client_judges": [
+    "story",
+    "truthfulness",
+    "emotional arc"
+   ],
+   "styles": [
+    "doc-real",
+    "essay-mode"
+   ],
+   "label": "Interview documentary: paper edit, radio edit, B-roll cover, constructed-quote guard"
+  },
+  "vox-pop": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    45,
+    240
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.5,
+    "breath": 0.15,
+    "pad": 0.1,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 30,
+    "jcut_frames": 4
+   },
+   "cut_point": "thought-end / breath",
+   "asl_s": [
+    2.0,
+    5.0
+   ],
+   "interrupt_s": 5.0,
+   "captions": {
+    "style": "subtitle, sentence case + name/location supers",
+    "mode": "karaoke",
+    "max_words": 7,
+    "cps": 17,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "light bed",
+    "bed_db": -26,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 3
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "j-cut",
+     "l-cut",
+     "dissolve",
+     "dip-to-black"
+    ]
+   },
+   "hook": {
+    "within_s": 3,
+    "max_words": 8,
+    "rules": [
+     "the question on screen first",
+     "strongest answer first"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "question card",
+     "pct": 6
+    },
+    {
+     "beat": "answers group A",
+     "pct": 30
+    },
+    {
+     "beat": "answers group B",
+     "pct": 30
+    },
+    {
+     "beat": "surprise / outlier",
+     "pct": 20
+    },
+    {
+     "beat": "closing answer",
+     "pct": 14
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "film",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "16:9 master",
+    "9:16 cutdown",
+    "captions.srt",
+    "release forms log"
+   ],
+   "qc": [
+    "every answer is to the question shown",
+    "answers not cut to flip meaning",
+    "name/location supers spelled right",
+    "release on file for every face"
+   ],
+   "client_judges": [
+    "range of voices",
+    "pace",
+    "fairness"
+   ],
+   "styles": [
+    "news-desk",
+    "doc-real",
+    "bold-bounce"
+   ],
+   "label": "Vox pop / street interviews: many short answers grouped by intent, supers, quick J-cuts"
+  },
+  "ad-ladder": {
+   "family": "ad",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "1:1",
+    "4:5",
+    "9:16"
+   ],
+   "duration_s": [
+    6,
+    60
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.25,
+    "breath": 0.08,
+    "pad": 0.05,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 15,
+    "jcut_frames": 2
+   },
+   "cut_point": "action",
+   "asl_s": [
+    1.0,
+    2.5
+   ],
+   "interrupt_s": 2.0,
+   "captions": {
+    "style": "short supers, brand font, title-safe",
+    "mode": "reveal",
+    "max_words": 4,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "lead",
+    "bed_db": -18,
+    "duck": true,
+    "duck_db": -8
+   },
+   "sfx": {
+    "density": "medium",
+    "per_min": 15
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "match-cut",
+     "smash-cut",
+     "whip",
+     "zoom-punch"
+    ]
+   },
+   "hook": {
+    "within_s": 2.0,
+    "max_words": 6,
+    "rules": [
+     "brand or product on screen by 3 s",
+     "one message only",
+     "sound-off readable"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "hook",
+     "pct": 10
+    },
+    {
+     "beat": "problem",
+     "pct": 20
+    },
+    {
+     "beat": "solution / demo",
+     "pct": 40
+    },
+    {
+     "beat": "proof",
+     "pct": 15
+    },
+    {
+     "beat": "offer + CTA + logo",
+     "pct": 15
+    }
+   ],
+   "loudness": {
+    "platform": "broadcast ATSC A/85 (web: -14 LUFS)",
+    "lufs": -24,
+    "true_peak": -2
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.9,
+    "right": 0.9
+   },
+   "max_overlays": 2,
+   "deliverables": [
+    "60 / 30 s story master",
+    "15 s rebuilt",
+    "6 s bumper rebuilt",
+    "each length 16:9, 1:1, 4:5, 9:16",
+    "textless",
+    "music + VO stems",
+    "-24 LKFS broadcast master"
+   ],
+   "qc": [
+    "frame-accurate duration",
+    "legal super on screen long enough to read",
+    "title-safe text",
+    "-24 LKFS / -2 dBTP broadcast"
+   ],
+   "client_judges": [
+    "brand visibility",
+    "single clear message",
+    "CPA / ROAS",
+    "legal sign-off"
+   ],
+   "styles": [
+    "product-spotlight",
+    "kinetic-launch"
+   ],
+   "label": "Ad ladder: 60/30 s story master, rebuilt 15 s and 6 s bumper, frame-exact, all ratios"
+  },
+  "brand-film": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    90,
+    180
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.5,
+    "breath": 0.12,
+    "pad": 0.08,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 25,
+    "jcut_frames": 3
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    3.0,
+    6.0
+   ],
+   "interrupt_s": 5.0,
+   "captions": {
+    "style": "brand font subtitles",
+    "mode": "karaoke",
+    "max_words": 7,
+    "cps": 17,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "licensed bed",
+    "bed_db": -22,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 4
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "j-cut",
+     "l-cut",
+     "dissolve",
+     "match-cut"
+    ]
+   },
+   "hook": {
+    "within_s": 5,
+    "max_words": 8,
+    "rules": [
+     "lead with the human / customer, not the logo"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "hook",
+     "pct": 8
+    },
+    {
+     "beat": "problem / world",
+     "pct": 17
+    },
+    {
+     "beat": "mission / solution",
+     "pct": 35
+    },
+    {
+     "beat": "proof / people",
+     "pct": 25
+    },
+    {
+     "beat": "vision + logo",
+     "pct": 15
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "warm",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "2-3 min hero",
+    "60 s and 30 s cutdowns",
+    "social verticals",
+    "captions (accessibility)"
+   ],
+   "qc": [
+    "brand fonts, colours, logo lockups per guideline",
+    "licensed music on file",
+    "cameras colour matched",
+    "executives look good"
+   ],
+   "client_judges": [
+    "brand compliance",
+    "executives look good",
+    "message clarity"
+   ],
+   "styles": [
+    "kinetic-launch",
+    "logo-sting",
+    "frame-studio"
+   ],
+   "label": "Brand film: mission arc, brand-guide lower thirds, licensed music, colour-matched cameras"
+  },
+  "testimonial-film": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    60,
+    150
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.5,
+    "breath": 0.12,
+    "pad": 0.08,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 25,
+    "jcut_frames": 3
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    3.0,
+    6.0
+   ],
+   "interrupt_s": 5.0,
+   "captions": {
+    "style": "two-line subtitle, sentence case, lower third",
+    "mode": "karaoke",
+    "max_words": 6,
+    "cps": 17,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -24,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 4
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "j-cut",
+     "l-cut",
+     "dissolve"
+    ]
+   },
+   "hook": {
+    "within_s": 3,
+    "max_words": 8,
+    "rules": [
+     "open on the result in the customer's own words"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "result hook",
+     "pct": 10
+    },
+    {
+     "beat": "problem before",
+     "pct": 25
+    },
+    {
+     "beat": "solution",
+     "pct": 30
+    },
+    {
+     "beat": "result / numbers",
+     "pct": 25
+    },
+    {
+     "beat": "recommendation + CTA",
+     "pct": 10
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "16:9 1920x1080 or 3840x2160 master",
+    "3 thumbnail stills",
+    "chapters list",
+    "SRT captions",
+    "2-5 Shorts cutdowns"
+   ],
+   "qc": [
+    "quotes are the customer's real words in their real order (no Frankenbites)",
+    "customer approved the cut",
+    "lower third name + role correct"
+   ],
+   "client_judges": [
+    "credibility",
+    "customer sounds natural",
+    "result is concrete"
+   ],
+   "styles": [
+    "testimonial-card",
+    "quote-card-reel",
+    "split-proof"
+   ],
+   "label": "Testimonial film: problem, solution, result, recommendation; real customer, real words"
+  },
+  "saas-launch-demo": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    60,
+    180
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.4,
+    "breath": 0.12,
+    "pad": 0.08,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 20,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    3.0,
+    6.0
+   ],
+   "interrupt_s": 4.0,
+   "captions": {
+    "style": "two-line subtitle, sentence case, lower third",
+    "mode": "karaoke",
+    "max_words": 7,
+    "cps": 20,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -26,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 4
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "j-cut",
+     "l-cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "dissolve (scene change only)"
+    ]
+   },
+   "hook": {
+    "within_s": 5,
+    "max_words": 8,
+    "rules": [
+     "show the outcome screen first"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "outcome",
+     "pct": 10
+    },
+    {
+     "beat": "problem",
+     "pct": 10
+    },
+    {
+     "beat": "walkthrough",
+     "pct": 60
+    },
+    {
+     "beat": "result",
+     "pct": 10
+    },
+    {
+     "beat": "CTA",
+     "pct": 10
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "none",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "16:9 1920x1080 or 3840x2160 master",
+    "3 thumbnail stills",
+    "chapters list",
+    "SRT captions",
+    "2-5 Shorts cutdowns"
+   ],
+   "qc": [
+    "UI text readable at 1080p (zoom-follow)",
+    "PII blurred",
+    "cursor smoothed",
+    "no loading spinners left in"
+   ],
+   "client_judges": [
+    "UI readability",
+    "time to 'aha'"
+   ],
+   "styles": [
+    "device-fly",
+    "terminal-tech",
+    "tutorial-steps"
+   ],
+   "label": "SaaS launch / demo: problem, reveal, 3 features, CTA; cursor zoom, blurred PII"
+  },
+  "conference-talk": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    600,
+    3600
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 1.2,
+    "breath": 0.12,
+    "pad": 0.08,
+    "fillers": "keep-natural",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 20,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    6.0,
+    20.0
+   ],
+   "interrupt_s": 20.0,
+   "captions": {
+    "style": "accessible subtitles, sentence case",
+    "mode": "karaoke",
+    "max_words": 8,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "intro/outro only",
+    "bed_db": -30,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "none",
+    "per_min": 0
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "dissolve (speaker <-> slide)",
+     "dip-to-black (sessions)"
+    ]
+   },
+   "hook": {
+    "within_s": 20,
+    "max_words": 10,
+    "rules": [
+     "title card with talk name + speaker",
+     "trim walk-up and applause"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "title card",
+     "pct": 2
+    },
+    {
+     "beat": "talk",
+     "pct": 90
+    },
+    {
+     "beat": "Q&A",
+     "pct": 6
+    },
+    {
+     "beat": "end card",
+     "pct": 2
+    }
+   ],
+   "loudness": {
+    "platform": "LMS / web",
+    "lufs": -16,
+    "true_peak": -1
+   },
+   "grade": "none",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "16:9 full talk",
+    "60-90 s highlight",
+    "9:16 quote clips",
+    "captions.srt",
+    "chapters"
+   ],
+   "qc": [
+    "slides readable full-screen when shown",
+    "speaker name/role correct",
+    "applause and dead time trimmed",
+    "audio from the desk feed, not the camera mic"
+   ],
+   "client_judges": [
+    "slides readable",
+    "speaker looks good",
+    "sound clear"
+   ],
+   "styles": [
+    "minimal-mono",
+    "chapter-pro",
+    "news-desk"
+   ],
+   "label": "Conference talk: speaker/slide switching, slide inserts full-screen, applause trims, highlight"
+  },
+  "course-module": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    180,
+    600
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.5,
+    "breath": 0.12,
+    "pad": 0.08,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 20,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    4.0,
+    10.0
+   ],
+   "interrupt_s": 8.0,
+   "captions": {
+    "style": "accessible subtitles, sentence case",
+    "mode": "karaoke",
+    "max_words": 8,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "none under teaching",
+    "bed_db": -32,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "none",
+    "per_min": 0
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "j-cut",
+     "l-cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "dissolve (scene change only)"
+    ]
+   },
+   "hook": {
+    "within_s": 15,
+    "max_words": 10,
+    "rules": [
+     "state the learning objective"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "objective",
+     "pct": 8
+    },
+    {
+     "beat": "why it matters",
+     "pct": 10
+    },
+    {
+     "beat": "teach",
+     "pct": 55
+    },
+    {
+     "beat": "example / practice",
+     "pct": 17
+    },
+    {
+     "beat": "recap + next lesson",
+     "pct": 10
+    }
+   ],
+   "loudness": {
+    "platform": "LMS / web",
+    "lufs": -16,
+    "true_peak": -1
+   },
+   "grade": "none",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "16:9 lesson",
+    "SRT/VTT captions",
+    "transcript",
+    "SCORM package (if LMS)"
+   ],
+   "qc": [
+    "WCAG captions",
+    "consistent template across modules",
+    "text on screen >= 2 s per line"
+   ],
+   "client_judges": [
+    "clarity",
+    "consistency",
+    "accessibility"
+   ],
+   "styles": [
+    "whiteboard-host",
+    "highlighter-study",
+    "tutorial-steps"
+   ],
+   "label": "Course module: 3-10 min lessons, one objective each, callouts, quiz cards, WCAG captions + transcript"
+  },
+  "wedding-india": {
+   "family": "montage",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16"
+   ],
+   "duration_s": [
+    180,
+    420
+   ],
+   "autocut": {
+    "enabled": false,
+    "max_gap": 1.5,
+    "breath": 0.15,
+    "pad": 0.1,
+    "fillers": "off",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 40,
+    "jcut_frames": 0
+   },
+   "cut_point": "beat",
+   "asl_s": [
+    1.5,
+    3.5
+   ],
+   "interrupt_s": 4.0,
+   "captions": {
+    "style": "none (titles only)",
+    "mode": "none",
+    "max_words": 0,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "song lead, dip for vows / pheras chants",
+    "bed_db": -6,
+    "duck": true,
+    "duck_db": 0
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 4
+   },
+   "transitions": {
+    "default": "cut on beat",
+    "allowed": [
+     "cut",
+     "match-cut",
+     "whip",
+     "speed-ramp",
+     "dissolve",
+     "dip-to-black"
+    ]
+   },
+   "hook": {
+    "within_s": 3.0,
+    "max_words": 5,
+    "rules": [
+     "strongest image first",
+     "first cut on the first downbeat"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "haldi",
+     "pct": 12
+    },
+    {
+     "beat": "mehndi",
+     "pct": 12
+    },
+    {
+     "beat": "sangeet",
+     "pct": 18
+    },
+    {
+     "beat": "baraat / arrival",
+     "pct": 12
+    },
+    {
+     "beat": "pheras / nikah",
+     "pct": 26
+    },
+    {
+     "beat": "vidaai / reception",
+     "pct": 20
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube / Vimeo",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "warm",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 1,
+   "deliverables": [
+    "3-5 min cinematic highlight",
+    "per-event reels (9:16)",
+    "traditional full film (1-3 h)",
+    "teaser within days"
+   ],
+   "qc": [
+    "sort and cut by event",
+    "pace repetitive rituals (pheras) with music + B-roll",
+    "every elder and key relative appears",
+    "names spelled right in titles"
+   ],
+   "client_judges": [
+    "family members all present",
+    "ritual respect",
+    "colour and emotion"
+   ],
+   "styles": [
+    "soft-gradient",
+    "cinematic-phone",
+    "frame-studio"
+   ],
+   "label": "Indian wedding: footage per event (Haldi, Mehndi, Sangeet, pheras/Nikah, reception), per-event reels, highlight, traditional film"
+  },
+  "concert-multicam": {
+   "family": "montage",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16"
+   ],
+   "duration_s": [
+    180,
+    7200
+   ],
+   "autocut": {
+    "enabled": false,
+    "max_gap": 1.5,
+    "breath": 0.15,
+    "pad": 0.1,
+    "fillers": "off",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 40,
+    "jcut_frames": 0
+   },
+   "cut_point": "beat / downbeat / phrase change",
+   "asl_s": [
+    2.0,
+    6.0
+   ],
+   "interrupt_s": 8.0,
+   "captions": {
+    "style": "none (titles only)",
+    "mode": "none",
+    "max_words": 0,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "the performance is the audio (board mix + audience mics)",
+    "bed_db": 0,
+    "duck": false,
+    "duck_db": 0
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 4
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut on beat",
+     "dissolve (ballads)",
+     "dip-to-black (between songs)"
+    ]
+   },
+   "hook": {
+    "within_s": 5,
+    "max_words": 5,
+    "rules": [
+     "open on the crowd or the first big hit",
+     "angle follows the music (solo -> soloist)"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "walk-on / crowd",
+     "pct": 5
+    },
+    {
+     "beat": "songs",
+     "pct": 88
+    },
+    {
+     "beat": "encore / bow",
+     "pct": 7
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube (keep the master's loudness)",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "cinestill-800t",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 1,
+   "deliverables": [
+    "16:9 full show",
+    "per-song files",
+    "9:16 clips",
+    "board-mix audio master"
+   ],
+   "qc": [
+    "angles synced to audio (no drift)",
+    "solo -> soloist",
+    "no shots of empty stage between songs",
+    "audience mics blended, no clipping"
+   ],
+   "client_judges": [
+    "angle choices follow the music",
+    "sound",
+    "energy"
+   ],
+   "styles": [
+    "neon-orbit",
+    "event-promo",
+    "minimal-mono"
+   ],
+   "label": "Concert / live multicam: audio-synced angles, cut follows the music, board mix + audience mics"
+  },
+  "sports-highlight": {
+   "family": "montage",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16"
+   ],
+   "duration_s": [
+    60,
+    300
+   ],
+   "autocut": {
+    "enabled": false,
+    "max_gap": 1.5,
+    "breath": 0.15,
+    "pad": 0.1,
+    "fillers": "off",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 40,
+    "jcut_frames": 0
+   },
+   "cut_point": "beat",
+   "asl_s": [
+    2.0,
+    5.0
+   ],
+   "interrupt_s": 4.0,
+   "captions": {
+    "style": "none (titles only)",
+    "mode": "none",
+    "max_words": 0,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "high-energy bed",
+    "bed_db": -10,
+    "duck": false,
+    "duck_db": 0
+   },
+   "sfx": {
+    "density": "medium",
+    "per_min": 10
+   },
+   "transitions": {
+    "default": "cut on beat",
+    "allowed": [
+     "cut",
+     "match-cut",
+     "whip",
+     "speed-ramp",
+     "dissolve",
+     "dip-to-black"
+    ]
+   },
+   "hook": {
+    "within_s": 2,
+    "max_words": 5,
+    "rules": [
+     "best play first",
+     "spotlight / freeze-frame on the athlete"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "best play",
+     "pct": 10
+    },
+    {
+     "beat": "highlights",
+     "pct": 75
+    },
+    {
+     "beat": "stats / contact card",
+     "pct": 15
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube / Vimeo",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 1,
+   "deliverables": [
+    "16:9 reel",
+    "9:16 clips",
+    "player ID card with stats"
+   ],
+   "qc": [
+    "player always identifiable",
+    "scoreboard graphics accurate"
+   ],
+   "client_judges": [
+    "clear player identification",
+    "best plays first"
+   ],
+   "styles": [
+    "data-story",
+    "chaos-stack"
+   ],
+   "label": "Sports highlights / recruiting reel: plays from crowd peaks, best first, freeze + spotlight on the athlete"
+  },
+  "gaming-vod": {
+   "family": "short-form",
+   "aspect": "9:16",
+   "alt_aspects": [
+    "4:5",
+    "1:1"
+   ],
+   "duration_s": [
+    30,
+    600
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.4,
+    "breath": 0.1,
+    "pad": 0.06,
+    "fillers": "keep-natural",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 0,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    1.0,
+    3.0
+   ],
+   "interrupt_s": 2.0,
+   "captions": {
+    "style": "word-pop, 1-3 words, centre-low, key words in accent",
+    "mode": "reveal",
+    "max_words": 3,
+    "cps": 17,
+    "uppercase": true
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -22,
+    "duck": true,
+    "duck_db": -8
+   },
+   "sfx": {
+    "density": "high",
+    "per_min": 20
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "flash"
+    ]
+   },
+   "hook": {
+    "within_s": 1.5,
+    "max_words": 7,
+    "rules": [
+     "visual or spoken hook lands by 1.5 s",
+     "no greeting, no 'in this video'",
+     "hook text on screen for muted viewers",
+     "open a loop the payoff closes"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "peak moment",
+     "pct": 10
+    },
+    {
+     "beat": "setup",
+     "pct": 20
+    },
+    {
+     "beat": "the play",
+     "pct": 50
+    },
+    {
+     "beat": "reaction",
+     "pct": 15
+    },
+    {
+     "beat": "CTA",
+     "pct": 5
+    }
+   ],
+   "loudness": {
+    "platform": "TikTok / Reels / Shorts",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.85,
+    "right": 0.88
+   },
+   "max_overlays": 2,
+   "deliverables": [
+    "9:16 1080x1920 H.264 master",
+    "4:5 1080x1350 feed version",
+    "captions burned-in",
+    "clean (no captions) version",
+    "cover frame / thumbnail still"
+   ],
+   "qc": [
+    "split layout facecam top / gameplay bottom for 9:16",
+    "peaks from audio spikes + chat velocity",
+    "game audio not clipping"
+   ],
+   "client_judges": [
+    "comedic timing",
+    "reaction lands"
+   ],
+   "styles": [
+    "chaos-stack",
+    "y2k-chrome",
+    "bold-bounce"
+   ],
+   "label": "Gaming VOD highlights: peaks from audio spikes and chat, facecam + gameplay split, meme timing"
+  },
+  "recipe-video": {
+   "family": "short-form",
+   "aspect": "9:16",
+   "alt_aspects": [
+    "4:5",
+    "1:1"
+   ],
+   "duration_s": [
+    30,
+    60
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.3,
+    "breath": 0.1,
+    "pad": 0.06,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 0,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    1.0,
+    2.5
+   ],
+   "interrupt_s": 2.0,
+   "captions": {
+    "style": "word-pop, 1-3 words, centre-low, key words in accent",
+    "mode": "reveal",
+    "max_words": 3,
+    "cps": 17,
+    "uppercase": true
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -20,
+    "duck": true,
+    "duck_db": -8
+   },
+   "sfx": {
+    "density": "medium",
+    "per_min": 10
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "flash"
+    ]
+   },
+   "hook": {
+    "within_s": 1.5,
+    "max_words": 6,
+    "rules": [
+     "finished dish (money shot) first"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "money shot",
+     "pct": 10
+    },
+    {
+     "beat": "ingredients",
+     "pct": 15
+    },
+    {
+     "beat": "steps",
+     "pct": 55
+    },
+    {
+     "beat": "final reveal / taste",
+     "pct": 15
+    },
+    {
+     "beat": "CTA",
+     "pct": 5
+    }
+   ],
+   "loudness": {
+    "platform": "TikTok / Reels / Shorts",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "warm",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.85,
+    "right": 0.88
+   },
+   "max_overlays": 2,
+   "deliverables": [
+    "9:16 1080x1920 H.264 master",
+    "4:5 1080x1350 feed version",
+    "captions burned-in",
+    "clean (no captions) version",
+    "cover frame / thumbnail still"
+   ],
+   "qc": [
+    "quantities readable",
+    "sizzle sound up",
+    "warm grade, steam visible"
+   ],
+   "client_judges": [
+    "appetite appeal",
+    "readable quantities"
+   ],
+   "styles": [
+    "tutorial-steps",
+    "sticker-pop",
+    "countdown-list"
+   ],
+   "label": "Recipe video: overhead steps, ingredient text, fast-forward process, money shot, sizzle audio"
+  },
+  "fitness-video": {
+   "family": "short-form",
+   "aspect": "9:16",
+   "alt_aspects": [
+    "4:5",
+    "1:1"
+   ],
+   "duration_s": [
+    30,
+    90
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.3,
+    "breath": 0.1,
+    "pad": 0.06,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 0,
+    "jcut_frames": 0
+   },
+   "cut_point": "beat / rep",
+   "asl_s": [
+    1.5,
+    3.0
+   ],
+   "interrupt_s": 2.5,
+   "captions": {
+    "style": "word-pop, 1-3 words, centre-low, key words in accent",
+    "mode": "reveal",
+    "max_words": 3,
+    "cps": 17,
+    "uppercase": true
+   },
+   "music": {
+    "policy": "BPM-matched bed",
+    "bed_db": -16,
+    "duck": true,
+    "duck_db": -8
+   },
+   "sfx": {
+    "density": "medium",
+    "per_min": 12
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "flash"
+    ]
+   },
+   "hook": {
+    "within_s": 1.5,
+    "max_words": 7,
+    "rules": [
+     "visual or spoken hook lands by 1.5 s",
+     "no greeting, no 'in this video'",
+     "hook text on screen for muted viewers",
+     "open a loop the payoff closes"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "result / hook",
+     "pct": 10
+    },
+    {
+     "beat": "exercise 1",
+     "pct": 25
+    },
+    {
+     "beat": "exercise 2",
+     "pct": 25
+    },
+    {
+     "beat": "exercise 3",
+     "pct": 25
+    },
+    {
+     "beat": "finisher + CTA",
+     "pct": 15
+    }
+   ],
+   "loudness": {
+    "platform": "TikTok / Reels / Shorts",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "punchy",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.85,
+    "right": 0.88
+   },
+   "max_overlays": 2,
+   "deliverables": [
+    "9:16 1080x1920 H.264 master",
+    "4:5 1080x1350 feed version",
+    "captions burned-in",
+    "clean (no captions) version",
+    "cover frame / thumbnail still"
+   ],
+   "qc": [
+    "form clearly visible",
+    "timers / rep counts correct",
+    "right vs wrong form split screen"
+   ],
+   "client_judges": [
+    "clear form",
+    "timer accuracy",
+    "energy"
+   ],
+   "styles": [
+    "countdown-list",
+    "bold-bounce",
+    "data-story"
+   ],
+   "label": "Fitness / workout: rep counters, interval timers, form callouts, BPM-matched music"
+  },
+  "fashion-lookbook": {
+   "family": "montage",
+   "aspect": "9:16",
+   "alt_aspects": [
+    "4:5",
+    "16:9"
+   ],
+   "duration_s": [
+    15,
+    60
+   ],
+   "autocut": {
+    "enabled": false,
+    "max_gap": 1.5,
+    "breath": 0.15,
+    "pad": 0.1,
+    "fillers": "off",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 40,
+    "jcut_frames": 0
+   },
+   "cut_point": "beat",
+   "asl_s": [
+    0.8,
+    2.0
+   ],
+   "interrupt_s": 4.0,
+   "captions": {
+    "style": "none (titles only)",
+    "mode": "none",
+    "max_words": 0,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "lead",
+    "bed_db": 0,
+    "duck": false,
+    "duck_db": 0
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 4
+   },
+   "transitions": {
+    "default": "cut on beat",
+    "allowed": [
+     "cut",
+     "match-cut",
+     "whip",
+     "speed-ramp",
+     "dissolve",
+     "dip-to-black"
+    ]
+   },
+   "hook": {
+    "within_s": 3.0,
+    "max_words": 5,
+    "rules": [
+     "strongest image first",
+     "first cut on the first downbeat"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "look 1",
+     "pct": 25
+    },
+    {
+     "beat": "look 2",
+     "pct": 25
+    },
+    {
+     "beat": "look 3",
+     "pct": 25
+    },
+    {
+     "beat": "hero look + tag",
+     "pct": 25
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube / Vimeo",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "pastel",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.85,
+    "right": 0.88
+   },
+   "max_overlays": 1,
+   "deliverables": [
+    "16:9 master",
+    "9:16 teaser"
+   ],
+   "qc": [
+    "true garment colour (returns)",
+    "skin tones natural",
+    "product tags readable"
+   ],
+   "client_judges": [
+    "garment colour accuracy",
+    "rhythm"
+   ],
+   "styles": [
+    "y2k-chrome",
+    "swiss-poster",
+    "soft-gradient"
+   ],
+   "label": "Fashion lookbook: beat cuts, outfit-change transitions, product tags, true-colour grade"
+  },
+  "kids-content": {
+   "family": "short-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16"
+   ],
+   "duration_s": [
+    120,
+    600
+   ],
+   "autocut": {
+    "enabled": true,
+    "max_gap": 0.3,
+    "breath": 0.1,
+    "pad": 0.06,
+    "fillers": "remove",
+    "retakes": true,
+    "smart_cuts": true,
+    "xfade_ms": 0,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    2.0,
+    4.0
+   ],
+   "interrupt_s": 3.0,
+   "captions": {
+    "style": "big sing-along words",
+    "mode": "reveal",
+    "max_words": 4,
+    "cps": 12,
+    "uppercase": true
+   },
+   "music": {
+    "policy": "bed",
+    "bed_db": -24,
+    "duck": true,
+    "duck_db": -8
+   },
+   "sfx": {
+    "density": "high",
+    "per_min": 15
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "flash"
+    ]
+   },
+   "hook": {
+    "within_s": 1.5,
+    "max_words": 7,
+    "rules": [
+     "visual or spoken hook lands by 1.5 s",
+     "no greeting, no 'in this video'",
+     "hook text on screen for muted viewers",
+     "open a loop the payoff closes"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "hello song / hook",
+     "pct": 8
+    },
+    {
+     "beat": "lesson / story",
+     "pct": 70
+    },
+    {
+     "beat": "repeat / sing-along",
+     "pct": 15
+    },
+    {
+     "beat": "goodbye",
+     "pct": 7
+    }
+   ],
+   "loudness": {
+    "platform": "TikTok / Reels / Shorts",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "pastel",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.85,
+    "right": 0.88
+   },
+   "max_overlays": 2,
+   "deliverables": [
+    "9:16 1080x1920 H.264 master",
+    "4:5 1080x1350 feed version",
+    "captions burned-in",
+    "clean (no captions) version",
+    "cover frame / thumbnail still"
+   ],
+   "qc": [
+    "COPPA 'made for kids' set",
+    "no scary flashes",
+    "safe, age-appropriate",
+    "simple cuts"
+   ],
+   "client_judges": [
+    "safety",
+    "age-appropriateness",
+    "kids stay watching"
+   ],
+   "styles": [
+    "sticker-pop",
+    "bold-bounce",
+    "comic-panel"
+   ],
+   "label": "Kids content: bright, simple, repetitive, sing-along captions <=12-13 cps, made-for-kids"
+  },
+  "asmr-video": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    600,
+    3600
+   ],
+   "autocut": {
+    "enabled": false,
+    "max_gap": 5.0,
+    "breath": 0.12,
+    "pad": 0.08,
+    "fillers": "off",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 60,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    15.0,
+    60.0
+   ],
+   "interrupt_s": 60.0,
+   "captions": {
+    "style": "none",
+    "mode": "none",
+    "max_words": 0,
+    "cps": 20,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "none",
+    "bed_db": -60,
+    "duck": false,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "none",
+    "per_min": 0
+   },
+   "transitions": {
+    "default": "slow dissolve",
+    "allowed": [
+     "cut",
+     "dissolve"
+    ]
+   },
+   "hook": {
+    "within_s": 20,
+    "max_words": 6,
+    "rules": [
+     "first trigger within 20 s",
+     "no loud intro"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "settle in",
+     "pct": 10
+    },
+    {
+     "beat": "triggers",
+     "pct": 80
+    },
+    {
+     "beat": "wind down",
+     "pct": 10
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube (quiet master)",
+    "lufs": -20,
+    "true_peak": -3
+   },
+   "grade": "faded",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "16:9 1920x1080 or 3840x2160 master",
+    "3 thumbnail stills",
+    "chapters list",
+    "SRT captions",
+    "2-5 Shorts cutdowns"
+   ],
+   "qc": [
+    "no music",
+    "no heavy noise reduction (kills triggers)",
+    "stereo/binaural intact",
+    "no hard cuts in audio"
+   ],
+   "client_judges": [
+    "audio fidelity",
+    "calm pace"
+   ],
+   "styles": [
+    "loop-ambient",
+    "minimal-mono"
+   ],
+   "label": "ASMR: long takes, no music, minimal noise reduction, stereo/binaural integrity"
+  },
+  "regional-devotional": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    60,
+    3600
+   ],
+   "autocut": {
+    "enabled": false,
+    "max_gap": 3.0,
+    "breath": 0.12,
+    "pad": 0.08,
+    "fillers": "off",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 40,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    6.0,
+    20.0
+   ],
+   "interrupt_s": 20.0,
+   "captions": {
+    "style": "large Indic-script lyrics / subtitles, line at a time",
+    "mode": "karaoke",
+    "max_words": 6,
+    "cps": 15,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "the bhajan / aarti is the audio",
+    "bed_db": 0,
+    "duck": false,
+    "duck_db": 0
+   },
+   "sfx": {
+    "density": "none",
+    "per_min": 0
+   },
+   "transitions": {
+    "default": "slow dissolve",
+    "allowed": [
+     "cut",
+     "dissolve",
+     "dip-to-black"
+    ]
+   },
+   "hook": {
+    "within_s": 5,
+    "max_words": 6,
+    "rules": [
+     "open on the deity / main ritual moment",
+     "never cut inside a mantra or verse"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "opening darshan / title",
+     "pct": 8
+    },
+    {
+     "beat": "ritual / bhajan",
+     "pct": 80
+    },
+    {
+     "beat": "closing aarti / blessing",
+     "pct": 12
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "golden-hour",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "16:9 full",
+    "9:16 status-length clips (<=30-60 s)",
+    "lyrics captions in the regional script",
+    "WhatsApp-size export"
+   ],
+   "qc": [
+    "script shaping correct (no broken conjuncts)",
+    "names of deities / places spelled right",
+    "respectful framing, no cuts inside a verse",
+    "status clip <= 60 s and small file"
+   ],
+   "client_judges": [
+    "devotional feel",
+    "correct script and spelling",
+    "shareable on WhatsApp"
+   ],
+   "styles": [
+    "soft-gradient",
+    "minimal-mono",
+    "dual-subs"
+   ],
+   "label": "Regional devotional (bhajan, aarti, temple events): long respectful takes, Indic-script lyrics, status clips"
+  },
+  "localise-dub": {
+   "family": "long-form",
+   "aspect": "16:9",
+   "alt_aspects": [
+    "9:16 cutdowns"
+   ],
+   "duration_s": [
+    30,
+    3600
+   ],
+   "autocut": {
+    "enabled": false,
+    "max_gap": 0.45,
+    "breath": 0.12,
+    "pad": 0.08,
+    "fillers": "off",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 20,
+    "jcut_frames": 0
+   },
+   "cut_point": "thought-end",
+   "asl_s": [
+    3.0,
+    6.0
+   ],
+   "interrupt_s": 5.0,
+   "captions": {
+    "style": "target-language subtitles, sentence case",
+    "mode": "karaoke",
+    "max_words": 7,
+    "cps": 17,
+    "uppercase": false
+   },
+   "music": {
+    "policy": "keep original M&E / no-vocals stem",
+    "bed_db": -20,
+    "duck": true,
+    "duck_db": -6
+   },
+   "sfx": {
+    "density": "as original",
+    "per_min": 0
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "j-cut",
+     "l-cut",
+     "jump",
+     "zoom-punch",
+     "whip",
+     "dissolve (scene change only)"
+    ]
+   },
+   "hook": {
+    "within_s": 15,
+    "max_words": 10,
+    "rules": [
+     "dub keeps the original timing (+-15%)",
+     "names and numbers checked by a speaker of the language"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "original structure kept",
+     "pct": 100
+    }
+   ],
+   "loudness": {
+    "platform": "YouTube",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "none",
+   "safe_zone": {
+    "top": 0.05,
+    "bottom": 0.9,
+    "right": 0.95
+   },
+   "max_overlays": 3,
+   "deliverables": [
+    "dubbed master per language",
+    "subtitles per language (.srt)",
+    "original-language master untouched",
+    "M&E / no-vocals stem"
+   ],
+   "qc": [
+    "each line fits its slot (+-15%)",
+    "translation reviewed by a native speaker",
+    "voice consent for any cloned voice",
+    "AI voice disclosed where required"
+   ],
+   "client_judges": [
+    "sounds natural",
+    "timing",
+    "translation accuracy"
+   ],
+   "styles": [
+    "dual-subs",
+    "minimal-mono",
+    "news-desk"
+   ],
+   "label": "Localise / dub: transcribe, translate, per-line TTS fitted to timing, remix over M&E, subtitles"
+  },
+  "poetry-reel": {
+   "family": "poetry",
+   "aspect": "9:16",
+   "alt_aspects": [
+    "4:5",
+    "1:1"
+   ],
+   "duration_s": [
+    8,
+    60
+   ],
+   "autocut": {
+    "enabled": false,
+    "max_gap": 2.0,
+    "breath": 0.3,
+    "pad": 0.15,
+    "fillers": "off",
+    "retakes": false,
+    "smart_cuts": true,
+    "xfade_ms": 40,
+    "jcut_frames": 0
+   },
+   "cut_point": "line end (never inside a line)",
+   "asl_s": [
+    3.0,
+    10.0
+   ],
+   "interrupt_s": 3.0,
+   "captions": {
+    "style": "one line at a time from the creator's own text (transcribe.py --text), karaoke fill, Devanagari, last line emphasised",
+    "mode": "karaoke",
+    "max_words": 6,
+    "cps": 15,
+    "uppercase": false
+   },
+   "emphasis": "last-line",
+   "music": {
+    "policy": "bed",
+    "bed_db": -26,
+    "duck": true,
+    "duck_db": -10
+   },
+   "sfx": {
+    "density": "low",
+    "per_min": 2
+   },
+   "transitions": {
+    "default": "cut",
+    "allowed": [
+     "cut",
+     "dissolve",
+     "dip-to-black"
+    ]
+   },
+   "hook": {
+    "within_s": 2.0,
+    "max_words": 6,
+    "rules": [
+     "the first line is the hook: start on its first word, no intro",
+     "keep the pauses and breaths between lines; never cut inside a line",
+     "hold the pause before the last line, then land the punch line"
+    ]
+   },
+   "structure": [
+    {
+     "beat": "first line (hook)",
+     "pct": 25
+    },
+    {
+     "beat": "build lines",
+     "pct": 50
+    },
+    {
+     "beat": "punch line (last line)",
+     "pct": 25
+    }
+   ],
+   "loudness": {
+    "platform": "TikTok / Reels / Shorts",
+    "lufs": -14,
+    "true_peak": -1
+   },
+   "grade": "warm",
+   "safe_zone": {
+    "top": 0.1,
+    "bottom": 0.85,
+    "right": 0.88
+   },
+   "max_overlays": 2,
+   "deliverables": [
+    "9:16 1080x1920 H.264 master",
+    "captions burned-in (Devanagari)",
+    "lines .srt",
+    "cover frame with the punch line"
+   ],
+   "qc": [
+    "every line on screen while spoken (+-0.1 s)",
+    "words spelled as the creator wrote them",
+    "Devanagari shaping correct (no broken matras or conjuncts)",
+    "pauses between lines kept",
+    "-14 LUFS, -1 dBTP"
+   ],
+   "client_judges": [
+    "delivery of the punch line",
+    "correct script and spelling",
+    "shares and saves"
+   ],
+   "styles": [
+    "glass-ribbon",
+    "soft-gradient",
+    "quote-card-reel",
+    "minimal-mono"
+   ],
+   "label": "Shayari / poetry / dialogue reel: whole lines with their pauses, karaoke captions from the creator's text, punch line emphasised"
+  }
+ }
+}

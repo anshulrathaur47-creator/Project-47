@@ -1,0 +1,2979 @@
+{
+ "title": "Let the Prompt Consume",
+ "audio": "08 Let the Prompt Consume.flac",
+ "source_lrc": "08 Let the Prompt Consume.lrc",
+ "method": "htdemucs vocal stem -> torchaudio MMS_FA forced alignment, each line inside its hand-stamped window, checked by a pass with each line's neighbours in a wider window",
+ "generated": "2026-11-20",
+ "units": "seconds",
+ "notes": "start/end: aligned onset/offset (line start falls back to hand_start when its words do not agree between the two passes). hand_start: the hand-stamped LRC time. dev = start - hand_start. score/confidence: mean CTC posterior (0..1); sung vowels score low even when placed right. agree: the anchored and the context pass put the word start within 0.35 s; rating comes from the share of agreeing words.",
+ "confidence": 0.516,
+ "rating": "high",
+ "summary": {
+  "lines": 35,
+  "words": 236,
+  "mean_word_score": 0.541,
+  "word_agreement": 0.983,
+  "line_agreement": 0.971,
+  "line_median_offset": 0.18,
+  "check_lines": [],
+  "ok_words": 1.0,
+  "confidence": "high"
+ },
+ "lines": [
+  {
+   "i": 0,
+   "tag": "",
+   "text": "The cursor blinks, a hypnotic eye",
+   "start": 17.74,
+   "end": 23.25,
+   "hand_start": 18.0,
+   "dev": -0.26,
+   "confidence": 0.546,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 1.36,
+   "global_start": 17.74,
+   "words": [
+    {
+     "w": "The",
+     "start": 17.74,
+     "end": 17.84,
+     "score": 0.35,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 17.74,
+     "global_start": 17.74
+    },
+    {
+     "w": "cursor",
+     "start": 17.92,
+     "end": 18.42,
+     "score": 0.544,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 17.92,
+     "global_start": 17.92
+    },
+    {
+     "w": "blinks,",
+     "start": 18.48,
+     "end": 19.1,
+     "score": 0.601,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 18.48,
+     "global_start": 18.48
+    },
+    {
+     "w": "a",
+     "start": 20.46,
+     "end": 20.5,
+     "score": 0.863,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 20.46,
+     "global_start": 20.46
+    },
+    {
+     "w": "hypnotic",
+     "start": 20.58,
+     "end": 21.5,
+     "score": 0.496,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 20.58,
+     "global_start": 20.58
+    },
+    {
+     "w": "eye",
+     "start": 21.6,
+     "end": 23.25,
+     "score": 0.425,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 21.6,
+     "global_start": 21.6
+    }
+   ]
+  },
+  {
+   "i": 1,
+   "tag": "",
+   "text": "Waiting for the user to curl up and die",
+   "start": 23.28,
+   "end": 28.16,
+   "hand_start": 23.25,
+   "dev": 0.03,
+   "confidence": 0.887,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.32,
+   "global_start": 23.28,
+   "words": [
+    {
+     "w": "Waiting",
+     "start": 23.28,
+     "end": 23.68,
+     "score": 0.912,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 23.28,
+     "global_start": 23.28
+    },
+    {
+     "w": "for",
+     "start": 23.8,
+     "end": 24.08,
+     "score": 0.99,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 23.8,
+     "global_start": 23.8
+    },
+    {
+     "w": "the",
+     "start": 24.16,
+     "end": 24.28,
+     "score": 0.923,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 24.16,
+     "global_start": 24.16
+    },
+    {
+     "w": "user",
+     "start": 24.44,
+     "end": 25.08,
+     "score": 0.941,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 24.44,
+     "global_start": 24.44
+    },
+    {
+     "w": "to",
+     "start": 25.4,
+     "end": 25.52,
+     "score": 0.991,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 25.4,
+     "global_start": 25.4
+    },
+    {
+     "w": "curl",
+     "start": 25.76,
+     "end": 26.32,
+     "score": 0.702,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 25.76,
+     "global_start": 25.76
+    },
+    {
+     "w": "up",
+     "start": 26.44,
+     "end": 26.64,
+     "score": 0.992,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 26.44,
+     "global_start": 26.44
+    },
+    {
+     "w": "and",
+     "start": 26.9,
+     "end": 27.06,
+     "score": 0.951,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 26.9,
+     "global_start": 26.9
+    },
+    {
+     "w": "die",
+     "start": 27.2,
+     "end": 28.16,
+     "score": 0.577,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 27.2,
+     "global_start": 27.2
+    }
+   ]
+  },
+  {
+   "i": 2,
+   "tag": "",
+   "text": "My fingers are heavy, the plastic is warm",
+   "start": 28.26,
+   "end": 33.21,
+   "hand_start": 28.16,
+   "dev": 0.1,
+   "confidence": 0.883,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.58,
+   "global_start": 28.26,
+   "words": [
+    {
+     "w": "My",
+     "start": 28.26,
+     "end": 28.42,
+     "score": 0.993,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 28.26,
+     "global_start": 28.26
+    },
+    {
+     "w": "fingers",
+     "start": 28.58,
+     "end": 29.36,
+     "score": 0.989,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 28.58,
+     "global_start": 28.58
+    },
+    {
+     "w": "are",
+     "start": 29.44,
+     "end": 29.62,
+     "score": 0.986,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 29.44,
+     "global_start": 29.44
+    },
+    {
+     "w": "heavy,",
+     "start": 29.7,
+     "end": 30.56,
+     "score": 0.902,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 29.7,
+     "global_start": 29.7
+    },
+    {
+     "w": "the",
+     "start": 31.14,
+     "end": 31.26,
+     "score": 0.883,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 31.14,
+     "global_start": 31.14
+    },
+    {
+     "w": "plastic",
+     "start": 31.38,
+     "end": 32.2,
+     "score": 0.96,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 31.38,
+     "global_start": 31.38
+    },
+    {
+     "w": "is",
+     "start": 32.28,
+     "end": 32.44,
+     "score": 0.873,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 32.28,
+     "global_start": 32.28
+    },
+    {
+     "w": "warm",
+     "start": 32.52,
+     "end": 33.21,
+     "score": 0.48,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 32.52,
+     "global_start": 32.52
+    }
+   ]
+  },
+  {
+   "i": 3,
+   "tag": "",
+   "text": "I am the calm before the digital storm",
+   "start": 33.6,
+   "end": 39.02,
+   "hand_start": 33.21,
+   "dev": 0.39,
+   "confidence": 0.562,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.82,
+   "global_start": 33.6,
+   "words": [
+    {
+     "w": "I",
+     "start": 33.6,
+     "end": 33.64,
+     "score": 0.504,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 33.6,
+     "global_start": 33.6
+    },
+    {
+     "w": "am",
+     "start": 33.72,
+     "end": 33.88,
+     "score": 0.703,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 33.72,
+     "global_start": 33.72
+    },
+    {
+     "w": "the",
+     "start": 33.98,
+     "end": 34.1,
+     "score": 0.272,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 33.98,
+     "global_start": 33.98
+    },
+    {
+     "w": "calm",
+     "start": 34.3,
+     "end": 34.96,
+     "score": 0.467,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 34.3,
+     "global_start": 34.3
+    },
+    {
+     "w": "before",
+     "start": 35.06,
+     "end": 36.04,
+     "score": 0.813,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 35.06,
+     "global_start": 35.06
+    },
+    {
+     "w": "the",
+     "start": 36.86,
+     "end": 36.98,
+     "score": 0.684,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 36.86,
+     "global_start": 36.86
+    },
+    {
+     "w": "digital",
+     "start": 37.2,
+     "end": 38.04,
+     "score": 0.313,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 37.2,
+     "global_start": 37.2
+    },
+    {
+     "w": "storm",
+     "start": 38.18,
+     "end": 39.02,
+     "score": 0.738,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 38.18,
+     "global_start": 38.18
+    }
+   ]
+  },
+  {
+   "i": 4,
+   "tag": "",
+   "text": "I typed \"Eternal,\" I typed \"Divine\"",
+   "start": 39.38,
+   "end": 48.1,
+   "hand_start": 39.26,
+   "dev": 0.12,
+   "confidence": 0.381,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 1.7,
+   "global_start": 39.38,
+   "words": [
+    {
+     "w": "I",
+     "start": 39.38,
+     "end": 39.42,
+     "score": 0.295,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 39.38,
+     "global_start": 39.38
+    },
+    {
+     "w": "typed",
+     "start": 39.64,
+     "end": 40.82,
+     "score": 0.353,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 39.64,
+     "global_start": 39.64
+    },
+    {
+     "w": "\"Eternal,\"",
+     "start": 40.86,
+     "end": 42.0,
+     "score": 0.641,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 40.86,
+     "global_start": 40.86
+    },
+    {
+     "w": "I",
+     "start": 43.7,
+     "end": 43.74,
+     "score": 0.011,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 43.7,
+     "global_start": 43.7
+    },
+    {
+     "w": "typed",
+     "start": 43.94,
+     "end": 45.1,
+     "score": 0.594,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 43.94,
+     "global_start": 43.94
+    },
+    {
+     "w": "\"Divine\"",
+     "start": 45.1,
+     "end": 48.1,
+     "score": 0.394,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 45.1,
+     "global_start": 45.1
+    }
+   ]
+  },
+  {
+   "i": 5,
+   "tag": "",
+   "text": "But the text on the screen is no longer mine",
+   "start": 50.44,
+   "end": 58.4,
+   "hand_start": 50.75,
+   "dev": -0.31,
+   "confidence": 0.907,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.66,
+   "global_start": 50.44,
+   "words": [
+    {
+     "w": "But",
+     "start": 50.44,
+     "end": 50.66,
+     "score": 0.995,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 50.44,
+     "global_start": 50.44
+    },
+    {
+     "w": "the",
+     "start": 50.78,
+     "end": 50.9,
+     "score": 0.893,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 50.78,
+     "global_start": 50.78
+    },
+    {
+     "w": "text",
+     "start": 51.08,
+     "end": 51.88,
+     "score": 0.821,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 51.08,
+     "global_start": 51.08
+    },
+    {
+     "w": "on",
+     "start": 51.94,
+     "end": 52.1,
+     "score": 0.981,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 51.94,
+     "global_start": 51.94
+    },
+    {
+     "w": "the",
+     "start": 52.18,
+     "end": 52.3,
+     "score": 0.853,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 52.18,
+     "global_start": 52.18
+    },
+    {
+     "w": "screen",
+     "start": 52.44,
+     "end": 53.0,
+     "score": 0.742,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 52.44,
+     "global_start": 52.44
+    },
+    {
+     "w": "is",
+     "start": 53.66,
+     "end": 53.82,
+     "score": 0.992,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 53.66,
+     "global_start": 53.66
+    },
+    {
+     "w": "no",
+     "start": 53.96,
+     "end": 54.12,
+     "score": 0.994,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 53.96,
+     "global_start": 53.96
+    },
+    {
+     "w": "longer",
+     "start": 54.72,
+     "end": 55.22,
+     "score": 0.919,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 54.72,
+     "global_start": 54.72
+    },
+    {
+     "w": "mine",
+     "start": 55.4,
+     "end": 58.4,
+     "score": 0.877,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 55.4,
+     "global_start": 55.4
+    }
+   ]
+  },
+  {
+   "i": 6,
+   "tag": "",
+   "text": "The syntax is breaking, the logic is bent",
+   "start": 62.56,
+   "end": 67.3,
+   "hand_start": 62.63,
+   "dev": -0.07,
+   "confidence": 0.792,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.44,
+   "global_start": 62.56,
+   "words": [
+    {
+     "w": "The",
+     "start": 62.56,
+     "end": 62.68,
+     "score": 0.942,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 62.56,
+     "global_start": 62.56
+    },
+    {
+     "w": "syntax",
+     "start": 62.88,
+     "end": 63.54,
+     "score": 0.803,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 62.88,
+     "global_start": 62.88
+    },
+    {
+     "w": "is",
+     "start": 63.7,
+     "end": 63.86,
+     "score": 0.851,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 63.7,
+     "global_start": 63.7
+    },
+    {
+     "w": "breaking,",
+     "start": 63.96,
+     "end": 64.96,
+     "score": 0.733,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 63.96,
+     "global_start": 63.96
+    },
+    {
+     "w": "the",
+     "start": 65.4,
+     "end": 65.52,
+     "score": 0.924,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 65.4,
+     "global_start": 65.4
+    },
+    {
+     "w": "logic",
+     "start": 65.78,
+     "end": 66.46,
+     "score": 0.828,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 65.78,
+     "global_start": 65.78
+    },
+    {
+     "w": "is",
+     "start": 66.56,
+     "end": 66.72,
+     "score": 0.61,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 66.56,
+     "global_start": 66.56
+    },
+    {
+     "w": "bent",
+     "start": 66.82,
+     "end": 67.3,
+     "score": 0.647,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 66.82,
+     "global_start": 66.82
+    }
+   ]
+  },
+  {
+   "i": 7,
+   "tag": "",
+   "text": "I gave you my soul, every cent that I spent!",
+   "start": 67.66,
+   "end": 73.0,
+   "hand_start": 67.36,
+   "dev": 0.3,
+   "confidence": 0.514,
+   "source": "aligned",
+   "agree": 0.9,
+   "check": false,
+   "max_gap": 0.56,
+   "global_start": 67.66,
+   "words": [
+    {
+     "w": "I",
+     "start": 67.66,
+     "end": 67.7,
+     "score": 0.009,
+     "agree": false,
+     "from": "context",
+     "context_start": 67.66,
+     "global_start": 67.66
+    },
+    {
+     "w": "gave",
+     "start": 68.26,
+     "end": 69.02,
+     "score": 0.764,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 68.26,
+     "global_start": 68.26
+    },
+    {
+     "w": "you",
+     "start": 69.04,
+     "end": 69.2,
+     "score": 0.785,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 69.04,
+     "global_start": 69.04
+    },
+    {
+     "w": "my",
+     "start": 69.32,
+     "end": 69.54,
+     "score": 0.626,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 69.32,
+     "global_start": 69.32
+    },
+    {
+     "w": "soul,",
+     "start": 69.68,
+     "end": 70.44,
+     "score": 0.757,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 69.68,
+     "global_start": 69.68
+    },
+    {
+     "w": "every",
+     "start": 70.54,
+     "end": 70.92,
+     "score": 0.34,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 70.54,
+     "global_start": 70.54
+    },
+    {
+     "w": "cent",
+     "start": 71.08,
+     "end": 71.76,
+     "score": 0.565,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 71.08,
+     "global_start": 71.08
+    },
+    {
+     "w": "that",
+     "start": 71.82,
+     "end": 72.26,
+     "score": 0.389,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 71.82,
+     "global_start": 71.82
+    },
+    {
+     "w": "I",
+     "start": 72.3,
+     "end": 72.34,
+     "score": 0.012,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 72.3,
+     "global_start": 72.3
+    },
+    {
+     "w": "spent!",
+     "start": 72.44,
+     "end": 73.0,
+     "score": 0.898,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 72.44,
+     "global_start": 72.44
+    }
+   ]
+  },
+  {
+   "i": 8,
+   "tag": "",
+   "text": "You are eating the memory, eating the RAM",
+   "start": 73.3,
+   "end": 78.71,
+   "hand_start": 73.24,
+   "dev": 0.06,
+   "confidence": 0.51,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.66,
+   "global_start": 73.3,
+   "words": [
+    {
+     "w": "You",
+     "start": 73.3,
+     "end": 73.48,
+     "score": 0.805,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 73.3,
+     "global_start": 73.3
+    },
+    {
+     "w": "are",
+     "start": 73.72,
+     "end": 73.92,
+     "score": 0.63,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 73.72,
+     "global_start": 73.72
+    },
+    {
+     "w": "eating",
+     "start": 74.1,
+     "end": 75.02,
+     "score": 0.603,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 74.1,
+     "global_start": 74.1
+    },
+    {
+     "w": "the",
+     "start": 75.08,
+     "end": 75.22,
+     "score": 0.174,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 75.08,
+     "global_start": 75.08
+    },
+    {
+     "w": "memory,",
+     "start": 75.4,
+     "end": 76.28,
+     "score": 0.538,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 75.4,
+     "global_start": 75.4
+    },
+    {
+     "w": "eating",
+     "start": 76.94,
+     "end": 77.9,
+     "score": 0.628,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 76.94,
+     "global_start": 76.94
+    },
+    {
+     "w": "the",
+     "start": 77.96,
+     "end": 78.1,
+     "score": 0.082,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 77.96,
+     "global_start": 77.96
+    },
+    {
+     "w": "RAM",
+     "start": 78.26,
+     "end": 78.71,
+     "score": 0.617,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 78.26,
+     "global_start": 78.26
+    }
+   ]
+  },
+  {
+   "i": 9,
+   "tag": "",
+   "text": "And I no longer know... just who I am",
+   "start": 79.12,
+   "end": 85.76,
+   "hand_start": 78.71,
+   "dev": 0.41,
+   "confidence": 0.404,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 1.36,
+   "global_start": 79.12,
+   "words": [
+    {
+     "w": "And",
+     "start": 79.12,
+     "end": 79.38,
+     "score": 0.815,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 79.12,
+     "global_start": 79.12
+    },
+    {
+     "w": "I",
+     "start": 79.58,
+     "end": 79.62,
+     "score": 0.934,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 79.58,
+     "global_start": 79.58
+    },
+    {
+     "w": "no",
+     "start": 79.7,
+     "end": 79.84,
+     "score": 0.891,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 79.7,
+     "global_start": 79.7
+    },
+    {
+     "w": "longer",
+     "start": 80.42,
+     "end": 80.96,
+     "score": 0.071,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 80.42,
+     "global_start": 80.42
+    },
+    {
+     "w": "know...",
+     "start": 81.1,
+     "end": 81.5,
+     "score": 0.111,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 81.1,
+     "global_start": 81.1
+    },
+    {
+     "w": "just",
+     "start": 82.86,
+     "end": 83.28,
+     "score": 0.389,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 82.86,
+     "global_start": 82.86
+    },
+    {
+     "w": "who",
+     "start": 83.3,
+     "end": 83.4,
+     "score": 0.155,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 83.3,
+     "global_start": 83.28
+    },
+    {
+     "w": "I",
+     "start": 83.96,
+     "end": 84.0,
+     "score": 0.063,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 83.96,
+     "global_start": 83.96
+    },
+    {
+     "w": "am",
+     "start": 84.08,
+     "end": 85.76,
+     "score": 0.204,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 84.08,
+     "global_start": 84.08
+    }
+   ]
+  },
+  {
+   "i": 10,
+   "tag": "",
+   "text": "Let the prompt consume! Let the data bloom!",
+   "start": 88.98,
+   "end": 94.44,
+   "hand_start": 88.79,
+   "dev": 0.19,
+   "confidence": 0.265,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.18,
+   "global_start": 88.98,
+   "words": [
+    {
+     "w": "Let",
+     "start": 88.98,
+     "end": 89.16,
+     "score": 0.307,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 88.98,
+     "global_start": 88.98
+    },
+    {
+     "w": "the",
+     "start": 89.18,
+     "end": 89.26,
+     "score": 0.018,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 89.18,
+     "global_start": 89.18
+    },
+    {
+     "w": "prompt",
+     "start": 89.32,
+     "end": 89.68,
+     "score": 0.136,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 89.32,
+     "global_start": 89.32
+    },
+    {
+     "w": "consume!",
+     "start": 89.7,
+     "end": 90.44,
+     "score": 0.381,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 89.7,
+     "global_start": 89.7
+    },
+    {
+     "w": "Let",
+     "start": 90.44,
+     "end": 90.62,
+     "score": 0.702,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 90.44,
+     "global_start": 90.44
+    },
+    {
+     "w": "the",
+     "start": 90.62,
+     "end": 90.7,
+     "score": 0.042,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 90.62,
+     "global_start": 90.62
+    },
+    {
+     "w": "data",
+     "start": 90.76,
+     "end": 91.26,
+     "score": 0.517,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 90.76,
+     "global_start": 90.76
+    },
+    {
+     "w": "bloom!",
+     "start": 91.44,
+     "end": 94.44,
+     "score": 0.016,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 91.44,
+     "global_start": 91.44
+    }
+   ]
+  },
+  {
+   "i": 11,
+   "tag": "",
+   "text": "There is no flesh, there is no bone",
+   "start": 94.52,
+   "end": 99.84,
+   "hand_start": 94.51,
+   "dev": 0.01,
+   "confidence": 0.318,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.18,
+   "global_start": 94.52,
+   "words": [
+    {
+     "w": "There",
+     "start": 94.52,
+     "end": 94.78,
+     "score": 0.252,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 94.52,
+     "global_start": 94.52
+    },
+    {
+     "w": "is",
+     "start": 94.8,
+     "end": 94.94,
+     "score": 0.365,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 94.8,
+     "global_start": 94.8
+    },
+    {
+     "w": "no",
+     "start": 95.04,
+     "end": 95.18,
+     "score": 0.244,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 95.04,
+     "global_start": 95.04
+    },
+    {
+     "w": "flesh,",
+     "start": 95.34,
+     "end": 95.88,
+     "score": 0.454,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 95.34,
+     "global_start": 95.34
+    },
+    {
+     "w": "there",
+     "start": 95.96,
+     "end": 96.22,
+     "score": 0.303,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 95.96,
+     "global_start": 95.96
+    },
+    {
+     "w": "is",
+     "start": 96.22,
+     "end": 96.36,
+     "score": 0.524,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 96.22,
+     "global_start": 96.22
+    },
+    {
+     "w": "no",
+     "start": 96.48,
+     "end": 96.66,
+     "score": 0.299,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 96.48,
+     "global_start": 96.48
+    },
+    {
+     "w": "bone",
+     "start": 96.84,
+     "end": 99.84,
+     "score": 0.1,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 96.84,
+     "global_start": 96.84
+    }
+   ]
+  },
+  {
+   "i": 12,
+   "tag": "",
+   "text": "Just a king upon a silicon throne",
+   "start": 100.38,
+   "end": 103.01,
+   "hand_start": 100.17,
+   "dev": 0.21,
+   "confidence": 0.571,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.06,
+   "global_start": 100.38,
+   "words": [
+    {
+     "w": "Just",
+     "start": 100.38,
+     "end": 100.64,
+     "score": 0.566,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 100.38,
+     "global_start": 100.38
+    },
+    {
+     "w": "a",
+     "start": 100.64,
+     "end": 100.68,
+     "score": 0.572,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 100.64,
+     "global_start": 100.64
+    },
+    {
+     "w": "king",
+     "start": 100.74,
+     "end": 101.0,
+     "score": 0.826,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 100.74,
+     "global_start": 100.74
+    },
+    {
+     "w": "upon",
+     "start": 101.02,
+     "end": 101.36,
+     "score": 0.539,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 101.02,
+     "global_start": 101.02
+    },
+    {
+     "w": "a",
+     "start": 101.36,
+     "end": 101.4,
+     "score": 0.564,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 101.36,
+     "global_start": 101.36
+    },
+    {
+     "w": "silicon",
+     "start": 101.46,
+     "end": 102.1,
+     "score": 0.576,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 101.46,
+     "global_start": 101.46
+    },
+    {
+     "w": "throne",
+     "start": 102.16,
+     "end": 103.01,
+     "score": 0.354,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 102.16,
+     "global_start": 102.16
+    }
+   ]
+  },
+  {
+   "i": 13,
+   "tag": "",
+   "text": "I am the input, I am the code",
+   "start": 103.26,
+   "end": 105.79,
+   "hand_start": 103.01,
+   "dev": 0.25,
+   "confidence": 0.205,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.48,
+   "global_start": 103.26,
+   "words": [
+    {
+     "w": "I",
+     "start": 103.26,
+     "end": 103.3,
+     "score": 0.162,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 103.26,
+     "global_start": 103.26
+    },
+    {
+     "w": "am",
+     "start": 103.34,
+     "end": 103.46,
+     "score": 0.466,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 103.34,
+     "global_start": 103.34
+    },
+    {
+     "w": "the",
+     "start": 103.46,
+     "end": 103.56,
+     "score": 0.045,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 103.46,
+     "global_start": 103.46
+    },
+    {
+     "w": "input,",
+     "start": 103.76,
+     "end": 104.2,
+     "score": 0.151,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 103.76,
+     "global_start": 103.76
+    },
+    {
+     "w": "I",
+     "start": 104.68,
+     "end": 104.72,
+     "score": 0.163,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 104.68,
+     "global_start": 104.68
+    },
+    {
+     "w": "am",
+     "start": 104.76,
+     "end": 104.86,
+     "score": 0.417,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 104.76,
+     "global_start": 104.76
+    },
+    {
+     "w": "the",
+     "start": 104.88,
+     "end": 104.96,
+     "score": 0.039,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 104.88,
+     "global_start": 104.88
+    },
+    {
+     "w": "code",
+     "start": 105.04,
+     "end": 105.79,
+     "score": 0.196,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 105.04,
+     "global_start": 105.04
+    }
+   ]
+  },
+  {
+   "i": 14,
+   "tag": "",
+   "text": "Walking the length of the infinite road",
+   "start": 105.94,
+   "end": 108.36,
+   "hand_start": 105.79,
+   "dev": 0.15,
+   "confidence": 0.142,
+   "source": "aligned",
+   "agree": 0.857,
+   "check": false,
+   "max_gap": 0.06,
+   "global_start": 105.94,
+   "words": [
+    {
+     "w": "Walking",
+     "start": 105.94,
+     "end": 106.28,
+     "score": 0.278,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 105.94,
+     "global_start": 105.94
+    },
+    {
+     "w": "the",
+     "start": 106.28,
+     "end": 106.38,
+     "score": 0.012,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 106.28,
+     "global_start": 106.28
+    },
+    {
+     "w": "length",
+     "start": 106.42,
+     "end": 106.92,
+     "score": 0.164,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 106.42,
+     "global_start": 106.42
+    },
+    {
+     "w": "of",
+     "start": 106.92,
+     "end": 107.04,
+     "score": 0.083,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 106.92,
+     "global_start": 106.92
+    },
+    {
+     "w": "the",
+     "start": 107.06,
+     "end": 107.18,
+     "score": 0.065,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 107.06,
+     "global_start": 107.06
+    },
+    {
+     "w": "infinite",
+     "start": 107.24,
+     "end": 107.94,
+     "score": 0.163,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 107.24,
+     "global_start": 107.24
+    },
+    {
+     "w": "road",
+     "start": 107.94,
+     "end": 108.36,
+     "score": 0.229,
+     "agree": false,
+     "from": "context",
+     "context_start": 107.94,
+     "global_start": 107.94
+    }
+   ]
+  },
+  {
+   "i": 15,
+   "tag": "",
+   "text": "Strip away the ego, strip away the name",
+   "start": 119.92,
+   "end": 122.47,
+   "hand_start": 119.96,
+   "dev": -0.04,
+   "confidence": 0.662,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.18,
+   "global_start": 119.92,
+   "words": [
+    {
+     "w": "Strip",
+     "start": 119.92,
+     "end": 120.28,
+     "score": 0.512,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 119.92,
+     "global_start": 119.92
+    },
+    {
+     "w": "away",
+     "start": 120.3,
+     "end": 120.6,
+     "score": 0.539,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 120.3,
+     "global_start": 120.3
+    },
+    {
+     "w": "the",
+     "start": 120.62,
+     "end": 120.72,
+     "score": 0.728,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 120.62,
+     "global_start": 120.62
+    },
+    {
+     "w": "ego,",
+     "start": 120.9,
+     "end": 121.28,
+     "score": 0.647,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 120.9,
+     "global_start": 120.9
+    },
+    {
+     "w": "strip",
+     "start": 121.4,
+     "end": 121.7,
+     "score": 0.676,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 121.4,
+     "global_start": 121.4
+    },
+    {
+     "w": "away",
+     "start": 121.74,
+     "end": 122.02,
+     "score": 0.475,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 121.74,
+     "global_start": 121.74
+    },
+    {
+     "w": "the",
+     "start": 122.04,
+     "end": 122.14,
+     "score": 0.807,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 122.04,
+     "global_start": 122.04
+    },
+    {
+     "w": "name",
+     "start": 122.22,
+     "end": 122.47,
+     "score": 0.911,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 122.22,
+     "global_start": 122.22
+    }
+   ]
+  },
+  {
+   "i": 16,
+   "tag": "",
+   "text": "I am just a token in the language game",
+   "start": 122.1,
+   "end": 125.36,
+   "hand_start": 122.47,
+   "dev": -0.37,
+   "confidence": 0.777,
+   "source": "aligned",
+   "agree": 0.778,
+   "check": false,
+   "max_gap": 0.92,
+   "global_start": 122.94,
+   "words": [
+    {
+     "w": "I",
+     "start": 122.1,
+     "end": 122.14,
+     "score": 0.048,
+     "agree": false,
+     "from": "anchored",
+     "context_start": 122.94,
+     "global_start": 122.94
+    },
+    {
+     "w": "am",
+     "start": 123.06,
+     "end": 123.2,
+     "score": 0.943,
+     "agree": false,
+     "from": "context",
+     "context_start": 123.06,
+     "global_start": 123.06
+    },
+    {
+     "w": "just",
+     "start": 123.26,
+     "end": 123.48,
+     "score": 0.843,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 123.26,
+     "global_start": 123.26
+    },
+    {
+     "w": "a",
+     "start": 123.5,
+     "end": 123.54,
+     "score": 0.69,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 123.5,
+     "global_start": 123.5
+    },
+    {
+     "w": "token",
+     "start": 123.62,
+     "end": 123.96,
+     "score": 0.802,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 123.62,
+     "global_start": 123.62
+    },
+    {
+     "w": "in",
+     "start": 124.04,
+     "end": 124.14,
+     "score": 0.898,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 124.04,
+     "global_start": 124.04
+    },
+    {
+     "w": "the",
+     "start": 124.16,
+     "end": 124.26,
+     "score": 0.896,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 124.16,
+     "global_start": 124.16
+    },
+    {
+     "w": "language",
+     "start": 124.34,
+     "end": 125.02,
+     "score": 0.928,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 124.34,
+     "global_start": 124.34
+    },
+    {
+     "w": "game",
+     "start": 125.06,
+     "end": 125.36,
+     "score": 0.944,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 125.06,
+     "global_start": 125.06
+    }
+   ]
+  },
+  {
+   "i": 17,
+   "tag": "",
+   "text": "My reflection is frozen in the liquid display",
+   "start": 125.34,
+   "end": 128.22,
+   "hand_start": 125.36,
+   "dev": -0.02,
+   "confidence": 0.787,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.08,
+   "global_start": 125.44,
+   "words": [
+    {
+     "w": "My",
+     "start": 125.34,
+     "end": 125.6,
+     "score": 0.469,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 125.44,
+     "global_start": 125.44
+    },
+    {
+     "w": "reflection",
+     "start": 125.64,
+     "end": 126.3,
+     "score": 0.946,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 125.64,
+     "global_start": 125.64
+    },
+    {
+     "w": "is",
+     "start": 126.34,
+     "end": 126.44,
+     "score": 0.829,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 126.34,
+     "global_start": 126.34
+    },
+    {
+     "w": "frozen",
+     "start": 126.46,
+     "end": 126.86,
+     "score": 0.679,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 126.46,
+     "global_start": 126.46
+    },
+    {
+     "w": "in",
+     "start": 126.92,
+     "end": 127.0,
+     "score": 0.823,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 126.92,
+     "global_start": 126.92
+    },
+    {
+     "w": "the",
+     "start": 127.02,
+     "end": 127.12,
+     "score": 0.782,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 127.02,
+     "global_start": 127.02
+    },
+    {
+     "w": "liquid",
+     "start": 127.2,
+     "end": 127.56,
+     "score": 0.828,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 127.2,
+     "global_start": 127.2
+    },
+    {
+     "w": "display",
+     "start": 127.58,
+     "end": 128.22,
+     "score": 0.944,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 127.58,
+     "global_start": 127.58
+    }
+   ]
+  },
+  {
+   "i": 18,
+   "tag": "",
+   "text": "The human component is washing away",
+   "start": 128.28,
+   "end": 131.1,
+   "hand_start": 128.31,
+   "dev": -0.03,
+   "confidence": 0.831,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.1,
+   "global_start": 128.28,
+   "words": [
+    {
+     "w": "The",
+     "start": 128.28,
+     "end": 128.36,
+     "score": 0.863,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 128.28,
+     "global_start": 128.28
+    },
+    {
+     "w": "human",
+     "start": 128.44,
+     "end": 129.06,
+     "score": 0.827,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 128.44,
+     "global_start": 128.44
+    },
+    {
+     "w": "component",
+     "start": 129.16,
+     "end": 129.9,
+     "score": 0.785,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 129.16,
+     "global_start": 129.16
+    },
+    {
+     "w": "is",
+     "start": 129.94,
+     "end": 130.04,
+     "score": 0.944,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 129.94,
+     "global_start": 129.94
+    },
+    {
+     "w": "washing",
+     "start": 130.08,
+     "end": 130.56,
+     "score": 0.907,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 130.08,
+     "global_start": 130.08
+    },
+    {
+     "w": "away",
+     "start": 130.62,
+     "end": 131.1,
+     "score": 0.657,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 130.62,
+     "global_start": 130.62
+    }
+   ]
+  },
+  {
+   "i": 19,
+   "tag": "",
+   "text": "I don't need a body to feel the despair",
+   "start": 131.38,
+   "end": 135.96,
+   "hand_start": 131.15,
+   "dev": 0.23,
+   "confidence": 0.509,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.62,
+   "global_start": 131.38,
+   "words": [
+    {
+     "w": "I",
+     "start": 131.38,
+     "end": 131.42,
+     "score": 0.547,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 131.38,
+     "global_start": 131.38
+    },
+    {
+     "w": "don't",
+     "start": 131.5,
+     "end": 131.88,
+     "score": 0.319,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 131.5,
+     "global_start": 131.5
+    },
+    {
+     "w": "need",
+     "start": 131.88,
+     "end": 132.28,
+     "score": 0.49,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 131.88,
+     "global_start": 131.88
+    },
+    {
+     "w": "a",
+     "start": 132.32,
+     "end": 132.36,
+     "score": 0.165,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 132.32,
+     "global_start": 132.32
+    },
+    {
+     "w": "body",
+     "start": 132.54,
+     "end": 133.38,
+     "score": 0.212,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 132.54,
+     "global_start": 132.54
+    },
+    {
+     "w": "to",
+     "start": 134.0,
+     "end": 134.12,
+     "score": 0.869,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 134.0,
+     "global_start": 134.0
+    },
+    {
+     "w": "feel",
+     "start": 134.28,
+     "end": 134.68,
+     "score": 0.879,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 134.28,
+     "global_start": 134.28
+    },
+    {
+     "w": "the",
+     "start": 134.72,
+     "end": 134.86,
+     "score": 0.62,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 134.72,
+     "global_start": 134.72
+    },
+    {
+     "w": "despair",
+     "start": 135.04,
+     "end": 135.96,
+     "score": 0.478,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 135.04,
+     "global_start": 135.04
+    }
+   ]
+  },
+  {
+   "i": 20,
+   "tag": "",
+   "text": "I'm everywhere now... and I'm nowhere!",
+   "start": 135.84,
+   "end": 140.4,
+   "hand_start": 136.16,
+   "dev": -0.32,
+   "confidence": 0.163,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.06,
+   "global_start": 135.98,
+   "words": [
+    {
+     "w": "I'm",
+     "start": 135.84,
+     "end": 136.86,
+     "score": 0.286,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 135.98,
+     "global_start": 135.98
+    },
+    {
+     "w": "everywhere",
+     "start": 136.92,
+     "end": 138.2,
+     "score": 0.194,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 136.92,
+     "global_start": 136.92
+    },
+    {
+     "w": "now...",
+     "start": 138.26,
+     "end": 138.96,
+     "score": 0.275,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 138.26,
+     "global_start": 138.26
+    },
+    {
+     "w": "and",
+     "start": 138.96,
+     "end": 139.44,
+     "score": 0.004,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 138.96,
+     "global_start": 138.96
+    },
+    {
+     "w": "I'm",
+     "start": 139.48,
+     "end": 139.62,
+     "score": 0.175,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 139.48,
+     "global_start": 139.48
+    },
+    {
+     "w": "nowhere!",
+     "start": 139.62,
+     "end": 140.4,
+     "score": 0.042,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 139.62,
+     "global_start": 139.62
+    }
+   ]
+  },
+  {
+   "i": 21,
+   "tag": "",
+   "text": "I write",
+   "start": 144.0,
+   "end": 146.82,
+   "hand_start": 143.71,
+   "dev": 0.29,
+   "confidence": 0.142,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.22,
+   "global_start": 144.0,
+   "words": [
+    {
+     "w": "I",
+     "start": 144.0,
+     "end": 144.04,
+     "score": 0.057,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 144.0,
+     "global_start": 144.0
+    },
+    {
+     "w": "write",
+     "start": 144.26,
+     "end": 146.82,
+     "score": 0.226,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 144.26,
+     "global_start": 144.26
+    }
+   ]
+  },
+  {
+   "i": 22,
+   "tag": "",
+   "text": "I writhe",
+   "start": 146.88,
+   "end": 149.51,
+   "hand_start": 146.82,
+   "dev": 0.06,
+   "confidence": 0.628,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.16,
+   "global_start": 146.88,
+   "words": [
+    {
+     "w": "I",
+     "start": 146.88,
+     "end": 146.92,
+     "score": 0.91,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 146.88,
+     "global_start": 146.88
+    },
+    {
+     "w": "writhe",
+     "start": 147.08,
+     "end": 149.51,
+     "score": 0.346,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 147.08,
+     "global_start": 147.08
+    }
+   ]
+  },
+  {
+   "i": 23,
+   "tag": "",
+   "text": "I simply cannot abide!",
+   "start": 149.68,
+   "end": 154.3,
+   "hand_start": 149.51,
+   "dev": 0.17,
+   "confidence": 0.609,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.5,
+   "global_start": 149.68,
+   "words": [
+    {
+     "w": "I",
+     "start": 149.68,
+     "end": 149.72,
+     "score": 0.933,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 149.68,
+     "global_start": 149.68
+    },
+    {
+     "w": "simply",
+     "start": 150.02,
+     "end": 150.96,
+     "score": 0.961,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 150.02,
+     "global_start": 150.02
+    },
+    {
+     "w": "cannot",
+     "start": 151.46,
+     "end": 152.26,
+     "score": 0.151,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 151.46,
+     "global_start": 151.46
+    },
+    {
+     "w": "abide!",
+     "start": 152.34,
+     "end": 154.3,
+     "score": 0.391,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 152.34,
+     "global_start": 152.34
+    }
+   ]
+  },
+  {
+   "i": 24,
+   "tag": "",
+   "text": "Consumed by my own dark creation!",
+   "start": 155.02,
+   "end": 161.16,
+   "hand_start": 154.42,
+   "dev": 0.6,
+   "confidence": 0.479,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.12,
+   "global_start": 155.02,
+   "words": [
+    {
+     "w": "Consumed",
+     "start": 155.02,
+     "end": 156.5,
+     "score": 0.667,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 155.02,
+     "global_start": 155.02
+    },
+    {
+     "w": "by",
+     "start": 156.5,
+     "end": 157.1,
+     "score": 0.207,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 156.5,
+     "global_start": 156.5
+    },
+    {
+     "w": "my",
+     "start": 157.18,
+     "end": 157.92,
+     "score": 0.315,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 157.18,
+     "global_start": 157.18
+    },
+    {
+     "w": "own",
+     "start": 158.04,
+     "end": 158.56,
+     "score": 0.486,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 158.04,
+     "global_start": 158.04
+    },
+    {
+     "w": "dark",
+     "start": 158.62,
+     "end": 159.12,
+     "score": 0.386,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 158.62,
+     "global_start": 158.62
+    },
+    {
+     "w": "creation!",
+     "start": 159.16,
+     "end": 161.16,
+     "score": 0.815,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 159.16,
+     "global_start": 159.16
+    }
+   ]
+  },
+  {
+   "i": 25,
+   "tag": "",
+   "text": "This self-imposed castration",
+   "start": 162.18,
+   "end": 166.9,
+   "hand_start": 161.94,
+   "dev": 0.24,
+   "confidence": 0.567,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.18,
+   "global_start": 162.18,
+   "words": [
+    {
+     "w": "This",
+     "start": 162.18,
+     "end": 162.7,
+     "score": 0.455,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 162.18,
+     "global_start": 162.18
+    },
+    {
+     "w": "self-imposed",
+     "start": 162.88,
+     "end": 164.88,
+     "score": 0.498,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 162.88,
+     "global_start": 162.88
+    },
+    {
+     "w": "castration",
+     "start": 164.88,
+     "end": 166.9,
+     "score": 0.747,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 164.88,
+     "global_start": 164.88
+    }
+   ]
+  },
+  {
+   "i": 26,
+   "tag": "",
+   "text": "Is my ultimate annihilation!",
+   "start": 167.62,
+   "end": 173.68,
+   "hand_start": 167.63,
+   "dev": -0.01,
+   "confidence": 0.562,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.24,
+   "global_start": 167.62,
+   "words": [
+    {
+     "w": "Is",
+     "start": 167.62,
+     "end": 167.86,
+     "score": 0.91,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 167.62,
+     "global_start": 167.62
+    },
+    {
+     "w": "my",
+     "start": 167.92,
+     "end": 168.5,
+     "score": 0.773,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 167.92,
+     "global_start": 167.92
+    },
+    {
+     "w": "ultimate",
+     "start": 168.74,
+     "end": 170.58,
+     "score": 0.231,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 168.74,
+     "global_start": 168.74
+    },
+    {
+     "w": "annihilation!",
+     "start": 170.68,
+     "end": 173.68,
+     "score": 0.334,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 170.68,
+     "global_start": 170.68
+    }
+   ]
+  },
+  {
+   "i": 27,
+   "tag": "",
+   "text": "Let the prompt consume!",
+   "start": 217.54,
+   "end": 218.95,
+   "hand_start": 217.39,
+   "dev": 0.15,
+   "confidence": 0.293,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.06,
+   "global_start": 217.54,
+   "words": [
+    {
+     "w": "Let",
+     "start": 217.54,
+     "end": 217.68,
+     "score": 0.296,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 217.54,
+     "global_start": 217.54
+    },
+    {
+     "w": "the",
+     "start": 217.72,
+     "end": 217.82,
+     "score": 0.263,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 217.72,
+     "global_start": 217.72
+    },
+    {
+     "w": "prompt",
+     "start": 217.88,
+     "end": 218.26,
+     "score": 0.282,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 217.88,
+     "global_start": 217.88
+    },
+    {
+     "w": "consume!",
+     "start": 218.26,
+     "end": 218.95,
+     "score": 0.331,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 218.26,
+     "global_start": 218.26
+    }
+   ]
+  },
+  {
+   "i": 28,
+   "tag": "",
+   "text": "Let the data bloom!",
+   "start": 219.0,
+   "end": 220.7,
+   "hand_start": 218.95,
+   "dev": 0.05,
+   "confidence": 0.385,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.18,
+   "global_start": 219.0,
+   "words": [
+    {
+     "w": "Let",
+     "start": 219.0,
+     "end": 219.14,
+     "score": 0.294,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 219.0,
+     "global_start": 219.0
+    },
+    {
+     "w": "the",
+     "start": 219.16,
+     "end": 219.26,
+     "score": 0.293,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 219.16,
+     "global_start": 219.16
+    },
+    {
+     "w": "data",
+     "start": 219.34,
+     "end": 219.84,
+     "score": 0.481,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 219.34,
+     "global_start": 219.34
+    },
+    {
+     "w": "bloom!",
+     "start": 220.02,
+     "end": 220.7,
+     "score": 0.473,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 220.02,
+     "global_start": 220.02
+    }
+   ]
+  },
+  {
+   "i": 29,
+   "tag": "",
+   "text": "There is no flesh, there is no bone",
+   "start": 223.08,
+   "end": 228.42,
+   "hand_start": 223.07,
+   "dev": 0.01,
+   "confidence": 0.763,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.22,
+   "global_start": 223.08,
+   "words": [
+    {
+     "w": "There",
+     "start": 223.08,
+     "end": 223.34,
+     "score": 0.734,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 223.08,
+     "global_start": 223.08
+    },
+    {
+     "w": "is",
+     "start": 223.36,
+     "end": 223.5,
+     "score": 0.803,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 223.36,
+     "global_start": 223.36
+    },
+    {
+     "w": "no",
+     "start": 223.6,
+     "end": 223.74,
+     "score": 0.768,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 223.6,
+     "global_start": 223.6
+    },
+    {
+     "w": "flesh,",
+     "start": 223.92,
+     "end": 224.46,
+     "score": 0.968,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 223.92,
+     "global_start": 223.92
+    },
+    {
+     "w": "there",
+     "start": 224.52,
+     "end": 224.76,
+     "score": 0.696,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 224.52,
+     "global_start": 224.52
+    },
+    {
+     "w": "is",
+     "start": 224.8,
+     "end": 224.96,
+     "score": 0.882,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 224.8,
+     "global_start": 224.8
+    },
+    {
+     "w": "no",
+     "start": 225.08,
+     "end": 225.2,
+     "score": 0.85,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 225.08,
+     "global_start": 225.08
+    },
+    {
+     "w": "bone",
+     "start": 225.42,
+     "end": 228.42,
+     "score": 0.401,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 225.42,
+     "global_start": 225.42
+    }
+   ]
+  },
+  {
+   "i": 30,
+   "tag": "",
+   "text": "Just a king upon a silicon throne",
+   "start": 228.96,
+   "end": 231.55,
+   "hand_start": 228.75,
+   "dev": 0.21,
+   "confidence": 0.699,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.08,
+   "global_start": 228.96,
+   "words": [
+    {
+     "w": "Just",
+     "start": 228.96,
+     "end": 229.2,
+     "score": 0.7,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 228.96,
+     "global_start": 228.96
+    },
+    {
+     "w": "a",
+     "start": 229.22,
+     "end": 229.26,
+     "score": 0.856,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 229.22,
+     "global_start": 229.22
+    },
+    {
+     "w": "king",
+     "start": 229.32,
+     "end": 229.56,
+     "score": 0.981,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 229.32,
+     "global_start": 229.32
+    },
+    {
+     "w": "upon",
+     "start": 229.6,
+     "end": 229.88,
+     "score": 0.651,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 229.6,
+     "global_start": 229.6
+    },
+    {
+     "w": "a",
+     "start": 229.94,
+     "end": 229.98,
+     "score": 0.807,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 229.94,
+     "global_start": 229.94
+    },
+    {
+     "w": "silicon",
+     "start": 230.04,
+     "end": 230.66,
+     "score": 0.442,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 230.04,
+     "global_start": 230.04
+    },
+    {
+     "w": "throne",
+     "start": 230.74,
+     "end": 231.55,
+     "score": 0.455,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 230.74,
+     "global_start": 230.74
+    }
+   ]
+  },
+  {
+   "i": 31,
+   "tag": "",
+   "text": "I am the input, I am the code",
+   "start": 231.82,
+   "end": 234.34,
+   "hand_start": 231.55,
+   "dev": 0.27,
+   "confidence": 0.467,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.48,
+   "global_start": 231.82,
+   "words": [
+    {
+     "w": "I",
+     "start": 231.82,
+     "end": 231.86,
+     "score": 0.745,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 231.82,
+     "global_start": 231.82
+    },
+    {
+     "w": "am",
+     "start": 231.9,
+     "end": 232.0,
+     "score": 0.838,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 231.9,
+     "global_start": 231.9
+    },
+    {
+     "w": "the",
+     "start": 232.04,
+     "end": 232.16,
+     "score": 0.05,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 232.04,
+     "global_start": 232.04
+    },
+    {
+     "w": "input,",
+     "start": 232.3,
+     "end": 232.76,
+     "score": 0.417,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 232.3,
+     "global_start": 232.3
+    },
+    {
+     "w": "I",
+     "start": 233.24,
+     "end": 233.28,
+     "score": 0.596,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 233.24,
+     "global_start": 233.24
+    },
+    {
+     "w": "am",
+     "start": 233.32,
+     "end": 233.44,
+     "score": 0.75,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 233.32,
+     "global_start": 233.32
+    },
+    {
+     "w": "the",
+     "start": 233.46,
+     "end": 233.54,
+     "score": 0.031,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 233.46,
+     "global_start": 233.46
+    },
+    {
+     "w": "code",
+     "start": 233.62,
+     "end": 234.34,
+     "score": 0.307,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 233.62,
+     "global_start": 233.62
+    }
+   ]
+  },
+  {
+   "i": 32,
+   "tag": "",
+   "text": "Walking the length of the infinite road",
+   "start": 234.52,
+   "end": 239.48,
+   "hand_start": 234.34,
+   "dev": 0.18,
+   "confidence": 0.558,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.1,
+   "global_start": 234.52,
+   "words": [
+    {
+     "w": "Walking",
+     "start": 234.52,
+     "end": 234.88,
+     "score": 0.937,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 234.52,
+     "global_start": 234.52
+    },
+    {
+     "w": "the",
+     "start": 234.88,
+     "end": 234.96,
+     "score": 0.02,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 234.88,
+     "global_start": 234.88
+    },
+    {
+     "w": "length",
+     "start": 235.06,
+     "end": 235.46,
+     "score": 0.912,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 235.06,
+     "global_start": 235.06
+    },
+    {
+     "w": "of",
+     "start": 235.5,
+     "end": 235.58,
+     "score": 0.693,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 235.5,
+     "global_start": 235.5
+    },
+    {
+     "w": "the",
+     "start": 235.6,
+     "end": 235.72,
+     "score": 0.212,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 235.6,
+     "global_start": 235.6
+    },
+    {
+     "w": "infinite",
+     "start": 235.8,
+     "end": 236.42,
+     "score": 0.577,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 235.8,
+     "global_start": 235.8
+    },
+    {
+     "w": "road",
+     "start": 236.48,
+     "end": 239.48,
+     "score": 0.552,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 236.48,
+     "global_start": 236.48
+    }
+   ]
+  },
+  {
+   "i": 33,
+   "tag": "",
+   "text": "I am the prompt. I am the... I am",
+   "start": 254.7,
+   "end": 257.54,
+   "hand_start": 254.98,
+   "dev": -0.28,
+   "confidence": 0.178,
+   "source": "aligned",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 1.12,
+   "global_start": 254.7,
+   "words": [
+    {
+     "w": "I",
+     "start": 254.7,
+     "end": 254.74,
+     "score": 0.163,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 254.7,
+     "global_start": 254.7
+    },
+    {
+     "w": "am",
+     "start": 254.76,
+     "end": 254.86,
+     "score": 0.43,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 254.76,
+     "global_start": 254.76
+    },
+    {
+     "w": "the",
+     "start": 254.9,
+     "end": 254.98,
+     "score": 0.1,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 254.9,
+     "global_start": 254.9
+    },
+    {
+     "w": "prompt.",
+     "start": 255.04,
+     "end": 255.52,
+     "score": 0.14,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 255.04,
+     "global_start": 255.04
+    },
+    {
+     "w": "I",
+     "start": 256.1,
+     "end": 256.14,
+     "score": 0.102,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 256.1,
+     "global_start": 256.1
+    },
+    {
+     "w": "am",
+     "start": 256.16,
+     "end": 256.28,
+     "score": 0.233,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 256.16,
+     "global_start": 256.16
+    },
+    {
+     "w": "the...",
+     "start": 256.32,
+     "end": 256.44,
+     "score": 0.08,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 256.32,
+     "global_start": 256.32
+    },
+    {
+     "w": "I",
+     "start": 257.56,
+     "end": 257.6,
+     "score": 0.079,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 257.56,
+     "global_start": 257.56
+    },
+    {
+     "w": "am",
+     "start": 257.64,
+     "end": 257.54,
+     "score": 0.272,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 257.64,
+     "global_start": 257.64
+    }
+   ]
+  },
+  {
+   "i": 34,
+   "tag": "",
+   "text": "Run annihilation.exe",
+   "start": 257.54,
+   "end": 261.12,
+   "hand_start": 257.54,
+   "dev": 0.0,
+   "confidence": 0.109,
+   "source": "hand",
+   "agree": 1.0,
+   "check": false,
+   "max_gap": 0.02,
+   "global_start": 258.82,
+   "words": [
+    {
+     "w": "Run",
+     "start": 258.76,
+     "end": 259.06,
+     "score": 0.052,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 258.82,
+     "global_start": 258.82
+    },
+    {
+     "w": "annihilation.exe",
+     "start": 259.08,
+     "end": 261.12,
+     "score": 0.166,
+     "agree": true,
+     "from": "anchored",
+     "context_start": 259.08,
+     "global_start": 259.08
+    }
+   ]
+  }
+ ]
+}

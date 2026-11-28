@@ -1,0 +1,2 @@
+/* Tutorial Steps — Screen tutorial: your screen recording fills the frame, your face in a round bubble, numbered step banners. */
+.ts-step .anim { background: var(--c-accent); color: #fff; font-size: 40px; font-weight: 800; border-radius: 14px; }

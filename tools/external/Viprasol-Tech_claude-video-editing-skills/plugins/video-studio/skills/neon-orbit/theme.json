@@ -1,0 +1,83 @@
+{
+  "name": "neon-orbit",
+  "format": "9:16",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@700;900&display=swap",
+  "vars": {
+    "--font-display": "'Orbitron','Arial Black',sans-serif",
+    "--font-body": "'Inter',sans-serif",
+    "--c-accent": "#00E5FF",
+    "--c-accent2": "#FF2BD6",
+    "--cap-size": "70px"
+  },
+  "speaker": {
+    "mode": "full",
+    "focusY": 0.32
+  },
+  "matte": true,
+  "auto": {
+    "static": [
+      {
+        "type": "shape",
+        "kind": "glow",
+        "layer": "behind",
+        "x": "=W/2",
+        "y": "=H*0.33",
+        "w": "=W*1.1",
+        "h": "=W*1.1",
+        "color": "rgba(0,229,255,.55)"
+      },
+      {
+        "type": "shape",
+        "kind": "ring",
+        "layer": "behind",
+        "x": "=W/2",
+        "y": "=H*0.33",
+        "w": "=W*0.66",
+        "h": "=W*0.66",
+        "color": "#00E5FF"
+      },
+      {
+        "type": "shape",
+        "kind": "orbit",
+        "layer": "behind",
+        "x": "=W/2",
+        "y": "=H*0.33",
+        "w": "=W*0.9",
+        "h": "=W*0.9",
+        "color": "#FF2BD6",
+        "color2": "#00E5FF",
+        "count": 3
+      }
+    ],
+    "captions": {
+      "type": "captions",
+      "mode": "reveal",
+      "wordIn": "blur",
+      "maxWords": 3,
+      "uppercase": true,
+      "y": "=H*0.72",
+      "className": "neon-cap"
+    },
+    "keywords": {
+      "every": 2.6,
+      "zoom": 1.1,
+      "sfx": "swish",
+      "sfxGain": 0.3,
+      "hold": 1.4,
+      "element": {
+        "type": "chip",
+        "text": "{text}",
+        "className": "neon-chip",
+        "y": "=H*0.12",
+        "in": "glitch",
+        "inDur": 0.3
+      },
+      "uppercase": true
+    }
+  },
+  "finish": {
+    "grade": "neon",
+    "vignette": true
+  },
+  "fps": 30
+}

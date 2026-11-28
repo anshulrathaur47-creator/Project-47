@@ -1,0 +1,42 @@
+{
+  "name": "vhs-tape",
+  "format": "9:16",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=VT323&display=swap",
+  "vars": {
+    "--font-display": "'VT323','Courier New',monospace",
+    "--c-accent": "#FFE600",
+    "--cap-size": "76px",
+    "--cap-weight": "400"
+  },
+  "speaker": {
+    "mode": "full",
+    "focusY": 0.35
+  },
+  "matte": false,
+  "auto": {
+    "static": [
+      {
+        "type": "rec",
+        "date": "AUG 14 1998"
+      }
+    ],
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 4,
+      "y": "=H*0.76",
+      "uppercase": true,
+      "className": "vhs-cap"
+    },
+    "cuts": {
+      "sfx": "click",
+      "gain": 0.35,
+      "minGap": 1.5
+    }
+  },
+  "finish": {
+    "grade": "vhs",
+    "grain": 14
+  },
+  "fps": 30
+}

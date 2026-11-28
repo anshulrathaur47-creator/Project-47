@@ -1,0 +1,16 @@
+name: 🎨 Style / genre request
+description: Ask for a new look (skin) or a new kind of edit (genre)
+labels: [style-request]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Name idea
+      placeholder: e.g. anime-recap, real-estate-luxury
+  - type: textarea
+    id: look
+    attributes:
+      label: What should it look and feel like?
+      description: Captions, colours, motion, pacing, music. Reference links help a lot.
+    validations:
+      required: true

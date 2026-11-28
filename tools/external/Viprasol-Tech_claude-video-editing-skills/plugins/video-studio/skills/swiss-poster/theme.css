@@ -1,0 +1,5 @@
+/* Swiss Poster — International typographic style: huge left-aligned black/red type behind the speaker on a strict grid, red bar accent. */
+.sw-head .anim { font-family: var(--font-display); font-weight: 900; font-size: 300px; line-height: .85; letter-spacing: -0.05em; color: #111; text-align: left; }
+.sw-head.red .anim { color: var(--c-accent); }
+.sw-cap .cap-line { font-family: 'IBM Plex Mono', monospace; background: #fff; color: #111; text-shadow: none; padding: 8px 18px; }
+.sw-cap .cap-word { opacity: .4 } .sw-cap .cap-word.is-spoken { opacity: 1; }

@@ -1,0 +1,25 @@
+{
+  "name": "video-studio",
+  "version": "2.2.0",
+  "description": "A complete free, local video editor for Claude Code. video-director reads any footage and runs the edit: 42 genre skills, 46 style skins with designed scene sequences, 5 finishing/delivery skills on one engine - editor-grade cuts, timelines, reframe, colour, sound mix to platform loudness, motion graphics, Hindi/Devanagari captions, subtitles, thumbnails, review app and QC.",
+  "author": {
+    "name": "Viprasol"
+  },
+  "license": "MIT",
+  "keywords": [
+    "video",
+    "editing",
+    "reels",
+    "shorts",
+    "captions",
+    "motion-graphics",
+    "color-grading",
+    "audio-mixing",
+    "wedding",
+    "podcast",
+    "youtube",
+    "hindi",
+    "devanagari",
+    "claude-code-skills"
+  ]
+}

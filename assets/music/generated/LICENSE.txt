@@ -1,0 +1,1 @@
+Generated from code by tools/make_sfx.py in this workspace. Free for any use, no attribution needed (CC0 1.0).

@@ -1,0 +1,36 @@
+{
+  "name": "dual-subs",
+  "format": "9:16",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Inter:wght@600;800;900&family=Noto+Sans+Devanagari:wght@600;800&display=swap",
+  "vars": {
+    "--font-display": "'Inter','Noto Sans Devanagari',sans-serif",
+    "--c-accent": "#FFD23F",
+    "--cap-size": "66px"
+  },
+  "speaker": {
+    "mode": "full",
+    "focusY": 0.35
+  },
+  "matte": false,
+  "auto": {
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 4,
+      "y": "=H*0.64",
+      "uppercase": false,
+      "className": "ds2-main"
+    },
+    "captions2": {
+      "type": "captions",
+      "y": "=H*0.74",
+      "w": "=W*0.88",
+      "className": "ds2-sub",
+      "stripPunct": false
+    }
+  },
+  "finish": {
+    "grade": "none"
+  },
+  "fps": 30
+}

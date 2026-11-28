@@ -1,0 +1,94 @@
+{
+  "name": "logo-sting",
+  "format": "16:9",
+  "defaultDuration": 5,
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Sora:wght@600;800&display=swap",
+  "vars": {
+    "--font-display": "'Sora',sans-serif",
+    "--c-bg": "#0B0B0D",
+    "--c-accent": "#D4AF37",
+    "--c-accent2": "#F5EFE0"
+  },
+  "speaker": {
+    "mode": "none"
+  },
+  "matte": false,
+  "auto": {
+    "static": [
+      {
+        "type": "background",
+        "kind": "solid"
+      },
+      {
+        "type": "shape",
+        "kind": "rays",
+        "layer": "front",
+        "x": "=W/2",
+        "y": "=H*0.44",
+        "w": "=H*1.4",
+        "h": "=H*1.4",
+        "color": "rgba(212,175,55,.18)",
+        "speed": 0.6,
+        "start": 0.2,
+        "inDur": 1
+      },
+      {
+        "type": "shape",
+        "kind": "ring",
+        "layer": "front",
+        "x": "=W/2",
+        "y": "=H*0.44",
+        "w": "=H*0.5",
+        "h": "=H*0.5",
+        "start": 0.35,
+        "end": 1.4,
+        "in": "zoomIn",
+        "inDur": 0.8,
+        "out": "fade",
+        "outDur": 0.5,
+        "className": "ls-ring"
+      },
+      {
+        "type": "image",
+        "image": "{logo}",
+        "x": "=W/2",
+        "y": "=H*0.44",
+        "w": "=H*0.36",
+        "h": "=H*0.36",
+        "start": 0.3,
+        "in": "zoomIn",
+        "inDur": 0.7,
+        "className": "ls-logo"
+      },
+      {
+        "type": "text",
+        "text": "{title}",
+        "className": "ls-name",
+        "split": "chars",
+        "stagger": 0.05,
+        "unitIn": "fade",
+        "in": "none",
+        "x": "=W/2",
+        "y": "=H*0.76",
+        "start": 1.2
+      }
+    ]
+  },
+  "sfx": [
+    {
+      "t": 0.3,
+      "kind": "boom",
+      "gain": 0.6
+    },
+    {
+      "t": 1.2,
+      "kind": "ding",
+      "gain": 0.4
+    }
+  ],
+  "finish": {
+    "grade": "none",
+    "vignette": true
+  },
+  "fps": 30
+}

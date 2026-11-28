@@ -1,0 +1,72 @@
+{
+  "name": "ugc-ad-kit",
+  "format": "9:16",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&display=swap",
+  "vars": {
+    "--font-display": "'Inter',sans-serif",
+    "--c-accent": "#FFFFFF",
+    "--c-accent2": "#FFE600",
+    "--cap-size": "66px"
+  },
+  "speaker": {
+    "mode": "full",
+    "focusY": 0.35
+  },
+  "matte": false,
+  "auto": {
+    "captions": {
+      "type": "captions",
+      "mode": "karaoke",
+      "maxWords": 4,
+      "y": "=H*0.64",
+      "className": "cap-outline ugc-cap"
+    },
+    "keywords": {
+      "every": 3.5,
+      "zoom": 1.08,
+      "sfx": "pop",
+      "sfxGain": 0.3
+    },
+    "static": [
+      {
+        "type": "card",
+        "image": "{image}",
+        "className": "ugc-prod",
+        "x": "=W*0.72",
+        "y": "=H*0.32",
+        "w": "=W*0.44",
+        "h": "=W*0.5",
+        "start": 3,
+        "end": 7,
+        "in": "pop"
+      }
+    ],
+    "hook": {
+      "dur": 2.8,
+      "element": {
+        "type": "text",
+        "text": "{text}",
+        "className": "ugc-hook",
+        "y": "=H*0.17",
+        "w": "=W*0.8",
+        "in": "none"
+      }
+    },
+    "endcard": {
+      "dur": 2.5,
+      "cta": "Shop now",
+      "element": {
+        "type": "text",
+        "text": "{cta}",
+        "className": "ugc-cta",
+        "y": "=H*0.5",
+        "in": "pop"
+      }
+    }
+  },
+  "finish": {
+    "grade": "none",
+    "sharpen": true
+  },
+  "fps": 30
+}
