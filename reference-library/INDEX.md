@@ -5,6 +5,8 @@ Newest first. Working copies used in a reel also live in `assets/`, `references/
 
 | Date | File | Type | Size |
 |---|---|---|---|
+| 2026-11-28 | [ReelAudio-21913.mp3](2026-11-28/ReelAudio-21913.mp3) | audio | 2.0 MB |
+| 2026-11-28 | [ReelAudio-21913_hin.txt](2026-11-28/ReelAudio-21913_hin.txt) | text | 0.0 MB |
 | 2026-11-28 | [VID_20261128_093951_416.mp4](2026-11-28/VID_20261128_093951_416.mp4) | video | 3.6 MB |
 | 2026-11-28 | [VID_20261128_093959_892.mp4](2026-11-28/VID_20261128_093959_892.mp4) | video | 6.5 MB |
 | 2026-11-27 | [ReelAudio-2110.mp3](2026-11-27/ReelAudio-2110.mp3) | audio | 0.7 MB |
