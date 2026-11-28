@@ -492,7 +492,7 @@ const Village: React.FC<{ t: number; st: number; mode: Mode; focus: V }> = ({ t,
       {/* trees, well, far huts, hills */}
       {[[-7.0, -2.6], [0.2, -3.6], [8.8, -2.9]].map(([x, z], k) => <mesh key={"tr" + k} position={[x, 1.7, z]} material={bark} castShadow receiveShadow><cylinderGeometry args={[0.2, 0.32, 3.4, 12]} /></mesh>)}
       <group rotation={[sway, 0, sway * 0.7]}><primitive object={leaves} /></group>
-      <group position={[0.3, 0, 3.7]}>
+      <group position={[1.6, 0, 4.9]}>
         <mesh position={[0, 0.4, 0]} material={wall} castShadow receiveShadow><cylinderGeometry args={[0.7, 0.75, 0.8, 22, 1, true]} /></mesh>
         <mesh position={[0, 0.8, 0]} rotation={[Math.PI / 2, 0, 0]} material={wall} castShadow><torusGeometry args={[0.71, 0.08, 8, 22]} /></mesh>
         <mesh position={[0, 0.78, 0]} rotation={[-Math.PI / 2, 0, 0]} material={basicMat("#0a0806")}><circleGeometry args={[0.66, 22]} /></mesh>
